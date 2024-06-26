@@ -1,5 +1,6 @@
 astor
 gast
+cryptography
 jax[cpu]
 jaxlib
 kornia
