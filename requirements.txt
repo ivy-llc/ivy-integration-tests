@@ -1,6 +1,6 @@
 astor
 gast
-cryptography
+cryptography==42.0.8
 jax[cpu]
 jaxlib
 kornia
