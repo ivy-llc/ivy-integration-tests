@@ -28,7 +28,7 @@ if __name__ == "__main__":
     tests_data = data.get("tests", None)
 
     # connect to the database
-    uri = f"mongodb+srv://{args.integration_test_db_key}@ivy-integration-tests.pkt1la7.mongodb.net/?retryWrites=true&w=majority&appName=ivy-integration-tests"
+    uri = f"mongodb+srv://{args.db_key}@ivy-integration-tests.pkt1la7.mongodb.net/?retryWrites=true&w=majority&appName=ivy-integration-tests"
     client = MongoClient(uri)
     db = client.ivytestdashboard
     collection = db["test_results"]
