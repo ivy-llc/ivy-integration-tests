@@ -37,6 +37,8 @@ jobs:
       - name: Install ivy
         run: |
           cd ivy
+          git log
+          ls
           git pull origin main
           sudo pip3 install -e .
 
