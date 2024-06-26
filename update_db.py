@@ -30,7 +30,7 @@ if __name__ == "__main__":
     # connect to the database
     uri = f"mongodb+srv://{args.db_key}@ivy-integration-tests.pkt1la7.mongodb.net/?retryWrites=true&w=majority&appName=ivy-integration-tests"
     client = MongoClient(uri)
-    db = client.ivytestdashboard
+    db = client.ivy_integration_tests
     collection = db["test_results"]
 
     # upload the information for each individual test ran to the database

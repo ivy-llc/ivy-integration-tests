@@ -2,4 +2,5 @@ astor
 gast
 cryptography==42.0.8
 kornia
+pymongo==4.7.3
 pytest-json-report
