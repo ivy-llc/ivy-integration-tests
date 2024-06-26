@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "html_url: ${{ steps.jobs.outputs.html_url }}"
           if [ "${{ steps.jobs.outputs.html_url }}" = "null" ]; then
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ./update_tests.sh kornia ${{ matrix.file }} ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.INTEGRATION_TESTS_DB_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_tests.sh kornia ${{ matrix.file }} ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.INTEGRATION_TESTS_DB_KEY }}
           else
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ./update_tests.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.INTEGRATION_TESTS_DB_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_tests.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.INTEGRATION_TESTS_DB_KEY }}
           fi
