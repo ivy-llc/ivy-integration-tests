@@ -15,8 +15,6 @@ jobs:
         file : [ test_color, test_contrib ]
         compile : [ F ]  # to also run the tests with backend_compilation, change this to: T, F
     steps:
-      - uses: actions/checkout@v4
-
       - name: Checkout 🛎️Ivy
         uses: actions/checkout@v4
         with:
@@ -24,7 +22,6 @@ jobs:
           token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
           ref: main
           persist-credentials: true
-          submodules: "recursive"
 
       - name: Get Job URL
         uses: Tiryoh/gha-jobid-action@v0
@@ -37,6 +34,9 @@ jobs:
       - name: Install ivy
         run: |
           sudo pip3 install -e .
+
+      - name: Checkout ivy-integration-tests
+        uses: actions/checkout@v4
 
       - name: Run Tests
         id: tests
