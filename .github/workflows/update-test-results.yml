@@ -15,12 +15,17 @@ jobs:
         file : [ test_color, test_contrib ]
         compile : [ F ]  # to also run the tests with backend_compilation, change this to: T, F
     steps:
+      - name: Checkout ivy-integration-tests
+        uses: actions/checkout@v4
+        with:
+          path: ivy-integration-tests
+
       - name: Checkout 🛎️Ivy
         uses: actions/checkout@v4
         with:
           repository: ivy-llc/ivy
           token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
-          ref: main
+          path: ivy
           persist-credentials: true
 
       - name: Get Job URL
@@ -33,15 +38,13 @@ jobs:
 
       - name: Install ivy
         run: |
+          cd ivy
           sudo pip3 install -e .
-
-      - name: Checkout ivy-integration-tests
-        uses: actions/checkout@v4
 
       - name: Run Tests
         id: tests
         run: |
-          ls
+          cd ivy-integration-tests
           pip3 install pymongo
           pip3 install pytest-json-report
           echo "html_url: ${{ steps.jobs.outputs.html_url }}"
