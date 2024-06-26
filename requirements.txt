@@ -1,1 +1,4 @@
+cryptography
 kornia
+pymongo
+pytest-json-report
