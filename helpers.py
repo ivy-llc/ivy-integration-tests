@@ -5,7 +5,6 @@ import jax.numpy as jnp
 import numpy as np
 import pytest
 import tensorflow as tf
-import time
 import torch
 
 jax.config.update('jax_enable_x64', True)
@@ -171,11 +170,8 @@ def _test_function(
     tolerance=1e-3,
     mode="transpile"
 ):
-    start_time = time.time()
-    if mode == "transpile":
-        print(f"\ntesting {fn.__module__}.{fn.__name__} --> {target}")
-    if mode == "trace" and target == "torch":
-        print(f"\ntesting {fn.__module__}.{fn.__name__} --> traced graph")
+    # print out the full function module/name, so it will appear in the test_report.json
+    print(f"{fn.__module__}.{fn.__name__}")
 
     if mode == "trace":
         if target != "torch":
@@ -201,5 +197,3 @@ def _test_function(
             backend_compile,
             tolerance=tolerance,
         )
-    time_taken = round(time.time() - start_time, 2)
-    print(f"Test Finished in {time_taken} seconds")
