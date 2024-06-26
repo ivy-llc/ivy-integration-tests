@@ -37,6 +37,7 @@ jobs:
       - name: Install ivy
         run: |
           cd ivy
+          git pull origin main
           sudo pip3 install -e .
 
       - name: Run Tests
