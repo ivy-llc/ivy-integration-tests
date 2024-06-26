@@ -1,4 +1,4 @@
-cryptography
+cryptography==42.0.8
 kornia
 pymongo
 pytest-json-report
