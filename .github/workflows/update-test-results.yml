@@ -36,16 +36,12 @@ jobs:
 
       - name: Install ivy
         run: |
-          cd ivy
-          git log
-          ls
-          git pull origin main
           sudo pip3 install -e .
 
       - name: Run Tests
         id: tests
         run: |
-          cd ivy
+          ls
           pip3 install pymongo
           pip3 install pytest-json-report
           echo "html_url: ${{ steps.jobs.outputs.html_url }}"
