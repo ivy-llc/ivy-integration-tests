@@ -1,3 +1,5 @@
+astor
+gast
 jax[cpu]
 jaxlib
 kornia
