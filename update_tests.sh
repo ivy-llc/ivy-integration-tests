@@ -8,10 +8,10 @@ db_key=$5
 
 set +e
 if $backend_compile -eq "T"; then
-    pytest $integration/$submodule.py --backend-compile -p no:warnings --tb=short --json-report --json-report-file=test_report.json
+    pytest $integration/$file.py --backend-compile -p no:warnings --tb=short --json-report --json-report-file=test_report.json
     pytest_exit_code=$?
 else
-    pytest $integration/$submodule.py -p no:warnings --tb=short --json-report --json-report-file=test_report.json
+    pytest $integration/$file.py -p no:warnings --tb=short --json-report --json-report-file=test_report.json
     pytest_exit_code=$?
 fi
 set -e
