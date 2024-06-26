@@ -22,6 +22,9 @@ jobs:
         with:
           repository: ivy-llc/ivy
           token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+          ref: main
+          persist-credentials: true
+          submodules: "recursive"
 
       - name: Get Job URL
         uses: Tiryoh/gha-jobid-action@v0
