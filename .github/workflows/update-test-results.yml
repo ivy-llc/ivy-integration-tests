@@ -26,7 +26,6 @@ jobs:
       - name: Run Tests
         id: tests
         run: |
-          cd ivy
           pip3 install pymongo
           pip3 install pytest-json-report
           echo "html_url: ${{ steps.jobs.outputs.html_url }}"
