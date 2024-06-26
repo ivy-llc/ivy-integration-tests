@@ -1,5 +1,1 @@
-ivy
-jax
-numpy
-tensorflow
-torch
+kornia
