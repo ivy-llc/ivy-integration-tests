@@ -6,6 +6,10 @@ backend_compile=$3
 workflow_link=$4
 db_key=$5
 
+sudo pip3 install -e ivy/
+cd ivy-integration-tests
+sudo pip3 install -r requirements.txt
+
 set +e
 if [ "$backend_compile" = "T" ]; then
     pytest $integration/$file.py --backend-compile -p no:warnings --tb=short --json-report --json-report-file=test_report.json

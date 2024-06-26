@@ -1,13 +1,5 @@
 astor
 gast
 cryptography==42.0.8
-jax[cpu]
-jaxlib
 kornia
-networkx
-numpy
-pymongo
-pytest
 pytest-json-report
-tensorflow-cpu==2.15.1
-torch
