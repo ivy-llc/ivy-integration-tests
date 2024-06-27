@@ -1,0 +1,31 @@
+name: update-dashboard
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "2 0 * * *"
+permissions:
+  actions: read
+  contents: write
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+
+      - name: Update Dashboard
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+        run: |
+          pip install pymongo
+          python update_dashboard.py --db-key ${{ secrets.INTEGRATION_TESTS_DB_KEY }}
+          git config --global user.email "hello@transpile-ai.com"
+          git config --global user.name "ivy-dev-bot"
+          git add DASHBOARD.md
+          git commit -m "Auto-update integration tests dashboard with latest results"
+          git push
