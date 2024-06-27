@@ -27,7 +27,15 @@ if __name__ == "__main__":
         "missing": "gray",
     }
 
+    passed = 0
+    failed = 0
+
     for record in records:
+        if record["outcome"] == "passed":
+            passed += 1
+        elif record["outcome"] == "failed":
+            failed += 1
+
         target = record["target"]
         mode = record["mode"]
         backend_compile = record["backend_compile"]
@@ -44,6 +52,11 @@ if __name__ == "__main__":
         if workflow_link not in [None, "null"]:
             test_results[integration][submodule][function][target if mode == "transpile" else "trace_graph"] = button
 
+    if passed + failed > 0:
+        percent_passing = round(100 * passed / (passed + failed), 1)
+    else:
+        percent_passing = 0
+
     # sort the paths & functions
     sorted_paths = sorted(test_results.keys())
     sorted_test_results = {path: dict(sorted(test_results[path].items())) for path in sorted_paths}
@@ -53,6 +66,9 @@ if __name__ == "__main__":
 
     readme_content = "# Ivy Integration Tests Dashboard\n\n"
     readme_content += f"### Last updated: {current_date}\n\n"
+    readme_content += f"#### Tests Passing: {passed}\n"
+    readme_content += f"#### Tests Failing: {failed}\n"
+    readme_content += f"#### Percent Passing: {percent_passing}%\n\n"
 
     for integration, submodule_functions in sorted_test_results.items():
         readme_content += f"<div style='margin-top: 35px; margin-bottom: 20px; margin-left: 25px;'>\n"
@@ -79,3 +95,6 @@ if __name__ == "__main__":
         lines = f.readlines()
         for line in lines:
             print(line)
+    print("passed:", passed)
+    print("failed:", failed)
+    print(f"{percent_passing}% tests passing")
