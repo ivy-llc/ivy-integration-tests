@@ -1,4 +1,4 @@
-# Ivy Test Dashboard
+# Ivy Integration Tests Dashboard
 
 ### Last updated: 2024-06-27
 
@@ -433,6 +433,3 @@
 
 </div>
 
-
-
-*This dashboard is automatically updated nightly. If it hasn't been updated in within the last couple of days, feel free to raise an issue on the ivy repo.*
