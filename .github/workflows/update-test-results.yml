@@ -1,6 +1,5 @@
 name: update-test-results
 on:
-  push:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
