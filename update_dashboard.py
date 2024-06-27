@@ -51,7 +51,7 @@ if __name__ == "__main__":
     now = datetime.datetime.now()
     current_date = now.date()
 
-    readme_content = "# Ivy Test Dashboard\n\n"
+    readme_content = "# Ivy Integration Tests Dashboard\n\n"
     readme_content += f"### Last updated: {current_date}\n\n"
 
     for integration, submodule_functions in sorted_test_results.items():
@@ -71,7 +71,6 @@ if __name__ == "__main__":
             readme_content += "</div>\n\n"
         readme_content += "</details>\n\n"
         readme_content += "</div>\n\n"
-    readme_content += "\n\n*This dashboard is automatically updated nightly. If it hasn't been updated in within the last couple of days, feel free to raise an issue on the ivy repo.*"
 
     with open("DASHBOARD.md", "w") as f:
         f.write(readme_content)
