@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     for integration, submodule_functions in sorted_test_results.items():
         readme_content += f"<div style='margin-top: 35px; margin-bottom: 20px; margin-left: 25px;'>\n"
-        readme_content += f"<details open>\n<summary style='margin-right: 10px;'><span style='font-size: 1.5em; font-weight: bold'>{integration}</span></summary>\n\n"
+        readme_content += f"<details>\n<summary style='margin-right: 10px;'><span style='font-size: 1.5em; font-weight: bold'>{integration}</span></summary>\n\n"
 
         for submodule, functions in submodule_functions.items():
             readme_content += f"<div style='margin-top: 7px; margin-botton: 1px; margin-left: 25px;'>\n"
