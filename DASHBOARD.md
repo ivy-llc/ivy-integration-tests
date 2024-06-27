@@ -2,9 +2,9 @@
 
 ### Last updated: 2024-06-27
 
-Tests Passing: 1224
-Tests Failing: 391
-Percent Passing: 75.8%
+- Tests Passing: 1224
+- Tests Failing: 391
+- Percent Passing: 75.8%
 
 <div style='margin-top: 35px; margin-bottom: 20px; margin-left: 25px;'>
 <details>
