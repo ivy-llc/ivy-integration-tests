@@ -3,7 +3,7 @@
 ### Last updated: 2024-06-27
 
 <div style='margin-top: 35px; margin-bottom: 20px; margin-left: 25px;'>
-<details open>
+<details>
 <summary style='margin-right: 10px;'><span style='font-size: 1.5em; font-weight: bold'>kornia</span></summary>
 
 <div style='margin-top: 7px; margin-botton: 1px; margin-left: 25px;'>
