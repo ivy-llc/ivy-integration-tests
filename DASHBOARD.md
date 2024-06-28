@@ -2,10 +2,13 @@
 
 ### Last updated: 2024-06-28
 
-- Tests Passing: 1215
-- Tests Failing: 400
-- Percent Passing: 75.2%
-
+- Total Tests Passing: 1215
+- Total Tests Failing: 400
+- Percent Tests Passing: 75.2%
+- Successfully Transpiling to all targets: 61.61%
+- Successfully Transpiling to JAX: 69.35%
+- Successfully Transpiling to NumPy: 69.97%
+- Successfully Transpiling to TensorFlow: 70.9%
 <div style='margin-top: 35px; margin-bottom: 20px; margin-left: 25px;'>
 <details>
 <summary style='margin-right: 10px;'><span style='font-size: 1.5em; font-weight: bold'>kornia</span></summary>
