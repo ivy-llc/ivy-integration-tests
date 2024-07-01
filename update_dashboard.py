@@ -34,7 +34,7 @@ if __name__ == "__main__":
     for record in records:
         if record["outcome"] == "passed":
             passed += 1
-        elif record["outcome"] == "failed":
+        else:
             failed += 1
 
         target = record["target"]
