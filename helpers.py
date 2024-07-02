@@ -48,7 +48,9 @@ def _check_allclose(x, y, tolerance=1e-3):
 
 
 def _native_array_to_numpy(x):
-    if isinstance(x, (torch.Tensor, tf.Tensor)):
+    if isinstance(x, torch.Tensor):
+        return x.detach().numpy()
+    if isinstance(x, tf.Tensor):
         return x.numpy()
     if isinstance(x, jnp.ndarray):
         return np.asarray(x)
@@ -77,7 +79,7 @@ def _array_to_new_backend(
 
     if isinstance(x, torch.Tensor):
         if target == "torch": return x
-        y = x.numpy()
+        y = x.detach().numpy()
         if target == "jax":
             y = jnp.array(y)
         elif target == "tensorflow":

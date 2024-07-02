@@ -238,12 +238,15 @@ def test_rgba_to_bgr(target_framework, mode, backend_compile):
 
 
 def test_rgb_to_hls(target_framework, mode, backend_compile):
+    # Note: We test this function with requires_grad=True,
+    # because otherwise we simply get an empty_like tensor
+    # with garbage values on each run leading to test failures
     trace_args = (
-        torch.rand(1, 3, 4, 5),
+        torch.rand(1, 3, 4, 5).requires_grad_(True),
     )
     trace_kwargs = {'eps': 1e-8}
     test_args = (
-        torch.rand(5, 3, 4, 5),
+        torch.rand(5, 3, 4, 5).requires_grad_(True),
     )
     test_kwargs = {'eps': 1e-8}
     _test_function(
@@ -257,6 +260,7 @@ def test_rgb_to_hls(target_framework, mode, backend_compile):
         tolerance=1e-4,
         mode=mode,
     )
+
 
 
 def test_hls_to_rgb(target_framework, mode, backend_compile):
