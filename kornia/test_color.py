@@ -579,13 +579,13 @@ def test_rgb_to_yuv422(target_framework, mode, backend_compile):
 
 def test_yuv422_to_rgb(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 1, 6, 6),
-        torch.rand(1, 2, 3, 3) - 0.5,
+        torch.rand(1, 1, 2, 6),
+        torch.rand(1, 2, 2, 3) - 0.5,
     )
     trace_kwargs = {}
     test_args = (
-        torch.rand(5, 1, 6, 6),
-        torch.rand(5, 2, 3, 3) - 0.5,
+        torch.rand(5, 1, 2, 6),
+        torch.rand(5, 2, 2, 3) - 0.5,
     )
     test_kwargs = {}
     _test_function(
