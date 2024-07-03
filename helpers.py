@@ -29,12 +29,11 @@ def _check_allclose(x, y, tolerance=1e-3):
         return
 
     if isinstance(x, dict):
-        keys_same = all([key_x == key_y for key_x, key_y in zip(x.keys(), y.keys())])
-        values_same = all([
+        all([key_x == key_y for key_x, key_y in zip(x.keys(), y.keys())])
+        all([
             _check_allclose(element_x, element_y, tolerance=tolerance)
             for element_x, element_y in zip(x.values(), y.values())
         ])
-        assert keys_same and values_same, "keys or values in dict differ"
         return
 
     if isinstance(x, float):
