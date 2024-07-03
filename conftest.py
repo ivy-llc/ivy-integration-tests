@@ -3,6 +3,7 @@ import pytest
 
 TARGET_FRAMEWORKS = ["numpy", "jax", "tensorflow", "torch"]
 BACKEND_COMPILE = False
+TARGET = "all"
 
 
 @pytest.fixture(autouse=True)
@@ -16,6 +17,12 @@ def pytest_addoption(parser):
         action="store_true",
         help="",
     )
+    parser.addoption(
+        "--target",
+        action="store",
+        default="all",
+        help="Target for the transpilation tests",
+    )
 
 
 def pytest_configure(config):
@@ -24,10 +31,16 @@ def pytest_configure(config):
     global BACKEND_COMPILE
     BACKEND_COMPILE = getopt("--backend-compile")
 
+    global TARGET
+    TARGET = getopt("--target")
+
 
 def pytest_generate_tests(metafunc):
     configs = list()
-    for target in TARGET_FRAMEWORKS:
-        configs.append((target, "transpile", BACKEND_COMPILE))
-    configs.append(("torch", "trace", BACKEND_COMPILE))
+    if TARGET not in ["jax", "numpy", "tensorflow", "torch"]:
+        for target in TARGET_FRAMEWORKS:
+            configs.append((target, "transpile", BACKEND_COMPILE))
+        configs.append(("torch", "trace", BACKEND_COMPILE))
+    else:
+        configs.append((TARGET, "transpile", BACKEND_COMPILE))
     metafunc.parametrize("target_framework,mode,backend_compile", configs)
