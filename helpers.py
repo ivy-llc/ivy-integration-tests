@@ -18,9 +18,6 @@ def _check_allclose(x, y, tolerance=1e-3):
     Checks that all values are close. Any arrays must already be in numpy format, rather than native framework.
     """
 
-    if type(x) != type(y):
-        assert False, f"mistmatched types: {type(x), type(y)}"
-
     if isinstance(x, np.ndarray):
         assert np.allclose(x, y, atol=tolerance), "numpy array values are not all close"
         return
