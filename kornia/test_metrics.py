@@ -84,9 +84,6 @@ def test_mean_iou(target_framework, mode, backend_compile):
 
 
 def test_mean_average_precision(target_framework, mode, backend_compile):
-    # NOTE: this test fails due to the use of dynamic control flow; skipping
-    pytest.skip()
-
     trace_args = (
         [torch.tensor([[100, 50, 150, 100.]])],
         [torch.tensor([1.])],
@@ -107,6 +104,8 @@ def test_mean_average_precision(target_framework, mode, backend_compile):
     kornia.metrics.mean_average_precision(*trace_args)
     kornia.metrics.mean_average_precision(*test_args)
     test_kwargs = {}
+
+    # NOTE: this test fails due to the use of dynamic control flow; skipping
     _test_function(
         kornia.metrics.mean_average_precision,
         trace_args,
@@ -117,6 +116,7 @@ def test_mean_average_precision(target_framework, mode, backend_compile):
         backend_compile,
         tolerance=1e-4,
         mode=mode,
+        skip=True,
     )
 
 

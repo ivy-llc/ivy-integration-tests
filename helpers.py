@@ -166,10 +166,13 @@ def _test_function(
     target,
     backend_compile,
     tolerance=1e-3,
-    mode="transpile"
+    mode="transpile",
+    skip=False,
 ):
     # print out the full function module/name, so it will appear in the test_report.json
     print(f"{fn.__module__}.{fn.__name__}")
+
+    if skip: pytest.skip()
 
     if mode == "trace":
         if target != "torch":
