@@ -242,7 +242,7 @@ def test_remap(target_framework, mode, backend_compile):
 
 def test_affine(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 2, 3, 5),
+        torch.rand(2, 2, 3, 5),
         torch.eye(2, 3).unsqueeze(0),
     )
     trace_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
