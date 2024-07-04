@@ -916,7 +916,7 @@ def test_get_tps_transform(target_framework, mode, backend_compile):
 
 def test_crop_by_indices(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 3, 64, 64),
+        torch.rand(2, 3, 64, 64),
         torch.tensor([[[10, 10], [50, 10], [50, 50], [10, 50]]], dtype=torch.float32),
     )
     trace_kwargs = {'size': (40, 40), 'interpolation': 'bilinear'}
@@ -940,7 +940,7 @@ def test_crop_by_indices(target_framework, mode, backend_compile):
 
 def test_crop_by_boxes(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 3, 64, 64),
+        torch.rand(2, 3, 64, 64),
         torch.tensor([[[10, 10], [50, 10], [50, 50], [10, 50]]], dtype=torch.float32),
         torch.tensor([[[0, 0], [40, 0], [40, 40], [0, 40]]], dtype=torch.float32),
     )
@@ -966,7 +966,7 @@ def test_crop_by_boxes(target_framework, mode, backend_compile):
 
 def test_center_crop(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 3, 64, 64),
+        torch.rand(2, 3, 64, 64),
         (32, 32),
     )
     trace_kwargs = {}
@@ -990,7 +990,7 @@ def test_center_crop(target_framework, mode, backend_compile):
 
 def test_crop_and_resize(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 3, 64, 64),
+        torch.rand(2, 3, 64, 64),
         torch.tensor([[[10, 10], [50, 10], [50, 50], [10, 50]]], dtype=torch.float32),
         (32, 32),
     )
