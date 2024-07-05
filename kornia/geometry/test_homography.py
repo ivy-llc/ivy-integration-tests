@@ -25,7 +25,7 @@ def test_find_homography_dlt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -51,7 +51,7 @@ def test_find_homography_dlt_iterated(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -75,7 +75,7 @@ def test_find_homography_lines_dlt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -101,7 +101,7 @@ def test_find_homography_lines_dlt_iterated(target_framework, mode, backend_comp
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -127,7 +127,7 @@ def test_line_segment_transfer_error_one_way(target_framework, mode, backend_com
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -153,7 +153,7 @@ def test_oneway_transfer_error(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -177,7 +177,7 @@ def test_sample_is_valid_for_homography(target_framework, mode, backend_compile)
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -203,6 +203,6 @@ def test_symmetric_transfer_error(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )

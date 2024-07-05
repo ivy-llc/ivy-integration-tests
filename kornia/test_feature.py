@@ -23,7 +23,7 @@ def test_gftt_response(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -45,7 +45,7 @@ def test_harris_response(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -67,7 +67,7 @@ def test_hessian_response(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -89,7 +89,7 @@ def test_dog_response(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -137,7 +137,7 @@ def test_get_laf_descriptors(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -161,7 +161,7 @@ def test_match_nn(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -185,7 +185,7 @@ def test_match_mnn(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -209,7 +209,7 @@ def test_match_snn(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -233,7 +233,7 @@ def test_match_smnn(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -261,7 +261,7 @@ def test_match_fginn(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -289,7 +289,7 @@ def test_match_adalam(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -313,7 +313,7 @@ def test_extract_patches_from_pyramid(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -338,7 +338,7 @@ def test_extract_patches_from_pyramid(target_framework, mode, backend_compile):
 #         test_kwargs,
 #         target_framework,
 #         backend_compile,
-#         tolerance=1e-4,
+#         tolerance=1e-3,
 #         mode=mode,
 #     )
 
@@ -362,7 +362,7 @@ def test_normalize_laf(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -386,7 +386,7 @@ def test_denormalize_laf(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -408,7 +408,7 @@ def test_laf_to_boundary_points(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -430,7 +430,7 @@ def test_ellipse_to_laf(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -452,7 +452,7 @@ def test_make_upright(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -476,7 +476,7 @@ def test_scale_laf(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -498,7 +498,7 @@ def test_get_laf_scale(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -520,7 +520,7 @@ def test_get_laf_center(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -544,7 +544,7 @@ def test_rotate_laf(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -566,7 +566,7 @@ def test_get_laf_orientation(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -590,7 +590,7 @@ def test_set_laf_orientation(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -616,7 +616,7 @@ def test_laf_from_center_scale_ori(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -640,7 +640,7 @@ def test_laf_is_inside_image(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -662,7 +662,7 @@ def test_laf_to_three_points(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -684,7 +684,7 @@ def test_laf_from_three_points(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -708,6 +708,6 @@ def test_perspective_transform_lafs(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )

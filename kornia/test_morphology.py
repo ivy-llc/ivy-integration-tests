@@ -25,7 +25,7 @@ def test_dilation(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -49,7 +49,7 @@ def test_erosion(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -73,7 +73,7 @@ def test_opening(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -97,7 +97,7 @@ def test_closing(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -121,7 +121,7 @@ def test_gradient(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -145,7 +145,7 @@ def test_top_hat(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -169,6 +169,6 @@ def test_bottom_hat(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )

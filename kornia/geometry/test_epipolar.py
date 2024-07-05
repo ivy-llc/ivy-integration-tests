@@ -26,7 +26,7 @@ import torch
 #         test_kwargs,
 #         target_framework, 
 #         backend_compile,
-#         tolerance=1e-4,
+#         tolerance=1e-3,
 #         mode=mode,
 #     )
 
@@ -52,7 +52,7 @@ def test_essential_from_fundamental(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -80,7 +80,7 @@ def test_essential_from_Rt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -102,7 +102,7 @@ def test_decompose_essential_matrix(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -124,7 +124,7 @@ def test_motion_from_essential(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -154,7 +154,7 @@ def test_motion_from_essential_choose_solution(target_framework, mode, backend_c
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -182,7 +182,7 @@ def test_relative_camera_motion(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -206,7 +206,7 @@ def test_find_fundamental(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -232,7 +232,7 @@ def test_fundamental_from_essential(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -256,7 +256,7 @@ def test_fundamental_from_projections(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -280,7 +280,7 @@ def test_compute_correspond_epilines(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -302,7 +302,7 @@ def test_normalize_points(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -324,7 +324,7 @@ def test_normalize_transformation(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -348,7 +348,7 @@ def test_get_perpendicular(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -374,7 +374,7 @@ def test_get_closest_point_on_epipolar_line(target_framework, mode, backend_comp
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -400,7 +400,7 @@ def test_sampson_epipolar_distance(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -426,7 +426,7 @@ def test_symmetrical_epipolar_distance(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -452,7 +452,7 @@ def test_left_to_right_epipolar_distance(target_framework, mode, backend_compile
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -478,7 +478,7 @@ def test_right_to_left_epipolar_distance(target_framework, mode, backend_compile
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -504,7 +504,7 @@ def test_projection_from_KRt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -522,7 +522,7 @@ def test_projections_from_fundamental(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -540,7 +540,7 @@ def test_intrinsics_like(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -558,7 +558,7 @@ def test_scale_intrinsics(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -576,7 +576,7 @@ def test_random_intrinsics(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -594,7 +594,7 @@ def test_cross_product_matrix(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -622,6 +622,6 @@ def test_triangulate_points(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )

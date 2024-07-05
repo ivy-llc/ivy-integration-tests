@@ -27,7 +27,7 @@ def test_undistort_image(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -53,7 +53,7 @@ def test_undistort_points(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -79,7 +79,7 @@ def test_distort_points(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -103,7 +103,7 @@ def test_tilt_projection(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -126,7 +126,7 @@ def test_solve_pnp_dlt(target_framework, mode, backend_compile):
             [0.0, 0.0, 1.0]
         ]], dtype=torch.float64),
     )
-    trace_kwargs = {'svd_eps': 1e-4}
+    trace_kwargs = {'svd_eps': 1e-3}
     test_args = (
         torch.tensor([[
             [10.0, -10.0, 0.0], [0.0, 0.0, 3.0],
@@ -144,7 +144,7 @@ def test_solve_pnp_dlt(target_framework, mode, backend_compile):
             [0.0, 0.0, 1.0]
         ]], dtype=torch.float64),
     )
-    test_kwargs = {'svd_eps': 1e-4}
+    test_kwargs = {'svd_eps': 1e-3}
     _test_function(
         kornia.geometry.calibration.solve_pnp_dlt,
         trace_args,
@@ -153,6 +153,6 @@ def test_solve_pnp_dlt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )

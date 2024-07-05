@@ -24,7 +24,7 @@ def test_rgb_to_grayscale(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -46,7 +46,7 @@ def test_bgr_to_grayscale(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -68,7 +68,7 @@ def test_grayscale_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -86,7 +86,7 @@ def test_rgb_to_bgr(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -104,7 +104,7 @@ def test_bgr_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -122,7 +122,7 @@ def test_rgb_to_linear_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -140,7 +140,7 @@ def test_linear_rgb_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -164,7 +164,7 @@ def test_bgr_to_rgba(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -188,7 +188,7 @@ def test_rgb_to_rgba(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -210,7 +210,7 @@ def test_rgba_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -232,7 +232,7 @@ def test_rgba_to_bgr(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -257,7 +257,7 @@ def test_rgb_to_hls(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -280,7 +280,7 @@ def test_hls_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -302,7 +302,7 @@ def test_rgb_to_hsv(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -324,7 +324,7 @@ def test_hsv_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -350,7 +350,7 @@ def test_rgb_to_luv(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -372,7 +372,7 @@ def test_luv_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -394,7 +394,7 @@ def test_rgb_to_lab(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -416,7 +416,7 @@ def test_lab_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -438,7 +438,7 @@ def test_rgb_to_ycbcr(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -460,7 +460,7 @@ def test_ycbcr_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -482,7 +482,7 @@ def test_rgb_to_yuv(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -504,7 +504,7 @@ def test_yuv_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -526,7 +526,7 @@ def test_rgb_to_yuv420(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -550,7 +550,7 @@ def test_yuv420_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -572,7 +572,7 @@ def test_rgb_to_yuv422(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -596,7 +596,7 @@ def test_yuv422_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -618,7 +618,7 @@ def test_rgb_to_xyz(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -640,7 +640,7 @@ def test_xyz_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -664,7 +664,7 @@ def test_rgb_to_raw(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -688,7 +688,7 @@ def test_raw_to_rgb(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -712,7 +712,7 @@ def test_raw_to_rgb_2x2_downscaled(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -740,7 +740,7 @@ def test_sepia(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 

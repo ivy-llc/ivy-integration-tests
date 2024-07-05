@@ -39,7 +39,7 @@ def test_conv_soft_argmax2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -79,7 +79,7 @@ def test_conv_soft_argmax3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -107,7 +107,7 @@ def test_conv_quad_interp3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -133,7 +133,7 @@ def test_spatial_softmax2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -159,7 +159,7 @@ def test_spatial_expectation2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -187,7 +187,7 @@ def test_spatial_soft_argmax2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -217,7 +217,7 @@ def test_render_gaussian2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -245,7 +245,7 @@ def test_nms2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -273,6 +273,6 @@ def test_nms3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )

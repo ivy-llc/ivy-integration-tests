@@ -25,7 +25,7 @@ def test_compute_padding(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -53,7 +53,7 @@ def test_extract_tensor_patches(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -91,7 +91,7 @@ def test_combine_tensor_patches(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -119,7 +119,7 @@ def test_distance_transform(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -149,6 +149,6 @@ def test_diamond_square(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )

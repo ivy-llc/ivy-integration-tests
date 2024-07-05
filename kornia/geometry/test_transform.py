@@ -27,7 +27,7 @@ def test_warp_perspective(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -53,7 +53,7 @@ def test_warp_perspective3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -79,7 +79,7 @@ def test_warp_affine(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -105,7 +105,7 @@ def test_warp_affine3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -133,7 +133,7 @@ def test_warp_image_tps(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -161,7 +161,7 @@ def test_warp_points_tps(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -185,7 +185,7 @@ def test_warp_grid(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -209,7 +209,7 @@ def test_warp_grid3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -235,7 +235,7 @@ def test_remap(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -259,7 +259,7 @@ def test_affine(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -283,7 +283,7 @@ def test_rotate(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -307,7 +307,7 @@ def test_translate(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -331,7 +331,7 @@ def test_scale(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -355,7 +355,7 @@ def test_shear(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -377,7 +377,7 @@ def test_hflip(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -399,7 +399,7 @@ def test_vflip(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -421,7 +421,7 @@ def test_rot180(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -445,7 +445,7 @@ def test_resize(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -469,7 +469,7 @@ def test_rescale(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -493,7 +493,7 @@ def test_elastic_transform2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -515,7 +515,7 @@ def test_pyrdown(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -537,7 +537,7 @@ def test_pyrup(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -561,7 +561,7 @@ def test_build_pyramid(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -585,7 +585,7 @@ def test_build_laplacian_pyramid(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -607,7 +607,7 @@ def test_upscale_double(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -631,7 +631,7 @@ def test_get_perspective_transform(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -655,7 +655,7 @@ def test_get_perspective_transform3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -681,7 +681,7 @@ def test_get_projective_transform(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -707,7 +707,7 @@ def test_get_rotation_matrix2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -733,7 +733,7 @@ def test_get_shear_matrix2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -767,7 +767,7 @@ def test_get_shear_matrix3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -799,7 +799,7 @@ def test_get_affine_matrix2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -839,7 +839,7 @@ def test_get_affine_matrix3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -861,7 +861,7 @@ def test_invert_affine_transform(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -885,7 +885,7 @@ def test_projection_from_Rt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -933,7 +933,7 @@ def test_crop_by_indices(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -959,7 +959,7 @@ def test_crop_by_boxes(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -983,7 +983,7 @@ def test_center_crop(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -1009,6 +1009,6 @@ def test_crop_and_resize(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework, 
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )

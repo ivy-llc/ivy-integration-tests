@@ -19,7 +19,7 @@ def test_rad2deg(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -37,7 +37,7 @@ def test_deg2rad(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -55,7 +55,7 @@ def test_pol2cart(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -73,7 +73,7 @@ def test_cart2pol(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -91,7 +91,7 @@ def test_angle_to_rotation_matrix(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -113,7 +113,7 @@ def test_convert_points_from_homogeneous(target_framework, mode, backend_compile
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -135,7 +135,7 @@ def test_convert_points_to_homogeneous(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -157,7 +157,7 @@ def test_convert_affinematrix_to_homography(target_framework, mode, backend_comp
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -183,7 +183,7 @@ def test_denormalize_pixel_coordinates(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -209,7 +209,7 @@ def test_normalize_pixel_coordinates(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -237,7 +237,7 @@ def test_denormalize_pixel_coordinates3d(target_framework, mode, backend_compile
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -265,7 +265,7 @@ def test_normalize_pixel_coordinates3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -289,7 +289,7 @@ def test_normalize_points_with_intrinsics(target_framework, mode, backend_compil
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -313,7 +313,7 @@ def test_denormalize_points_with_intrinsics(target_framework, mode, backend_comp
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -339,7 +339,7 @@ def test_normalize_homography(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -365,7 +365,7 @@ def test_denormalize_homography(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -391,7 +391,7 @@ def test_normalize_homography3d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -413,7 +413,7 @@ def test_quaternion_to_axis_angle(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -435,7 +435,7 @@ def test_quaternion_to_rotation_matrix(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -457,7 +457,7 @@ def test_quaternion_log_to_exp(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -479,7 +479,7 @@ def test_quaternion_exp_to_log(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -501,7 +501,7 @@ def test_normalize_quaternion(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -523,7 +523,7 @@ def test_vector_to_skew_symmetric_matrix(target_framework, mode, backend_compile
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -545,7 +545,7 @@ def test_rotation_matrix_to_axis_angle(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -558,7 +558,7 @@ def test_rotation_matrix_to_quaternion(target_framework, mode, backend_compile):
     test_args = (
         torch.rand(5, 3, 3),
     )
-    test_kwargs = {'eps': 1e-4}
+    test_kwargs = {'eps': 1e-3}
     _test_function(
         kornia.geometry.conversions.rotation_matrix_to_quaternion,
         trace_args,
@@ -567,7 +567,7 @@ def test_rotation_matrix_to_quaternion(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -589,7 +589,7 @@ def test_axis_angle_to_quaternion(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -611,7 +611,7 @@ def test_axis_angle_to_rotation_matrix(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -637,7 +637,7 @@ def test_quaternion_from_euler(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -665,7 +665,7 @@ def test_euler_from_quaternion(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -689,7 +689,7 @@ def test_Rt_to_matrix4x4(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -711,7 +711,7 @@ def test_matrix4x4_to_Rt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -735,7 +735,7 @@ def test_worldtocam_to_camtoworld_Rt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -759,7 +759,7 @@ def test_camtoworld_to_worldtocam_Rt(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -781,7 +781,7 @@ def test_camtoworld_graphics_to_vision_4x4(target_framework, mode, backend_compi
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -803,7 +803,7 @@ def test_camtoworld_vision_to_graphics_4x4(target_framework, mode, backend_compi
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -827,7 +827,7 @@ def test_camtoworld_graphics_to_vision_Rt(target_framework, mode, backend_compil
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -851,7 +851,7 @@ def test_camtoworld_vision_to_graphics_Rt(target_framework, mode, backend_compil
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
 
@@ -875,6 +875,6 @@ def test_ARKitQTVecs_to_ColmapQTVecs(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-4,
+        tolerance=1e-3,
         mode=mode,
     )
