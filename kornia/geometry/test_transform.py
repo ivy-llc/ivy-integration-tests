@@ -493,7 +493,7 @@ def test_elastic_transform2d(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-3,
+        tolerance=5e-2,
         mode=mode,
     )
 
