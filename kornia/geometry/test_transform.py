@@ -266,7 +266,7 @@ def test_affine(target_framework, mode, backend_compile):
 
 def test_rotate(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 3, 4, 4),
+        torch.rand(2, 3, 4, 4),
         torch.tensor([90.]),
     )
     trace_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
@@ -290,7 +290,7 @@ def test_rotate(target_framework, mode, backend_compile):
 
 def test_translate(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 3, 4, 4),
+        torch.rand(2, 3, 4, 4),
         torch.tensor([[1., 0.]]),
     )
     trace_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
@@ -314,8 +314,8 @@ def test_translate(target_framework, mode, backend_compile):
 
 def test_scale(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 3, 4, 4),
-        torch.rand(1),
+        torch.rand(2, 3, 4, 4),
+        torch.rand(2),
     )
     trace_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
     test_args = (
@@ -338,7 +338,7 @@ def test_scale(target_framework, mode, backend_compile):
 
 def test_shear(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(1, 3, 4, 4),
+        torch.rand(2, 3, 4, 4),
         torch.tensor([[0.5, 0.0]]),
     )
     trace_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': False}
