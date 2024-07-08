@@ -498,6 +498,8 @@ def test_elastic_transform2d(target_framework, mode, backend_compile):
     )
 
 
+# TODO: failing due to dynamic control flow use in the compositional implementation of `ivy.interpolate`
+# (in this case with `mode=bilinear`)
 def test_pyrdown(target_framework, mode, backend_compile):
     trace_args = (
         torch.rand(1, 1, 4, 4),
