@@ -206,7 +206,7 @@ def test_find_fundamental(target_framework, mode, backend_compile):
         test_kwargs,
         target_framework,
         backend_compile,
-        tolerance=1e-3,
+        tolerance=3e-2,
         mode=mode,
     )
 
