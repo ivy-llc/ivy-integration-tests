@@ -2,8 +2,10 @@ import ivy
 import pytest
 
 TARGET_FRAMEWORKS = ["numpy", "jax", "tensorflow", "torch"]
+S2S_TARGET_FRAMEWORKS = ["tensorflow"]
 BACKEND_COMPILE = False
 TARGET = "all"
+S2S = False
 
 
 @pytest.fixture(autouse=True)
@@ -15,13 +17,18 @@ def pytest_addoption(parser):
     parser.addoption(
         "--backend-compile",
         action="store_true",
-        help="",
+        help="Whether to use backend compilation (such as jax.jit) during testing",
     )
     parser.addoption(
         "--target",
         action="store",
         default="all",
         help="Target for the transpilation tests",
+    )
+    parser.addoption(
+        "--source-to-source",
+        action="store_true",
+        help="Whether to run the tests on the source-to-source translator or functional transpiler",
     )
 
 
@@ -34,10 +41,16 @@ def pytest_configure(config):
     global TARGET
     TARGET = getopt("--target")
 
+    global S2S
+    S2S = getopt("--source-to-source")
+
 
 def pytest_generate_tests(metafunc):
     configs = list()
-    if TARGET not in ["jax", "numpy", "tensorflow", "torch"]:
+    if S2S:
+        for target in S2S_TARGET_FRAMEWORKS:
+            configs.append((target, "source-to-source", BACKEND_COMPILE))
+    elif TARGET not in ["jax", "numpy", "tensorflow", "torch"]:
         for target in TARGET_FRAMEWORKS:
             configs.append((target, "transpile", BACKEND_COMPILE))
         configs.append(("torch", "trace", BACKEND_COMPILE))
