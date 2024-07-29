@@ -195,7 +195,9 @@ def _test_function(
     # print out the full function module/name, so it will appear in the test_report.json
     print(f"{fn.__module__}.{fn.__name__}")
 
-    if skip: pytest.skip()
+    if skip and mode != "source-to-source":
+        # any skipped due to DCF issues should still work with ivy.source_to_source
+        pytest.skip()
 
     if mode == "source-to-source":
         _test_source_to_source_function(
