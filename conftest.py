@@ -49,7 +49,7 @@ def pytest_generate_tests(metafunc):
     configs = list()
     if S2S:
         for target in S2S_TARGET_FRAMEWORKS:
-            configs.append((target, "source-to-source", BACKEND_COMPILE))
+            configs.append((target, "s2s", BACKEND_COMPILE))
     elif TARGET not in ["jax", "numpy", "tensorflow", "torch"]:
         for target in TARGET_FRAMEWORKS:
             configs.append((target, "transpile", BACKEND_COMPILE))
