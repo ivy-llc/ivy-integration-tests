@@ -23,3 +23,9 @@ with open(output_file, 'w') as outfile:
                 print('file contents', infile.read())
                 outfile.write(infile.read())
                 outfile.write('\n')
+
+with open(output_file, 'r') as outfile:
+    print('lines of out file:')
+    for line in output_file:
+        print('line of out file:', line)
+    print('done')

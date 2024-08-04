@@ -19,6 +19,7 @@ if __name__ == "__main__":
 
     file = open("aggregated-results/all-test-results.txt", "r")
     print('file:', file)
+    print('file contents:', file.read())
 
     with open("aggregated-results/all-test-results.txt", "r") as file:
         print('file:', file)
