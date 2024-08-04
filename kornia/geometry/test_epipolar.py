@@ -6,29 +6,28 @@ import torch
 # Tests #
 # ----- #
 
-# NOTE: takes a while to run this test
-# def test_find_essential(target_framework, mode, backend_compile):
-#     trace_args = (
-#         torch.rand(1, 8, 2),
-#         torch.rand(1, 8, 2),
-#     )
-#     trace_kwargs = {'weights': torch.rand(1, 8)}
-#     test_args = (
-#         torch.rand(5, 8, 2),
-#         torch.rand(5, 8, 2),
-#     )
-#     test_kwargs = {'weights': torch.rand(5, 8)}
-#     _test_function(
-#         kornia.geometry.epipolar.find_essential,
-#         trace_args,
-#         trace_kwargs,
-#         test_args,
-#         test_kwargs,
-#         target_framework, 
-#         backend_compile,
-#         tolerance=1e-3,
-#         mode=mode,
-#     )
+def test_find_essential(target_framework, mode, backend_compile):
+    trace_args = (
+        torch.rand(1, 8, 2),
+        torch.rand(1, 8, 2),
+    )
+    trace_kwargs = {'weights': torch.rand(1, 8)}
+    test_args = (
+        torch.rand(5, 8, 2),
+        torch.rand(5, 8, 2),
+    )
+    test_kwargs = {'weights': torch.rand(5, 8)}
+    _test_function(
+        kornia.geometry.epipolar.find_essential,
+        trace_args,
+        trace_kwargs,
+        test_args,
+        test_kwargs,
+        target_framework, 
+        backend_compile,
+        tolerance=1e-3,
+        mode=mode,
+    )
 
 
 def test_essential_from_fundamental(target_framework, mode, backend_compile):

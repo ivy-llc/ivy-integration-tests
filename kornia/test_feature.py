@@ -319,29 +319,28 @@ def test_extract_patches_from_pyramid(target_framework, mode, backend_compile):
     )
 
 
-# NOTE: this test can take a while to run (10+ mins)
-# def test_extract_patches_simple(target_framework, mode, backend_compile):
-#     trace_args = (
-#         torch.rand(1, 3, 32, 32),
-#         torch.rand(1, 5, 2, 3),
-#     )
-#     trace_kwargs = {'PS': 32, 'normalize_lafs_before_extraction': True}
-#     test_args = (
-#         torch.rand(2, 3, 64, 64),
-#         torch.rand(2, 5, 2, 3),
-#     )
-#     test_kwargs = {'PS': 16, 'normalize_lafs_before_extraction': False}
-#     _test_function(
-#         kornia.feature.extract_patches_simple,
-#         trace_args,
-#         trace_kwargs,
-#         test_args,
-#         test_kwargs,
-#         target_framework,
-#         backend_compile,
-#         tolerance=1e-3,
-#         mode=mode,
-#     )
+def test_extract_patches_simple(target_framework, mode, backend_compile):
+    trace_args = (
+        torch.rand(1, 3, 32, 32),
+        torch.rand(1, 5, 2, 3),
+    )
+    trace_kwargs = {'PS': 32, 'normalize_lafs_before_extraction': True}
+    test_args = (
+        torch.rand(2, 3, 64, 64),
+        torch.rand(2, 5, 2, 3),
+    )
+    test_kwargs = {'PS': 16, 'normalize_lafs_before_extraction': False}
+    _test_function(
+        kornia.feature.extract_patches_simple,
+        trace_args,
+        trace_kwargs,
+        test_args,
+        test_kwargs,
+        target_framework,
+        backend_compile,
+        tolerance=1e-3,
+        mode=mode,
+    )
 
 
 def test_normalize_laf(target_framework, mode, backend_compile):
