@@ -7,7 +7,7 @@ output_file = 'aggregated-results/all-test-results.txt'
 # Ensure the output directory exists
 os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
-outfile = open(output_file, 'a')
+outfile = open(output_file, 'x')
 
 for subdir, _, files in os.walk(artifacts_dir):
     for file in files:
