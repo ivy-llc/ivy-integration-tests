@@ -33,9 +33,10 @@ if __name__ == "__main__":
             # infile = open(file_path, "r")
 
             with open(file_path, "r") as file:
-                print('file:', file)
-                print('file contents', file.read())
-                for line in file:
+                # print('file:', file)
+                # print('file contents', file.read())
+                print('file num lines', file.readlines())
+                for line in file.readlines():
                     print('line:', line)
                     split_line = line.split(",")[:-1]
                     print(len(split_line))
