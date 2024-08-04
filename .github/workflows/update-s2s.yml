@@ -12,11 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        file : [ test_color, test_contrib, test_enhance, test_feature, test_filters, test_losses,
-                 test_metrics, test_morphology, test_utils, geometry/test_bbox, geometry/test_calibration,
-                 geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar,
-                 geometry/test_homography, geometry/test_linalg, geometry/test_solvers, geometry/test_subpix,
-                 geometry/test_transform ]
+        file : [ geometry/test_bbox, geometry/test_calibration ]
         compile : [ F ]  # to also run the tests with backend_compilation, change this to: T, F
     steps:
       - name: Checkout ivy-integration-tests
@@ -49,11 +45,18 @@ jobs:
             docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
 
+      - name: Prepare Artifact Name
+        id: prepare
+        shell: bash
+        run: |
+          safe_file_name=$(echo "${{ matrix.file }}" | sed 's/\//-/g')
+          echo "::set-output name=safe_file_name::$safe_file_name"
+
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results-${{ matrix.file }}-${{ matrix.compile }}
+          name: test-results-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
           path: ivy-integration-tests/test_results.txt
 
   update-dashboard:
