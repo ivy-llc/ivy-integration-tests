@@ -76,6 +76,7 @@ jobs:
 
       - name: Aggregate Results
         run: |
+          pwd
           python aggregate_results.py
 
       - name: Update Dashboard
