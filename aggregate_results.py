@@ -11,16 +11,16 @@ with open(output_file, 'w') as outfile:
     for subdir, _, files in os.walk(artifacts_dir):
         for file in files:
             print('file', file)
-            if file.startswith('test-results-'):
-                print('file', file)
-                print('file contents:', file.read())
-                file_path = os.path.join(subdir, file)
-                print('subdir', subdir)
-                print('file_path', file_path)
-                infile = open(file_path, "r")
-                print('infile:', infile)
-                print(infile.read())
-                with open(file_path, 'r') as infile:
-                    print('file contents', infile.read())
-                    outfile.write(infile.read())
-                    outfile.write('\n')
+            # if file.startswith('test-results-'):
+            # print('file', file)
+            print('file contents:', file.read())
+            file_path = os.path.join(subdir, file)
+            print('subdir', subdir)
+            print('file_path', file_path)
+            infile = open(file_path, "r")
+            print('infile:', infile)
+            print(infile.read())
+            with open(file_path, 'r') as infile:
+                print('file contents', infile.read())
+                outfile.write(infile.read())
+                outfile.write('\n')
