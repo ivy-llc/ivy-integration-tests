@@ -65,14 +65,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: ./artifacts
-
-      - name: Aggregate Results
-        run: |
-          mkdir -p aggregated-results
-          for result in ./artifacts/**/test-results-*; do
-            cat $result >> aggregated-results/all-test-results.txt
-            echo "" >> aggregated-results/all-test-results.txt
-          done
     
       - name: Set up Python
         uses: actions/setup-python@v2
