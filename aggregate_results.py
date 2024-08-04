@@ -13,7 +13,6 @@ with open(output_file, 'w') as outfile:
             print('file', file)
             # if file.startswith('test-results-'):
             # print('file', file)
-            print('file contents:', file.read())
             file_path = os.path.join(subdir, file)
             print('subdir', subdir)
             print('file_path', file_path)
