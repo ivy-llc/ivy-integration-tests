@@ -1,5 +1,6 @@
 from collections import defaultdict
 import datetime
+import os
 
 
 if __name__ == "__main__":
@@ -17,56 +18,66 @@ if __name__ == "__main__":
     failed = 0
     test_outcomes = {}
 
-    file = open("aggregated-results/all-test-results.txt", "r")
-    print('file:', file)
-    print('file contents:', file.read())
+    # file = open("aggregated-results/all-test-results.txt", "r")
+    # print('file:', file)
+    # print('file contents:', file.read())
+    
+    for subdir, _, files in os.walk("artifacts"):
+        for file_name in files:
+            # print('file', file_name)
+            # if file.startswith('test-results-'):
+            # print('file', file)
+            file_path = os.path.join(subdir, file_name)
+            # print('subdir', subdir)
+            # print('file_path', file_path)
+            # infile = open(file_path, "r")
 
-    with open("aggregated-results/all-test-results.txt", "r") as file:
-        print('file:', file)
-        print('file contents', file.read())
-        for line in file:
-            print('line:', line)
-            split_line = line.split(",")[:-1]
-            print(len(split_line))
-            if len(split_line) != 6:
-                continue
-            record = {
-                "target": split_line[0],
-                "mode": split_line[1],
-                "backend_compile": split_line[2],
-                "function": split_line[3],
-                "workflow_link": split_line[4],
-                "outcome": split_line[5],
-            }
-            if record["outcome"] == "passed":
-                passed += 1
-            else:
-                failed += 1
+            with open(file_path, "r") as file:
+                print('file:', file)
+                print('file contents', file.read())
+                for line in file:
+                    print('line:', line)
+                    split_line = line.split(",")[:-1]
+                    print(len(split_line))
+                    if len(split_line) != 6:
+                        continue
+                    record = {
+                        "target": split_line[0],
+                        "mode": split_line[1],
+                        "backend_compile": split_line[2],
+                        "function": split_line[3],
+                        "workflow_link": split_line[4],
+                        "outcome": split_line[5],
+                    }
+                    if record["outcome"] == "passed":
+                        passed += 1
+                    else:
+                        failed += 1
 
-            target = record["target"]
-            mode = record["mode"]
-            backend_compile = record["backend_compile"]
-            function = record["function"]
-            outcome = record['outcome']
-            workflow_link = record['workflow_link']
+                    target = record["target"]
+                    mode = record["mode"]
+                    backend_compile = record["backend_compile"]
+                    function = record["function"]
+                    outcome = record['outcome']
+                    workflow_link = record['workflow_link']
 
-            if function not in test_outcomes:
-                test_outcomes[function] = {
-                    "jax": False,
-                    "numpy": False,
-                    "tensorflow": False,
-                }
+                    if function not in test_outcomes:
+                        test_outcomes[function] = {
+                            "jax": False,
+                            "numpy": False,
+                            "tensorflow": False,
+                        }
 
-            test_outcomes[function][target if mode in ["transpile", "s2s"] else "trace"] = outcome == "passed"
+                    test_outcomes[function][target if mode in ["transpile", "s2s"] else "trace"] = outcome == "passed"
 
-            split_fn = function.split(".")
-            integration = split_fn[0]
-            submodule = split_fn[1] if len(split_fn) > 2 else ""
+                    split_fn = function.split(".")
+                    integration = split_fn[0]
+                    submodule = split_fn[1] if len(split_fn) > 2 else ""
 
-            color = color_codes.get(outcome, 'yellow')
-            button = f"[![{outcome}](https://img.shields.io/badge/{outcome}-{color})]({workflow_link})"
-            if workflow_link not in [None, "null"]:
-                test_results[integration][submodule][function][target if mode in ["transpile", "s2s"] else "trace_graph"] = button
+                    color = color_codes.get(outcome, 'yellow')
+                    button = f"[![{outcome}](https://img.shields.io/badge/{outcome}-{color})]({workflow_link})"
+                    if workflow_link not in [None, "null"]:
+                        test_results[integration][submodule][function][target if mode in ["transpile", "s2s"] else "trace_graph"] = button
 
     fns_passing_all_targets = 0
     fns_passing_jax = 0

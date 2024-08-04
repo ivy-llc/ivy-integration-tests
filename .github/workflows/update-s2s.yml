@@ -74,20 +74,10 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Aggregate Results
-        run: |
-          pwd
-          python aggregate_results.py
-
       - name: Update Dashboard
         env:
           GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
         run: |
-          ls
-          cd aggregated-results
-          echo here
-          ls
-          cd ..
           python update_s2s_dashboard.py
           git config --global user.email "hello@transpile-ai.com"
           git config --global user.name "ivy-dev-bot"
