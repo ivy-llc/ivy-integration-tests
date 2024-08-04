@@ -17,26 +17,14 @@ if __name__ == "__main__":
     passed = 0
     failed = 0
     test_outcomes = {}
-
-    # file = open("aggregated-results/all-test-results.txt", "r")
-    # print('file:', file)
-    # print('file contents:', file.read())
     
     for subdir, _, files in os.walk("artifacts"):
         for file_name in files:
-            # print('file', file_name)
-            # if file.startswith('test-results-'):
-            # print('file', file)
             file_path = os.path.join(subdir, file_name)
-            # print('subdir', subdir)
-            # print('file_path', file_path)
-            # infile = open(file_path, "r")
 
             with open(file_path, "r") as file:
                 for line in file.readlines():
-                    print('line:', line)
                     split_line = line.split(",")[:-1]
-                    print(len(split_line))
                     if len(split_line) != 6:
                         continue
                     record = {
