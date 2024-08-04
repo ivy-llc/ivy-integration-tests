@@ -26,6 +26,6 @@ with open(output_file, 'w') as outfile:
 
 with open(output_file, 'r') as outfile:
     print('lines of out file:')
-    for line in output_file:
+    for line in outfile:
         print('line of out file:', line)
     print('done')
