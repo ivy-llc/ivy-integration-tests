@@ -1,9 +1,15 @@
+import argparse
 from collections import defaultdict
 import datetime
 import os
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="")
+    parser.add_argument("--backend-compile", default=False, action="store_true", help="")
+
+    args = parser.parse_args()
+
     missing_button = f"[![missing](https://img.shields.io/badge/missing-gray)]()"
     test_results = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: {'numpy': missing_button, 'jax': missing_button, 'tensorflow': missing_button})))
 
@@ -17,7 +23,7 @@ if __name__ == "__main__":
     passed = 0
     failed = 0
     test_outcomes = {}
-    
+
     for subdir, _, files in os.walk("artifacts"):
         for file_name in files:
             file_path = os.path.join(subdir, file_name)
@@ -35,10 +41,6 @@ if __name__ == "__main__":
                         "workflow_link": split_line[4],
                         "outcome": split_line[5],
                     }
-                    if record["outcome"] == "passed":
-                        passed += 1
-                    else:
-                        failed += 1
 
                     target = record["target"]
                     mode = record["mode"]
@@ -46,6 +48,16 @@ if __name__ == "__main__":
                     function = record["function"]
                     outcome = record['outcome']
                     workflow_link = record['workflow_link']
+
+                    backend_compile = "T" in backend_compile.upper()  # convert to bool
+                    if backend_compile != args.backend_compile:
+                        # do not consider this test, as it uses the wrong setting of backend_compile
+                        continue
+
+                    if outcome == "passed":
+                        passed += 1
+                    else:
+                        failed += 1
 
                     if function not in test_outcomes:
                         test_outcomes[function] = {
@@ -118,10 +130,12 @@ if __name__ == "__main__":
         readme_content += "</details>\n\n"
         readme_content += "</div>\n\n"
 
-    with open("DASHBOARD.md", "w") as f:
+    dashboard_name = "NATIVE_COMPILATION_DASHBOARD.md" if args.backend_compile else "DASHBOARD.md"
+
+    with open(dashboard_name, "w") as f:
         f.write(readme_content)
 
-    with open("DASHBOARD.md", "r") as f:
+    with open(dashboard_name, "r") as f:
         lines = f.readlines()
         for line in lines:
             print(line)
