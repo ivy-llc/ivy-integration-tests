@@ -79,6 +79,10 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Aggregate Results
+        run: |
+          python aggregate_results.py
+
       - name: Update Dashboard
         env:
           GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
