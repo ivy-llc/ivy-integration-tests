@@ -48,14 +48,14 @@ jobs:
           ls
           cd ivy-integration-tests
           ls
-          
+
 
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-results-${{ matrix.file }}-${{ matrix.compile }}
-          path: test-results/test_results.txt
+          path: ivy-integration-tests/test_results.txt
 
   update-dashboard:
     runs-on: ubuntu-latest
