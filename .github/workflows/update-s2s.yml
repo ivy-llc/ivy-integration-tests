@@ -49,11 +49,18 @@ jobs:
             docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
 
+      - name: Prepare Artifact Name
+        id: prepare
+        shell: bash
+        run: |
+          safe_file_name=$(echo "${{ matrix.file }}" | sed 's/\//-/g')
+          echo "::set-output name=safe_file_name::$safe_file_name"
+
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results-${{ matrix.file }}-${{ matrix.compile }}
+          name: test-results-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
           path: ivy-integration-tests/test_results.txt
 
   update-dashboard:
