@@ -171,6 +171,18 @@ def _test_source_to_source_function(
 
     translated_fn = ivy.source_to_source(fn, source="torch", target="tensorflow")
 
+    # test it works with the trace_args as input
+    orig_out = fn(*trace_args, **trace_kwargs)
+    graph_args = _nest_torch_tensor_to_new_framework(trace_args, target)
+    graph_kwargs = _nest_torch_tensor_to_new_framework(trace_kwargs, target)
+    graph_out = translated_fn(*graph_args, **graph_kwargs)
+
+    orig_np = _nest_array_to_numpy(orig_out)
+    graph_np = _nest_array_to_numpy(graph_out)
+
+    _check_allclose(orig_np, graph_np, tolerance=tolerance)
+
+    # test it works with the test_args as input
     orig_out = fn(*test_args, **test_kwargs)
     graph_args = _nest_torch_tensor_to_new_framework(test_args, target)
     graph_kwargs = _nest_torch_tensor_to_new_framework(test_kwargs, target)
