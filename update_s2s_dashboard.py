@@ -18,7 +18,9 @@ if __name__ == "__main__":
     test_outcomes = {}
 
     with open("aggregated-results/all-test-results.txt", "r") as file:
+        print('file:', file)
         for line in file:
+            print('line:', line)
             split_line = line.split(",")[:-1]
             print(len(split_line))
             if len(split_line) != 6:

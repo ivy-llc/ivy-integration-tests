@@ -84,7 +84,9 @@ jobs:
         run: |
           ls
           cd aggregated-results
+          echo here
           ls
+          cd ..
           python update_s2s_dashboard.py
           git config --global user.email "hello@transpile-ai.com"
           git config --global user.name "ivy-dev-bot"
