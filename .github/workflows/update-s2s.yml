@@ -17,7 +17,7 @@ jobs:
                  geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar,
                  geometry/test_homography, geometry/test_linalg, geometry/test_solvers, geometry/test_subpix,
                  geometry/test_transform ]
-        compile : [ F ]  # to also run the tests with backend_compilation, change this to: T, F
+        compile : [ T, F ]
     steps:
       - name: Checkout ivy-integration-tests
         uses: actions/checkout@v4
@@ -81,6 +81,17 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Update Native Compilation Dashboard
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+        run: |
+          python update_s2s_dashboard.py --backend-compile
+          git config --global user.email "hello@transpile-ai.com"
+          git config --global user.name "ivy-dev-bot"
+          git add NATIVE_COMPILATION_DASHBOARD.md
+          git commit -m "Auto-update native compilation integration tests dashboard"
+          git push
+    
       - name: Update Dashboard
         env:
           GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
@@ -89,5 +100,5 @@ jobs:
           git config --global user.email "hello@transpile-ai.com"
           git config --global user.name "ivy-dev-bot"
           git add DASHBOARD.md
-          git commit -m "Auto-update integration tests dashboard with latest results"
+          git commit -m "Auto-update integration tests dashboard"
           git push
