@@ -14,5 +14,6 @@ with open(output_file, 'w') as outfile:
             if file.startswith('test-results-'):
                 file_path = os.path.join(subdir, file)
                 with open(file_path, 'r') as infile:
+                    print('file contents', infile.read())
                     outfile.write(infile.read())
                     outfile.write('\n')

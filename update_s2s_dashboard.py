@@ -22,7 +22,8 @@ if __name__ == "__main__":
 
     with open("aggregated-results/all-test-results.txt", "r") as file:
         print('file:', file)
-        for line in file:
+        print('file contents', file.read())
+        for line in file.readlines():
             print('line:', line)
             split_line = line.split(",")[:-1]
             print(len(split_line))
