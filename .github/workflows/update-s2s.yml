@@ -43,6 +43,7 @@ jobs:
             docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
           else
             docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
+          fi
 
       - name: Upload Test Results
         if: always()

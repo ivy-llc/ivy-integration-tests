@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     all_documents = []
 
-    # create a .csv file
+    # create a .txt file
     for test in tests_data:
         test_path, test_function_args = test["nodeid"].split("::")
         split_path = test_path.split("/", 1)
