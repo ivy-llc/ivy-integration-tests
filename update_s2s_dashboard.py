@@ -17,6 +17,9 @@ if __name__ == "__main__":
     failed = 0
     test_outcomes = {}
 
+    file = open("aggregated-results/all-test-results.txt", "r")
+    print('file:', file)
+
     with open("aggregated-results/all-test-results.txt", "r") as file:
         print('file:', file)
         for line in file:
