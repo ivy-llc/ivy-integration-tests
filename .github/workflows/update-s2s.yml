@@ -1,11 +1,11 @@
 name: update-s2s
 on:
   workflow_dispatch:
-  push:
   schedule:
     - cron: "0 1 * * *"
 permissions:
   actions: read
+  contents: write
 jobs:
   update-kornia:
     runs-on: ubuntu-latest
