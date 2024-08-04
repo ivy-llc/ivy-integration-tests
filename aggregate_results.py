@@ -1,7 +1,7 @@
 import os
 
 # Directory where artifacts are downloaded
-artifacts_dir = 'ivy-integration-tests/artifacts'
+artifacts_dir = 'artifacts'
 output_file = 'aggregated-results/all-test-results.txt'
 
 # Ensure the output directory exists
