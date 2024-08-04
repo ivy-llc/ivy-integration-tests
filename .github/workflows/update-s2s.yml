@@ -61,9 +61,6 @@ jobs:
     needs:
       - update-kornia
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
       - name: Download Test Results
         uses: actions/download-artifact@v3
         with:
