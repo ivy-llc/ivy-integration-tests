@@ -1,0 +1,82 @@
+name: update-s2s
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: "0 1 * * *"
+permissions:
+  actions: read
+jobs:
+  update-kornia:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        file : [ test_contrib, test_utils ]
+        compile : [ F ]  # to also run the tests with backend_compilation, change this to: T, F
+    steps:
+      - name: Checkout ivy-integration-tests
+        uses: actions/checkout@v4
+        with:
+          path: ivy-integration-tests
+
+      - name: Checkout 🛎️Ivy
+        uses: actions/checkout@v4
+        with:
+          repository: ivy-llc/ivy
+          token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+          path: ivy
+          persist-credentials: true
+
+      - name: Get Job URL
+        uses: Tiryoh/gha-jobid-action@v0
+        id: jobs
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          job_name: ${{ github.job }} (${{ matrix.file }}, ${{ matrix.compile }})
+          per_page: 64
+
+      - name: Run Tests
+        id: tests
+        run: |
+          if [ "${{ steps.jobs.outputs.html_url }}" = "null" ]; then
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
+          else
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
+          fi
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ matrix.file }}-${{ matrix.compile }}
+          path: ivy-integration-tests/test_results.txt
+
+  update-dashboard:
+    runs-on: ubuntu-latest
+    needs:
+      - update-kornia
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Test Results
+        uses: actions/download-artifact@v3
+        with:
+          path: ./artifacts
+    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+
+      - name: Update Dashboard
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+        run: |
+          python update_s2s_dashboard.py
+          git config --global user.email "hello@transpile-ai.com"
+          git config --global user.name "ivy-dev-bot"
+          git add DASHBOARD.md
+          git commit -m "Auto-update integration tests dashboard with latest results"
+          git push

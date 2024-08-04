@@ -157,6 +157,31 @@ def _test_transpile_function(
     _check_allclose(orig_np, graph_np, tolerance=tolerance)
 
 
+def _test_source_to_source_function(
+    fn,
+    trace_args,
+    trace_kwargs,
+    test_args,
+    test_kwargs,
+    target,
+    backend_compile,
+    tolerance=1e-3,
+):
+    if backend_compile: pytest.fail()  # TODO: add testing with backend compilation
+
+    translated_fn = ivy.source_to_source(fn, source="torch", target="tensorflow")
+
+    orig_out = fn(*test_args, **test_kwargs)
+    graph_args = _nest_torch_tensor_to_new_framework(test_args, target)
+    graph_kwargs = _nest_torch_tensor_to_new_framework(test_kwargs, target)
+    graph_out = translated_fn(*graph_args, **graph_kwargs)
+
+    orig_np = _nest_array_to_numpy(orig_out)
+    graph_np = _nest_array_to_numpy(graph_out)
+
+    _check_allclose(orig_np, graph_np, tolerance=tolerance)
+
+
 def _test_function(
     fn,
     trace_args,
@@ -172,9 +197,22 @@ def _test_function(
     # print out the full function module/name, so it will appear in the test_report.json
     print(f"{fn.__module__}.{fn.__name__}")
 
-    if skip: pytest.skip()
+    if skip and mode != "s2s":
+        # any skipped due to DCF issues should still work with ivy.source_to_source
+        pytest.skip()
 
-    if mode == "trace":
+    if mode == "s2s":
+        _test_source_to_source_function(
+            fn,
+            trace_args,
+            trace_kwargs,
+            test_args,
+            test_kwargs,
+            target,
+            backend_compile,
+            tolerance=tolerance,
+        )
+    elif mode == "trace":
         if target != "torch":
             pytest.skip()
 
