@@ -96,6 +96,14 @@ def _nest_torch_tensor_to_new_framework(
     )
 
 
+def _backend_compile(obj, target):
+    if target == "tensorflow":
+        return tf.function(obj)
+    elif target == "jax":
+        return jax.jit(obj)
+    return obj
+
+
 def _test_trace_function(
     fn,
     trace_args,
@@ -167,9 +175,13 @@ def _test_source_to_source_function(
     backend_compile,
     tolerance=1e-3,
 ):
-    if backend_compile: pytest.fail()  # TODO: add testing with backend compilation
+    if backend_compile and target == "numpy":
+        pytest.skip()
 
     translated_fn = ivy.source_to_source(fn, source="torch", target="tensorflow")
+
+    if backend_compile:
+        translated_fn = _backend_compile(translated_fn, target)
 
     # test it works with the trace_args as input
     orig_out = fn(*trace_args, **trace_kwargs)
