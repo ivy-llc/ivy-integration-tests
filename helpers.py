@@ -167,6 +167,8 @@ def _test_source_to_source_function(
     backend_compile,
     tolerance=1e-3,
 ):
+    if backend_compile: pytest.fail()  # TODO: add testing with backend compilation
+
     translated_fn = ivy.source_to_source(fn, source="torch", target="tensorflow")
 
     orig_out = fn(*test_args, **test_kwargs)
