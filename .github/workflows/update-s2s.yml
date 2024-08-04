@@ -45,13 +45,14 @@ jobs:
           else
             docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis transpileai/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
-    
+          ls
+
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-results-${{ matrix.file }}-${{ matrix.compile }}
-          path: test_results.txt
+          path: test-results/test_results.txt
 
   update-dashboard:
     runs-on: ubuntu-latest
