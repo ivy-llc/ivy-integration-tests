@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        file : [ test_color, test_utils ]
+        file : [ test_contrib, test_utils ]
         compile : [ T, F ]
     steps:
       - name: Checkout ivy-integration-tests
