@@ -91,7 +91,7 @@ jobs:
           git add NATIVE_COMPILATION_DASHBOARD.md
           git commit -m "Auto-update native compilation integration tests dashboard"
           git push
-    
+
       - name: Update Dashboard
         env:
           GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
@@ -101,4 +101,15 @@ jobs:
           git config --global user.name "ivy-dev-bot"
           git add DASHBOARD.md
           git commit -m "Auto-update integration tests dashboard"
+          git push
+
+      - name: Update Failing Tests
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+        run: |
+          python find_all_failing_tests.py
+          git config --global user.email "hello@transpile-ai.com"
+          git config --global user.name "ivy-dev-bot"
+          git add FAILING_TESTS.txt
+          git commit -m "Auto-update native compilation integration tests dashboard"
           git push
