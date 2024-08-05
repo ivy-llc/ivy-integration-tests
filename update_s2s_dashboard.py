@@ -71,6 +71,9 @@ if __name__ == "__main__":
                     split_fn = function.split(".")
                     integration = split_fn[0]
                     submodule = split_fn[1] if len(split_fn) > 2 else ""
+                    if integration in ["transformers"]:
+                        # remove the subsection name here, as it is not actually the submodule in these cases
+                        function = integration + "." + split_fn[-1]
 
                     color = color_codes.get(outcome, 'yellow')
                     button = f"[![{outcome}](https://img.shields.io/badge/{outcome}-{color})]({workflow_link})"

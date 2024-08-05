@@ -11,7 +11,8 @@ from helpers import _backend_compile, _target_to_simplified
 
 
 def test_Swin2SR(target_framework, mode, backend_compile):
-    print("Swin2SRModel")
+    # NOTE: this is in the form `integration.subsection.model`, the class submodule would just be transformers.Swin2SRModel
+    print("transformers.vision.Swin2SRModel")
 
     dataset = load_dataset("huggingface/cats-image", trust_remote_code=True)
     image = dataset["test"]["image"][0]
