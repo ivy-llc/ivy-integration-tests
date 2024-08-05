@@ -36,6 +36,6 @@ if __name__ == "__main__":
 
     failing_tests = sorted(failing_tests)
 
-    with open("FAILING_TESTS.txt") as out_file:
+    with open("FAILING_TESTS.txt", "w") as out_file:
         for line in failing_tests:
             out_file.write(line)
