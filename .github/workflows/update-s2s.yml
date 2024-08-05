@@ -111,5 +111,5 @@ jobs:
           git config --global user.email "hello@transpile-ai.com"
           git config --global user.name "ivy-dev-bot"
           git add FAILING_TESTS.txt
-          git commit -m "Auto-update native compilation integration tests dashboard"
+          git commit -m "Auto-update failing tests"
           git push
