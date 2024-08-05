@@ -104,6 +104,20 @@ def _backend_compile(obj, target):
     return obj
 
 
+def _target_to_simplified(target: str):
+    """
+    Convert the name of a target framework to its simplified form,
+    such as 'tensorflow' -> 'tf'.
+    """
+    if target == "numpy":
+        return "np"
+    if target == "tensorflow":
+        return "tf"
+    if target == "torch":
+        return "pt"
+    return target
+
+
 def _test_trace_function(
     fn,
     trace_args,

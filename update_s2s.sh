@@ -13,6 +13,12 @@ pip3 install -e ivy/
 cd ivy-integration-tests
 pip3 install -r requirements.txt
 
+if [ "$integration" = "transformers" ]; then
+    pip3 install tensorflow==2.15.1
+    pip3 install datasets
+    pip3 install transformers
+fi
+
 # get the nightly binaries
 python << 'EOF'
 import ivy
