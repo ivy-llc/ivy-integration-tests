@@ -5,12 +5,16 @@ permissions:
   actions: read
   contents: write
 jobs:
-  update-kornia:
+  test-kornia:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        file : [ test_contrib, test_utils ]
+        file : [ test_contrib, test_enhance, test_feature, test_filters, test_losses,
+                 test_metrics, test_morphology, test_utils, geometry/test_bbox, geometry/test_calibration,
+                 geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar,
+                 geometry/test_homography, geometry/test_linalg, geometry/test_solvers, geometry/test_subpix,
+                 geometry/test_transform ]
         compile : [ F ]
     steps:
       - name: Checkout ivy-integration-tests
@@ -57,7 +61,7 @@ jobs:
           name: test-results-kornia-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
           path: ivy-integration-tests/test_results.txt
 
-  update-transformers:
+  test-transformers:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -109,11 +113,11 @@ jobs:
           name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
           path: ivy-integration-tests/test_results.txt
 
-  update-dashboard:
+  display-results:
     runs-on: ubuntu-latest
     needs:
-      - update-kornia
-      - update-transformers
+      - test-kornia
+      - test-transformers
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4

@@ -70,12 +70,13 @@ if __name__ == "__main__":
     else:
         percent_passing = 0
 
+    failing = set(failing)
     print("Failing:")
     for failing_fn in failing:
         print(function)
 
-    print(f"\n\nTotal Tests Passing: {passed}\n")
-    print(f"Total Tests Failing: {failed}\n")
-    print(f"Percent Tests Passing: {percent_passing}%\n")
-    print(f"Successfully Transpiling to all targets: {percent_fns_passing_all_targets}%\n")
-    print(f"Successfully Transpiling to TensorFlow: {percent_fns_passing_tensorflow}%\n")
+    print(f"\n\nTotal Tests Passing: {passed}")
+    print(f"Total Tests Failing: {failed}")
+    print(f"Percent Tests Passing: {percent_passing}%")
+    print(f"Successfully Transpiling to all targets: {percent_fns_passing_all_targets}%")
+    print(f"Successfully Transpiling to TensorFlow: {percent_fns_passing_tensorflow}%")
