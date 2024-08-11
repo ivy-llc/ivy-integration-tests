@@ -287,7 +287,6 @@ Obj: kornia.geometry.transform.pyramid.pyrup | Target: tensorflow | Native Compi
 Obj: kornia.geometry.transform.pyramid.pyrup | Target: tensorflow | Native Compiled: True
 Obj: kornia.geometry.transform.pyramid.upscale_double | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.transform.pyramid.upscale_double | Target: tensorflow | Native Compiled: True
-Obj: kornia.geometry.transform.thin_plate_spline.get_tps_transform | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.transform.thin_plate_spline.get_tps_transform | Target: tensorflow | Native Compiled: True
 Obj: kornia.geometry.transform.thin_plate_spline.warp_image_tps | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.transform.thin_plate_spline.warp_image_tps | Target: tensorflow | Native Compiled: True
