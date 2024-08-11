@@ -1,8 +1,6 @@
-name: update-s2s
+name: manual-integration-tests
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 1 * * *"
 permissions:
   actions: read
   contents: write
@@ -12,12 +10,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        file : [ test_color, test_contrib, test_enhance, test_feature, test_filters, test_losses,
-                 test_metrics, test_morphology, test_utils, geometry/test_bbox, geometry/test_calibration,
-                 geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar,
-                 geometry/test_homography, geometry/test_linalg, geometry/test_solvers, geometry/test_subpix,
-                 geometry/test_transform ]
-        compile : [ T, F ]
+        file : [ test_contrib, test_utils ]
+        compile : [ F ]
     steps:
       - name: Checkout ivy-integration-tests
         uses: actions/checkout@v4
@@ -44,9 +38,9 @@ jobs:
         id: tests
         run: |
           if [ "${{ steps.jobs.outputs.html_url }}" = "null" ]; then
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} linux-nightly ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} manual-testing ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
           else
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} manual-testing ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
 
       - name: Prepare Artifact Name
@@ -69,7 +63,7 @@ jobs:
       fail-fast: false
       matrix:
         file : [ test_vision ]
-        compile : [ T, F ]
+        compile : [ F ]
     steps:
       - name: Checkout ivy-integration-tests
         uses: actions/checkout@v4
@@ -96,9 +90,9 @@ jobs:
         id: tests
         run: |
           if [ "${{ steps.jobs.outputs.html_url }}" = "null" ]; then
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} linux-nightly ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} manual-testing ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
           else
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} manual-testing ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
 
       - name: Prepare Artifact Name
@@ -134,35 +128,6 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Update Native Compilation Dashboard
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+      - name: Display Test Results
         run: |
-          python update_s2s_dashboard.py --backend-compile
-          git config --global user.email "hello@transpile-ai.com"
-          git config --global user.name "ivy-dev-bot"
-          git add NATIVE_COMPILATION_DASHBOARD.md
-          git commit -m "Auto-update native compilation integration tests dashboard"
-          git push
-
-      - name: Update Dashboard
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
-        run: |
-          python update_s2s_dashboard.py
-          git config --global user.email "hello@transpile-ai.com"
-          git config --global user.name "ivy-dev-bot"
-          git add DASHBOARD.md
-          git commit -m "Auto-update integration tests dashboard"
-          git push
-
-      - name: Update Failing Tests
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEV_BOT_GENERAL_PAT }}
-        run: |
-          python find_all_failing_tests.py
-          git config --global user.email "hello@transpile-ai.com"
-          git config --global user.name "ivy-dev-bot"
-          git add FAILING_TESTS.txt
-          git commit -m "Auto-update failing tests"
-          git push
+          python display_manual_test_results.py

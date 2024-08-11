@@ -2,12 +2,13 @@
 
 integration=$1
 file=$2
-backend_compile=$3
-workflow_link=$4
-api_key=$5
+binaries=$3
+backend_compile=$4
+workflow_link=$5
+api_key=$6
 
 export IVY_KEY=$api_key
-export VERSION=linux-nightly  # set the branch to pull the binaries from
+export VERSION=$binaries  # set the branch to pull the binaries from
 
 pip3 install -e ivy/
 cd ivy-integration-tests
