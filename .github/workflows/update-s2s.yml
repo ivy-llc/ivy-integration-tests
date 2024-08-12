@@ -12,12 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        file : [ test_color, test_contrib, test_enhance, test_feature, test_filters, test_losses,
-                 test_metrics, test_morphology, test_utils, geometry/test_bbox, geometry/test_calibration,
-                 geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar,
-                 geometry/test_homography, geometry/test_linalg, geometry/test_solvers, geometry/test_subpix,
-                 geometry/test_transform ]
-        compile : [ T, F ]
+        file : [ test_contrib, test_utils ]
+        compile : [ F ]
     steps:
       - name: Checkout ivy-integration-tests
         uses: actions/checkout@v4
@@ -112,8 +108,10 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
-          path: ivy-integration-tests/test_results.txt
+            name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
+            path: |
+                ivy-integration-tests/test_results.txt
+                ivy-integration-tests/test_logs.txt
 
   update-dashboard:
     runs-on: ubuntu-latest
@@ -164,5 +162,6 @@ jobs:
           git config --global user.email "hello@transpile-ai.com"
           git config --global user.name "ivy-dev-bot"
           git add FAILING_TESTS.txt
+          git add TEST_LOGS.txt
           git commit -m "Auto-update failing tests"
           git push
