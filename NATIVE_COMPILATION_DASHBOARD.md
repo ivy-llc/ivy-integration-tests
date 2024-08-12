@@ -17,7 +17,7 @@
 
 | Function | numpy | jax | tensorflow |
 |----------|-------|-----|------------|
-| transformers.Swin2SRModel | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638169408) |
+| transformers.Swin2SRModel | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639169864) |
 </details>
 
 </div>
