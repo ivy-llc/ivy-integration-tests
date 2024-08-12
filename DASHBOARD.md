@@ -17,11 +17,11 @@
 
 | Function | numpy | jax | tensorflow |
 |----------|-------|-----|------------|
-| kornia.contrib.extract_patches.compute_padding | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![passed](https://img.shields.io/badge/passed-green)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638169668) |
-| kornia.contrib.extract_patches.extract_tensor_patches | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![passed](https://img.shields.io/badge/passed-green)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638169668) |
-| kornia.contrib.extract_patches.combine_tensor_patches | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638169668) |
-| kornia.contrib.distance_transform.distance_transform | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638169668) |
-| kornia.contrib.diamond_square.diamond_square | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638169668) |
+| kornia.contrib.extract_patches.compute_padding | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![passed](https://img.shields.io/badge/passed-green)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170228) |
+| kornia.contrib.extract_patches.extract_tensor_patches | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![passed](https://img.shields.io/badge/passed-green)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170228) |
+| kornia.contrib.extract_patches.combine_tensor_patches | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170228) |
+| kornia.contrib.distance_transform.distance_transform | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170228) |
+| kornia.contrib.diamond_square.diamond_square | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170228) |
 </details>
 
 </div>
@@ -32,12 +32,12 @@
 
 | Function | numpy | jax | tensorflow |
 |----------|-------|-----|------------|
-| kornia.utils.draw.draw_line | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![passed](https://img.shields.io/badge/passed-green)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638170112) |
-| kornia.utils.draw.draw_rectangle | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![passed](https://img.shields.io/badge/passed-green)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638170112) |
-| kornia.utils.draw.draw_convex_polygon | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638170112) |
-| kornia.utils.grid.create_meshgrid | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638170112) |
-| kornia.utils.grid.create_meshgrid3d | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638170112) |
-| kornia.utils.one_hot.one_hot | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638170112) |
+| kornia.utils.draw.draw_line | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![passed](https://img.shields.io/badge/passed-green)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170797) |
+| kornia.utils.draw.draw_rectangle | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![passed](https://img.shields.io/badge/passed-green)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170797) |
+| kornia.utils.draw.draw_convex_polygon | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170797) |
+| kornia.utils.grid.create_meshgrid | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170797) |
+| kornia.utils.grid.create_meshgrid3d | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170797) |
+| kornia.utils.one_hot.one_hot | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170797) |
 </details>
 
 </div>
@@ -56,7 +56,7 @@
 
 | Function | numpy | jax | tensorflow |
 |----------|-------|-----|------------|
-| transformers.Swin2SRModel | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347605845/job/28638169881) |
+| transformers.Swin2SRModel | [![missing](https://img.shields.io/badge/missing-gray)]() | [![missing](https://img.shields.io/badge/missing-gray)]() | [![failed](https://img.shields.io/badge/failed-red)](https://github.com/ivy-llc/ivy-integration-tests/actions/runs/10347939646/job/28639170485) |
 </details>
 
 </div>
