@@ -51,13 +51,15 @@ jobs:
         run: |
           safe_file_name=$(echo "${{ matrix.file }}" | sed 's/\//-/g')
           echo "::set-output name=safe_file_name::$safe_file_name"
-
+  
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results-kornia-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
-          path: ivy-integration-tests/test_results.txt
+          name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
+          path: |
+            ivy-integration-tests/test_results.txt
+            ivy-integration-tests/test_logs.txt
 
   update-transformers:
     runs-on: ubuntu-latest
