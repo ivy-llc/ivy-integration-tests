@@ -1,4 +1,4 @@
-name: manual-integration-tests
+name: generate-test-failures
 on:
   workflow_dispatch:
 permissions:
