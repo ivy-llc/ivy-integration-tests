@@ -18,7 +18,7 @@ FAILED kornia/test_morphology.py::test_closing[tensorflow-s2s-False] - NameError
 FAILED kornia/test_morphology.py::test_gradient[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_morphology.py::test_top_hat[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_morphology.py::test_bottom_hat[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-==================================================================================== 7 failed in 615.25s (0:10:15) =====================================================================================
+==================================================================================== 7 failed in 641.75s (0:10:41) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -35,7 +35,7 @@ FAILED kornia/test_losses.py::test_ssim3d_loss[tensorflow-s2s-False] - NameError
 FAILED kornia/test_losses.py::test_focal_loss[tensorflow-s2s-False] - TypeError: tensorflow_one_hot_bknd_() got an unexpected keyword argument 'num_classes'
 FAILED kornia/test_losses.py::test_dice_loss[tensorflow-s2s-False] - TypeError: tensorflow_one_hot_bknd_() got an unexpected keyword argument 'num_classes'
 FAILED kornia/test_losses.py::test_tversky_loss[tensorflow-s2s-False] - TypeError: tensorflow_one_hot_bknd_() got an unexpected keyword argument 'num_classes'
-============================================================================== 4 failed, 13 passed in 1105.29s (0:18:25) ===============================================================================
+============================================================================== 4 failed, 13 passed in 1082.39s (0:18:02) ===============================================================================
 
 
 ========================================================================================= test session starts ==========================================================================================
@@ -54,7 +54,7 @@ FAILED kornia/test_color.py::test_rgb_to_yuv420[tensorflow-s2s-False] - Assertio
 FAILED kornia/test_color.py::test_rgb_to_raw[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/test_color.py::test_raw_to_rgb[tensorflow-s2s-False] - ValueError: Unsupported CFA Got CFA.RG.
 FAILED kornia/test_color.py::test_raw_to_rgb_2x2_downscaled[tensorflow-s2s-False] - ValueError: Unsupported CFA Got CFA.RG.
-============================================================================== 5 failed, 28 passed in 1527.58s (0:25:27) ===============================================================================
+============================================================================== 5 failed, 28 passed in 1618.39s (0:26:58) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -62,16 +62,15 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/geometry/test_homography.py .FFF..F.                                                                                                                                                      [100%]
+kornia/geometry/test_homography.py FF....F.                                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
+FAILED kornia/geometry/test_homography.py::test_find_homography_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_homography.py::test_find_homography_dlt_iterated[tensorflow-s2s-False] - ValueError: not enough values to unpack (expected 3, got 2)
-FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt_iterated[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_homography.py::test_sample_is_valid_for_homography[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Value for attr 'T' of bool is no...
-=============================================================================== 4 failed, 4 passed in 866.80s (0:14:26) ================================================================================
+=============================================================================== 3 failed, 5 passed in 898.83s (0:14:58) ================================================================================
 
 
 ========================================================================================= test session starts ==========================================================================================
@@ -98,7 +97,7 @@ FAILED kornia/test_filters.py::test_get_gaussian_discrete_kernel1d[tensorflow-s2
 FAILED kornia/test_filters.py::test_get_laplacian_kernel1d[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_filters.py::test_get_laplacian_kernel2d[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_filters.py::test_get_motion_kernel2d[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-============================================================================== 13 failed, 14 passed in 2378.82s (0:39:38) ==============================================================================
+============================================================================== 13 failed, 14 passed in 2257.52s (0:37:37) ==============================================================================
 
 
 ========================================================================================= test session starts ==========================================================================================
@@ -114,7 +113,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_solvers.py::test_solve_quadratic[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/geometry/test_solvers.py::test_solve_cubic[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-=============================================================================== 2 failed, 3 passed in 199.14s (0:03:19) ================================================================================
+=============================================================================== 2 failed, 3 passed in 219.11s (0:03:39) ================================================================================
 
 
 ========================================================================================= test session starts ==========================================================================================
@@ -130,7 +129,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_calibration.py::test_undistort_image[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/geometry/test_calibration.py::test_solve_pnp_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 2 failed, 3 passed in 490.54s (0:08:10) ================================================================================
+=============================================================================== 2 failed, 3 passed in 475.55s (0:07:55) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -146,7 +145,7 @@ report saved to: test_report.json
 FAILED kornia/test_feature.py::test_gftt_response[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_feature.py::test_harris_response[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_feature.py::test_hessian_response[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.4951, 0.8763],
+FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.9412, 0.9202],
 FAILED kornia/test_feature.py::test_match_nn[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_feature.py::test_match_mnn[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_feature.py::test_match_snn[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
@@ -157,7 +156,7 @@ FAILED kornia/test_feature.py::test_extract_patches_simple[tensorflow-s2s-False]
 FAILED kornia/test_feature.py::test_normalize_laf[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_feature.py::test_denormalize_laf[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_feature.py::test_laf_is_inside_image[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Value for attr 'T' of bool is not in the list of allowe...
-============================================================================== 14 failed, 16 passed in 2326.05s (0:38:46) ==============================================================================
+============================================================================== 14 failed, 16 passed in 2362.63s (0:39:22) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -169,7 +168,7 @@ kornia/geometry/test_linalg.py ........                                         
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 8 passed in 420.91s (0:07:00) =====================================================================================
+==================================================================================== 8 passed in 458.78s (0:07:38) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -181,7 +180,7 @@ kornia/geometry/test_camera.py ............                                     
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 12 passed in 686.84s (0:11:26) ====================================================================================
+==================================================================================== 12 passed in 606.02s (0:10:06) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -189,20 +188,18 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 26 items
 
-kornia/geometry/test_epipolar.py F..FFF.F............F..F.F                                                                                                                                      [100%]
+kornia/geometry/test_epipolar.py F...FF..............F..F.F                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_epipolar.py::test_find_essential[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-FAILED kornia/geometry/test_epipolar.py::test_decompose_essential_matrix[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential_choose_solution[tensorflow-s2s-False] - TypeError: '>' not supported between instances of 'TensorShape' and 'TensorShape'
-FAILED kornia/geometry/test_epipolar.py::test_find_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_projections_from_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_random_intrinsics[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_Outp...
 FAILED kornia/geometry/test_epipolar.py::test_triangulate_points[tensorflow-s2s-False] - TypeError: '>' not supported between instances of 'TensorShape' and 'TensorShape'
-============================================================================== 8 failed, 18 passed in 1939.11s (0:32:19) ===============================================================================
+============================================================================== 6 failed, 20 passed in 1968.47s (0:32:48) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -218,7 +215,7 @@ report saved to: test_report.json
 FAILED kornia/test_contrib.py::test_compute_padding[tensorflow-s2s-False] - NameError: name 'FullPadType' is not defined
 FAILED kornia/test_contrib.py::test_distance_transform[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_contrib.py::test_diamond_square[tensorflow-s2s-False] - AttributeError: 'torch.dtype' object has no attribute 'is_integer'
-=============================================================================== 3 failed, 2 passed in 381.94s (0:06:21) ================================================================================
+=============================================================================== 3 failed, 2 passed in 388.73s (0:06:28) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -232,7 +229,7 @@ transformers/test_vision.py F                                                   
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED transformers/test_vision.py::test_Swin2SR[tensorflow-s2s-False] - Exception: Only function or class objects are supported but the passed in object has type <class 'functools._lru_cache_wrapp...
-==================================================================================== 1 failed in 284.00s (0:04:44) =====================================================================================
+==================================================================================== 1 failed in 269.75s (0:04:29) =====================================================================================
 
 
 
@@ -249,7 +246,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_enhance.py::test_equalize_clahe[tensorflow-s2s-False] - IndexError: list index out of range
 FAILED kornia/test_enhance.py::test_jpeg_codec_differentiable[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-============================================================================== 2 failed, 24 passed in 1981.64s (0:33:01) ===============================================================================
+============================================================================== 2 failed, 24 passed in 1833.69s (0:30:33) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -264,7 +261,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_depth.py::test_unproject_meshgrid[tensorflow-s2s-False] - TypeError: Cannot convert the argument `type_value`: torch.float32 to a TensorFlow DType.
 FAILED kornia/geometry/test_depth.py::test_depth_to_normals[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient'
-=============================================================================== 2 failed, 4 passed in 575.39s (0:09:35) ================================================================================
+=============================================================================== 2 failed, 4 passed in 549.85s (0:09:09) ================================================================================
 
 
 
@@ -281,7 +278,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_utils.py::test_draw_convex_polygon[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/test_utils.py::test_one_hot[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-=============================================================================== 2 failed, 4 passed in 384.80s (0:06:24) ================================================================================
+=============================================================================== 2 failed, 4 passed in 360.00s (0:06:00) ================================================================================
 
 
 
@@ -299,7 +296,7 @@ report saved to: test_report.json
 FAILED kornia/test_metrics.py::test_mean_iou[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'confusion_matrix'
 FAILED kornia/test_metrics.py::test_mean_average_precision[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'mean_iou_bbox'
 FAILED kornia/test_metrics.py::test_ssim3d[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-=============================================================================== 3 failed, 6 passed in 659.10s (0:10:59) ================================================================================
+=============================================================================== 3 failed, 6 passed in 644.67s (0:10:44) ================================================================================
 
 
 
@@ -334,7 +331,7 @@ FAILED kornia/geometry/test_transform.py::test_get_perspective_transform3d[tenso
 FAILED kornia/geometry/test_transform.py::test_crop_by_boxes[tensorflow-s2s-False] - AttributeError: 'float' object has no attribute 'add'
 FAILED kornia/geometry/test_transform.py::test_center_crop[tensorflow-s2s-False] - AttributeError: 'float' object has no attribute 'add'
 FAILED kornia/geometry/test_transform.py::test_crop_and_resize[tensorflow-s2s-False] - AttributeError: 'float' object has no attribute 'add'
-============================================================================== 16 failed, 24 passed in 4318.93s (1:11:58) ==============================================================================
+============================================================================== 16 failed, 24 passed in 4264.45s (1:11:04) ==============================================================================
 
 
 
@@ -354,7 +351,7 @@ FAILED kornia/geometry/test_subpix.py::test_conv_soft_argmax3d[tensorflow-s2s-Fa
 FAILED kornia/geometry/test_subpix.py::test_conv_quad_interp3d[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient3d'
 FAILED kornia/geometry/test_subpix.py::test_nms2d[tensorflow-s2s-False] - TypeError: tensorflow_pad_frnt() missing 1 required positional argument: 'pad'
 FAILED kornia/geometry/test_subpix.py::test_nms3d[tensorflow-s2s-False] - TypeError: tensorflow_pad_frnt() missing 1 required positional argument: 'pad'
-=============================================================================== 5 failed, 4 passed in 818.43s (0:13:38) ================================================================================
+=============================================================================== 5 failed, 4 passed in 781.62s (0:13:01) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -369,7 +366,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_bbox.py::test_bbox_to_mask[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/geometry/test_bbox.py::test_bbox_to_mask3d[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-=============================================================================== 2 failed, 6 passed in 541.32s (0:09:01) ================================================================================
+=============================================================================== 2 failed, 6 passed in 534.52s (0:08:54) ================================================================================
 
 
 ========================================================================================= test session starts ==========================================================================================
@@ -386,5 +383,5 @@ report saved to: test_report.json
 FAILED kornia/geometry/test_conversions.py::test_normalize_homography[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/geometry/test_conversions.py::test_denormalize_homography[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
 FAILED kornia/geometry/test_conversions.py::test_normalize_homography3d[tensorflow-s2s-False] - NameError: name 'ivy' is not defined
-============================================================================== 3 failed, 35 passed in 2271.13s (0:37:51) ===============================================================================
+============================================================================== 3 failed, 35 passed in 2255.28s (0:37:35) ===============================================================================
 
