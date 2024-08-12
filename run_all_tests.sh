@@ -22,7 +22,7 @@ EOF
 
 # runs the tests on the latest ivy commit, and the linux binaries that are built nightly
 set +e
-pytest kornia/test_contrib.py --source-to-source -p no:warnings --tb=no
+COLUMNS=200 pytest kornia/test_contrib.py --source-to-source -p no:warnings --tb=line
 pytest_exit_code=$?
 set -e
 
