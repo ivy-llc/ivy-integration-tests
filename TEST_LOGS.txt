@@ -1,0 +1,48 @@
+
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 5 items
+
+kornia/test_contrib.py ..FFF                                                                                                                                                                     [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED kornia/test_contrib.py::test_combine_tensor_patches[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
+FAILED kornia/test_contrib.py::test_distance_transform[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
+FAILED kornia/test_contrib.py::test_diamond_square[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
+=============================================================================== 3 failed, 2 passed in 322.39s (0:05:22) ================================================================================
+
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 1 item
+
+transformers/test_vision.py F                                                                                                                                                                    [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED transformers/test_vision.py::test_Swin2SR[tensorflow-s2s-False] - IndexError: Exception encountered when calling layer 'tensorflow__swin2sr_embeddings' (type tensorflow_Swin2SREmbeddings).
+==================================================================================== 1 failed in 1024.70s (0:17:04) ====================================================================================
+
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 6 items
+
+kornia/test_utils.py ..FFFF                                                                                                                                                                      [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED kornia/test_utils.py::test_draw_convex_polygon[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_utils.py::test_create_meshgrid[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
+FAILED kornia/test_utils.py::test_create_meshgrid3d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
+FAILED kornia/test_utils.py::test_one_hot[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
+=============================================================================== 4 failed, 2 passed in 365.10s (0:06:05) ================================================================================
+

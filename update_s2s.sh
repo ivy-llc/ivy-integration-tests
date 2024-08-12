@@ -29,10 +29,11 @@ EOF
 # runs the tests on the latest ivy commit, and the linux binaries that are built nightly
 set +e
 if [ "$backend_compile" = "T" ]; then
-    pytest $integration/$file.py --backend-compile --source-to-source -p no:warnings --tb=short --json-report --json-report-file=test_report.json
+    touch test_logs.txt
+    COLUMNS=200 pytest $integration/$file.py --backend-compile --source-to-source -p no:warnings --tb=no --json-report --json-report-file=test_report.json
     pytest_exit_code=$?
 else
-    pytest $integration/$file.py -p no:warnings --source-to-source --tb=short --json-report --json-report-file=test_report.json
+    COLUMNS=200 pytest $integration/$file.py -p no:warnings --source-to-source --tb=no --json-report --json-report-file=test_report.json > test_logs.txt
     pytest_exit_code=$?
 fi
 set -e
