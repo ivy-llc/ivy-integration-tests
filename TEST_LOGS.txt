@@ -1,0 +1,28 @@
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 1 item
+
+transformers/test_vision.py F                                                                                                                                                                    [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED transformers/test_vision.py::test_Swin2SR[tensorflow-s2s-True] - tensorflow.python.framework.errors_impl.OperatorNotAllowedInGraphError: in user code:
+==================================================================================== 1 failed in 987.60s (0:16:27) =====================================================================================
+
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 1 item
+
+transformers/test_vision.py F                                                                                                                                                                    [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED transformers/test_vision.py::test_Swin2SR[tensorflow-s2s-False] - IndexError: Exception encountered when calling layer 'tensorflow__swin2sr_embeddings' (type tensorflow_Swin2SREmbeddings).
+==================================================================================== 1 failed in 1006.74s (0:16:46) ====================================================================================
+
