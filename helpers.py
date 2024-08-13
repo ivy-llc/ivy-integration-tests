@@ -195,7 +195,16 @@ def _test_source_to_source_function(
     translated_fn = ivy.source_to_source(fn, source="torch", target="tensorflow")
 
     if backend_compile:
-        translated_fn = _backend_compile(translated_fn, target)
+        try:
+            fn = torch.compile(fn)
+            fn(*trace_args, **trace_kwargs)
+            orig_compilable = True
+        except:
+            orig_compilable = False
+
+        # only test with backend compilation if the original function was compilable in torch
+        if orig_compilable:
+            translated_fn = _backend_compile(translated_fn, target)
 
     # test it works with the trace_args as input
     orig_out = fn(*trace_args, **trace_kwargs)
