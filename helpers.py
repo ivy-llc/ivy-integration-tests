@@ -43,6 +43,36 @@ def _check_allclose(x, y, tolerance=1e-3):
     assert x == y, f"values differ: {x} != {y}"
 
 
+def _check_shape_allclose(x, y, tolerance=1e-3):
+    """
+    Checks that all array shapes are close. Any arrays must already be in numpy format, rather than native framework.
+    """
+
+    if isinstance(x, np.ndarray):
+        assert np.allclose(x.shape, y.shape, atol=tolerance), "numpy array shapes are not all close"
+        return
+
+    if isinstance(x, (list, set, tuple)):
+        all([
+            _check_allclose(element_x, element_y, tolerance=tolerance) for element_x, element_y in zip(x, y)
+        ])
+        return
+
+    if isinstance(x, dict):
+        all([key_x == key_y for key_x, key_y in zip(x.keys(), y.keys())])
+        all([
+            _check_allclose(element_x, element_y, tolerance=tolerance)
+            for element_x, element_y in zip(x.values(), y.values())
+        ])
+        return
+
+    if isinstance(x, float):
+        assert x - y < tolerance, f"float values differ: {x} != {y}"
+        return
+
+    assert x == y, f"values differ: {x} != {y}"
+
+
 def _native_array_to_numpy(x):
     if isinstance(x, torch.Tensor):
         return x.detach().numpy()
