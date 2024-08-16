@@ -13,6 +13,7 @@ export VERSION=$binaries  # set the branch to pull the binaries from
 pip3 install -e ivy/
 cd ivy-integration-tests
 pip3 install -r requirements.txt
+pip3 install color-operations
 
 if [ "$integration" = "transformers" ]; then
     pip3 install tensorflow==2.15.1

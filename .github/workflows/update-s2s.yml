@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        file : [ test_color, test_contrib, test_enhance, test_feature, test_filters, test_losses,
+        file : [ test_color, test_contrib, test_enhance, test_feature, test_filters, test_image, test_losses,
                  test_metrics, test_morphology, test_utils, geometry/test_bbox, geometry/test_boxes, geometry/test_calibration,
                  geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar,
                  geometry/test_homography, geometry/test_linalg, geometry/test_solvers, geometry/test_subpix,
