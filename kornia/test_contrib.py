@@ -155,7 +155,7 @@ def test_EdgeDetector(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    TranspiledEdgeDetector = ivy.transpile(kornia.contrib.EdgeDetector, source="torch", target="tensorflow")
+    TranspiledEdgeDetector = ivy.transpile(kornia.contrib.EdgeDetector, source="torch", target=target)
 
     torch_detector = kornia.contrib.EdgeDetector()
     transpiled_detector = TranspiledEdgeDetector()
@@ -179,7 +179,7 @@ def test_FaceDetector(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    TranspiledFaceDetector = ivy.transpile(kornia.contrib.FaceDetector, source="torch", target="tensorflow")
+    TranspiledFaceDetector = ivy.transpile(kornia.contrib.FaceDetector, source="torch", target=target)
 
     torch_detector = kornia.contrib.FaceDetector()
     transpiled_detector = TranspiledFaceDetector()
@@ -203,7 +203,7 @@ def test_VisionTransformer(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    TranspiledVisionTransformer = ivy.transpile(kornia.contrib.VisionTransformer, source="torch", target="tensorflow")
+    TranspiledVisionTransformer = ivy.transpile(kornia.contrib.VisionTransformer, source="torch", target=target)
 
     torch_vit = kornia.contrib.VisionTransformer()
     transpiled_vit = TranspiledVisionTransformer()
@@ -227,7 +227,7 @@ def test_KMeans(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    TranspiledKMeans = ivy.transpile(kornia.contrib.KMeans, source="torch", target="tensorflow")
+    TranspiledKMeans = ivy.transpile(kornia.contrib.KMeans, source="torch", target=target)
 
     torch_kmeans = kornia.contrib.KMeans(3, None, 10e-4, 100, 0)
     transpiled_kmeans = TranspiledKMeans(3, None, 10e-4, 100, 0)

@@ -27,7 +27,7 @@ def _test_color_class(
     if backend_compile:
         pytest.skip()
 
-    transpiled_cls = ivy.transpile(cls, source="torch", target="tensorflow")
+    transpiled_cls = ivy.transpile(cls, source="torch", target=target)
 
     torch_obj = cls(*init_args)
     transpiled_obj = transpiled_cls(*init_args)

@@ -222,7 +222,7 @@ def _test_source_to_source_function(
     if backend_compile and target == "numpy":
         pytest.skip()
 
-    translated_fn = ivy.source_to_source(fn, source="torch", target="tensorflow")
+    translated_fn = ivy.source_to_source(fn, source="torch", target=target)
 
     if backend_compile:
         try:
