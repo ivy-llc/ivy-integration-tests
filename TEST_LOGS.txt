@@ -1,5 +1,4 @@
 
-
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
 rootdir: /ivy/ivy-integration-tests
@@ -10,7 +9,7 @@ kornia/test_morphology.py .......                                               
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 7 passed in 636.67s (0:10:36) =====================================================================================
+==================================================================================== 7 passed in 612.51s (0:10:12) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -26,16 +25,15 @@ report saved to: test_report.json
 FAILED kornia/test_losses.py::test_focal_loss[tensorflow-s2s-False] - TypeError: tensorflow_one_hot_bknd_() got an unexpected keyword argument 'num_classes'
 FAILED kornia/test_losses.py::test_dice_loss[tensorflow-s2s-False] - TypeError: tensorflow_one_hot_bknd_() got an unexpected keyword argument 'num_classes'
 FAILED kornia/test_losses.py::test_tversky_loss[tensorflow-s2s-False] - TypeError: tensorflow_one_hot_bknd_() got an unexpected keyword argument 'num_classes'
-============================================================================== 3 failed, 14 passed in 1103.17s (0:18:23) ===============================================================================
-
+============================================================================== 3 failed, 14 passed in 1116.86s (0:18:36) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
 rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
-collected 33 items
+collected 69 items
 
-kornia/test_color.py ...........F...........F.....FFF.                                                                                                                                           [100%]
+kornia/test_color.py ...........F...........F.....FFF.F..........F...........F.....FFF...F                                                                                                       [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
@@ -45,7 +43,14 @@ FAILED kornia/test_color.py::test_rgb_to_yuv420[tensorflow-s2s-False] - Assertio
 FAILED kornia/test_color.py::test_rgb_to_raw[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/test_color.py::test_raw_to_rgb[tensorflow-s2s-False] - ValueError: Unsupported CFA Got CFA.RG.
 FAILED kornia/test_color.py::test_raw_to_rgb_2x2_downscaled[tensorflow-s2s-False] - ValueError: Unsupported CFA Got CFA.RG.
-============================================================================== 5 failed, 28 passed in 1550.48s (0:25:50) ===============================================================================
+FAILED kornia/test_color.py::test_GrayscaleToRgb[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
+FAILED kornia/test_color.py::test_RgbToHls[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_RgbToHls.call().
+FAILED kornia/test_color.py::test_RgbToYuv420[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_color.py::test_RawToRgb[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_RawToRgb.call().
+FAILED kornia/test_color.py::test_RgbToRaw[tensorflow-s2s-False] - TypeError: kornia.color.raw.RgbToRaw() argument after * must be an iterable, not CFA
+FAILED kornia/test_color.py::test_RawToRgb2x2Downscaled[tensorflow-s2s-False] - TypeError: kornia.color.raw.RawToRgb2x2Downscaled() argument after * must be an iterable, not CFA
+FAILED kornia/test_color.py::test_apply_colormap[tensorflow-s2s-False] - ValueError: Base should be one of the available `ColorMapType` or a base colormap data (list[RGBColor])
+============================================================================== 12 failed, 57 passed in 4186.50s (1:09:46) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -53,16 +58,16 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/geometry/test_homography.py .F.F..F.                                                                                                                                                      [100%]
+kornia/geometry/test_homography.py .FFF..F.                                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_homography.py::test_find_homography_dlt_iterated[tensorflow-s2s-False] - ValueError: not enough values to unpack (expected 3, got 2)
+FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt_iterated[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_homography.py::test_sample_is_valid_for_homography[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Value for attr 'T' of bool is no...
-=============================================================================== 3 failed, 5 passed in 847.25s (0:14:07) ================================================================================
-
+=============================================================================== 4 failed, 4 passed in 897.25s (0:14:57) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -78,8 +83,7 @@ report saved to: test_report.json
 FAILED kornia/test_filters.py::test_median_blur[tensorflow-s2s-False] - TypeError: tensorflow_squeeze_frnt_() got an unexpected keyword argument 'axis'
 FAILED kornia/test_filters.py::test_unsharp_mask[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'gaussian_blur2d'
 FAILED kornia/test_filters.py::test_canny[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'gaussian_blur2d'
-============================================================================== 3 failed, 24 passed in 2427.10s (0:40:27) ===============================================================================
-
+============================================================================== 3 failed, 24 passed in 2326.11s (0:38:46) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -91,8 +95,7 @@ kornia/geometry/test_solvers.py .....                                           
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 5 passed in 228.82s (0:03:48) =====================================================================================
-
+==================================================================================== 5 passed in 190.13s (0:03:10) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -106,7 +109,26 @@ kornia/geometry/test_calibration.py ....F                                       
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_calibration.py::test_solve_pnp_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 1 failed, 4 passed in 467.18s (0:07:47) ================================================================================
+=============================================================================== 1 failed, 4 passed in 481.31s (0:08:01) ================================================================================
+
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 6 items
+
+kornia/augmentation/test_container.py FFFFFF                                                                                                                                                     [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED kornia/augmentation/test_container.py::test_AugmentationSequential[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_O...
+FAILED kornia/augmentation/test_container.py::test_ManyToManyAugmentationDispather[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Tra...
+FAILED kornia/augmentation/test_container.py::test_ManyToOneAugmentationDispather[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Tran...
+FAILED kornia/augmentation/test_container.py::test_ImageSequential[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/...
+FAILED kornia/augmentation/test_container.py::test_PatchSequential[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/...
+FAILED kornia/augmentation/test_container.py::test_VideoSequential[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/...
+==================================================================================== 6 failed in 553.54s (0:09:13) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -119,10 +141,27 @@ kornia/test_feature.py .....F......F.............F...                           
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.6719, 0.9454],
+FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.3948, 0.0385],
 FAILED kornia/test_feature.py::test_extract_patches_from_pyramid[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/test_feature.py::test_laf_is_inside_image[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Value for attr 'T' of bool is not in the list of allowe...
-============================================================================== 3 failed, 27 passed in 2454.14s (0:40:54) ===============================================================================
+============================================================================== 3 failed, 27 passed in 2448.57s (0:40:48) ===============================================================================
+
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 4 items
+
+kornia/geometry/test_boxes.py FFFF                                                                                                                                                               [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED kornia/geometry/test_boxes.py::test_Boxes_compute_area[tensorflow-s2s-False] - AssertionError: attributes/methods of transpiled class do not align with the original - orig: ['_N', '__class__...
+FAILED kornia/geometry/test_boxes.py::test_Boxes_from_tensor[tensorflow-s2s-False] - AssertionError: attributes/methods of transpiled class do not align with the original - orig: ['_N', '__class__'...
+FAILED kornia/geometry/test_boxes.py::test_Boxes_get_boxes_shape[tensorflow-s2s-False] - AssertionError: attributes/methods of transpiled class do not align with the original - orig: ['_N', '__clas...
+FAILED kornia/geometry/test_boxes.py::test_Boxes_merge[tensorflow-s2s-False] - ValueError: TypeError: object of type 'tensorflow_Boxes' has no len()
+==================================================================================== 4 failed in 286.14s (0:04:46) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -134,7 +173,7 @@ kornia/geometry/test_linalg.py ........                                         
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 8 passed in 460.40s (0:07:40) =====================================================================================
+==================================================================================== 8 passed in 456.21s (0:07:36) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -146,7 +185,7 @@ kornia/geometry/test_camera.py ............                                     
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 12 passed in 644.78s (0:10:44) ====================================================================================
+==================================================================================== 12 passed in 614.63s (0:10:14) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -154,34 +193,37 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 26 items
 
-kornia/geometry/test_epipolar.py F..F.F.F............F..F.F                                                                                                                                      [100%]
+kornia/geometry/test_epipolar.py F....F..F...........F..F.F                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_epipolar.py::test_find_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-FAILED kornia/geometry/test_epipolar.py::test_decompose_essential_matrix[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential_choose_solution[tensorflow-s2s-False] - TypeError: '>' not supported between instances of 'TensorShape' and 'TensorShape'
-FAILED kornia/geometry/test_epipolar.py::test_find_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_fundamental_from_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_projections_from_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_random_intrinsics[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_Outp...
 FAILED kornia/geometry/test_epipolar.py::test_triangulate_points[tensorflow-s2s-False] - TypeError: '>' not supported between instances of 'TensorShape' and 'TensorShape'
-============================================================================== 7 failed, 19 passed in 1966.86s (0:32:46) ===============================================================================
+============================================================================== 6 failed, 20 passed in 1844.77s (0:30:44) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
 rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
-collected 5 items
+collected 9 items
 
-kornia/test_contrib.py F...F                                                                                                                                                                     [100%]
+kornia/test_contrib.py F...FFFFF                                                                                                                                                                 [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_contrib.py::test_compute_padding[tensorflow-s2s-False] - NameError: name 'FullPadType' is not defined
 FAILED kornia/test_contrib.py::test_diamond_square[tensorflow-s2s-False] - AttributeError: 'torch.dtype' object has no attribute 'is_integer'
-=============================================================================== 2 failed, 3 passed in 422.33s (0:07:02) ================================================================================
+FAILED kornia/test_contrib.py::test_EdgeDetector[tensorflow-s2s-False] - OSError: source code not available
+FAILED kornia/test_contrib.py::test_FaceDetector[tensorflow-s2s-False] - NameError: name 'Translated_load_state_dict_from_url' is not defined
+FAILED kornia/test_contrib.py::test_VisionTransformer[tensorflow-s2s-False] - RuntimeError: The size of tensor a (401) must match the size of tensor b (197) at non-singleton dimension 1
+FAILED kornia/test_contrib.py::test_KMeans[tensorflow-s2s-False] - AttributeError: module 'ivy.functional.frontends.torch' has no attribute '_C'
+=============================================================================== 6 failed, 3 passed in 774.11s (0:12:54) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -194,10 +236,24 @@ transformers/test_vision.py F                                                   
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED transformers/test_vision.py::test_Swin2SR[tensorflow-s2s-False] - Exception: Only function or class objects are supported but the passed in object has type <class 'functools._lru_cache_wrapp...
-==================================================================================== 1 failed in 268.81s (0:04:28) =====================================================================================
+FAILED transformers/test_vision.py::test_Swin2SR[tensorflow-s2s-False] - IndexError: Exception encountered when calling layer 'tensorflow__swin2sr_embeddings' (type tensorflow_Swin2SREmbeddings).
+==================================================================================== 1 failed in 916.64s (0:15:16) =====================================================================================
 
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 3 items
 
+kornia/augmentation/test_auto.py FFF                                                                                                                                                             [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED kornia/augmentation/test_auto.py::test_AutoAugment[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Translate...
+FAILED kornia/augmentation/test_auto.py::test_RandAugment[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Translate...
+FAILED kornia/augmentation/test_auto.py::test_TrivialAugment[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Transl...
+==================================================================================== 3 failed in 255.36s (0:04:15) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -211,7 +267,7 @@ kornia/test_enhance.py ..............F...........                               
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_enhance.py::test_equalize_clahe[tensorflow-s2s-False] - IndexError: list index out of range
-============================================================================== 1 failed, 25 passed in 1945.13s (0:32:25) ===============================================================================
+============================================================================== 1 failed, 25 passed in 2018.34s (0:33:38) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -226,9 +282,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_depth.py::test_unproject_meshgrid[tensorflow-s2s-False] - TypeError: Cannot convert the argument `type_value`: torch.float32 to a TensorFlow DType.
 FAILED kornia/geometry/test_depth.py::test_depth_to_normals[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient'
-=============================================================================== 2 failed, 4 passed in 545.31s (0:09:05) ================================================================================
-
-
+=============================================================================== 2 failed, 4 passed in 563.13s (0:09:23) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -240,9 +294,7 @@ kornia/test_utils.py ......                                                     
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 6 passed in 374.50s (0:06:14) =====================================================================================
-
-
+==================================================================================== 6 passed in 363.61s (0:06:03) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -257,13 +309,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_metrics.py::test_mean_iou[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'confusion_matrix'
 FAILED kornia/test_metrics.py::test_mean_average_precision[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'mean_iou_bbox'
-=============================================================================== 2 failed, 7 passed in 616.55s (0:10:16) ================================================================================
-
-
-
-
-
-
+=============================================================================== 2 failed, 7 passed in 584.79s (0:09:44) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -286,9 +332,7 @@ FAILED kornia/geometry/test_transform.py::test_get_perspective_transform3d[tenso
 FAILED kornia/geometry/test_transform.py::test_crop_by_boxes[tensorflow-s2s-False] - AttributeError: 'float' object has no attribute 'add'
 FAILED kornia/geometry/test_transform.py::test_center_crop[tensorflow-s2s-False] - AttributeError: 'float' object has no attribute 'add'
 FAILED kornia/geometry/test_transform.py::test_crop_and_resize[tensorflow-s2s-False] - AttributeError: 'float' object has no attribute 'add'
-============================================================================== 10 failed, 30 passed in 4803.61s (1:20:03) ==============================================================================
-
-
+============================================================================== 10 failed, 30 passed in 4292.27s (1:11:32) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -304,7 +348,88 @@ report saved to: test_report.json
 FAILED kornia/geometry/test_subpix.py::test_conv_quad_interp3d[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient3d'
 FAILED kornia/geometry/test_subpix.py::test_nms2d[tensorflow-s2s-False] - TypeError: tensorflow_pad_frnt() missing 1 required positional argument: 'pad'
 FAILED kornia/geometry/test_subpix.py::test_nms3d[tensorflow-s2s-False] - TypeError: tensorflow_pad_frnt() missing 1 required positional argument: 'pad'
-=============================================================================== 3 failed, 6 passed in 802.28s (0:13:22) ================================================================================
+=============================================================================== 3 failed, 6 passed in 837.05s (0:13:57) ================================================================================
+
+========================================================================================= test session starts ==========================================================================================
+platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
+rootdir: /ivy/ivy-integration-tests
+plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
+collected 68 items
+
+kornia/augmentation/test_augmentation.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                    [100%]
+
+--------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
+report saved to: test_report.json
+======================================================================================= short test summary info ========================================================================================
+FAILED kornia/augmentation/test_augmentation.py::test_ColorJiggle[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/T...
+FAILED kornia/augmentation/test_augmentation.py::test_ColorJitter[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/T...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomAutoContrast[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Transl...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomBoxBlur[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomBrightness[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outp...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomChannelDropout[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomChannelShuffle[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Tran...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomClahe[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/T...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomContrast[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Output...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomEqualize[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomGamma[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/T...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomGaussianBlur[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Ou...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomGaussianIllumination[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Trans...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomGaussianNoise[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Trans...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomGrayscale[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translate...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomHue[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Tra...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomInvert[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_O...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomJPEG[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Tr...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomLinearCornerIllumination[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/T...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomLinearIllumination[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Transla...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMedianBlur[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translat...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMotionBlur[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outp...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomPlanckianJitter[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomPlasmaBrightness[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translate...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomPlasmaContrast[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomPlasmaShadow[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Ou...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomPosterize[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outpu...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomRain[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Tr...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomRGBShift[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Output...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSaltAndPepperNoise[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Transla...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSaturation[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outp...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSharpness[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outpu...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSnow[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Tr...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSolarize[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Output...
+FAILED kornia/augmentation/test_augmentation.py::test_CenterCrop[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_Out...
+FAILED kornia/augmentation/test_augmentation.py::test_PadTo[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_Outputs....
+FAILED kornia/augmentation/test_augmentation.py::test_RandomAffine[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomCrop[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_Out...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomElasticTransform[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Tr...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomErasing[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomFisheye[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomHorizontalFlip[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Tran...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomPerspective[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Transla...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomResizedCrop[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Transla...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomRotation[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Output...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomShear[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/T...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomThinPlateSpline[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Tra...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomVerticalFlip[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Transl...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomCutMixV2[tensorflow-s2s-False] - OSError: source code not available
+FAILED kornia/augmentation/test_augmentation.py::test_RandomJigsaw[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_O...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMixUpV2[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMosaic[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_O...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomTransplantation[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Tra...
+FAILED kornia/augmentation/test_augmentation.py::test_CenterCrop3D[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_O...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomAffine3D[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Output...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomCrop3D[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_O...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomDepthicalFlip3D[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Tra...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomHorizontalFlip3D[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Tr...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomRotation3D[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outp...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomVerticalFlip3D[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Tran...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomEqualize3D[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translat...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMotionBlur3D[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Ou...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomTransplantation3D[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'T...
+FAILED kornia/augmentation/test_augmentation.py::test_Denormalize[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_Ou...
+FAILED kornia/augmentation/test_augmentation.py::test_Normalize[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_Outp...
+FAILED kornia/augmentation/test_augmentation.py::test_LongestMaxSize[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated...
+FAILED kornia/augmentation/test_augmentation.py::test_Resize[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translated_Outputs...
+FAILED kornia/augmentation/test_augmentation.py::test_SmallestMaxSize[tensorflow-s2s-False] - ImportError: cannot import name 'Translated_lazy_property' from partially initialized module 'Translate...
+=================================================================================== 68 failed in 2882.99s (0:48:02) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -318,8 +443,7 @@ kornia/geometry/test_bbox.py ..F.....                                           
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_bbox.py::test_bbox_to_mask[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 1 failed, 7 passed in 523.39s (0:08:43) ================================================================================
-
+=============================================================================== 1 failed, 7 passed in 545.80s (0:09:05) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -331,5 +455,5 @@ kornia/geometry/test_conversions.py ......................................      
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-=================================================================================== 38 passed in 2191.68s (0:36:31) ====================================================================================
+=================================================================================== 38 passed in 3300.30s (0:55:00) ====================================================================================
 
