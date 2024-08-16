@@ -1,5 +1,14 @@
-from helpers import _test_function
+from helpers import (
+    _array_to_new_backend,
+    _check_allclose,
+    _nest_array_to_numpy,
+    _nest_torch_tensor_to_new_framework,
+    _test_function,
+)
+
+import ivy
 import kornia
+import numpy as np
 import pytest
 import torch
 
@@ -248,3 +257,97 @@ def test_aepe(target_framework, mode, backend_compile):
         tolerance=1e-3,
         mode=mode,
     )
+
+
+def test_SSIM(target_framework, mode, backend_compile):
+    print("kornia.metrics.SSIM")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledSSIM = ivy.transpile(kornia.metrics.SSIM, source="torch", target=target_framework)
+
+    torch_args = (
+        torch.rand(1, 4, 5, 5),
+        torch.rand(1, 4, 5, 5),
+    )
+    transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
+
+    torch_ssim = kornia.metrics.SSIM(5)
+    transpiled_ssim = TranspiledSSIM(5)
+
+    torch_out = torch_ssim(*torch_args)
+    transpiled_out = transpiled_ssim(*transpiled_args)
+
+    orig_np = _nest_array_to_numpy(torch_out)
+    transpiled_np = _nest_array_to_numpy(transpiled_out)
+    _check_allclose(orig_np, transpiled_np)
+
+
+def test_SSIM3D(target_framework, mode, backend_compile):
+    print("kornia.metrics.SSIM3D")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledSSIM3D = ivy.transpile(kornia.metrics.SSIM3D, source="torch", target=target_framework)
+
+    torch_args = (
+        torch.rand(1, 4, 5, 5, 5),
+        torch.rand(1, 4, 5, 5, 5),
+    )
+    transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
+
+    torch_ssim = kornia.metrics.SSIM3D(5)
+    transpiled_ssim = TranspiledSSIM3D(5)
+
+    torch_out = torch_ssim(*torch_args)
+    transpiled_out = transpiled_ssim(*transpiled_args)
+
+    orig_np = _nest_array_to_numpy(torch_out)
+    transpiled_np = _nest_array_to_numpy(transpiled_out)
+    _check_allclose(orig_np, transpiled_np)
+
+
+def test_AEPE(target_framework, mode, backend_compile):
+    print("kornia.metrics.AEPE")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAEPE = ivy.transpile(kornia.metrics.AEPE, source="torch", target=target_framework)
+
+    torch_args = (
+        torch.rand(1, 4, 5, 2),
+        torch.rand(1, 4, 5, 2),
+    )
+    transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
+
+    torch_epe = kornia.metrics.AEPE(reduction="mean")
+    transpiled_epe = TranspiledAEPE(reduction="mean")
+
+    torch_out = torch_epe(*torch_args)
+    transpiled_out = transpiled_epe(*transpiled_args)
+
+    orig_np = _nest_array_to_numpy(torch_out)
+    transpiled_np = _nest_array_to_numpy(transpiled_out)
+    _check_allclose(orig_np, transpiled_np)
+
+
+def test_AverageMeter(target_framework, mode, backend_compile):
+    print("kornia.metrics.AverageMeter")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAverageMeter = ivy.transpile(kornia.metrics.AverageMeter, source="torch", target=target_framework)
+
+    torch_stats = kornia.metrics.AverageMeter()
+    torch_acc1 = torch.tensor(0.99)
+    torch_stats.update(torch_acc1, n=1)
+
+    transpiled_stats = TranspiledAverageMeter()
+    transpiled_acc1 = _array_to_new_backend(torch.tensor(0.99), target_framework)
+    transpiled_stats.update(transpiled_acc1, n=1)
+
+    assert np.allclose(torch_stats.avg, transpiled_stats.avg, atol=1e-3)
