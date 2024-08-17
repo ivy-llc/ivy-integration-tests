@@ -25,9 +25,9 @@ def test_CameraModel(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    TranspiledImageSize = ivy.transpiled(kornia.image.ImageSize, source="torch", target=target_framework)
-    TranspiledCameraModelType = ivy.transpiled(CameraModelType, source="torch", target=target_framework)
-    TranspiledCameraModel = ivy.transpiled(CameraModel, source="torch", target=target_framework)
+    TranspiledImageSize = ivy.transpile(kornia.image.ImageSize, source="torch", target=target_framework)
+    TranspiledCameraModelType = ivy.transpile(CameraModelType, source="torch", target=target_framework)
+    TranspiledCameraModel = ivy.transpile(CameraModel, source="torch", target=target_framework)
 
     torch_cam = CameraModel(
         kornia.image.ImageSize(480, 640),
@@ -62,8 +62,8 @@ def test_PinholeModel(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    TranspiledImageSize = ivy.transpiled(kornia.image.ImageSize, source="torch", target=target_framework)
-    TranspiledPinholeModel = ivy.transpiled(PinholeModel, source="torch", target=target_framework)
+    TranspiledImageSize = ivy.transpile(kornia.image.ImageSize, source="torch", target=target_framework)
+    TranspiledPinholeModel = ivy.transpile(PinholeModel, source="torch", target=target_framework)
 
     torch_cam = PinholeModel(
         kornia.image.ImageSize(480, 640),
