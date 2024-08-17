@@ -71,7 +71,10 @@ if __name__ == "__main__":
 
                         split_fn = function.split(".")
                         integration = split_fn[0]
-                        submodule = split_fn[1] if len(split_fn) > 2 else ""
+                        if len(split_fn) > 2:
+                            submodule = split_fn[1] if split_fn[1] != "geometry" else "geometry." + split_fn[2]
+                        else:
+                            submodule = ""
                         if integration in ["transformers"]:
                             # remove the subsection name here, as it is not actually the submodule in these cases
                             function = integration + "." + split_fn[-1]
