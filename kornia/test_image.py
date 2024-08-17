@@ -88,7 +88,7 @@ def test_Image(target_framework, mode, backend_compile):
 
     # torch
     pixel_format = kornia.image.PixelFormat(
-        color_space=ColorSpace.RGB,
+        color_space=ColorSpace.rgb,
         bit_depth=8,
     )
     layout = kornia.image.ImageLayout(
