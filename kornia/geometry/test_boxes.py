@@ -1,5 +1,4 @@
 from helpers import (
-    _array_to_new_backend,
     _check_allclose,
     _nest_array_to_numpy,
     _nest_torch_tensor_to_new_framework,
@@ -11,139 +10,126 @@ import pytest
 import torch
 
 
-# Globals #
-# ------- #
-
-try:
-    TFBoxes = ivy.transpile(kornia.geometry.boxes.Boxes, source="torch", target="tensorflow")
-except:
-    TFBoxes = None
-try:
-    JAXBoxes = ivy.transpile(kornia.geometry.boxes.Boxes, source="torch", target="jax")
-except:
-    JAXBoxes = None
-try:
-    NPBoxes = ivy.transpile(kornia.geometry.boxes.Boxes, source="torch", target="numpy")
-except:
-    NPBoxes = None
-
-transpiled_boxes = {
-    "jax": JAXBoxes,
-    "numpy": NPBoxes,
-    "tensorflow": TFBoxes,
-}
-
-
 # Helpers #
 # ------- #
 
+def _to_numpy_and_allclose(torch_x, transpiled_x, tolerance=1e-3):
+    orig_data = _nest_array_to_numpy(torch_x)
+    transpiled_data = _nest_array_to_numpy(transpiled_x)
+    _check_allclose(orig_data, transpiled_data, tolerance=tolerance) 
+
+
 def _check_boxes_same(torch_boxes, transpiled_boxes):
     assert dir(torch_boxes) == dir(transpiled_boxes), f"attributes/methods of transpiled class do not align with the original - orig: {dir(torch_boxes)} != transpiled: {dir(transpiled_boxes)}"
-
-    orig_data = _nest_array_to_numpy(torch_boxes.data)
-    transpiled_data = _nest_array_to_numpy(transpiled_boxes.data)
-
-    _check_allclose(orig_data, transpiled_data, tolerance=1e-3) 
-
-
-def _test_boxes_method(fn_name, target, args=(), kwargs={}, backend_compile=False):
-    if backend_compile:
-        pytest.skip()
-    if TFBoxes is None:
-        raise Exception("Failure during kornia.geometry.boxes.Boxes transpilation")
-
-    x = torch.ones((5, 3, 4, 2))
-    torch_boxes = kornia.geometry.boxes.Boxes(
-        x,
-        raise_if_not_floating_point=True,
-        mode="vertices_plus",
-    )
-    transpiled_boxes = TFBoxes(
-        _array_to_new_backend(x, target),
-        raise_if_not_floating_point=True,
-        mode="vertices_plus",
-    )
-    _check_boxes_same(torch_boxes, transpiled_boxes)
-
-    torch_method = getattr(torch_boxes, fn_name)
-    transpiled_method = getattr(transpiled_boxes, fn_name)
-
-    orig_out = torch_method(*args, **kwargs)
-    graph_args = _nest_torch_tensor_to_new_framework(args, target)
-    graph_kwargs = _nest_torch_tensor_to_new_framework(kwargs, target)
-    graph_out = transpiled_method(*graph_args, **graph_kwargs)
-
-    if isinstance(orig_out, kornia.geometry.boxes.Boxes):
-        _check_boxes_same(orig_out, graph_out)
-    else:
-        orig_np = _nest_array_to_numpy(orig_out)
-        graph_np = _nest_array_to_numpy(graph_out)
-
-        _check_allclose(orig_np, graph_np, tolerance=1e-3)
-    _check_boxes_same(torch_boxes, transpiled_boxes)
+    _to_numpy_and_allclose(torch_boxes.data, transpiled_boxes.data)
 
 
 # Tests #
 # ----- #
 
+def test_Boxes(target_framework, mode, backend_compile):
+    print("kornia.geometry.boxes.Boxes")
 
-def test_Boxes_compute_area(target_framework, mode, backend_compile):
-    print("kornia.geometry.boxes.Boxes.compute_area")
-    _test_boxes_method("compute_area", target_framework, backend_compile=backend_compile)
+    if backend_compile:
+        pytest.skip()
 
+    TranspiledBoxes = ivy.transpile(kornia.geometry.boxes.Boxes, source="torch", target=target_framework)
 
-def test_Boxes_from_tensor(target_framework, mode, backend_compile):
-    print("kornia.geometry.boxes.Boxes.from_tensor")
-    _test_boxes_method(
-        "from_tensor",
-        target_framework,
-        args=(torch.rand((10, 3, 4)),),
-        kwargs={"validate_boxes": False},
-        backend_compile=backend_compile,
+    torch_args = (
+        torch.as_tensor([[0, 3, 1, 4], [5, 1, 8, 4]]),
     )
+    transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
+
+    # test .from_tensor
+    torch_boxes = kornia.geometry.boxes.Boxes.from_tensor(*torch_args, mode="xyxy")
+    transpiled_boxes = TranspiledBoxes.from_tensor(*transpiled_args, mode="xyxy")
+    _check_boxes_same(torch_boxes, transpiled_boxes)
+
+    # test .compute_area
+    torch_area = torch_boxes.compute_area()
+    transpiled_area = transpiled_boxes.compute_area()
+    _to_numpy_and_allclose(torch_area, transpiled_area)
+
+    # test .get_boxes_shape
+    torch_heights, torch_widths = torch_boxes.get_boxes_shape()
+    transpiled_heights, transpiled_widths = transpiled_boxes.get_boxes_shape()
+    _to_numpy_and_allclose(torch_heights, transpiled_heights)
+    _to_numpy_and_allclose(torch_widths, transpiled_widths)
+
+    # test .merge
+    torch_x = torch.as_tensor([[6, 6, 10, 10], [6, 6, 10, 10]])
+    transpiled_x = _nest_torch_tensor_to_new_framework(torch_x, target_framework)
+    merge_boxes = kornia.geometry.boxes.Boxes.from_tensor(torch_x, mode="xyxy")
+    transpiled_merge_boxes = TranspiledBoxes.from_tensor(transpiled_x, mode="xyxy")
+    torch_merged_boxes = torch_boxes.merge(merge_boxes)
+    transpiled_merged_boxes = transpiled_boxes.merge(transpiled_merge_boxes)
+    _check_boxes_same(torch_merged_boxes, transpiled_merged_boxes)
+
+    # test .to_mask
+    height, width = 10, 10
+    torch_mask = torch_boxes.to_mask(height, width)
+    transpiled_mask = transpiled_boxes.to_mask(height, width)
+    _to_numpy_and_allclose(torch_mask, transpiled_mask)
+
+    # test .to_tensor
+    torch_tensor = torch_boxes.to_tensor(mode="xyxy")
+    transpiled_tensor = transpiled_boxes.to_tensor(mode="xyxy")
+    _to_numpy_and_allclose(torch_tensor, transpiled_tensor)
+
+    # test .transform_boxes
+    transform_matrix = torch.eye(3)
+    transpiled_transform_matrix = _nest_torch_tensor_to_new_framework(transform_matrix, target_framework)
+    torch_transformed_boxes = torch_boxes.transform_boxes(transform_matrix)
+    transpiled_transformed_boxes = transpiled_boxes.transform_boxes(transpiled_transform_matrix)
+    _check_boxes_same(torch_transformed_boxes, transpiled_transformed_boxes)
+
+    # test .translate
+    translate_size = torch.as_tensor([[2, 3]])
+    transpiled_translate_size = _nest_torch_tensor_to_new_framework(translate_size, target_framework)
+    torch_translated_boxes = torch_boxes.translate(translate_size)
+    transpiled_translated_boxes = transpiled_boxes.translate(transpiled_translate_size)
+    _check_boxes_same(torch_translated_boxes, transpiled_translated_boxes)
 
 
-def test_Boxes_get_boxes_shape(target_framework, mode, backend_compile):
-    print("kornia.geometry.boxes.Boxes.get_boxes_shape")
-    _test_boxes_method(
-        "get_boxes_shape",
-        target_framework,
-        backend_compile=backend_compile,
+def test_Boxes3D(target_framework, mode, backend_compile):
+    print("kornia.geometry.boxes.Boxes3D")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledBoxes3D = ivy.transpile(kornia.geometry.boxes.Boxes3D, source="torch", target=target_framework)
+
+    torch_args = (
+        torch.as_tensor([[0, 3, 6, 1, 4, 8], [5, 1, 3, 8, 4, 9]]),
     )
+    transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
 
+    # test .from_tensor
+    torch_boxes3d = kornia.geometry.boxes.Boxes3D.from_tensor(*torch_args, mode="xyzxyz")
+    transpiled_boxes3d = TranspiledBoxes3D.from_tensor(*transpiled_args, mode="xyzxyz")
+    _check_boxes_same(torch_boxes3d, transpiled_boxes3d)
 
-def test_Boxes_merge(target_framework, mode, backend_compile):
-    print("kornia.geometry.boxes.Boxes.merge")
+    # test .get_boxes_shape
+    torch_depths, torch_heights, torch_widths = torch_boxes3d.get_boxes_shape()
+    transpiled_depths, transpiled_heights, transpiled_widths = transpiled_boxes3d.get_boxes_shape()
+    _to_numpy_and_allclose(torch_depths, transpiled_depths)
+    _to_numpy_and_allclose(torch_heights, transpiled_heights)
+    _to_numpy_and_allclose(torch_widths, transpiled_widths)
 
-    x1 = torch.ones((5, 3, 4, 2))
-    x2 = torch.ones((5, 6, 4, 2))
+    # test .to_mask
+    depth, height, width = 10, 10, 10
+    torch_mask = torch_boxes3d.to_mask(depth, height, width)
+    transpiled_mask = transpiled_boxes3d.to_mask(depth, height, width)
+    _to_numpy_and_allclose(torch_mask, transpiled_mask)
 
-    torch_boxes1 = kornia.geometry.boxes.Boxes(
-        x1,
-        raise_if_not_floating_point=True,
-        mode="vertices_plus",
-    )
-    torch_boxes2 = kornia.geometry.boxes.Boxes(
-        x1,
-        raise_if_not_floating_point=True,
-        mode="vertices_plus",
-    )
+    # test .to_tensor
+    torch_tensor = torch_boxes3d.to_tensor(mode="xyzxyz")
+    transpiled_tensor = transpiled_boxes3d.to_tensor(mode="xyzxyz")
+    _to_numpy_and_allclose(torch_tensor, transpiled_tensor)
 
-    transpiled_boxes1 = transpiled_boxes[target_framework](
-        _array_to_new_backend(x1, target_framework),
-        raise_if_not_floating_point=True,
-        mode="vertices_plus",
-    )
-    transpiled_boxes2 = transpiled_boxes[target_framework](
-        _array_to_new_backend(x2, target_framework),
-        raise_if_not_floating_point=True,
-        mode="vertices_plus",
-    )
-
-    torch_boxes3 = torch_boxes1.merge(torch_boxes2)
-    transpiled_boxes3 = transpiled_boxes1.merge(transpiled_boxes2)
-    _check_boxes_same(torch_boxes3, transpiled_boxes3)
-
-    torch_boxes1.merge(torch_boxes2, inplace=True)
-    transpiled_boxes1.merge(transpiled_boxes2, inplace=True)
-    _check_boxes_same(torch_boxes1, transpiled_boxes1)
+    # test .transform_boxes
+    transform_matrix = torch.eye(4)
+    transpiled_transform_matrix = _nest_torch_tensor_to_new_framework(transform_matrix, target_framework)
+    torch_transformed_boxes3d = torch_boxes3d.transform_boxes(transform_matrix)
+    transpiled_transformed_boxes3d = transpiled_boxes3d.transform_boxes(transpiled_transform_matrix)
+    _check_boxes_same(torch_transformed_boxes3d, transpiled_transformed_boxes3d)
