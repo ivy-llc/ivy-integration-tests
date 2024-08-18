@@ -1,6 +1,25 @@
-from helpers import _test_function
+from helpers import (
+    _check_allclose,
+    _nest_array_to_numpy,
+    _nest_torch_tensor_to_new_framework,
+    _test_function,
+)
+
+import ivy
 import kornia
+import numpy as np
+import pytest
+import tempfile
 import torch
+
+
+# Helpers #
+# ------- #
+
+def _to_numpy_and_allclose(torch_x, transpiled_x, tolerance=1e-3):
+    orig_data = _nest_array_to_numpy(torch_x)
+    transpiled_data = _nest_array_to_numpy(transpiled_x)
+    _check_allclose(orig_data, transpiled_data, tolerance=tolerance) 
 
 
 # Tests #
@@ -146,3 +165,190 @@ def test_one_hot(target_framework, mode, backend_compile):
         tolerance=1e-3,
         mode=mode,
     )
+
+
+def test_tensor_to_image(target_framework, mode, backend_compile):
+    print("kornia.utils.tensor_to_image")
+
+    if backend_compile:
+        pytest.skip()
+
+    transpiled_func = ivy.transpile(kornia.utils.tensor_to_image, source="torch", target=target_framework)
+
+    tensor = torch.ones(1, 3, 3)
+    transpiled_tensor = _nest_torch_tensor_to_new_framework(tensor, target_framework)
+    torch_image = kornia.utils.tensor_to_image(tensor)
+    transpiled_image = transpiled_func(transpiled_tensor)
+    _to_numpy_and_allclose(torch_image, transpiled_image)
+
+    tensor = torch.ones(3, 4, 4)
+    transpiled_tensor = _nest_torch_tensor_to_new_framework(tensor, target_framework)
+    torch_image = kornia.utils.tensor_to_image(tensor, force_contiguous=True)
+    transpiled_image = transpiled_func(transpiled_tensor, force_contiguous=True)
+    _to_numpy_and_allclose(torch_image, transpiled_image)
+
+
+def test_image_to_tensor(target_framework, mode, backend_compile):
+    print("kornia.utils.image_to_tensor")
+
+    if backend_compile:
+        pytest.skip()
+
+    transpiled_func = ivy.transpile(kornia.utils.image_to_tensor, source="torch", target=target_framework)
+
+    image = np.ones((3, 3))
+    torch_tensor = kornia.utils.image_to_tensor(image)
+    transpiled_tensor = transpiled_func(image)
+    _to_numpy_and_allclose(torch_tensor, transpiled_tensor)
+
+    image = np.ones((4, 4, 3))
+    torch_tensor = kornia.utils.image_to_tensor(image, keepdim=False)
+    transpiled_tensor = transpiled_func(image, keepdim=False)
+    _to_numpy_and_allclose(torch_tensor, transpiled_tensor)
+
+
+def test_image_list_to_tensor(target_framework, mode, backend_compile):
+    print("kornia.utils.image_list_to_tensor")
+
+    if backend_compile:
+        pytest.skip()
+
+    images = [np.ones((4, 4, 1)), np.zeros((4, 4, 1))]
+
+    transpiled_func = ivy.transpile(kornia.utils.image_list_to_tensor, source="torch", target=target_framework)
+    torch_tensor = kornia.utils.image_list_to_tensor(images)
+    transpiled_tensor = transpiled_func(images)
+
+    _to_numpy_and_allclose(torch_tensor, transpiled_tensor)
+
+
+def test_image_to_string(target_framework, mode, backend_compile):
+    print("kornia.utils.image_to_string")
+
+    if backend_compile:
+        pytest.skip()
+
+    image = torch.rand(3, 16, 16)
+    transpiled_image = _nest_torch_tensor_to_new_framework(image, target_framework)
+
+    transpiled_func = ivy.transpile(kornia.utils.image_to_string, source="torch", target=target_framework)
+    torch_str = kornia.utils.image_to_string(image)
+    transpiled_str = transpiled_func(transpiled_image)
+
+    assert torch_str == transpiled_str, "strings mismatched"
+
+
+def test_print_image(target_framework, mode, backend_compile, capsys):
+    print("kornia.utils.print_image")
+
+    if backend_compile:
+        pytest.skip()
+
+    image = torch.rand(3, 16, 16)
+    transpiled_image = _nest_torch_tensor_to_new_framework(image, target_framework)
+
+    transpiled_func = ivy.transpile(kornia.utils.print_image, source="torch", target=target_framework)
+
+    # Capture the output of print_image, and check they are the same
+    kornia.utils.print_image(image)
+    torch_output = capsys.readouterr().out
+
+    transpiled_func(transpiled_image)
+    transpiled_output = capsys.readouterr().out
+
+    assert torch_output == transpiled_output
+
+
+def test_save_pointcloud_ply(target_framework, mode, backend_compile):
+    print("kornia.utils.save_pointcloud_ply")
+
+    if backend_compile:
+        pytest.skip()
+
+    pointcloud = torch.rand(100, 3)
+    transpiled_pointcloud = _nest_torch_tensor_to_new_framework(pointcloud, target_framework)
+
+    with tempfile.NamedTemporaryFile(suffix=".ply") as temp_file:
+        filename = temp_file.name
+
+        transpiled_save_pointcloud = ivy.transpile(kornia.utils.save_pointcloud_ply, source="torch", target=target_framework)
+        transpiled_load_pointcloud = ivy.transpile(kornia.utils.load_pointcloud_ply, source="torch", target=target_framework)
+
+        # Save and load pointcloud to ensure both steps work correctly
+        transpiled_save_pointcloud(filename, transpiled_pointcloud)
+        loaded_pointcloud = transpiled_load_pointcloud(filename)
+        _to_numpy_and_allclose(pointcloud, loaded_pointcloud)
+
+
+def test_get_cuda_device_if_available(target_framework, mode, backend_compile):
+    print("kornia.utils.get_cuda_device_if_available")
+
+    if backend_compile:
+        pytest.skip()
+
+    transpiled_get_cuda_device_if_available = ivy.transpile(kornia.utils.get_cuda_device_if_available, source="torch", target=target_framework)
+
+    torch_device = kornia.utils.get_cuda_device_if_available()
+    transpiled_device = transpiled_get_cuda_device_if_available()
+
+    assert torch_device
+    assert transpiled_device
+
+
+def test_get_mps_device_if_available(target_framework, mode, backend_compile):
+    print("kornia.utils.get_mps_device_if_available")
+
+    if backend_compile:
+        pytest.skip()
+
+    transpiled_get_mps_device_if_available = ivy.transpile(kornia.utils.get_mps_device_if_available, source="torch", target=target_framework)
+
+    torch_device = kornia.utils.get_mps_device_if_available()
+    transpiled_device = transpiled_get_mps_device_if_available()
+
+    assert torch_device
+    assert transpiled_device
+
+
+def test_get_cuda_or_mps_device_if_available(target_framework, mode, backend_compile):
+    print("kornia.utils.get_cuda_or_mps_device_if_available")
+
+    if backend_compile:
+        pytest.skip()
+
+    transpiled_get_cuda_or_mps_device_if_available = ivy.transpile(kornia.utils.get_cuda_or_mps_device_if_available, source="torch", target=target_framework)
+
+    torch_device = kornia.utils.get_cuda_or_mps_device_if_available()
+    transpiled_device = transpiled_get_cuda_or_mps_device_if_available()
+
+    assert torch_device
+    assert transpiled_device
+
+
+def test_map_location_to_cpu(target_framework, mode, backend_compile):
+    print("kornia.utils.map_location_to_cpu")
+
+    if backend_compile:
+        pytest.skip()
+
+    tensor = torch.rand(3, 3)
+    transpiled_tensor = _nest_torch_tensor_to_new_framework(tensor, target_framework)
+
+    transpiled_func = ivy.transpile(kornia.utils.map_location_to_cpu, source="torch", target=target_framework)
+
+    torch_mapped = kornia.utils.map_location_to_cpu(tensor)
+    transpiled_mapped = transpiled_func(transpiled_tensor)
+
+    _to_numpy_and_allclose(torch_mapped, transpiled_mapped)
+
+
+def test_is_autocast_enabled(target_framework, mode, backend_compile):
+    print("kornia.utils.is_autocast_enabled")
+
+    if backend_compile:
+        pytest.skip()
+
+    transpiled_func = ivy.transpile(kornia.utils.is_autocast_enabled, source="torch", target=target_framework)
+
+    torch_autocast_enabled = kornia.utils.is_autocast_enabled()
+    transpiled_autocast_enabled = transpiled_func()
