@@ -15,9 +15,10 @@ jobs:
         file : [ test_color, test_contrib, test_enhance, test_feature, test_filters, test_image, test_io, test_losses,
                  test_metrics, test_morphology, test_nerf, test_sensors, test_utils, geometry/test_bbox,
                  geometry/test_boxes, geometry/test_calibration, geometry/test_camera, geometry/test_conversions,
-                 geometry/test_depth, geometry/test_epipolar, geometry/test_homography, geometry/test_linalg, geometry/test_quaternion,
-                 geometry/test_solvers, geometry/test_subpix, geometry/test_transform, augmentation/test_augmentation,
-                 augmentation/test_auto, augmentation/test_container ]
+                 geometry/test_depth, geometry/test_epipolar, geometry/test_homography, geometry/test_liegroup,
+                 geometry/test_linalg, geometry/test_line, geometry/test_quaternion, geometry/test_solvers, geometry/test_subpix,
+                 geometry/test_transform, geometry/test_vector, augmentation/test_augmentation, augmentation/test_auto,
+                 augmentation/test_container ]
         compile : [ F ]
     steps:
       - name: Checkout ivy-integration-tests
