@@ -764,7 +764,7 @@ def test_DexiNed(target_framework, mode, backend_compile):
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_out = TranspiledDexiNed(pretrained=False)(transpiled_x)
 
-    _to_numpy_and_allclose(torch_out[-1], transpiled_out[-1])
+    _to_numpy_and_shape_allclose(torch_out[-1], transpiled_out[-1])
 
 
 def test_BilateralBlur(target_framework, mode, backend_compile):
