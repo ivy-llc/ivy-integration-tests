@@ -1,5 +1,11 @@
-from helpers import _test_function
+from helpers import (
+    _nest_torch_tensor_to_new_framework,
+    _to_numpy_and_allclose,
+    _test_function,
+)
+import ivy
 import kornia
+import pytest
 import torch
 
 # Tests #
@@ -628,3 +634,256 @@ def test_jpeg_codec_differentiable(target_framework, mode, backend_compile):
         tolerance=1e-3,
         mode=mode,
     )
+
+
+def test_Normalize(target_framework, mode, backend_compile):
+    print("kornia.enhance.Normalize")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledNormalize = ivy.transpile(kornia.enhance.Normalize, source="torch", target=target_framework)
+
+    torch_init_args = (
+        torch.zeros(4),
+        255. * torch.rand(4),
+    )
+    x = torch.rand(1, 4, 3, 3)
+    torch_out = kornia.enhance.Normalize(*torch_init_args)(x)
+
+    transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledNormalize(*transpiled_init_args)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_Denormalize(target_framework, mode, backend_compile):
+    print("kornia.enhance.Denormalize")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledDenormalize = ivy.transpile(kornia.enhance.Denormalize, source="torch", target=target_framework)
+
+    torch_init_args = (
+        torch.zeros(1, 4),
+        255. * torch.rand(1, 4),
+    )
+    x = torch.rand(1, 4, 3, 3, 3)
+    torch_out = kornia.enhance.Denormalize(*torch_init_args)(x)
+
+    transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledDenormalize(*transpiled_init_args)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_ZCAWhitening(target_framework, mode, backend_compile):
+    print("kornia.enhance.ZCAWhitening")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledZCAWhitening = ivy.transpile(kornia.enhance.ZCAWhitening, source="torch", target=target_framework)
+
+    x = torch.tensor([[0,1],[1,0],[-1,0],[0,-1]], dtype = torch.float32)
+    zca = kornia.enhance.ZCAWhitening().fit(x)
+    torch_out = zca(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_zca = TranspiledZCAWhitening().fit(transpiled_x)
+    transpiled_out = transpiled_zca(x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_AdjustBrightness(target_framework, mode, backend_compile):
+    print("kornia.enhance.AdjustBrightness")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAdjustBrightness = ivy.transpile(kornia.enhance.AdjustBrightness, source="torch", target=target_framework)
+
+    x = torch.rand(2, 5, 3, 3)
+    y = torch.rand(2)
+    torch_out = kornia.enhance.AdjustBrightness(y)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_y = _nest_torch_tensor_to_new_framework(y, target_framework)
+    transpiled_out = TranspiledAdjustBrightness(transpiled_y)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_AdjustContrast(target_framework, mode, backend_compile):
+    print("kornia.enhance.AdjustContrast")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAdjustContrast = ivy.transpile(kornia.enhance.AdjustContrast, source="torch", target=target_framework)
+
+    x = torch.rand(2, 5, 3, 3)
+    y = torch.rand(2)
+    torch_out = kornia.enhance.AdjustContrast(y)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_y = _nest_torch_tensor_to_new_framework(y, target_framework)
+    transpiled_out = TranspiledAdjustContrast(transpiled_y)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_AdjustSaturation(target_framework, mode, backend_compile):
+    print("kornia.enhance.AdjustSaturation")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAdjustSaturation = ivy.transpile(kornia.enhance.AdjustSaturation, source="torch", target=target_framework)
+
+    x = torch.rand(2, 3, 3, 3)
+    y = torch.rand(2)
+    torch_out = kornia.enhance.AdjustSaturation(y)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_y = _nest_torch_tensor_to_new_framework(y, target_framework)
+    transpiled_out = TranspiledAdjustSaturation(transpiled_y)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_AdjustHue(target_framework, mode, backend_compile):
+    print("kornia.enhance.AdjustHue")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAdjustHue = ivy.transpile(kornia.enhance.AdjustHue, source="torch", target=target_framework)
+
+    x = torch.rand(2, 3, 3, 3)
+    y = torch.ones(2) * 3.141516
+    torch_out = kornia.enhance.AdjustHue(y)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_y = _nest_torch_tensor_to_new_framework(y, target_framework)
+    transpiled_out = TranspiledAdjustHue(transpiled_y)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_AdjustGamma(target_framework, mode, backend_compile):
+    print("kornia.enhance.AdjustGamma")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAdjustGamma = ivy.transpile(kornia.enhance.AdjustGamma, source="torch", target=target_framework)
+
+    x = torch.rand(2, 5, 3, 3)
+    torch_init_args = (
+        torch.ones(2) * 1.0,
+        torch.ones(2) * 2.0,
+    )
+    torch_out = kornia.enhance.AdjustGamma(*torch_init_args)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
+    transpiled_out = TranspiledAdjustGamma(*transpiled_init_args)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_AdjustSigmoid(target_framework, mode, backend_compile):
+    print("kornia.enhance.AdjustSigmoid")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAdjustSigmoid = ivy.transpile(kornia.enhance.AdjustSigmoid, source="torch", target=target_framework)
+
+    x = torch.rand(1, 1, 2, 2)
+    torch_out = kornia.enhance.AdjustSigmoid(gain=0)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledAdjustSigmoid(gain=0)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_AdjustLog(target_framework, mode, backend_compile):
+    print("kornia.enhance.AdjustLog")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAdjustLog = ivy.transpile(kornia.enhance.AdjustLog, source="torch", target=target_framework)
+
+    x = torch.rand(1, 1, 2, 2)
+    torch_out = kornia.enhance.AdjustLog(inv=True)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledAdjustLog(inv=True)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_AddWeighted(target_framework, mode, backend_compile):
+    print("kornia.enhance.AddWeighted")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledAddWeighted = ivy.transpile(kornia.enhance.AddWeighted, source="torch", target=target_framework)
+
+    init_args = (0.5, 0.5, 1.0)
+    torch_call_args = (
+        torch.rand(1, 1, 5, 5),
+        torch.rand(1, 1, 5, 5),
+    )
+    torch_out = kornia.enhance.AddWeighted(*init_args)(*torch_call_args)
+
+    transpiled_call_args = _nest_torch_tensor_to_new_framework(torch_call_args, target_framework)
+    transpiled_out = TranspiledAddWeighted(*init_args)(*transpiled_call_args)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_Invert(target_framework, mode, backend_compile):
+    print("kornia.enhance.Invert")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledInvert = ivy.transpile(kornia.enhance.Invert, source="torch", target=target_framework)
+
+    x = torch.rand(1, 2, 4, 4)
+    torch_out = kornia.enhance.Invert()(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledInvert()(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_JPEGCodecDifferentiable(target_framework, mode, backend_compile):
+    print("kornia.enhance.JPEGCodecDifferentiable")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledJPEGCodecDifferentiable = ivy.transpile(kornia.enhance.JPEGCodecDifferentiable, source="torch", target=target_framework)
+
+    torch_args = (
+        torch.rand(2, 3, 32, 32, dtype=torch.float),
+        torch.tensor((99.0, 1.0)),
+    )
+    torch_out = kornia.enhance.JPEGCodecDifferentiable()(*torch_args)
+
+    transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
+    transpiled_out = TranspiledJPEGCodecDifferentiable()(*transpiled_args)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
