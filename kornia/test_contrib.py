@@ -5,6 +5,8 @@ from helpers import (
     _nest_array_to_numpy,
     _nest_torch_tensor_to_new_framework,
     _test_function,
+    _to_numpy_and_allclose,
+    _to_numpy_and_shape_allclose,
 )
 
 import ivy
@@ -248,4 +250,111 @@ def test_KMeans(target_framework, mode, backend_compile):
     _check_shape_allclose(orig_np, transpiled_np)
 
 
-# TODO: there are more classes in kornia.contrib that are not being tested yet
+def test_ExtractTensorPatches(target_framework, mode, backend_compile):
+    print("kornia.contrib.ExtractTensorPatches")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledExtractTensorPatches = ivy.transpile(kornia.contrib.ExtractTensorPatches, source="torch", target=target_framework)
+
+    x = torch.arange(9.).view(1, 1, 3, 3)
+    torch_out = kornia.contrib.ExtractTensorPatches(window_size=(2, 3))(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledExtractTensorPatches(window_size=(2, 3))(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_CombineTensorPatches(target_framework, mode, backend_compile):
+    print("kornia.contrib.CombineTensorPatches")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledCombineTensorPatches = ivy.transpile(kornia.contrib.CombineTensorPatches, source="torch", target=target_framework)
+
+    patches = kornia.contrib.ExtractTensorPatches(window_size=(2, 2), stride=(2, 2))(torch.arange(16).view(1, 1, 4, 4))
+    torch_out = kornia.contrib.CombineTensorPatches(original_size=(4, 4), window_size=(2, 2), stride=(2, 2))(patches)
+
+    transpiled_patches = _nest_torch_tensor_to_new_framework(patches, target_framework)
+    transpiled_out = TranspiledCombineTensorPatches(original_size=(4, 4), window_size=(2, 2), stride=(2, 2))(transpiled_patches)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_ClassificationHead(target_framework, mode, backend_compile):
+    print("kornia.contrib.ClassificationHead")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledClassificationHead = ivy.transpile(kornia.contrib.ClassificationHead, source="torch", target=target_framework)
+
+    x = torch.rand(1, 256, 256)
+    torch_out = kornia.contrib.ClassificationHead(256, 10)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledClassificationHead(256, 10)(transpiled_x)
+
+    _to_numpy_and_shape_allclose(torch_out, transpiled_out)
+
+
+def test_ImageStitcher(target_framework, mode, backend_compile):
+    print("kornia.contrib.ImageStitcher")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledLoFTR = ivy.transpile(kornia.contrib.LoFTR, source="torch", target=target_framework)
+    TranspiledImageStitcher = ivy.transpile(kornia.contrib.ImageStitcher, source="torch", target=target_framework)
+
+    torch_matcher = kornia.feature.LoFTR(pretrained='outdoor')
+    transpiled_matcher = TranspiledLoFTR(pretrained='outdoor')
+
+    img_left = torch.rand(1, 3, 256, 256)
+    img_right = torch.rand(1, 3, 256, 256)
+    torch_out = kornia.contrib.ImageStitcher(torch_matcher)(img_left, img_right)
+
+    transpiled_img_left = _nest_torch_tensor_to_new_framework(img_left, target_framework)
+    transpiled_img_right = _nest_torch_tensor_to_new_framework(img_right, target_framework)
+    transpiled_out = TranspiledImageStitcher(transpiled_matcher)(transpiled_img_left, transpiled_img_right)
+
+    _to_numpy_and_shape_allclose(torch_out, transpiled_out)
+
+
+def test_Lambda(target_framework, mode, backend_compile):
+    print("kornia.contrib.Lambda")
+
+    if backend_compile:
+        pytest.skip()
+
+    transpiled_fn = ivy.transpile(kornia.color.rgb_to_grayscale, source="torch", target=target_framework)
+    TranspiledLambda = ivy.transpile(kornia.contrib.Lambda, source="torch", target=target_framework)
+
+    x = torch.rand(1, 3, 5, 5)
+    torch_out = kornia.contrib.Lambda(lambda x: kornia.color.rgb_to_grayscale(x))(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledLambda(lambda x: transpiled_fn(x))(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
+
+def test_DistanceTransform(target_framework, mode, backend_compile):
+    print("kornia.contrib.DistanceTransform")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledDistanceTransform = ivy.transpile(kornia.contrib.DistanceTransform, source="torch", target=target_framework)
+
+    x = torch.zeros(1, 1, 5, 5)
+    x[:,:, 1, 2] = 1
+    torch_out = kornia.contrib.DistanceTransform()(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledDistanceTransform()(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
