@@ -94,6 +94,18 @@ def _nest_array_to_numpy(
     )
 
 
+def _to_numpy_and_allclose(torch_x, transpiled_x, tolerance=1e-3):
+    orig_data = _nest_array_to_numpy(torch_x)
+    transpiled_data = _nest_array_to_numpy(transpiled_x)
+    _check_allclose(orig_data, transpiled_data, tolerance=tolerance) 
+
+
+def _to_numpy_and_shape_allclose(torch_x, transpiled_x, tolerance=1e-3):
+    orig_data = _nest_array_to_numpy(torch_x)
+    transpiled_data = _nest_array_to_numpy(transpiled_x)
+    _check_shape_allclose(orig_data, transpiled_data, tolerance=tolerance) 
+
+
 def _array_to_new_backend(
     x,
     target,

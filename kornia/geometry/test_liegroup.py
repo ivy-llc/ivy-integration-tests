@@ -1,22 +1,12 @@
 from helpers import (
-    _check_allclose,
-    _nest_array_to_numpy,
     _nest_torch_tensor_to_new_framework,
+    _to_numpy_and_allclose,
 )
 
 import ivy
 import kornia
 import pytest
 import torch
-
-
-# Helpers #
-# ------- #
-
-def _to_numpy_and_allclose(torch_x, transpiled_x, tolerance=1e-3):
-    orig_data = _nest_array_to_numpy(torch_x)
-    transpiled_data = _nest_array_to_numpy(transpiled_x)
-    _check_allclose(orig_data, transpiled_data, tolerance=tolerance) 
 
 
 # Tests #
