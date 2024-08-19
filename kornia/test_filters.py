@@ -939,3 +939,20 @@ def test_UnsharpMask(target_framework, mode, backend_compile):
     transpiled_out = TranspiledUnsharpMask((3, 3), (1.5, 1.5))(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
+
+
+def test_InRange(target_framework, mode, backend_compile):
+    print("kornia.filters.InRange")
+
+    if backend_compile:
+        pytest.skip()
+
+    TranspiledInRange = ivy.transpile(kornia.filters.InRange, source="torch", target=target_framework)
+
+    x = torch.rand(1, 3, 3, 3)
+    torch_out = kornia.filters.InRange((0.2, 0.3, 0.4), (0.8, 0.9, 1.0), return_mask=True)(x)
+
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+    transpiled_out = TranspiledInRange((0.2, 0.3, 0.4), (0.8, 0.9, 1.0), return_mask=True)(transpiled_x)
+
+    _to_numpy_and_shape_allclose(torch_out, transpiled_out)
