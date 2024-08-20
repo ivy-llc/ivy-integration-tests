@@ -228,25 +228,26 @@ def test_image_to_string(target_framework, mode, backend_compile):
     assert torch_str == transpiled_str, "strings mismatched"
 
 
-def test_print_image(target_framework, mode, backend_compile, capsys):
-    print("kornia.utils.print_image")
+# commented due to capsys not allowing fn name to be correctly logged
+# def test_print_image(target_framework, mode, backend_compile, capsys):
+#     print("kornia.utils.print_image")
 
-    if backend_compile:
-        pytest.skip()
+#     if backend_compile:
+#         pytest.skip()
 
-    image = torch.rand(3, 16, 16)
-    transpiled_image = _nest_torch_tensor_to_new_framework(image, target_framework)
+#     image = torch.rand(3, 16, 16)
+#     transpiled_image = _nest_torch_tensor_to_new_framework(image, target_framework)
 
-    transpiled_func = ivy.transpile(kornia.utils.print_image, source="torch", target=target_framework)
+#     transpiled_func = ivy.transpile(kornia.utils.print_image, source="torch", target=target_framework)
 
-    # Capture the output of print_image, and check they are the same
-    kornia.utils.print_image(image)
-    torch_output = capsys.readouterr().out
+#     # Capture the output of print_image, and check they are the same
+#     kornia.utils.print_image(image)
+#     torch_output = capsys.readouterr().out
 
-    transpiled_func(transpiled_image)
-    transpiled_output = capsys.readouterr().out
+#     transpiled_func(transpiled_image)
+#     transpiled_output = capsys.readouterr().out
 
-    assert torch_output == transpiled_output
+#     assert torch_output == transpiled_output
 
 
 def test_save_pointcloud_ply(target_framework, mode, backend_compile):
