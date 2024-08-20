@@ -17,7 +17,7 @@ FAILED kornia/test_morphology.py::test_closing[tensorflow-s2s-False] - ImportErr
 FAILED kornia/test_morphology.py::test_gradient[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_morphology.py::test_top_hat[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_morphology.py::test_bottom_hat[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 7 failed in 4.55s ===========================================================================================
+========================================================================================== 7 failed in 4.57s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -65,7 +65,7 @@ FAILED kornia/test_losses.py::test_TverskyLoss[tensorflow-s2s-False] - ImportErr
 FAILED kornia/test_losses.py::test_FocalLoss[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_losses.py::test_LovaszHingeLoss[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_losses.py::test_LovaszSoftmaxLoss[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 35 failed in 4.72s ==========================================================================================
+========================================================================================== 35 failed in 4.60s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -147,7 +147,7 @@ FAILED kornia/test_color.py::test_Sepia[tensorflow-s2s-False] - ImportError: can
 FAILED kornia/test_color.py::test_CFA[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_color.py::test_ColorMap[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_color.py::test_apply_colormap[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 69 failed in 4.96s ==========================================================================================
+========================================================================================== 69 failed in 4.99s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -168,7 +168,7 @@ FAILED kornia/test_image.py::test_Image[tensorflow-s2s-False] - ImportError: can
 FAILED kornia/test_image.py::test_Image_from_numpy[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_image.py::test_Image_from_dlpack[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_image.py::test_Image_to_numpy[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 8 failed in 5.04s ===========================================================================================
+========================================================================================== 8 failed in 4.64s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -182,7 +182,7 @@ kornia/geometry/test_ransac.py F                                                
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_ransac.py::test_RANSAC[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 1 failed in 4.78s ===========================================================================================
+========================================================================================== 1 failed in 4.60s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -203,7 +203,7 @@ FAILED kornia/geometry/test_homography.py::test_line_segment_transfer_error_one_
 FAILED kornia/geometry/test_homography.py::test_oneway_transfer_error[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_homography.py::test_sample_is_valid_for_homography[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_homography.py::test_symmetric_transfer_error[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 8 failed in 4.83s ===========================================================================================
+========================================================================================== 8 failed in 4.74s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -260,7 +260,7 @@ FAILED kornia/test_filters.py::test_JointBilateralBlur[tensorflow-s2s-False] - I
 FAILED kornia/test_filters.py::test_MotionBlur[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_filters.py::test_UnsharpMask[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_filters.py::test_InRange[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 44 failed in 4.75s ==========================================================================================
+========================================================================================== 44 failed in 4.65s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -273,12 +273,12 @@ kornia/geometry/test_solvers.py FFFFF                                           
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_solvers.py::test_solve_quadratic[tensorflow-s2s-False] - ImportError: cannot import name X
-FAILED kornia/geometry/test_solvers.py::test_solve_cubic[tensorflow-s2s-False] - ImportError: cannot import name X
-FAILED kornia/geometry/test_solvers.py::test_multiply_deg_one_poly[tensorflow-s2s-False] - ImportError: cannot import name X
-FAILED kornia/geometry/test_solvers.py::test_multiply_deg_two_one_poly[tensorflow-s2s-False] - ImportError: cannot import name X
-FAILED kornia/geometry/test_solvers.py::test_determinant_to_polynomial[tensorflow-s2s-False] - ImportError: cannot import name X
-========================================================================================== 5 failed in 4.67s ===========================================================================================
+FAILED kornia/geometry/test_solvers.py::test_solve_quadratic[tensorflow-s2s-False] - ImportError: cannot import name D
+FAILED kornia/geometry/test_solvers.py::test_solve_cubic[tensorflow-s2s-False] - ImportError: cannot import name D
+FAILED kornia/geometry/test_solvers.py::test_multiply_deg_one_poly[tensorflow-s2s-False] - ImportError: cannot import name D
+FAILED kornia/geometry/test_solvers.py::test_multiply_deg_two_one_poly[tensorflow-s2s-False] - ImportError: cannot import name D
+FAILED kornia/geometry/test_solvers.py::test_determinant_to_polynomial[tensorflow-s2s-False] - ImportError: cannot import name D
+========================================================================================== 5 failed in 4.92s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -293,7 +293,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_line.py::test_fit_line[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_line.py::test_ParametrizedLine[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 2 failed in 4.70s ===========================================================================================
+========================================================================================== 2 failed in 4.60s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -310,7 +310,7 @@ FAILED kornia/geometry/test_liegroup.py::test_So3[tensorflow-s2s-False] - Import
 FAILED kornia/geometry/test_liegroup.py::test_Se3[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_liegroup.py::test_So2[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_liegroup.py::test_Se2[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 4 failed in 4.63s ===========================================================================================
+========================================================================================== 4 failed in 4.55s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -328,7 +328,7 @@ FAILED kornia/geometry/test_calibration.py::test_undistort_points[tensorflow-s2s
 FAILED kornia/geometry/test_calibration.py::test_distort_points[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_calibration.py::test_tilt_projection[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_calibration.py::test_solve_pnp_dlt[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 5 failed in 4.58s ===========================================================================================
+========================================================================================== 5 failed in 5.11s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -347,7 +347,7 @@ FAILED kornia/augmentation/test_container.py::test_ManyToOneAugmentationDispathe
 FAILED kornia/augmentation/test_container.py::test_ImageSequential[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/augmentation/test_container.py::test_PatchSequential[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/augmentation/test_container.py::test_VideoSequential[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 6 failed in 4.77s ===========================================================================================
+========================================================================================== 6 failed in 4.65s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -434,7 +434,7 @@ FAILED kornia/test_feature.py::test_LAFAffNetShapeEstimator[tensorflow-s2s-False
 FAILED kornia/test_feature.py::test_FilterResponseNorm2d[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_feature.py::test_TLU[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_feature.py::test_DeFMO[tensorflow-s2s-False] - ImportError: cannot import name D
-==================================================================================== 74 failed, 1 passed in 10.27s =====================================================================================
+===================================================================================== 74 failed, 1 passed in 9.41s =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -449,7 +449,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_boxes.py::test_Boxes[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_boxes.py::test_Boxes3D[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 2 failed in 4.61s ===========================================================================================
+========================================================================================== 2 failed in 4.72s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -470,7 +470,7 @@ FAILED kornia/geometry/test_linalg.py::test_point_line_distance[tensorflow-s2s-F
 FAILED kornia/geometry/test_linalg.py::test_squared_norm[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_linalg.py::test_batched_dot_product[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_linalg.py::test_euclidean_distance[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 8 failed in 5.34s ===========================================================================================
+========================================================================================== 8 failed in 4.61s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -502,7 +502,7 @@ FAILED kornia/geometry/test_camera.py::test_unproject_points[tensorflow-s2s-Fals
 FAILED kornia/geometry/test_camera.py::test_reproject_disparity_to_3D[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_camera.py::test_PinholeCamera[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_camera.py::test_StereoCamera[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 19 failed in 4.83s ==========================================================================================
+========================================================================================== 19 failed in 4.71s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -541,7 +541,7 @@ FAILED kornia/geometry/test_epipolar.py::test_scale_intrinsics[tensorflow-s2s-Fa
 FAILED kornia/geometry/test_epipolar.py::test_random_intrinsics[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_epipolar.py::test_cross_product_matrix[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_epipolar.py::test_triangulate_points[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 26 failed in 4.69s ==========================================================================================
+========================================================================================== 26 failed in 4.75s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -569,7 +569,7 @@ FAILED kornia/test_contrib.py::test_ClassificationHead[tensorflow-s2s-False] - I
 FAILED kornia/test_contrib.py::test_ImageStitcher[tensorflow-s2s-False] - AttributeError: module 'kornia.contrib' has no attribute 'LoFTR'
 FAILED kornia/test_contrib.py::test_Lambda[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_contrib.py::test_DistanceTransform[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 15 failed in 4.67s ==========================================================================================
+========================================================================================== 15 failed in 4.55s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -583,7 +583,7 @@ transformers/test_vision.py F                                                   
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED transformers/test_vision.py::test_Swin2SR[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 1 failed in 8.92s ===========================================================================================
+========================================================================================== 1 failed in 8.20s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -599,7 +599,7 @@ report saved to: test_report.json
 FAILED kornia/augmentation/test_auto.py::test_AutoAugment[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/augmentation/test_auto.py::test_RandAugment[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/augmentation/test_auto.py::test_TrivialAugment[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 3 failed in 4.65s ===========================================================================================
+========================================================================================== 3 failed in 4.61s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -616,7 +616,7 @@ FAILED kornia/test_sensors.py::test_CameraModel[tensorflow-s2s-False] - ImportEr
 FAILED kornia/test_sensors.py::test_PinholeModel[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_sensors.py::test_AffineTransform[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_sensors.py::test_Z1Projection[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 4 failed in 4.63s ===========================================================================================
+========================================================================================== 4 failed in 4.65s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -637,7 +637,7 @@ FAILED kornia/test_nerf.py::test_IrregularRenderer[tensorflow-s2s-False] - Impor
 FAILED kornia/test_nerf.py::test_RegularRenderer[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_nerf.py::test_RaySampler[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_nerf.py::test_RandomRaySampler[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 8 failed in 4.53s ===========================================================================================
+========================================================================================== 8 failed in 4.70s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -655,7 +655,7 @@ FAILED kornia/test_x.py::test_SemanticSegmentationTrainer[tensorflow-s2s-False] 
 FAILED kornia/test_x.py::test_ObjectDetectionTrainer[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_x.py::test_ModelCheckpoint[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_x.py::test_EarlyStopping[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 5 failed in 4.62s ===========================================================================================
+========================================================================================== 5 failed in 5.03s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -669,7 +669,7 @@ kornia/test_tracking.py F                                                       
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_tracking.py::test_HomographyTracker[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 1 failed in 4.96s ===========================================================================================
+========================================================================================== 1 failed in 4.70s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -684,7 +684,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_vector.py::test_Vector3[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_vector.py::test_Vector2[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 2 failed in 4.60s ===========================================================================================
+========================================================================================== 2 failed in 4.99s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -736,7 +736,7 @@ FAILED kornia/test_enhance.py::test_AdjustLog[tensorflow-s2s-False] - ImportErro
 FAILED kornia/test_enhance.py::test_AddWeighted[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_enhance.py::test_Invert[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_enhance.py::test_JPEGCodecDifferentiable[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 39 failed in 4.83s ==========================================================================================
+========================================================================================== 39 failed in 4.60s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -751,7 +751,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_io.py::test_load_image[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_io.py::test_write_image[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 2 failed in 2.03s ===========================================================================================
+========================================================================================== 2 failed in 2.32s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -770,7 +770,7 @@ FAILED kornia/geometry/test_depth.py::test_depth_to_3d_v2[tensorflow-s2s-False] 
 FAILED kornia/geometry/test_depth.py::test_unproject_meshgrid[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_depth.py::test_depth_to_normals[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_depth.py::test_warp_frame_depth[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 6 failed in 4.65s ===========================================================================================
+========================================================================================== 6 failed in 4.61s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -800,7 +800,7 @@ FAILED kornia/test_utils.py::test_get_mps_device_if_available[tensorflow-s2s-Fal
 FAILED kornia/test_utils.py::test_get_cuda_or_mps_device_if_available[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_utils.py::test_map_location_to_cpu[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_utils.py::test_is_autocast_enabled[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 17 failed in 4.77s ==========================================================================================
+========================================================================================== 17 failed in 4.61s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -826,7 +826,7 @@ FAILED kornia/test_metrics.py::test_SSIM[tensorflow-s2s-False] - ImportError: ca
 FAILED kornia/test_metrics.py::test_SSIM3D[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_metrics.py::test_AEPE[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/test_metrics.py::test_AverageMeter[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 13 failed in 4.76s ==========================================================================================
+========================================================================================== 13 failed in 4.58s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -896,7 +896,7 @@ FAILED kornia/geometry/test_transform.py::test_HomographyWarper[tensorflow-s2s-F
 FAILED kornia/geometry/test_transform.py::test_Homography[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_transform.py::test_ImageRegistrator[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_transform.py::test_Similarity[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 57 failed in 5.11s ==========================================================================================
+========================================================================================== 57 failed in 5.03s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -910,7 +910,7 @@ kornia/geometry/test_quaternion.py F                                            
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_quaternion.py::test_Quaternion[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 1 failed in 4.67s ===========================================================================================
+========================================================================================== 1 failed in 4.65s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -938,7 +938,7 @@ FAILED kornia/geometry/test_subpix.py::test_ConvSoftArgmax3d[tensorflow-s2s-Fals
 FAILED kornia/geometry/test_subpix.py::test_ConvQuadInterp3d[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_subpix.py::test_NonMaximaSuppression2d[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_subpix.py::test_NonMaximaSuppression3d[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 15 failed in 4.68s ==========================================================================================
+========================================================================================== 15 failed in 4.70s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -1019,7 +1019,7 @@ FAILED kornia/augmentation/test_augmentation.py::test_Normalize[tensorflow-s2s-F
 FAILED kornia/augmentation/test_augmentation.py::test_LongestMaxSize[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/augmentation/test_augmentation.py::test_Resize[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/augmentation/test_augmentation.py::test_SmallestMaxSize[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 68 failed in 5.23s ==========================================================================================
+========================================================================================== 68 failed in 5.11s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -1040,7 +1040,7 @@ FAILED kornia/geometry/test_bbox.py::test_infer_bbox_shape[tensorflow-s2s-False]
 FAILED kornia/geometry/test_bbox.py::test_infer_bbox_shape3d[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_bbox.py::test_nms[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_bbox.py::test_transform_bbox[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 8 failed in 4.65s ===========================================================================================
+========================================================================================== 8 failed in 4.58s ===========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -1091,5 +1091,5 @@ FAILED kornia/geometry/test_conversions.py::test_camtoworld_vision_to_graphics_4
 FAILED kornia/geometry/test_conversions.py::test_camtoworld_graphics_to_vision_Rt[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_conversions.py::test_camtoworld_vision_to_graphics_Rt[tensorflow-s2s-False] - ImportError: cannot import name D
 FAILED kornia/geometry/test_conversions.py::test_ARKitQTVecs_to_ColmapQTVecs[tensorflow-s2s-False] - ImportError: cannot import name D
-========================================================================================== 38 failed in 4.64s ==========================================================================================
+========================================================================================== 38 failed in 4.80s ==========================================================================================
 
