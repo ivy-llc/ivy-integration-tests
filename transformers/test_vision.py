@@ -248,6 +248,7 @@ def _sync_models_HF_torch_to_tf(model_pt, model_tf):
 # Tests #
 # ----- #
 
+# TODO: ensure this works for other tensorflow versions, such as 2.15.1
 def test_Swin2SR(target_framework, mode, backend_compile):
     # NOTE: this is in the form `integration.subsection.model`, the class submodule would just be transformers.Swin2SRModel
     print("transformers.vision.Swin2SRModel")

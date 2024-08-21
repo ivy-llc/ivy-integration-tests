@@ -16,7 +16,7 @@ pip3 install -r requirements.txt
 pip3 install color-operations
 
 if [ "$integration" = "transformers" ]; then
-    pip3 install tensorflow==2.15.1
+    pip3 install tf_keras
     pip3 install datasets
     pip3 install transformers
 fi
