@@ -181,13 +181,14 @@ Obj: kornia.geometry.boxes.Boxes3D | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.depth.depth_to_normals | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.depth.unproject_meshgrid | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.find_essential | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential_choose_solution | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.fundamental.find_fundamental | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.projection.projections_from_fundamental | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.projection.random_intrinsics | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.triangulation.triangulate_points | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.homography.find_homography_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_lines_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_lines_dlt_iterated | Target: tensorflow | Native Compiled: False
