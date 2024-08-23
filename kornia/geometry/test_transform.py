@@ -48,9 +48,9 @@ def test_warp_perspective3d(target_framework, mode, backend_compile):
     )
     trace_kwargs = {'flags': 'bilinear', 'border_mode': 'zeros', 'align_corners': False}
     test_args = (
-        torch.rand(5, 3, 5, 5, 5),
+        torch.rand(1, 3, 6, 7, 6),
         torch.eye(4).unsqueeze(0),
-        (4, 4, 4),
+        (2, 2, 2),
     )
     test_kwargs = {'flags': 'bilinear', 'border_mode': 'zeros', 'align_corners': False}
     _test_function(
@@ -74,7 +74,7 @@ def test_warp_affine(target_framework, mode, backend_compile):
     )
     trace_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
     test_args = (
-        torch.rand(5, 3, 5, 5),
+        torch.rand(1, 4, 5, 6),
         torch.eye(2, 3).unsqueeze(0),
         (4, 4),
     )
@@ -100,7 +100,7 @@ def test_warp_affine3d(target_framework, mode, backend_compile):
     )
     trace_kwargs = {'flags': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
     test_args = (
-        torch.rand(5, 3, 5, 5, 5),
+        torch.rand(1, 4, 5, 6, 5),
         torch.eye(3, 4).unsqueeze(0),
         (4, 4, 4),
     )
