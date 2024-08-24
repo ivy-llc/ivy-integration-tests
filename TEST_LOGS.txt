@@ -9,7 +9,7 @@ kornia/test_morphology.py .......                                               
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 7 passed in 616.01s (0:10:16) =====================================================================================
+==================================================================================== 7 passed in 631.97s (0:10:31) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -32,7 +32,7 @@ FAILED kornia/test_losses.py::test_TotalVariation[tensorflow-s2s-False] - Recurs
 FAILED kornia/test_losses.py::test_DiceLoss[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_DiceLoss.call().
 FAILED kornia/test_losses.py::test_TverskyLoss[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_TverskyLoss.call().
 FAILED kornia/test_losses.py::test_FocalLoss[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_FocalLoss.call().
-============================================================================== 10 failed, 25 passed in 2551.63s (0:42:31) ==============================================================================
+============================================================================== 10 failed, 25 passed in 2369.51s (0:39:29) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -57,7 +57,7 @@ FAILED kornia/test_color.py::test_RawToRgb[tensorflow-s2s-False] - ValueError: E
 FAILED kornia/test_color.py::test_RgbToRaw[tensorflow-s2s-False] - TypeError: kornia.color.raw.RgbToRaw() argument after * must be an iterable, not CFA
 FAILED kornia/test_color.py::test_RawToRgb2x2Downscaled[tensorflow-s2s-False] - TypeError: kornia.color.raw.RawToRgb2x2Downscaled() argument after * must be an iterable, not CFA
 FAILED kornia/test_color.py::test_apply_colormap[tensorflow-s2s-False] - NameError: name 'float32' is not defined
-============================================================================== 12 failed, 57 passed in 4591.78s (1:16:31) ==============================================================================
+============================================================================== 12 failed, 57 passed in 4627.21s (1:17:07) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -74,7 +74,7 @@ FAILED kornia/test_image.py::test_Image[tensorflow-s2s-False] - NotImplementedEr
 FAILED kornia/test_image.py::test_Image_from_numpy[tensorflow-s2s-False] - TypeError: 'tuple' object is not callable
 FAILED kornia/test_image.py::test_Image_from_dlpack[tensorflow-s2s-False] - NameError: name 'torch' is not defined
 FAILED kornia/test_image.py::test_Image_to_numpy[tensorflow-s2s-False] - TypeError: 'tuple' object is not callable
-=============================================================================== 4 failed, 4 passed in 981.20s (0:16:21) ================================================================================
+=============================================================================== 4 failed, 4 passed in 1001.32s (0:16:41) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -88,7 +88,7 @@ kornia/geometry/test_ransac.py F                                                
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_ransac.py::test_RANSAC[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_RANSAC.call().
-==================================================================================== 1 failed in 358.91s (0:05:58) =====================================================================================
+==================================================================================== 1 failed in 376.36s (0:06:16) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -96,16 +96,17 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/geometry/test_homography.py .FFF..F.                                                                                                                                                      [100%]
+kornia/geometry/test_homography.py FFFF..F.                                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
+FAILED kornia/geometry/test_homography.py::test_find_homography_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_homography.py::test_find_homography_dlt_iterated[tensorflow-s2s-False] - ValueError: not enough values to unpack (expected 3, got 2)
 FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt_iterated[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_homography.py::test_sample_is_valid_for_homography[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Value for attr 'T' of bool is no...
-=============================================================================== 4 failed, 4 passed in 960.90s (0:16:00) ================================================================================
+=============================================================================== 5 failed, 3 passed in 950.69s (0:15:50) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -113,22 +114,19 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 44 items
 
-kornia/test_filters.py .......FFFF...............F..F..F....F...FF.                                                                                                                              [100%]
+kornia/test_filters.py .......F.FF..................F..F....F....F.                                                                                                                              [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_filters.py::test_median_blur[tensorflow-s2s-False] - TypeError: tensorflow_squeeze_frnt_() got an unexpected keyword argument 'axis'
-FAILED kornia/test_filters.py::test_motion_blur[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '__getattr__'
 FAILED kornia/test_filters.py::test_unsharp_mask[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'gaussian_blur2d'
 FAILED kornia/test_filters.py::test_canny[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'gaussian_blur2d'
-FAILED kornia/test_filters.py::test_get_motion_kernel2d[tensorflow-s2s-False] - NameError: name 'tensorflow_rotate' is not defined
 FAILED kornia/test_filters.py::test_Canny[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_Canny.call().
 FAILED kornia/test_filters.py::test_DexiNed[tensorflow-s2s-False] - OSError: source code not available
 FAILED kornia/test_filters.py::test_MedianBlur[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_MedianBlur.call().
-FAILED kornia/test_filters.py::test_MotionBlur[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_MotionBlur.call().
 FAILED kornia/test_filters.py::test_UnsharpMask[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_UnsharpMask.call().
-============================================================================== 10 failed, 34 passed in 4323.18s (1:12:03) ==============================================================================
+============================================================================== 7 failed, 37 passed in 4310.63s (1:11:50) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -140,7 +138,7 @@ kornia/geometry/test_solvers.py .....                                           
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 5 passed in 257.85s (0:04:17) =====================================================================================
+==================================================================================== 5 passed in 258.13s (0:04:18) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -154,7 +152,7 @@ kornia/geometry/test_line.py F.                                                 
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_line.py::test_fit_line[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 1 failed, 1 passed in 195.85s (0:03:15) ================================================================================
+=============================================================================== 1 failed, 1 passed in 197.54s (0:03:17) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -171,7 +169,7 @@ FAILED kornia/geometry/test_liegroup.py::test_So3[tensorflow-s2s-False] - TypeEr
 FAILED kornia/geometry/test_liegroup.py::test_Se3[tensorflow-s2s-False] - TypeError: rotation type is <class 'Translated_Outputs.tensorflow_Quaternion_output.run_1.tensorflow_Quaternion.tensorflow_...
 FAILED kornia/geometry/test_liegroup.py::test_So2[tensorflow-s2s-False] - TypeError: object of type 'ResourceVariable' has no len()
 FAILED kornia/geometry/test_liegroup.py::test_Se2[tensorflow-s2s-False] - TypeError: Invalid type: <class 'Translated_Outputs.tensorflow_So2_output.run_1.tensorflow_So2.tensorflow_So2'>.
-==================================================================================== 4 failed in 1455.87s (0:24:15) ====================================================================================
+==================================================================================== 4 failed in 1365.24s (0:22:45) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -185,7 +183,7 @@ kornia/geometry/test_calibration.py ....F                                       
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_calibration.py::test_solve_pnp_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 1 failed, 4 passed in 541.06s (0:09:01) ================================================================================
+=============================================================================== 1 failed, 4 passed in 560.80s (0:09:20) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -204,7 +202,7 @@ FAILED kornia/augmentation/test_container.py::test_ManyToOneAugmentationDispathe
 FAILED kornia/augmentation/test_container.py::test_ImageSequential[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/...
 FAILED kornia/augmentation/test_container.py::test_PatchSequential[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/...
 FAILED kornia/augmentation/test_container.py::test_VideoSequential[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/...
-==================================================================================== 6 failed in 498.73s (0:08:18) =====================================================================================
+==================================================================================== 6 failed in 496.22s (0:08:16) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -217,7 +215,7 @@ kornia/test_feature.py .....F......F.............F...FFFFFFFF.....FFFFFFFFFF.FFF
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.4073, 0.6187],
+FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.8560, 0.3804],
 FAILED kornia/test_feature.py::test_extract_patches_from_pyramid[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/test_feature.py::test_laf_is_inside_image[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Value for attr 'T' of bool is not in the list of allowe...
 FAILED kornia/test_feature.py::test_DenseSIFTDescriptor[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_DenseSIFTDescriptor.call().
@@ -254,7 +252,7 @@ FAILED kornia/test_feature.py::test_LAFOrienter[tensorflow-s2s-False] - Exceptio
 FAILED kornia/test_feature.py::test_PatchDominantGradientOrientation[tensorflow-s2s-False] - Exception: Exception encountered when calling tensorflow_Conv1d.call().
 FAILED kornia/test_feature.py::test_OriNet[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_OriNet.call().
 FAILED kornia/test_feature.py::test_LAFAffNetShapeEstimator[tensorflow-s2s-False] - Exception: Exception encountered when calling tensorflow_LAFAffNetShapeEstimator.call().
-============================================================================= 37 failed, 38 passed in 12272.03s (3:24:32) ==============================================================================
+============================================================================= 37 failed, 38 passed in 11308.68s (3:08:28) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -269,7 +267,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_boxes.py::test_Boxes[tensorflow-s2s-False] - AssertionError: attributes/methods of transpiled class do not align with the original - orig: ['_N', '__class__', '__delattr...
 FAILED kornia/geometry/test_boxes.py::test_Boxes3D[tensorflow-s2s-False] - AssertionError: attributes/methods of transpiled class do not align with the original - orig: ['__class__', '__delattr__',...
-==================================================================================== 2 failed in 328.50s (0:05:28) =====================================================================================
+==================================================================================== 2 failed in 299.41s (0:04:59) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -281,7 +279,7 @@ kornia/geometry/test_linalg.py ........                                         
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 8 passed in 515.82s (0:08:35) =====================================================================================
+==================================================================================== 8 passed in 498.58s (0:08:18) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -293,7 +291,7 @@ kornia/geometry/test_camera.py ...................                              
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-=================================================================================== 19 passed in 1391.76s (0:23:11) ====================================================================================
+=================================================================================== 19 passed in 1354.78s (0:22:34) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -301,17 +299,17 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 26 items
 
-kornia/geometry/test_epipolar.py F..F...F............F..F..                                                                                                                                      [100%]
+kornia/geometry/test_epipolar.py F..FF...............F..F..                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_epipolar.py::test_find_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_decompose_essential_matrix[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-FAILED kornia/geometry/test_epipolar.py::test_find_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_projections_from_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_random_intrinsics[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-============================================================================== 5 failed, 21 passed in 2477.31s (0:41:17) ===============================================================================
+============================================================================== 5 failed, 21 passed in 2262.49s (0:37:42) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -332,7 +330,7 @@ FAILED kornia/test_contrib.py::test_VisionTransformer[tensorflow-s2s-False] - Ru
 FAILED kornia/test_contrib.py::test_KMeans[tensorflow-s2s-False] - NameError: name 'torch' is not defined
 FAILED kornia/test_contrib.py::test_ClassificationHead[tensorflow-s2s-False] - ImportError: cannot import name 'tensorflow_handle_transpose_in_input_and_output' from 'Translated_Outputs.tensorflow_...
 FAILED kornia/test_contrib.py::test_ImageStitcher[tensorflow-s2s-False] - AttributeError: module 'kornia.contrib' has no attribute 'LoFTR'
-=============================================================================== 8 failed, 7 passed in 1397.13s (0:23:17) ===============================================================================
+=============================================================================== 8 failed, 7 passed in 1421.17s (0:23:41) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -344,7 +342,7 @@ transformers/test_vision.py .                                                   
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 1 passed in 879.79s (0:14:39) =====================================================================================
+==================================================================================== 1 passed in 880.39s (0:14:40) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -360,7 +358,7 @@ report saved to: test_report.json
 FAILED kornia/augmentation/test_auto.py::test_AutoAugment[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Translate...
 FAILED kornia/augmentation/test_auto.py::test_RandAugment[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Translate...
 FAILED kornia/augmentation/test_auto.py::test_TrivialAugment[tensorflow-s2s-False] - subprocess.CalledProcessError: Command '['ruff', 'format', '/ivy/ivy-integration-tests/Translated_Outputs/Transl...
-==================================================================================== 3 failed in 269.42s (0:04:29) =====================================================================================
+==================================================================================== 3 failed in 261.51s (0:04:21) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -376,7 +374,7 @@ report saved to: test_report.json
 FAILED kornia/test_sensors.py::test_CameraModel[tensorflow-s2s-False] - ValueError: Invalid Camera Model Type
 FAILED kornia/test_sensors.py::test_AffineTransform[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
 FAILED kornia/test_sensors.py::test_Z1Projection[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
-=============================================================================== 3 failed, 1 passed in 787.65s (0:13:07) ================================================================================
+=============================================================================== 3 failed, 1 passed in 691.67s (0:11:31) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -396,7 +394,7 @@ FAILED kornia/test_nerf.py::test_IrregularRenderer[tensorflow-s2s-False] - Runti
 FAILED kornia/test_nerf.py::test_RegularRenderer[tensorflow-s2s-False] - RuntimeError: The size of tensor a (32) must match the size of tensor b (3) at non-singleton dimension 2
 FAILED kornia/test_nerf.py::test_RaySampler[tensorflow-s2s-False] - TypeError: _nest_torch_tensor_to_new_framework() missing 1 required positional argument: 'target'
 FAILED kornia/test_nerf.py::test_RandomRaySampler[tensorflow-s2s-False] - TypeError: _nest_torch_tensor_to_new_framework() missing 1 required positional argument: 'target'
-=============================================================================== 7 failed, 1 passed in 1184.70s (0:19:44) ===============================================================================
+=============================================================================== 7 failed, 1 passed in 1118.17s (0:18:38) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -409,11 +407,11 @@ kornia/test_x.py FFFFs                                                          
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_x.py::test_ImageClassifierTrainer[tensorflow-s2s-False] - TypeError: cannot pickle '_thread._local' object
-FAILED kornia/test_x.py::test_SemanticSegmentationTrainer[tensorflow-s2s-False] - TypeError: cannot pickle '_thread._local' object
-FAILED kornia/test_x.py::test_ObjectDetectionTrainer[tensorflow-s2s-False] - TypeError: cannot pickle '_thread._local' object
+FAILED kornia/test_x.py::test_ImageClassifierTrainer[tensorflow-s2s-False] - AttributeError: module 'ivy.functional.frontends.torch' has no attribute 'no_grad'
+FAILED kornia/test_x.py::test_SemanticSegmentationTrainer[tensorflow-s2s-False] - AttributeError: module 'ivy.functional.frontends.torch' has no attribute 'no_grad'
+FAILED kornia/test_x.py::test_ObjectDetectionTrainer[tensorflow-s2s-False] - AttributeError: module 'ivy.functional.frontends.torch' has no attribute 'no_grad'
 FAILED kornia/test_x.py::test_ModelCheckpoint[tensorflow-s2s-False] - OSError: source code not available
-==================================================================================== 4 failed, 1 skipped in 52.90s =====================================================================================
+==================================================================================== 4 failed, 1 skipped in 55.87s =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -427,7 +425,7 @@ kornia/test_tracking.py F                                                       
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_tracking.py::test_HomographyTracker[tensorflow-s2s-False] - OSError: source code not available
-========================================================================================== 1 failed in 44.22s ==========================================================================================
+========================================================================================== 1 failed in 49.18s ==========================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -442,7 +440,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_vector.py::test_Vector3[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
 FAILED kornia/geometry/test_vector.py::test_Vector2[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
-==================================================================================== 2 failed in 189.58s (0:03:09) =====================================================================================
+==================================================================================== 2 failed in 200.23s (0:03:20) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -450,42 +448,13 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 39 items
 
-kornia/test_enhance.py .........FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                                                   [100%]
+kornia/test_enhance.py ..............F........................                                                                                                                                   [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_enhance.py::test_invert[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '__getattr__'
-FAILED kornia/test_enhance.py::test_posterize[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_sharpness[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_solarize[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_equalize[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_equalize_clahe[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_equalize3d[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_histogram[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_histogram2d[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_image_histogram2d[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_normalize[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_normalize_min_max[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_denormalize[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_zca_mean[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_zca_whiten[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_linear_transform[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_jpeg_codec_differentiable[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_Normalize[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_Normalize.call().
-FAILED kornia/test_enhance.py::test_Denormalize[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_Denormalize.call().
-FAILED kornia/test_enhance.py::test_ZCAWhitening[tensorflow-s2s-False] - NameError: name 'tensorflow_is_array_bknd' is not defined
-FAILED kornia/test_enhance.py::test_AdjustBrightness[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_AdjustBrightness.call().
-FAILED kornia/test_enhance.py::test_AdjustContrast[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_AdjustContrast.call().
-FAILED kornia/test_enhance.py::test_AdjustSaturation[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_AdjustSaturation.call().
-FAILED kornia/test_enhance.py::test_AdjustHue[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_AdjustHue.call().
-FAILED kornia/test_enhance.py::test_AdjustGamma[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_AdjustGamma.call().
-FAILED kornia/test_enhance.py::test_AdjustSigmoid[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_AdjustSigmoid.call().
-FAILED kornia/test_enhance.py::test_AdjustLog[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_AdjustLog.call().
-FAILED kornia/test_enhance.py::test_AddWeighted[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_AddWeighted.call().
-FAILED kornia/test_enhance.py::test_Invert[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '__getattr__'
-FAILED kornia/test_enhance.py::test_JPEGCodecDifferentiable[tensorflow-s2s-False] - NameError: name 'tensorflow_handle_array_like_without_promotion' is not defined
-============================================================================== 30 failed, 9 passed in 3056.19s (0:50:56) ===============================================================================
+FAILED kornia/test_enhance.py::test_equalize_clahe[tensorflow-s2s-False] - IndexError: list index out of range
+============================================================================== 1 failed, 38 passed in 3335.47s (0:55:35) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -497,7 +466,7 @@ kornia/test_io.py ..                                                            
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 2 passed in 132.21s (0:02:12) =====================================================================================
+==================================================================================== 2 passed in 140.39s (0:02:20) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -512,7 +481,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_depth.py::test_unproject_meshgrid[tensorflow-s2s-False] - TypeError: Cannot convert the argument `type_value`: torch.float32 to a TensorFlow DType.
 FAILED kornia/geometry/test_depth.py::test_depth_to_normals[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient'
-=============================================================================== 2 failed, 4 passed in 612.63s (0:10:12) ================================================================================
+=============================================================================== 2 failed, 4 passed in 599.24s (0:09:59) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -531,7 +500,7 @@ FAILED kornia/test_utils.py::test_get_cuda_device_if_available[tensorflow-s2s-Fa
 FAILED kornia/test_utils.py::test_get_mps_device_if_available[tensorflow-s2s-False] - ValueError: Unsupported type: None
 FAILED kornia/test_utils.py::test_get_cuda_or_mps_device_if_available[tensorflow-s2s-False] - ValueError: Unsupported type: None
 FAILED kornia/test_utils.py::test_is_autocast_enabled[tensorflow-s2s-False] - NameError: name 'torch' is not defined
-============================================================================== 6 failed, 10 passed in 1074.61s (0:17:54) ===============================================================================
+=============================================================================== 6 failed, 10 passed in 986.76s (0:16:26) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -546,7 +515,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_metrics.py::test_mean_iou[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'confusion_matrix'
 FAILED kornia/test_metrics.py::test_mean_average_precision[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'mean_iou_bbox'
-=============================================================================== 2 failed, 11 passed in 989.42s (0:16:29) ===============================================================================
+============================================================================== 2 failed, 11 passed in 1020.86s (0:17:00) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -554,69 +523,22 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 57 items
 
-kornia/geometry/test_transform.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                      [100%]
+kornia/geometry/test_transform.py ............F...........FFF................F...F...F..FFF                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_transform.py::test_warp_perspective[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '__getattr__'
-FAILED kornia/geometry/test_transform.py::test_warp_perspective3d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_warp_affine[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_warp_affine3d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_warp_image_tps[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_warp_points_tps[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_warp_grid[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_warp_grid3d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_remap[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_affine[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_rotate[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_translate[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_scale[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_shear[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_hflip[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_vflip[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_rot180[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_resize[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_rescale[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_elastic_transform2d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_pyrdown[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_pyrup[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_build_pyramid[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_build_laplacian_pyramid[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_upscale_double[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_perspective_transform[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_perspective_transform3d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_projective_transform[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_rotation_matrix2d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_shear_matrix2d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_shear_matrix3d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_affine_matrix2d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_affine_matrix3d[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_invert_affine_transform[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_projection_from_Rt[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_get_tps_transform[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_crop_by_indices[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_crop_by_boxes[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_center_crop[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_crop_and_resize[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_Rotate[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_Translate[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_Scale[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_Shear[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_PyrDown[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_PyrUp[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_ScalePyramid[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_Hflip[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_Vflip[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_Rot180[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_Resize[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_Rescale[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_Affine[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_HomographyWarper[tensorflow-s2s-False] - NameError: name 'zeros' is not defined
-FAILED kornia/geometry/test_transform.py::test_Homography[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-FAILED kornia/geometry/test_transform.py::test_ImageRegistrator[tensorflow-s2s-False] - TypeError: cannot pickle '_thread._local' object
-FAILED kornia/geometry/test_transform.py::test_Similarity[tensorflow-s2s-False] - NameError: name 'tensorflow_infer_dtype' is not defined
-=================================================================================== 57 failed in 5131.33s (1:25:31) ====================================================================================
+FAILED kornia/geometry/test_transform.py::test_scale[tensorflow-s2s-False] - RuntimeError: The expanded size of the tensor (2) must match the existing size (4) at non-singleton dimension 1.  Target...
+FAILED kornia/geometry/test_transform.py::test_upscale_double[tensorflow-s2s-False] - TypeError: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment
+FAILED kornia/geometry/test_transform.py::test_get_perspective_transform[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_transform.py::test_get_perspective_transform3d[tensorflow-s2s-False] - ValueError: Inputs must be a Bx8x3 tensor. Got torch.Size([1, 4, 3])
+FAILED kornia/geometry/test_transform.py::test_Shear[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_Shear.call().
+FAILED kornia/geometry/test_transform.py::test_Hflip[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
+FAILED kornia/geometry/test_transform.py::test_Rescale[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_transform.py::test_Homography[tensorflow-s2s-False] - AttributeError: 'ResourceVariable' object has no attribute 'requires_grad'
+FAILED kornia/geometry/test_transform.py::test_ImageRegistrator[tensorflow-s2s-False] - AttributeError: module 'ivy.functional.frontends.torch' has no attribute 'optim'
+FAILED kornia/geometry/test_transform.py::test_Similarity[tensorflow-s2s-False] - IndexError: list index out of range
+============================================================================== 10 failed, 47 passed in 6824.29s (1:53:44) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -630,7 +552,7 @@ kornia/geometry/test_quaternion.py F                                            
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_quaternion.py::test_Quaternion[tensorflow-s2s-False] - TypeError: _array_to_new_backend() missing 1 required positional argument: 'target'
-==================================================================================== 1 failed in 167.77s (0:02:47) =====================================================================================
+==================================================================================== 1 failed in 168.92s (0:02:48) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -638,7 +560,7 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 15 items
 
-kornia/geometry/test_subpix.py FFFFFFFFFFFFFFF                                                                                                                                                   [100%]
+kornia/geometry/test_subpix.py FFF.......FFF..                                                                                                                                                   [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
@@ -646,19 +568,10 @@ report saved to: test_report.json
 FAILED kornia/geometry/test_subpix.py::test_conv_soft_argmax2d[tensorflow-s2s-False] - NameError: name 'ivy_device_frnt' is not defined
 FAILED kornia/geometry/test_subpix.py::test_conv_soft_argmax3d[tensorflow-s2s-False] - NameError: name 'ivy_device_frnt' is not defined
 FAILED kornia/geometry/test_subpix.py::test_conv_quad_interp3d[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient3d'
-FAILED kornia/geometry/test_subpix.py::test_spatial_softmax2d[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '__getattr__'
-FAILED kornia/geometry/test_subpix.py::test_spatial_expectation2d[tensorflow-s2s-False] - NameError: name 'tensorflow_handle_array_like_without_promotion' is not defined
-FAILED kornia/geometry/test_subpix.py::test_spatial_soft_argmax2d[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '__getattr__'
-FAILED kornia/geometry/test_subpix.py::test_render_gaussian2d[tensorflow-s2s-False] - NameError: name 'tensorflow_handle_array_like_without_promotion' is not defined
-FAILED kornia/geometry/test_subpix.py::test_nms2d[tensorflow-s2s-False] - NameError: name 'tensorflow_handle_array_like_without_promotion' is not defined
-FAILED kornia/geometry/test_subpix.py::test_nms3d[tensorflow-s2s-False] - NameError: name 'tensorflow_handle_array_like_without_promotion' is not defined
-FAILED kornia/geometry/test_subpix.py::test_SpatialSoftArgmax2d[tensorflow-s2s-False] - NameError: name 'tensor' is not defined
-FAILED kornia/geometry/test_subpix.py::test_ConvSoftArgmax2d[tensorflow-s2s-False] - NameError: name 'tensor' is not defined
-FAILED kornia/geometry/test_subpix.py::test_ConvSoftArgmax3d[tensorflow-s2s-False] - NameError: name 'tensor' is not defined
-FAILED kornia/geometry/test_subpix.py::test_ConvQuadInterp3d[tensorflow-s2s-False] - NameError: name 'tensorflow_handle_array_like_without_promotion' is not defined
-FAILED kornia/geometry/test_subpix.py::test_NonMaximaSuppression2d[tensorflow-s2s-False] - NameError: name 'tensorflow_handle_array_like_without_promotion' is not defined
-FAILED kornia/geometry/test_subpix.py::test_NonMaximaSuppression3d[tensorflow-s2s-False] - NameError: name 'tensorflow_handle_array_like_without_promotion' is not defined
-=================================================================================== 15 failed in 1118.89s (0:18:38) ====================================================================================
+FAILED kornia/geometry/test_subpix.py::test_ConvSoftArgmax2d[tensorflow-s2s-False] - NameError: name 'ivy_device_frnt' is not defined
+FAILED kornia/geometry/test_subpix.py::test_ConvSoftArgmax3d[tensorflow-s2s-False] - NameError: name 'ivy_device_frnt' is not defined
+FAILED kornia/geometry/test_subpix.py::test_ConvQuadInterp3d[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_ConvQuadInterp3d.call().
+=============================================================================== 6 failed, 9 passed in 1432.23s (0:23:52) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -739,7 +652,7 @@ FAILED kornia/augmentation/test_augmentation.py::test_Normalize[tensorflow-s2s-F
 FAILED kornia/augmentation/test_augmentation.py::test_LongestMaxSize[tensorflow-s2s-False] - NameError: name 'Translated_Constraint' is not defined
 FAILED kornia/augmentation/test_augmentation.py::test_Resize[tensorflow-s2s-False] - NameError: name 'Translated_Constraint' is not defined
 FAILED kornia/augmentation/test_augmentation.py::test_SmallestMaxSize[tensorflow-s2s-False] - NameError: name 'Translated_Constraint' is not defined
-=================================================================================== 68 failed in 2459.91s (0:40:59) ====================================================================================
+=================================================================================== 68 failed in 2469.09s (0:41:09) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -753,7 +666,7 @@ kornia/geometry/test_bbox.py ..F.....                                           
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_bbox.py::test_bbox_to_mask[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 1 failed, 7 passed in 609.73s (0:10:09) ================================================================================
+=============================================================================== 1 failed, 7 passed in 622.90s (0:10:22) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -765,5 +678,5 @@ kornia/geometry/test_conversions.py ......................................      
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-=================================================================================== 38 passed in 2669.13s (0:44:29) ====================================================================================
+=================================================================================== 38 passed in 2616.55s (0:43:36) ====================================================================================
 
