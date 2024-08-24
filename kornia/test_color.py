@@ -685,27 +685,16 @@ def test_xyz_to_rgb(target_framework, mode, backend_compile):
 
 
 def test_rgb_to_raw(target_framework, mode, backend_compile):
-    trace_args = (
-        torch.rand(1, 3, 5, 5),
-        kornia.color.CFA.BG,
-    )
-    trace_kwargs = {}
-    test_args = (
-        torch.rand(5, 3, 5, 5),
-        kornia.color.CFA.BG,
-    )
-    test_kwargs = {}
-    _test_function(
-        kornia.color.rgb_to_raw,
-        trace_args,
-        trace_kwargs,
-        test_args,
-        test_kwargs,
-        target_framework, 
-        backend_compile,
-        tolerance=1e-3,
-        mode=mode,
-    )
+    TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
+    transpiled_rgb_to_raw = ivy.transpile(kornia.color.rgb_to_raw, source="torch", target=target_framework)
+
+    torch_x = torch.rand(5, 3, 5, 5)
+    transpiled_x = _array_to_new_backend(torch_x, target_framework)
+
+    torch_out = kornia.color.rgb_to_raw(torch_x, kornia.color.CFA.BG)
+    transpiled_out = transpiled_rgb_to_raw(transpiled_x, TranspiledCFA.BG)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
 
 
 def test_raw_to_rgb(target_framework, mode, backend_compile):
@@ -1144,45 +1133,42 @@ def test_XyzToRgb(target_framework, mode, backend_compile):
 
 
 def test_RawToRgb(target_framework, mode, backend_compile):
-    args = (
-        torch.rand(2, 1, 4, 6),
-    )
-    _test_color_class(
-        kornia.color.RawToRgb,
-        args,
-        target_framework, 
-        backend_compile,
-        tolerance=1e-3,
-        init_args=(kornia.color.CFA.RG,)
-    )
+    TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
+    transpiled_RawToRgb = ivy.transpile(kornia.color.RawToRgb, source="torch", target=target_framework)
+
+    torch_x = torch.rand(2, 1, 4, 6)
+    transpiled_x = _array_to_new_backend(torch_x, target_framework)
+
+    torch_out = kornia.color.RawToRgb(kornia.color.CFA.RG)(torch_x)
+    transpiled_out = transpiled_RawToRgb(TranspiledCFA.RG)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
 
 
 def test_RgbToRaw(target_framework, mode, backend_compile):
-    args = (
-        torch.rand(2, 3, 4, 6),
-    )
-    _test_color_class(
-        kornia.color.RgbToRaw,
-        args,
-        target_framework, 
-        backend_compile,
-        tolerance=1e-3,
-        init_args=(kornia.color.CFA.GB),
-    )
+    TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
+    transpiled_RgbToRaw = ivy.transpile(kornia.color.RgbToRaw, source="torch", target=target_framework)
+
+    torch_x = torch.rand(2, 3, 4, 6)
+    transpiled_x = _array_to_new_backend(torch_x, target_framework)
+
+    torch_out = kornia.color.RgbToRaw(kornia.color.CFA.GB)(torch_x)
+    transpiled_out = transpiled_RgbToRaw(TranspiledCFA.GB)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
 
 
 def test_RawToRgb2x2Downscaled(target_framework, mode, backend_compile):
-    args = (
-        torch.rand(2, 1, 4, 6),
-    )
-    _test_color_class(
-        kornia.color.RawToRgb2x2Downscaled,
-        args,
-        target_framework, 
-        backend_compile,
-        tolerance=1e-3,
-        init_args=(kornia.color.CFA.RG),
-    )
+    TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
+    transpiled_RawToRgb2x2Downscaled = ivy.transpile(kornia.color.RawToRgb2x2Downscaled, source="torch", target=target_framework)
+
+    torch_x = torch.rand(2, 1, 4, 6)
+    transpiled_x = _array_to_new_backend(torch_x, target_framework)
+
+    torch_out = kornia.color.RawToRgb2x2Downscaled(kornia.color.CFA.RG)(torch_x)
+    transpiled_out = transpiled_RawToRgb2x2Downscaled(TranspiledCFA.RG)(transpiled_x)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
 
 
 def test_Sepia(target_framework, mode, backend_compile):
