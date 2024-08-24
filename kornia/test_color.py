@@ -4,6 +4,7 @@ from helpers import (
     _nest_array_to_numpy,
     _nest_torch_tensor_to_new_framework,
     _test_function,
+    _to_numpy_and_allclose,
 )
 import ivy
 import kornia
@@ -708,51 +709,29 @@ def test_rgb_to_raw(target_framework, mode, backend_compile):
 
 
 def test_raw_to_rgb(target_framework, mode, backend_compile):
-    trace_args = (
-        torch.rand(1, 1, 4, 6),
-        kornia.color.CFA.RG,
-    )
-    trace_kwargs = {}
-    test_args = (
-        torch.rand(5, 1, 4, 6),
-        kornia.color.CFA.RG,
-    )
-    test_kwargs = {}
-    _test_function(
-        kornia.color.raw_to_rgb,
-        trace_args,
-        trace_kwargs,
-        test_args,
-        test_kwargs,
-        target_framework,
-        backend_compile,
-        tolerance=1e-3,
-        mode=mode,
-    )
+    TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
+    transpiled_raw_to_rgb = ivy.transpile(kornia.color.raw_to_rgb, source="torch", target=target_framework)
+
+    torch_x = torch.rand(5, 1, 4, 6)
+    transpiled_x = _array_to_new_backend(torch_x, target_framework)
+
+    torch_out = kornia.color.raw_to_rgb(torch_x, kornia.color.CFA.RG)
+    transpiled_out = transpiled_raw_to_rgb(transpiled_x, TranspiledCFA.RG)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
 
 
 def test_raw_to_rgb_2x2_downscaled(target_framework, mode, backend_compile):
-    trace_args = (
-        torch.rand(1, 1, 4, 6),
-        kornia.color.CFA.RG,
-    )
-    trace_kwargs = {}
-    test_args = (
-        torch.rand(5, 1, 4, 6),
-        kornia.color.CFA.RG,
-    )
-    test_kwargs = {}
-    _test_function(
-        kornia.color.raw_to_rgb_2x2_downscaled,
-        trace_args,
-        trace_kwargs,
-        test_args,
-        test_kwargs,
-        target_framework,
-        backend_compile,
-        tolerance=1e-3,
-        mode=mode,
-    )
+    TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
+    transpiled_raw_to_rgb_2x2_downscaled = ivy.transpile(kornia.color.raw_to_rgb_2x2_downscaled, source="torch", target=target_framework)
+
+    torch_x = torch.rand(5, 1, 4, 6)
+    transpiled_x = _array_to_new_backend(torch_x, target_framework)
+
+    torch_out = kornia.color.raw_to_rgb_2x2_downscaled(torch_x, kornia.color.CFA.RG)
+    transpiled_out = transpiled_raw_to_rgb_2x2_downscaled(transpiled_x, TranspiledCFA.RG)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
 
 
 def test_sepia(target_framework, mode, backend_compile):
