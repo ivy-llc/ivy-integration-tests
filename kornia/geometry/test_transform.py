@@ -328,7 +328,7 @@ def test_scale(target_framework, mode, backend_compile):
     trace_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
     test_args = (
         torch.rand(5, 3, 4, 4),
-        torch.rand(5),
+        torch.rand(5, 2),
     )
     test_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
     _test_function(
