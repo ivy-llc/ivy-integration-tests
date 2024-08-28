@@ -16,7 +16,9 @@ import torch
 
 
 def _check_boxes_same(torch_boxes, transpiled_boxes):
-    assert dir(torch_boxes) == dir(transpiled_boxes), f"attributes/methods of transpiled class do not align with the original - orig: {dir(torch_boxes)} != transpiled: {dir(transpiled_boxes)}"
+    dir_torch_boxes = set(dir(torch_boxes))
+    dir_transpiled_boxes = set([d for d in dir(transpiled_boxes) if d not in ("__already_s2s",)])
+    assert dir_torch_boxes == dir_transpiled_boxes, f"attributes/methods of transpiled class do not align with the original - orig: {dir(torch_boxes)} != transpiled: {dir(transpiled_boxes)}"
     _to_numpy_and_allclose(torch_boxes.data, transpiled_boxes.data)
 
 
