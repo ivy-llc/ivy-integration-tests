@@ -131,7 +131,6 @@ def test_NerfSolver(target_framework, mode, backend_compile):
     transpiled_solver.run(1)
 
 
-# TODO: torch inputs are incorrect
 def test_IrregularRenderer(target_framework, mode, backend_compile):
     print("kornia.nerf.volume_renderer.IrregularRenderer")
 
@@ -142,7 +141,7 @@ def test_IrregularRenderer(target_framework, mode, backend_compile):
 
     torch_args = (
         torch.rand(5, 32, 3),
-        torch.rand(5, 32),
+        torch.rand(5, 32, 1),
         torch.rand(5, 32, 3),
     )
     transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
@@ -158,7 +157,6 @@ def test_IrregularRenderer(target_framework, mode, backend_compile):
     _check_shape_allclose(orig_np, transpiled_np)
 
 
-# TODO: torch inputs are incorrect
 def test_RegularRenderer(target_framework, mode, backend_compile):
     print("kornia.nerf.volume_renderer.RegularRenderer")
 
@@ -169,7 +167,7 @@ def test_RegularRenderer(target_framework, mode, backend_compile):
 
     torch_args = (
         torch.rand(5, 32, 3),
-        torch.rand(5, 32),
+        torch.rand(5, 32, 1),
         torch.rand(5, 32, 3),
     )
     transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
@@ -201,7 +199,7 @@ def test_RaySampler(target_framework, mode, backend_compile):
         torch.tensor([256]),
         torch.tensor([256]),
     )
-    transpiled_camera_args = _nest_torch_tensor_to_new_framework(torch_camera_args)
+    transpiled_camera_args = _nest_torch_tensor_to_new_framework(torch_camera_args, target_framework)
 
     torch_camera = kornia.geometry.camera.pinhole.PinholeCamera(*torch_camera_args)
     transpiled_camera = TranspiledPinholeCamera(*transpiled_camera_args)
@@ -232,7 +230,7 @@ def test_RandomRaySampler(target_framework, mode, backend_compile):
         torch.tensor([256]),
         torch.tensor([256]),
     )
-    transpiled_camera_args = _nest_torch_tensor_to_new_framework(torch_camera_args)
+    transpiled_camera_args = _nest_torch_tensor_to_new_framework(torch_camera_args, target_framework)
 
     torch_camera = kornia.geometry.camera.pinhole.PinholeCamera(*torch_camera_args)
     transpiled_camera = TranspiledPinholeCamera(*transpiled_camera_args)

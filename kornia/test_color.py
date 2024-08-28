@@ -301,7 +301,6 @@ def test_rgb_to_hls(target_framework, mode, backend_compile):
     )
 
 
-
 def test_hls_to_rgb(target_framework, mode, backend_compile):
     trace_args = (
         torch.rand(1, 3, 4, 5),

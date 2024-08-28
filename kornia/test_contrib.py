@@ -211,7 +211,7 @@ def test_VisionTransformer(target_framework, mode, backend_compile):
     transpiled_vit = TranspiledVisionTransformer()
 
     torch_args = (
-        torch.rand(1, 3, 320, 320),
+        torch.rand(1, 3, 224, 224),
     )
     torch_out = torch_vit(*torch_args)
 
