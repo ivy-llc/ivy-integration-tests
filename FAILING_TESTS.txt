@@ -1,3 +1,9 @@
+Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_0 | Target: tensorflow | Native Compiled: False
+Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_1 | Target: tensorflow | Native Compiled: False
+Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_2 | Target: tensorflow | Native Compiled: False
+Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_3 | Target: tensorflow | Native Compiled: False
+Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_4 | Target: tensorflow | Native Compiled: False
+Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_5 | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.CenterCrop | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.CenterCrop3D | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.ColorJiggle | Target: tensorflow | Native Compiled: False
@@ -79,12 +85,6 @@ Obj: kornia.color.ColorMap | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.gray.GrayscaleToRgb | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.hls.RgbToHls | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.hls.rgb_to_hls | Target: tensorflow | Native Compiled: False
-Obj: kornia.color.raw.RawToRgb | Target: tensorflow | Native Compiled: False
-Obj: kornia.color.raw.RawToRgb2x2Downscaled | Target: tensorflow | Native Compiled: False
-Obj: kornia.color.raw.RgbToRaw | Target: tensorflow | Native Compiled: False
-Obj: kornia.color.raw.raw_to_rgb | Target: tensorflow | Native Compiled: False
-Obj: kornia.color.raw.raw_to_rgb_2x2_downscaled | Target: tensorflow | Native Compiled: False
-Obj: kornia.color.raw.rgb_to_raw | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.yuv.RgbToYuv420 | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.yuv.rgb_to_yuv420 | Target: tensorflow | Native Compiled: False
 Obj: kornia.contrib.ClassificationHead | Target: tensorflow | Native Compiled: False
@@ -100,7 +100,6 @@ Obj: kornia.feature.DISK | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.DeDoDe | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.DenseSIFTDescriptor | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.GFTTAffNetHardNet | Target: tensorflow | Native Compiled: False
-Obj: kornia.feature.HardNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.HardNet8 | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.HyNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.KeyNet | Target: tensorflow | Native Compiled: False
@@ -118,7 +117,6 @@ Obj: kornia.feature.LocalFeature | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LocalFeatureMatcher | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.MKDDescriptor | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.MultiResolutionDetector | Target: tensorflow | Native Compiled: False
-Obj: kornia.feature.OriNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.PassLAF | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.PatchAffineShapeEstimator | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.PatchDominantGradientOrientation | Target: tensorflow | Native Compiled: False
@@ -129,7 +127,6 @@ Obj: kornia.feature.SOLD2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.SOLD2_detector | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.SOSNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.ScaleSpaceDetector | Target: tensorflow | Native Compiled: False
-Obj: kornia.feature.TFeat | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.integrated.get_laf_descriptors | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.laf.extract_patches_from_pyramid | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.laf.laf_is_inside_image | Target: tensorflow | Native Compiled: False
@@ -149,12 +146,12 @@ Obj: kornia.geometry.depth.unproject_meshgrid | Target: tensorflow | Native Comp
 Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.find_essential | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.essential.motion_from_essential_choose_solution | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.projection.projections_from_fundamental | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.projection.random_intrinsics | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_lines_dlt | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.homography.find_homography_lines_dlt_iterated | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.sample_is_valid_for_homography | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.Se2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.Se3 | Target: tensorflow | Native Compiled: False
@@ -185,18 +182,11 @@ Obj: kornia.image.Image | Target: tensorflow | Native Compiled: False
 Obj: kornia.image.Image.from_dlpack | Target: tensorflow | Native Compiled: False
 Obj: kornia.image.Image.from_numpy | Target: tensorflow | Native Compiled: False
 Obj: kornia.image.Image.to_numpy | Target: tensorflow | Native Compiled: False
-Obj: kornia.losses.DiceLoss | Target: tensorflow | Native Compiled: False
-Obj: kornia.losses.FocalLoss | Target: tensorflow | Native Compiled: False
 Obj: kornia.losses.HausdorffERLoss | Target: tensorflow | Native Compiled: False
 Obj: kornia.losses.HausdorffERLoss3D | Target: tensorflow | Native Compiled: False
 Obj: kornia.losses.MS_SSIMLoss | Target: tensorflow | Native Compiled: False
 Obj: kornia.losses.TotalVariation | Target: tensorflow | Native Compiled: False
-Obj: kornia.losses.TverskyLoss | Target: tensorflow | Native Compiled: False
-Obj: kornia.losses.dice.dice_loss | Target: tensorflow | Native Compiled: False
-Obj: kornia.losses.focal.focal_loss | Target: tensorflow | Native Compiled: False
-Obj: kornia.losses.tversky.tversky_loss | Target: tensorflow | Native Compiled: False
 Obj: kornia.metrics.mean_average_precision.mean_average_precision | Target: tensorflow | Native Compiled: False
-Obj: kornia.metrics.mean_iou.mean_iou | Target: tensorflow | Native Compiled: False
 Obj: kornia.nerf.nerf_model.NerfModel | Target: tensorflow | Native Compiled: False
 Obj: kornia.nerf.nerf_model.NerfModelRenderer | Target: tensorflow | Native Compiled: False
 Obj: kornia.nerf.nerf_solver.NerfSolver | Target: tensorflow | Native Compiled: False
@@ -214,8 +204,5 @@ Obj: kornia.utils.get_mps_device_if_available | Target: tensorflow | Native Comp
 Obj: kornia.utils.is_autocast_enabled | Target: tensorflow | Native Compiled: False
 Obj: kornia.utils.save_pointcloud_ply | Target: tensorflow | Native Compiled: False
 Obj: kornia.utils.tensor_to_image | Target: tensorflow | Native Compiled: False
-Obj: kornia.x.ImageClassifierTrainer | Target: tensorflow | Native Compiled: False
 Obj: kornia.x.ModelCheckpoint | Target: tensorflow | Native Compiled: False
-Obj: kornia.x.ObjectDetectionTrainer | Target: tensorflow | Native Compiled: False
-Obj: kornia.x.SemanticSegmentationTrainer | Target: tensorflow | Native Compiled: False
 Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: True
