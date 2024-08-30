@@ -323,7 +323,7 @@ def test_translate(target_framework, mode, backend_compile):
 def test_scale(target_framework, mode, backend_compile):
     trace_args = (
         torch.rand(2, 3, 4, 4),
-        torch.rand(2),
+        torch.rand(2, 2),
     )
     trace_kwargs = {'mode': 'bilinear', 'padding_mode': 'zeros', 'align_corners': True}
     test_args = (
@@ -647,15 +647,73 @@ def test_get_perspective_transform(target_framework, mode, backend_compile):
 
 
 def test_get_perspective_transform3d(target_framework, mode, backend_compile):
-    trace_args = (
-        torch.tensor([[[0., 0., 0.], [1., 0., 0.], [1., 1., 0.], [0., 1., 0.]]]),
-        torch.tensor([[[1., 0., 0.], [0., 0., 0.], [0., 1., 0.], [1., 1., 0.]]])
-    )
+    src = torch.tensor([[
+        [0.0, 0.0, 0.0],
+        [1.0, 0.0, 0.0],
+        [1.0, 1.0, 0.0],
+        [0.0, 1.0, 0.0],
+        [0.0, 0.0, 1.0],
+        [1.0, 0.0, 1.0],
+        [1.0, 1.0, 1.0],
+        [0.0, 1.0, 1.0] 
+    ]])
+    dst = torch.tensor([[
+        [0.1, 0.1, 0.0],
+        [1.1, 0.0, 0.0],
+        [1.0, 1.1, 0.0],
+        [0.0, 1.0, 0.1],
+        [0.1, 0.0, 1.1],
+        [1.0, 0.1, 1.0],
+        [1.1, 1.1, 1.0],
+        [0.0, 1.1, 1.1] 
+    ]])
+    trace_args = (src, dst)
     trace_kwargs = {}
-    test_args = (
-        torch.tensor([[[0., 0., 0.], [2., 0., 0.], [2., 2., 0.], [0., 2., 0.]]]),
-        torch.tensor([[[2., 0., 0.], [0., 0., 0.], [0., 2., 0.], [2., 2., 0.]]])
-    )
+    src = torch.tensor([
+        [
+            [0.0, 0.0, 0.0],
+            [2.0, 0.0, 0.0],
+            [2.0, 2.0, 0.0],
+            [0.0, 2.0, 0.0],
+            [0.0, 0.0, 2.0],
+            [2.0, 0.0, 2.0],
+            [2.0, 2.0, 2.0],
+            [0.0, 2.0, 2.0] 
+        ],
+        [
+            [1.0, 1.0, 0.0],
+            [3.0, 1.0, 0.0],
+            [3.0, 3.0, 0.0],
+            [1.0, 3.0, 0.0],
+            [1.0, 1.0, 2.0],
+            [3.0, 1.0, 2.0],
+            [3.0, 3.0, 2.0],
+            [1.0, 3.0, 2.0] 
+        ]
+    ])
+    dst = torch.tensor([
+        [
+            [0.0, 0.0, 0.1],
+            [2.1, 0.0, 0.0],
+            [2.0, 2.1, 0.0],
+            [0.1, 2.0, 0.0],
+            [0.0, 0.0, 2.1],
+            [2.1, 0.1, 2.0],
+            [2.0, 2.1, 2.1],
+            [0.1, 2.0, 2.0] 
+        ],
+        [
+            [1.1, 1.1, 0.0],
+            [3.0, 1.1, 0.0],
+            [3.1, 3.0, 0.0],
+            [1.0, 3.1, 0.0],
+            [1.1, 1.1, 2.0],
+            [3.1, 1.0, 2.1],
+            [3.0, 3.1, 2.0],
+            [1.0, 3.0, 2.1] 
+        ]
+    ])
+    test_args = (src, dst)
     test_kwargs = {}
     _test_function(
         kornia.geometry.transform.get_perspective_transform3d,
