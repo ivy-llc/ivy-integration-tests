@@ -1,9 +1,3 @@
-Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_0 | Target: tensorflow | Native Compiled: False
-Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_1 | Target: tensorflow | Native Compiled: False
-Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_2 | Target: tensorflow | Native Compiled: False
-Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_3 | Target: tensorflow | Native Compiled: False
-Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_4 | Target: tensorflow | Native Compiled: False
-Obj: <enum 'Translated_CFA'>  stored at path:  /ivy/ivy-integration-tests/Translated_Outputs/Translated_CFA_output/run_5 | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.CenterCrop | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.CenterCrop3D | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.ColorJiggle | Target: tensorflow | Native Compiled: False
@@ -82,9 +76,15 @@ Obj: kornia.augmentation.container.ManyToOneAugmentationDispather | Target: tens
 Obj: kornia.augmentation.container.PatchSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.container.VideoSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.ColorMap | Target: tensorflow | Native Compiled: False
+Obj: kornia.color.RawToRgb | Target: tensorflow | Native Compiled: False
+Obj: kornia.color.RawToRgb2x2Downscaled | Target: tensorflow | Native Compiled: False
+Obj: kornia.color.RgbToRaw | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.gray.GrayscaleToRgb | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.hls.RgbToHls | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.hls.rgb_to_hls | Target: tensorflow | Native Compiled: False
+Obj: kornia.color.raw_to_rgb | Target: tensorflow | Native Compiled: False
+Obj: kornia.color.raw_to_rgb_2x2_downscaled | Target: tensorflow | Native Compiled: False
+Obj: kornia.color.rgb_to_raw | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.yuv.RgbToYuv420 | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.yuv.rgb_to_yuv420 | Target: tensorflow | Native Compiled: False
 Obj: kornia.contrib.ClassificationHead | Target: tensorflow | Native Compiled: False
@@ -143,15 +143,16 @@ Obj: kornia.geometry.boxes.Boxes3D | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.depth.depth_to_normals | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.depth.unproject_meshgrid | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.find_essential | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.epipolar.essential.motion_from_essential_choose_solution | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.fundamental.find_fundamental | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.projection.projections_from_fundamental | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.projection.random_intrinsics | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.triangulation.triangulate_points | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_lines_dlt | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.homography.find_homography_lines_dlt_iterated | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.sample_is_valid_for_homography | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.Se2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.Se3 | Target: tensorflow | Native Compiled: False
