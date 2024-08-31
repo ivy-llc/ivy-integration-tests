@@ -38,7 +38,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     torch_q2 = Quaternion(torch.tensor([2., 0., 1., 1.]))
     torch_q3 = torch_q1 + torch_q2
     transpiled_q1 = TranspiledQuaternion.identity()
-    transpiled_q2 = TranspiledQuaternion(_array_to_new_backend(torch.tensor([2., 0., 1., 1.])))
+    transpiled_q2 = TranspiledQuaternion(_array_to_new_backend(torch.tensor([2., 0., 1., 1.]), target_framework))
     transpiled_q3 = transpiled_q1 + transpiled_q2
 
     orig_np = _nest_array_to_numpy(torch_q3.data)
@@ -49,7 +49,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.__init__()
 
     torch_q = Quaternion(torch.tensor([[1., 0., 0., 0.], [0., 1., 0., 0.]]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([[1., 0., 0., 0.], [0., 1., 0., 0.]])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([[1., 0., 0., 0.], [0., 1., 0., 0.]]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.data)
     transpiled_np = _nest_array_to_numpy(transpiled_q.data)
@@ -59,7 +59,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.__neg__()
 
     torch_q = -Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = -TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = -TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.data)
     transpiled_np = _nest_array_to_numpy(transpiled_q.data)
@@ -69,7 +69,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.__pow__()
 
     torch_q = Quaternion(torch.tensor([1., .5, 0., 0.])) ** 2
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., .5, 0., 0.]))) ** 2
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., .5, 0., 0.]), target_framework)) ** 2
 
     orig_np = _nest_array_to_numpy(torch_q.data)
     transpiled_np = _nest_array_to_numpy(transpiled_q.data)
@@ -91,7 +91,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     torch_q1 = Quaternion(torch.tensor([2., 0., 1., 1.]))
     torch_q2 = Quaternion.identity()
     torch_q3 = torch_q1 - torch_q2
-    transpiled_q1 = TranspiledQuaternion(_array_to_new_backend(torch.tensor([2., 0., 1., 1.])))
+    transpiled_q1 = TranspiledQuaternion(_array_to_new_backend(torch.tensor([2., 0., 1., 1.]), target_framework))
     transpiled_q2 = TranspiledQuaternion.identity()
     transpiled_q3 = transpiled_q1 - transpiled_q2
 
@@ -103,7 +103,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.coeffs
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     torch_coeffs = _nest_array_to_numpy(torch_q.coeffs)
     transpiled_coeffs = _nest_array_to_numpy(transpiled_q.coeffs)
@@ -113,7 +113,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.data
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.data)
     transpiled_np = _nest_array_to_numpy(transpiled_q.data)
@@ -123,7 +123,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.from_axis_angle()
 
     torch_q = Quaternion.from_axis_angle(torch.tensor([[1., 0., 0.]]))
-    transpiled_q = TranspiledQuaternion.from_axis_angle(_array_to_new_backend(torch.tensor([[1., 0., 0.]])))
+    transpiled_q = TranspiledQuaternion.from_axis_angle(_array_to_new_backend(torch.tensor([[1., 0., 0.]]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.data)
     transpiled_np = _nest_array_to_numpy(transpiled_q.data)
@@ -145,7 +145,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     roll, pitch, yaw = torch.tensor(0), torch.tensor(1), torch.tensor(0)
     torch_q = Quaternion.from_euler(roll, pitch, yaw)
     transpiled_q = TranspiledQuaternion.from_euler(
-        _array_to_new_backend(roll), _array_to_new_backend(pitch), _array_to_new_backend(yaw)
+        _array_to_new_backend(roll, target_framework), _array_to_new_backend(pitch, target_framework), _array_to_new_backend(yaw, target_framework)
     )
 
     orig_np = _nest_array_to_numpy(torch_q.data)
@@ -156,7 +156,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.from_matrix()
 
     torch_m = torch.eye(3)[None]
-    transpiled_m = _array_to_new_backend(torch.eye(3)[None])
+    transpiled_m = _array_to_new_backend(torch.eye(3)[None], target_framework)
 
     torch_q = Quaternion.from_matrix(torch_m)
     transpiled_q = TranspiledQuaternion.from_matrix(transpiled_m)
@@ -189,7 +189,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.q
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.q)
     transpiled_np = _nest_array_to_numpy(transpiled_q.q)
@@ -209,7 +209,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.real
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.real)
     transpiled_np = _nest_array_to_numpy(transpiled_q.real)
@@ -219,7 +219,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.scalar
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.scalar)
     transpiled_np = _nest_array_to_numpy(transpiled_q.scalar)
@@ -229,7 +229,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.shape
 
     torch_q = Quaternion(torch.tensor([[1., 0., 0., 0.], [0., 1., 0., 0.]]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([[1., 0., 0., 0.], [0., 1., 0., 0.]])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([[1., 0., 0., 0.], [0., 1., 0., 0.]]), target_framework))
 
     torch_shape = torch_q.shape
     transpiled_shape = transpiled_q.shape
@@ -243,7 +243,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     torch_q2 = torch_q0.slerp(torch_q1, .3)
 
     transpiled_q0 = TranspiledQuaternion.identity()
-    transpiled_q1 = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., .5, 0., 0.])))
+    transpiled_q1 = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., .5, 0., 0.]), target_framework))
     transpiled_q2 = transpiled_q0.slerp(transpiled_q1, .3)
 
     orig_np = _nest_array_to_numpy(torch_q2.data)
@@ -256,7 +256,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     torch_q = Quaternion(torch.tensor([2., 0., 1., 1.]))
     roll, pitch, yaw = torch_q.to_euler()
 
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([2., 0., 1., 1.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([2., 0., 1., 1.]), target_framework))
     transpiled_roll, transpiled_pitch, transpiled_yaw = transpiled_q.to_euler()
 
     _check_allclose(_nest_array_to_numpy(roll), _nest_array_to_numpy(transpiled_roll))
@@ -267,7 +267,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.vec
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.vec)
     transpiled_np = _nest_array_to_numpy(transpiled_q.vec)
@@ -277,7 +277,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.w
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.w)
     transpiled_np = _nest_array_to_numpy(transpiled_q.w)
@@ -287,7 +287,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.x
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.x)
     transpiled_np = _nest_array_to_numpy(transpiled_q.x)
@@ -297,7 +297,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.y
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.y)
     transpiled_np = _nest_array_to_numpy(transpiled_q.y)
@@ -307,7 +307,7 @@ def test_Quaternion(target_framework, mode, backend_compile):
     # test Quaternion.z
 
     torch_q = Quaternion(torch.tensor([1., 0., 0., 0.]))
-    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.])))
+    transpiled_q = TranspiledQuaternion(_array_to_new_backend(torch.tensor([1., 0., 0., 0.]), target_framework))
 
     orig_np = _nest_array_to_numpy(torch_q.z)
     transpiled_np = _nest_array_to_numpy(transpiled_q.z)

@@ -236,13 +236,13 @@ def test_RandomRaySampler(target_framework, mode, backend_compile):
     transpiled_camera = TranspiledPinholeCamera(*transpiled_camera_args)
 
     heights, widths = torch.tensor([256]), torch.tensor([256])
-    transpiled_heights = _array_to_new_backend(heights)
-    transpiled_widths = _array_to_new_backend(widths)
+    transpiled_heights = _array_to_new_backend(heights, target_framework)
+    transpiled_widths = _array_to_new_backend(widths, target_framework)
 
     torch_sampler = samplers.RandomRaySampler(min_depth=0.1, max_depth=10.0, ndc=True, device="cpu", dtype=torch.float32)
     transpiled_sampler = TranspiledRandomRaySampler(min_depth=0.1, max_depth=10.0, ndc=True, device="cpu", dtype=torch.float32)
 
     torch_sampler.calc_ray_params(torch_camera, torch.tensor([1]))
-    transpiled_sampler.calc_ray_params(transpiled_camera, _array_to_new_backend(torch.tensor([1])))
+    transpiled_sampler.calc_ray_params(transpiled_camera, _array_to_new_backend(torch.tensor([1]), target_framework))
     torch_sampler.sample_points_2d(heights, widths, torch.tensor([3]))
-    transpiled_sampler.sample_points_2d(transpiled_heights, transpiled_widths, _array_to_new_backend(torch.tensor([3])))
+    transpiled_sampler.sample_points_2d(transpiled_heights, transpiled_widths, _array_to_new_backend(torch.tensor([3]), target_framework))
