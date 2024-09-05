@@ -10,7 +10,7 @@ kornia/test_metrics.py ...F.........                                            
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_metrics.py::test_mean_average_precision[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'mean_iou_bbox'
-=============================================================================== 1 failed, 12 passed in 206.02s (0:03:26) ===============================================================================
+=============================================================================== 1 failed, 12 passed in 196.12s (0:03:16) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -32,7 +32,7 @@ FAILED kornia/geometry/test_transform.py::test_Rescale[tensorflow-s2s-False] - A
 FAILED kornia/geometry/test_transform.py::test_Homography[tensorflow-s2s-False] - AttributeError: 'ResourceVariable' object has no attribute 'requires_grad'
 FAILED kornia/geometry/test_transform.py::test_ImageRegistrator[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.geometry.transform.image_r...
 FAILED kornia/geometry/test_transform.py::test_Similarity[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.geometry.transform.image_registr...
-=============================================================================== 9 failed, 48 passed in 922.80s (0:15:22) ===============================================================================
+=============================================================================== 9 failed, 48 passed in 966.82s (0:16:06) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -46,7 +46,7 @@ kornia/test_enhance.py ..............F........................                  
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_enhance.py::test_equalize_clahe[tensorflow-s2s-False] - IndexError: list index out of range
-=============================================================================== 1 failed, 38 passed in 632.56s (0:10:32) ===============================================================================
+=============================================================================== 1 failed, 38 passed in 585.43s (0:09:45) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -58,7 +58,7 @@ kornia/geometry/test_solvers.py .....                                           
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 5 passed in 105.99s (0:01:45) =====================================================================================
+==================================================================================== 5 passed in 109.15s (0:01:49) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -66,16 +66,18 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 26 items
 
-kornia/geometry/test_epipolar.py F..F.F.................F..                                                                                                                                      [100%]
+kornia/geometry/test_epipolar.py F..FF...............F..F.F                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_epipolar.py::test_find_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_decompose_essential_matrix[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential_choose_solution[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_projections_from_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/geometry/test_epipolar.py::test_random_intrinsics[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 4 failed, 22 passed in 390.51s (0:06:30) ===============================================================================
+FAILED kornia/geometry/test_epipolar.py::test_triangulate_points[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+=============================================================================== 6 failed, 20 passed in 367.92s (0:06:07) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -94,7 +96,7 @@ FAILED kornia/test_utils.py::test_save_pointcloud_ply[tensorflow-s2s-False] - Na
 FAILED kornia/test_utils.py::test_get_cuda_device_if_available[tensorflow-s2s-False] - NameError: name 'cuda' is not defined
 FAILED kornia/test_utils.py::test_get_mps_device_if_available[tensorflow-s2s-False] - ValueError: Unsupported type: None
 FAILED kornia/test_utils.py::test_get_cuda_or_mps_device_if_available[tensorflow-s2s-False] - ValueError: Unsupported type: None
-=============================================================================== 6 failed, 10 passed in 249.17s (0:04:09) ===============================================================================
+=============================================================================== 6 failed, 10 passed in 267.66s (0:04:27) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -108,7 +110,7 @@ kornia/geometry/test_quaternion.py F                                            
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_quaternion.py::test_Quaternion[tensorflow-s2s-False] - AssertionError: assert 'Parameter co...es_grad=True)' == '<tf.Variable...ype=float32)>'
-==================================================================================== 1 failed in 112.44s (0:01:52) =====================================================================================
+==================================================================================== 1 failed in 114.21s (0:01:54) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -124,7 +126,7 @@ report saved to: test_report.json
 FAILED kornia/test_sensors.py::test_CameraModel[tensorflow-s2s-False] - ValueError: Invalid Camera Model Type
 FAILED kornia/test_sensors.py::test_AffineTransform[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded while calling a Python object
 FAILED kornia/test_sensors.py::test_Z1Projection[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded while calling a Python object
-================================================================================ 3 failed, 1 passed in 88.67s (0:01:28) ================================================================================
+================================================================================ 3 failed, 1 passed in 88.04s (0:01:28) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -139,7 +141,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_boxes.py::test_Boxes[tensorflow-s2s-False] - AttributeError: 'tensorflow.python.framework.ops.EagerTensor' object has no attribute 'requires_grad'
 FAILED kornia/geometry/test_boxes.py::test_Boxes3D[tensorflow-s2s-False] - AttributeError: 'tensorflow.python.framework.ops.EagerTensor' object has no attribute 'requires_grad'
-==================================================================================== 2 failed in 173.58s (0:02:53) =====================================================================================
+==================================================================================== 2 failed in 154.01s (0:02:34) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -156,7 +158,7 @@ FAILED kornia/test_image.py::test_Image[tensorflow-s2s-False] - NotImplementedEr
 FAILED kornia/test_image.py::test_Image_from_numpy[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '_itemsize'. Did you mean: 'itemsize'?
 FAILED kornia/test_image.py::test_Image_from_dlpack[tensorflow-s2s-False] - NameError: name 'torch' is not defined
 FAILED kornia/test_image.py::test_Image_to_numpy[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '_itemsize'. Did you mean: 'itemsize'?
-=============================================================================== 4 failed, 4 passed in 184.36s (0:03:04) ================================================================================
+=============================================================================== 4 failed, 4 passed in 177.23s (0:02:57) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -171,7 +173,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_vector.py::test_Vector3[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded while calling a Python object
 FAILED kornia/geometry/test_vector.py::test_Vector2[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded while calling a Python object
-===================================================================================== 2 failed in 83.11s (0:01:23) =====================================================================================
+===================================================================================== 2 failed in 89.51s (0:01:29) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -183,7 +185,7 @@ kornia/test_x.py sssss                                                          
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 5 skipped in 102.30s (0:01:42) ====================================================================================
+==================================================================================== 5 skipped in 106.70s (0:01:46) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -199,7 +201,7 @@ report saved to: test_report.json
 FAILED kornia/augmentation/test_auto.py::test_AutoAugment[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot import na...
 FAILED kornia/augmentation/test_auto.py::test_RandAugment[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot import na...
 FAILED kornia/augmentation/test_auto.py::test_TrivialAugment[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot import...
-==================================================================================== 3 failed in 301.05s (0:05:01) =====================================================================================
+==================================================================================== 3 failed in 302.61s (0:05:02) =====================================================================================
 
 
 ========================================================================================= test session starts ==========================================================================================
@@ -212,7 +214,7 @@ transformers/test_vision.py .                                                   
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 1 passed in 937.47s (0:15:37) =====================================================================================
+==================================================================================== 1 passed in 922.38s (0:15:22) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -226,7 +228,7 @@ kornia/test_tracking.py F                                                       
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/test_tracking.py::test_HomographyTracker[tensorflow-s2s-False] - SyntaxError: Syntax Error: expected an indented block after 'try' statement on line 76 (<string>, line 77)
-==================================================================================== 1 failed in 694.71s (0:11:34) =====================================================================================
+==================================================================================== 1 failed in 687.97s (0:11:27) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -238,7 +240,7 @@ kornia/geometry/test_conversions.py ......................................      
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 38 passed in 285.63s (0:04:45) ====================================================================================
+==================================================================================== 38 passed in 278.94s (0:04:38) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -258,7 +260,7 @@ FAILED kornia/test_nerf.py::test_IrregularRenderer[tensorflow-s2s-False] - Value
 FAILED kornia/test_nerf.py::test_RegularRenderer[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_RegularRenderer.call().
 FAILED kornia/test_nerf.py::test_RaySampler[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.nerf.core: name 'Tensor' is not defined
 FAILED kornia/test_nerf.py::test_RandomRaySampler[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.nerf.core: name 'Tensor' is not defined
-=============================================================================== 7 failed, 1 passed in 252.81s (0:04:12) ================================================================================
+=============================================================================== 7 failed, 1 passed in 248.27s (0:04:08) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -277,7 +279,7 @@ FAILED kornia/augmentation/test_container.py::test_ManyToOneAugmentationDispathe
 FAILED kornia/augmentation/test_container.py::test_ImageSequential[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot ...
 FAILED kornia/augmentation/test_container.py::test_PatchSequential[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot ...
 FAILED kornia/augmentation/test_container.py::test_VideoSequential[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot ...
-==================================================================================== 6 failed in 313.48s (0:05:13) =====================================================================================
+==================================================================================== 6 failed in 308.74s (0:05:08) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -289,7 +291,7 @@ kornia/test_io.py ..                                                            
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-===================================================================================== 2 passed in 82.05s (0:01:22) =====================================================================================
+===================================================================================== 2 passed in 79.87s (0:01:19) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -303,7 +305,7 @@ kornia/geometry/test_calibration.py ....F                                       
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_calibration.py::test_solve_pnp_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 1 failed, 4 passed in 166.71s (0:02:46) ================================================================================
+=============================================================================== 1 failed, 4 passed in 171.89s (0:02:51) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -318,7 +320,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_subpix.py::test_conv_quad_interp3d[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient3d'
 FAILED kornia/geometry/test_subpix.py::test_ConvQuadInterp3d[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_ConvQuadInterp3d.call().
-=============================================================================== 2 failed, 13 passed in 287.93s (0:04:47) ===============================================================================
+=============================================================================== 2 failed, 13 passed in 310.79s (0:05:10) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -326,14 +328,13 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/geometry/test_homography.py ..FF....                                                                                                                                                      [100%]
+kornia/geometry/test_homography.py ..F.....                                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt_iterated[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 2 failed, 6 passed in 167.89s (0:02:47) ================================================================================
+=============================================================================== 1 failed, 7 passed in 170.32s (0:02:50) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -347,7 +348,7 @@ kornia/geometry/test_bbox.py ..F.....                                           
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_bbox.py::test_bbox_to_mask[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
-=============================================================================== 1 failed, 7 passed in 155.37s (0:02:35) ================================================================================
+=============================================================================== 1 failed, 7 passed in 147.56s (0:02:27) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -368,7 +369,7 @@ FAILED kornia/test_filters.py::test_Canny[tensorflow-s2s-False] - AttributeError
 FAILED kornia/test_filters.py::test_DexiNed[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_DexiNed.call().
 FAILED kornia/test_filters.py::test_MedianBlur[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_MedianBlur.call().
 FAILED kornia/test_filters.py::test_UnsharpMask[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_UnsharpMask.call().
-=============================================================================== 8 failed, 36 passed in 765.86s (0:12:45) ===============================================================================
+=============================================================================== 8 failed, 36 passed in 787.13s (0:13:07) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -380,7 +381,7 @@ kornia/geometry/test_ransac.py .                                                
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 1 passed in 224.32s (0:03:44) =====================================================================================
+==================================================================================== 1 passed in 208.81s (0:03:28) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -399,7 +400,7 @@ FAILED kornia/test_contrib.py::test_EdgeDetector[tensorflow-s2s-False] - NameErr
 FAILED kornia/test_contrib.py::test_FaceDetector[tensorflow-s2s-False] - NameError: name 'torch' is not defined
 FAILED kornia/test_contrib.py::test_KMeans[tensorflow-s2s-False] - TypeError: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment
 FAILED kornia/test_contrib.py::test_ImageStitcher[tensorflow-s2s-False] - AttributeError: module 'kornia.contrib' has no attribute 'LoFTR'
-=============================================================================== 6 failed, 9 passed in 590.83s (0:09:50) ================================================================================
+=============================================================================== 6 failed, 9 passed in 580.32s (0:09:40) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -411,7 +412,7 @@ kornia/test_morphology.py .......                                               
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 7 passed in 120.71s (0:02:00) =====================================================================================
+==================================================================================== 7 passed in 120.55s (0:02:00) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -419,11 +420,13 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 2 items
 
-kornia/geometry/test_line.py ..                                                                                                                                                                  [100%]
+kornia/geometry/test_line.py F.                                                                                                                                                                  [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-===================================================================================== 2 passed in 89.68s (0:01:29) =====================================================================================
+======================================================================================= short test summary info ========================================================================================
+FAILED kornia/geometry/test_line.py::test_fit_line[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+================================================================================ 1 failed, 1 passed in 87.55s (0:01:27) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -448,7 +451,7 @@ FAILED kornia/test_color.py::test_RawToRgb[tensorflow-s2s-False] - ValueError: E
 FAILED kornia/test_color.py::test_RgbToRaw[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/test_color.py::test_RawToRgb2x2Downscaled[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_RawToRgb2x2Downscaled.call().
 FAILED kornia/test_color.py::test_apply_colormap[tensorflow-s2s-False] - NameError: name 'torch' is not defined
-============================================================================== 12 failed, 57 passed in 739.59s (0:12:19) ===============================================================================
+============================================================================== 12 failed, 57 passed in 760.95s (0:12:40) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -465,7 +468,7 @@ FAILED kornia/geometry/test_liegroup.py::test_So3[tensorflow-s2s-False] - TypeEr
 FAILED kornia/geometry/test_liegroup.py::test_Se3[tensorflow-s2s-False] - TypeError: rotation type is <class 'Translated_Outputs.tensorflow_outputs.kornia.geometry.quaternion.tensorflow_Quaternion'>
 FAILED kornia/geometry/test_liegroup.py::test_So2[tensorflow-s2s-False] - TypeError: object of type 'ResourceVariable' has no len()
 FAILED kornia/geometry/test_liegroup.py::test_Se2[tensorflow-s2s-False] - TypeError: Invalid type: <class 'Translated_Outputs.tensorflow_outputs.kornia.geometry.liegroup.so2.tensorflow_So2'>.
-==================================================================================== 4 failed in 234.98s (0:03:54) =====================================================================================
+==================================================================================== 4 failed in 245.08s (0:04:05) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -473,12 +476,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 68 items
 
-kornia/augmentation/test_augmentation.py ...F...F...F.....FF.FF.....F.F.FFFFFFFF....FFF..FFFFFFFF..F..FF..FFF                                                                                    [100%]
+kornia/augmentation/test_augmentation.py .......F...F.....FF.FF.....F.F.FFFFFFF.....FFF..FFFFFFFF..F..FF..FFF                                                                                    [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/augmentation/test_augmentation.py::test_RandomBoxBlur[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorfl...
 FAILED kornia/augmentation/test_augmentation.py::test_RandomClahe[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomClahe.call().
 FAILED kornia/augmentation/test_augmentation.py::test_RandomGaussianBlur[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling ten...
 FAILED kornia/augmentation/test_augmentation.py::test_RandomJPEG[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_...
@@ -494,7 +496,6 @@ FAILED kornia/augmentation/test_augmentation.py::test_CenterCrop[tensorflow-s2s-
 FAILED kornia/augmentation/test_augmentation.py::test_PadTo[tensorflow-s2s-False] - AssertionError: numpy array shapes are not all close
 FAILED kornia/augmentation/test_augmentation.py::test_RandomAffine[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomAffine.call().
 FAILED kornia/augmentation/test_augmentation.py::test_RandomCrop[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomCrop.call().
-FAILED kornia/augmentation/test_augmentation.py::test_RandomElasticTransform[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling...
 FAILED kornia/augmentation/test_augmentation.py::test_RandomResizedCrop[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tens...
 FAILED kornia/augmentation/test_augmentation.py::test_RandomRotation[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_RandomRotation.call().
 FAILED kornia/augmentation/test_augmentation.py::test_RandomShear[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomShear.call().
@@ -512,7 +513,7 @@ FAILED kornia/augmentation/test_augmentation.py::test_RandomTransplantation3D[te
 FAILED kornia/augmentation/test_augmentation.py::test_LongestMaxSize[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_LongestMaxSize.call().
 FAILED kornia/augmentation/test_augmentation.py::test_Resize[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_Resize.call().
 FAILED kornia/augmentation/test_augmentation.py::test_SmallestMaxSize[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_SmallestMaxSize.call().
-============================================================================== 34 failed, 34 passed in 1674.57s (0:27:54) ==============================================================================
+============================================================================== 32 failed, 36 passed in 1759.56s (0:29:19) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -524,7 +525,7 @@ kornia/geometry/test_linalg.py ........                                         
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 8 passed in 110.75s (0:01:50) =====================================================================================
+==================================================================================== 8 passed in 112.76s (0:01:52) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -541,7 +542,7 @@ FAILED kornia/test_losses.py::test_HausdorffERLoss[tensorflow-s2s-False] - TypeE
 FAILED kornia/test_losses.py::test_HausdorffERLoss3D[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_HausdorffERLoss3D.call().
 FAILED kornia/test_losses.py::test_MS_SSIMLoss[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_MS_SSIMLoss.call().
 FAILED kornia/test_losses.py::test_TotalVariation[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
-=============================================================================== 4 failed, 31 passed in 502.70s (0:08:22) ===============================================================================
+=============================================================================== 4 failed, 31 passed in 521.39s (0:08:41) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -553,7 +554,7 @@ kornia/geometry/test_camera.py ...................                              
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-==================================================================================== 19 passed in 199.20s (0:03:19) ====================================================================================
+==================================================================================== 19 passed in 190.20s (0:03:10) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -568,7 +569,7 @@ report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
 FAILED kornia/geometry/test_depth.py::test_unproject_meshgrid[tensorflow-s2s-False] - TypeError: Cannot convert the argument `type_value`: torch.float32 to a TensorFlow DType.
 FAILED kornia/geometry/test_depth.py::test_depth_to_normals[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient'
-=============================================================================== 2 failed, 4 passed in 163.98s (0:02:43) ================================================================================
+=============================================================================== 2 failed, 4 passed in 159.88s (0:02:39) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -581,7 +582,7 @@ kornia/test_feature.py .....F......F.............F...FFF.FF.F......FFFFFFFFF.FFF
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.7207, 0.9936],
+FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.1550, 0.3832],
 FAILED kornia/test_feature.py::test_extract_patches_from_pyramid[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/test_feature.py::test_laf_is_inside_image[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Value for attr 'T' of bool is not in the list of allowe...
 FAILED kornia/test_feature.py::test_DenseSIFTDescriptor[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_DenseSIFTDescriptor.call().
@@ -590,9 +591,9 @@ FAILED kornia/test_feature.py::test_MKDDescriptor[tensorflow-s2s-False] - Attrib
 FAILED kornia/test_feature.py::test_HardNet8[tensorflow-s2s-False] - TypeError: tensorflow_new_frnt_() takes 1 positional argument but 3 were given
 FAILED kornia/test_feature.py::test_HyNet[tensorflow-s2s-False] - AssertionError: multiple targets found for assignment inspect.unwrap(tensorflow_local_response_norm).partial_mixed_handler = local_...
 FAILED kornia/test_feature.py::test_SOSNet[tensorflow-s2s-False] - AssertionError: multiple targets found for assignment inspect.unwrap(tensorflow_local_response_norm).partial_mixed_handler = local...
-FAILED kornia/test_feature.py::test_MultiResolutionDetector[tensorflow-s2s-False] - ValueError: operands could not be broadcast together with shapes (1,0,2,3) (1,2,2,3)
+FAILED kornia/test_feature.py::test_MultiResolutionDetector[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
 FAILED kornia/test_feature.py::test_ScaleSpaceDetector[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_ScaleSpaceDetector.call().
-FAILED kornia/test_feature.py::test_KeyNetDetector[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_feature.py::test_KeyNetDetector[tensorflow-s2s-False] - ValueError: operands could not be broadcast together with shapes (1,3,2,3) (1,4,2,3)
 FAILED kornia/test_feature.py::test_LAFDescriptor[tensorflow-s2s-False] - NameError: name 'torch' is not defined
 FAILED kornia/test_feature.py::test_SOLD2[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_Bottleneck2D.call().
 FAILED kornia/test_feature.py::test_LocalFeature[tensorflow-s2s-False] - NameError: name 'torch' is not defined
@@ -612,5 +613,5 @@ FAILED kornia/test_feature.py::test_PatchAffineShapeEstimator[tensorflow-s2s-Fal
 FAILED kornia/test_feature.py::test_LAFAffineShapeEstimator[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'SpatialGradient'
 FAILED kornia/test_feature.py::test_LAFOrienter[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
 FAILED kornia/test_feature.py::test_PatchDominantGradientOrientation[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
-============================================================================== 31 failed, 44 passed in 3266.28s (0:54:26) ==============================================================================
+============================================================================== 31 failed, 44 passed in 3397.40s (0:56:37) ==============================================================================
 
