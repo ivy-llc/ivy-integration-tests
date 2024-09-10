@@ -577,6 +577,7 @@ def test_random_intrinsics(target_framework, mode, backend_compile):
         backend_compile,
         tolerance=1e-3,
         mode=mode,
+        deterministic=False,
     )
 
 
