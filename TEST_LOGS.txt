@@ -4,25 +4,13 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 13 items
 
-kornia/test_metrics.py FFFFFFFFFFFFF                                                                                                                                                             [100%]
+kornia/test_metrics.py ...F.........                                                                                                                                                             [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_metrics.py::test_accuracy[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_confusion_matrix[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_mean_iou[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_mean_average_precision[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_mean_iou_bbox[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_psnr[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_ssim[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_ssim3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_aepe[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_SSIM[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_SSIM3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_AEPE[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_metrics.py::test_AverageMeter[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 13 failed in 4.59s ==========================================================================================
+FAILED kornia/test_metrics.py::test_mean_average_precision[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'mean_iou_bbox'
+=============================================================================== 1 failed, 12 passed in 258.36s (0:04:18) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -30,69 +18,21 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 57 items
 
-kornia/geometry/test_transform.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                      [100%]
+kornia/geometry/test_transform.py ........................FFF................F...F...F..FFF                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_transform.py::test_warp_perspective[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_warp_perspective3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_warp_affine[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_warp_affine3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_warp_image_tps[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_warp_points_tps[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_warp_grid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_warp_grid3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_remap[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_affine[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_rotate[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_translate[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_scale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_shear[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_hflip[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_vflip[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_rot180[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_resize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_rescale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_elastic_transform2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_pyrdown[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_pyrup[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_build_pyramid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_build_laplacian_pyramid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_upscale_double[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_perspective_transform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_perspective_transform3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_projective_transform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_rotation_matrix2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_shear_matrix2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_shear_matrix3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_affine_matrix2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_affine_matrix3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_invert_affine_transform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_projection_from_Rt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_get_tps_transform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_crop_by_indices[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_crop_by_boxes[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_center_crop[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_crop_and_resize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Rotate[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Translate[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Scale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Shear[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_PyrDown[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_PyrUp[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_ScalePyramid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Hflip[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Vflip[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Rot180[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Resize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Rescale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Affine[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_HomographyWarper[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Homography[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_ImageRegistrator[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_transform.py::test_Similarity[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 57 failed in 5.00s ==========================================================================================
+FAILED kornia/geometry/test_transform.py::test_upscale_double[tensorflow-s2s-False] - TypeError: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment
+FAILED kornia/geometry/test_transform.py::test_get_perspective_transform[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_transform.py::test_get_perspective_transform3d[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_transform.py::test_Shear[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_Shear.call().
+FAILED kornia/geometry/test_transform.py::test_Hflip[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
+FAILED kornia/geometry/test_transform.py::test_Rescale[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_transform.py::test_Homography[tensorflow-s2s-False] - IndexError: list index out of range
+FAILED kornia/geometry/test_transform.py::test_ImageRegistrator[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.geometry.transform.image_r...
+FAILED kornia/geometry/test_transform.py::test_Similarity[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.geometry.transform.image_registr...
+=============================================================================== 9 failed, 48 passed in 905.15s (0:15:05) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -100,51 +40,13 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 39 items
 
-kornia/test_enhance.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                                                   [100%]
+kornia/test_enhance.py ..............F........................                                                                                                                                   [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_enhance.py::test_add_weighted[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_adjust_brightness[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_adjust_contrast[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_adjust_contrast_with_mean_subtraction[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_adjust_gamma[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_adjust_hue[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_adjust_saturation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_adjust_sigmoid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_adjust_log[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_invert[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_posterize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_sharpness[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_solarize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_equalize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_equalize_clahe[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_equalize3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_histogram[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_histogram2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_image_histogram2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_normalize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_normalize_min_max[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_denormalize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_zca_mean[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_zca_whiten[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_linear_transform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_jpeg_codec_differentiable[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_Normalize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_Denormalize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_ZCAWhitening[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_AdjustBrightness[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_AdjustContrast[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_AdjustSaturation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_AdjustHue[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_AdjustGamma[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_AdjustSigmoid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_AdjustLog[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_AddWeighted[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_Invert[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_enhance.py::test_JPEGCodecDifferentiable[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 39 failed in 5.05s ==========================================================================================
+FAILED kornia/test_enhance.py::test_equalize_clahe[tensorflow-s2s-False] - IndexError: list index out of range
+=============================================================================== 1 failed, 38 passed in 587.77s (0:09:47) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -152,17 +54,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 5 items
 
-kornia/geometry/test_solvers.py FFFFF                                                                                                                                                            [100%]
+kornia/geometry/test_solvers.py .....                                                                                                                                                            [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_solvers.py::test_solve_quadratic[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_solvers.py::test_solve_cubic[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_solvers.py::test_multiply_deg_one_poly[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_solvers.py::test_multiply_deg_two_one_poly[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_solvers.py::test_determinant_to_polynomial[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 5 failed in 4.68s ===========================================================================================
+==================================================================================== 5 passed in 102.71s (0:01:42) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -170,38 +66,19 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 26 items
 
-kornia/geometry/test_epipolar.py FFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                                                      [100%]
+kornia/geometry/test_epipolar.py F..FFF.F............F..F..                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_epipolar.py::test_find_essential[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_essential_from_fundamental[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_essential_from_Rt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_decompose_essential_matrix[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential_choose_solution[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_relative_camera_motion[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_find_fundamental[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_fundamental_from_essential[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_fundamental_from_projections[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_compute_correspond_epilines[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_normalize_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_normalize_transformation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_get_perpendicular[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_get_closest_point_on_epipolar_line[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_sampson_epipolar_distance[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_symmetrical_epipolar_distance[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_left_to_right_epipolar_distance[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_right_to_left_epipolar_distance[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_projection_from_KRt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_projections_from_fundamental[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_intrinsics_like[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_scale_intrinsics[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_random_intrinsics[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_cross_product_matrix[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_epipolar.py::test_triangulate_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 26 failed in 4.70s ==========================================================================================
+FAILED kornia/geometry/test_epipolar.py::test_find_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_decompose_essential_matrix[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_motion_from_essential_choose_solution[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_find_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_projections_from_fundamental[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_epipolar.py::test_random_intrinsics[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+=============================================================================== 7 failed, 19 passed in 376.74s (0:06:16) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -209,28 +86,18 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 16 items
 
-kornia/test_utils.py FFFFFFFFFFFFFFFF                                                                                                                                                            [100%]
+kornia/test_utils.py .F....F...FFFF..                                                                                                                                                            [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_utils.py::test_draw_line[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_draw_rectangle[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_draw_convex_polygon[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_create_meshgrid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_create_meshgrid3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_one_hot[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_tensor_to_image[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_image_to_tensor[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_image_list_to_tensor[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_image_to_string[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_save_pointcloud_ply[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_get_cuda_device_if_available[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_get_mps_device_if_available[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_get_cuda_or_mps_device_if_available[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_map_location_to_cpu[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_utils.py::test_is_autocast_enabled[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 16 failed in 4.61s ==========================================================================================
+FAILED kornia/test_utils.py::test_draw_rectangle[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: {{function_node __wrapped__TensorScatterUpdate_device_/job:loc...
+FAILED kornia/test_utils.py::test_tensor_to_image[tensorflow-s2s-False] - NameError: name 'np_frontend_array' is not defined
+FAILED kornia/test_utils.py::test_save_pointcloud_ply[tensorflow-s2s-False] - NameError: name 'stat' is not defined
+FAILED kornia/test_utils.py::test_get_cuda_device_if_available[tensorflow-s2s-False] - NameError: name 'cuda' is not defined
+FAILED kornia/test_utils.py::test_get_mps_device_if_available[tensorflow-s2s-False] - ValueError: Unsupported type: None
+FAILED kornia/test_utils.py::test_get_cuda_or_mps_device_if_available[tensorflow-s2s-False] - ValueError: Unsupported type: None
+=============================================================================== 6 failed, 10 passed in 240.68s (0:04:00) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -243,8 +110,8 @@ kornia/geometry/test_quaternion.py F                                            
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_quaternion.py::test_Quaternion[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 1 failed in 4.63s ===========================================================================================
+FAILED kornia/geometry/test_quaternion.py::test_Quaternion[tensorflow-s2s-False] - AssertionError: assert 'Parameter co...es_grad=True)' == '<tf.Variable...ype=float32)>'
+==================================================================================== 1 failed in 115.94s (0:01:55) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -252,16 +119,15 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 4 items
 
-kornia/test_sensors.py FFFF                                                                                                                                                                      [100%]
+kornia/test_sensors.py F.FF                                                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_sensors.py::test_CameraModel[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_sensors.py::test_PinholeModel[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_sensors.py::test_AffineTransform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_sensors.py::test_Z1Projection[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 4 failed in 4.88s ===========================================================================================
+FAILED kornia/test_sensors.py::test_CameraModel[tensorflow-s2s-False] - ValueError: Invalid Camera Model Type
+FAILED kornia/test_sensors.py::test_AffineTransform[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded while calling a Python object
+FAILED kornia/test_sensors.py::test_Z1Projection[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded while calling a Python object
+================================================================================ 3 failed, 1 passed in 86.82s (0:01:26) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -274,9 +140,9 @@ kornia/geometry/test_boxes.py FF                                                
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_boxes.py::test_Boxes[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_boxes.py::test_Boxes3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 2 failed in 4.70s ===========================================================================================
+FAILED kornia/geometry/test_boxes.py::test_Boxes[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_boxes.py::test_Boxes3D[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+==================================================================================== 2 failed in 176.85s (0:02:56) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -284,20 +150,16 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/test_image.py FFFFFFFF                                                                                                                                                                    [100%]
+kornia/test_image.py ....FFFF                                                                                                                                                                    [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_image.py::test_ImageSize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_image.py::test_PixelFormat[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_image.py::test_ChannelsOrder[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_image.py::test_ImageLayout[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_image.py::test_Image[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_image.py::test_Image_from_numpy[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_image.py::test_Image_from_dlpack[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_image.py::test_Image_to_numpy[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 8 failed in 4.70s ===========================================================================================
+FAILED kornia/test_image.py::test_Image[tensorflow-s2s-False] - NotImplementedError: Layout tensorflow_ChannelsOrder.CHANNELS_FIRST not implemented.
+FAILED kornia/test_image.py::test_Image_from_numpy[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '_itemsize'. Did you mean: 'itemsize'?
+FAILED kornia/test_image.py::test_Image_from_dlpack[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_image.py::test_Image_to_numpy[tensorflow-s2s-False] - AttributeError: 'numpy.ndarray' object has no attribute '_itemsize'. Did you mean: 'itemsize'?
+=============================================================================== 4 failed, 4 passed in 172.47s (0:02:52) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -310,9 +172,9 @@ kornia/geometry/test_vector.py FF                                               
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_vector.py::test_Vector3[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_vector.py::test_Vector2[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 2 failed in 4.91s ===========================================================================================
+FAILED kornia/geometry/test_vector.py::test_Vector3[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded while calling a Python object
+FAILED kornia/geometry/test_vector.py::test_Vector2[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded while calling a Python object
+===================================================================================== 2 failed in 87.25s (0:01:27) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -320,17 +182,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 5 items
 
-kornia/test_x.py FFFFF                                                                                                                                                                           [100%]
+kornia/test_x.py sssss                                                                                                                                                                           [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_x.py::test_ImageClassifierTrainer[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_x.py::test_SemanticSegmentationTrainer[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_x.py::test_ObjectDetectionTrainer[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_x.py::test_ModelCheckpoint[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_x.py::test_EarlyStopping[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 5 failed in 4.68s ===========================================================================================
+==================================================================================== 5 skipped in 105.60s (0:01:45) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -343,10 +199,10 @@ kornia/augmentation/test_auto.py FFF                                            
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/augmentation/test_auto.py::test_AutoAugment[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_auto.py::test_RandAugment[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_auto.py::test_TrivialAugment[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 3 failed in 4.60s ===========================================================================================
+FAILED kornia/augmentation/test_auto.py::test_AutoAugment[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot import na...
+FAILED kornia/augmentation/test_auto.py::test_RandAugment[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot import na...
+FAILED kornia/augmentation/test_auto.py::test_TrivialAugment[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot import...
+==================================================================================== 3 failed in 302.12s (0:05:02) =====================================================================================
 
 
 ========================================================================================= test session starts ==========================================================================================
@@ -355,13 +211,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 1 item
 
-transformers/test_vision.py F                                                                                                                                                                    [100%]
+transformers/test_vision.py .                                                                                                                                                                    [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED transformers/test_vision.py::test_Swin2SR[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 1 failed in 7.01s ===========================================================================================
+==================================================================================== 1 passed in 923.79s (0:15:23) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -374,8 +228,8 @@ kornia/test_tracking.py F                                                       
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_tracking.py::test_HomographyTracker[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 1 failed in 5.01s ===========================================================================================
+FAILED kornia/test_tracking.py::test_HomographyTracker[tensorflow-s2s-False] - SyntaxError: Syntax Error: expected an indented block after 'try' statement on line 76 (<string>, line 77)
+==================================================================================== 1 failed in 687.47s (0:11:27) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -383,50 +237,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 38 items
 
-kornia/geometry/test_conversions.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                                       [100%]
+kornia/geometry/test_conversions.py ......................................                                                                                                                       [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_conversions.py::test_rad2deg[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_deg2rad[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_pol2cart[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_cart2pol[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_angle_to_rotation_matrix[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_convert_points_from_homogeneous[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_convert_points_to_homogeneous[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_convert_affinematrix_to_homography[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_denormalize_pixel_coordinates[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_normalize_pixel_coordinates[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_denormalize_pixel_coordinates3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_normalize_pixel_coordinates3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_normalize_points_with_intrinsics[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_denormalize_points_with_intrinsics[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_normalize_homography[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_denormalize_homography[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_normalize_homography3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_quaternion_to_axis_angle[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_quaternion_to_rotation_matrix[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_quaternion_log_to_exp[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_quaternion_exp_to_log[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_normalize_quaternion[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_vector_to_skew_symmetric_matrix[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_rotation_matrix_to_axis_angle[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_rotation_matrix_to_quaternion[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_axis_angle_to_quaternion[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_axis_angle_to_rotation_matrix[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_quaternion_from_euler[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_euler_from_quaternion[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_Rt_to_matrix4x4[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_matrix4x4_to_Rt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_worldtocam_to_camtoworld_Rt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_camtoworld_to_worldtocam_Rt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_camtoworld_graphics_to_vision_4x4[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_camtoworld_vision_to_graphics_4x4[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_camtoworld_graphics_to_vision_Rt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_camtoworld_vision_to_graphics_Rt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_conversions.py::test_ARKitQTVecs_to_ColmapQTVecs[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 38 failed in 4.87s ==========================================================================================
+==================================================================================== 38 passed in 281.79s (0:04:41) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -434,20 +249,19 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/test_nerf.py FFFFFFFF                                                                                                                                                                     [100%]
+kornia/test_nerf.py FF.FFFFF                                                                                                                                                                     [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_nerf.py::test_NerfModel[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_nerf.py::test_NerfModelRenderer[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_nerf.py::test_MLP[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_nerf.py::test_NerfSolver[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_nerf.py::test_IrregularRenderer[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_nerf.py::test_RegularRenderer[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_nerf.py::test_RaySampler[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_nerf.py::test_RandomRaySampler[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 8 failed in 4.72s ===========================================================================================
+FAILED kornia/test_nerf.py::test_NerfModel[tensorflow-s2s-False] - AttributeError: can't set attribute
+FAILED kornia/test_nerf.py::test_NerfModelRenderer[tensorflow-s2s-False] - AttributeError: can't set attribute
+FAILED kornia/test_nerf.py::test_NerfSolver[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.nerf.core: name 'Tensor' is not defined
+FAILED kornia/test_nerf.py::test_IrregularRenderer[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_IrregularRenderer.call().
+FAILED kornia/test_nerf.py::test_RegularRenderer[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_RegularRenderer.call().
+FAILED kornia/test_nerf.py::test_RaySampler[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.nerf.core: name 'Tensor' is not defined
+FAILED kornia/test_nerf.py::test_RandomRaySampler[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.torch_frontend_outputs.kornia.nerf.core: name 'Tensor' is not defined
+=============================================================================== 7 failed, 1 passed in 245.22s (0:04:05) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -460,13 +274,13 @@ kornia/augmentation/test_container.py FFFFFF                                    
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/augmentation/test_container.py::test_AugmentationSequential[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_container.py::test_ManyToManyAugmentationDispather[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_container.py::test_ManyToOneAugmentationDispather[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_container.py::test_ImageSequential[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_container.py::test_PatchSequential[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_container.py::test_VideoSequential[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 6 failed in 4.76s ===========================================================================================
+FAILED kornia/augmentation/test_container.py::test_AugmentationSequential[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: ...
+FAILED kornia/augmentation/test_container.py::test_ManyToManyAugmentationDispather[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.m...
+FAILED kornia/augmentation/test_container.py::test_ManyToOneAugmentationDispather[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mi...
+FAILED kornia/augmentation/test_container.py::test_ImageSequential[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot ...
+FAILED kornia/augmentation/test_container.py::test_PatchSequential[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot ...
+FAILED kornia/augmentation/test_container.py::test_VideoSequential[tensorflow-s2s-False] - ImportError: Error loading module Translated_Outputs.ivy_outputs.kornia.augmentation._2d.mix.base: cannot ...
+==================================================================================== 6 failed in 315.26s (0:05:15) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -474,14 +288,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 2 items
 
-kornia/test_io.py FF                                                                                                                                                                             [100%]
+kornia/test_io.py ..                                                                                                                                                                             [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_io.py::test_load_image[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_io.py::test_write_image[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 2 failed in 1.97s ===========================================================================================
+===================================================================================== 2 passed in 80.10s (0:01:20) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -489,17 +300,13 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 5 items
 
-kornia/geometry/test_calibration.py FFFFF                                                                                                                                                        [100%]
+kornia/geometry/test_calibration.py ....F                                                                                                                                                        [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_calibration.py::test_undistort_image[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_calibration.py::test_undistort_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_calibration.py::test_distort_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_calibration.py::test_tilt_projection[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_calibration.py::test_solve_pnp_dlt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 5 failed in 4.79s ===========================================================================================
+FAILED kornia/geometry/test_calibration.py::test_solve_pnp_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+=============================================================================== 1 failed, 4 passed in 169.08s (0:02:49) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -507,27 +314,14 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 15 items
 
-kornia/geometry/test_subpix.py FFFFFFFFFFFFFFF                                                                                                                                                   [100%]
+kornia/geometry/test_subpix.py ..F.........F..                                                                                                                                                   [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_subpix.py::test_conv_soft_argmax2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_conv_soft_argmax3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_conv_quad_interp3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_spatial_softmax2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_spatial_expectation2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_spatial_soft_argmax2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_render_gaussian2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_nms2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_nms3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_SpatialSoftArgmax2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_ConvSoftArgmax2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_ConvSoftArgmax3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_ConvQuadInterp3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_NonMaximaSuppression2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_subpix.py::test_NonMaximaSuppression3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 15 failed in 4.86s ==========================================================================================
+FAILED kornia/geometry/test_subpix.py::test_conv_quad_interp3d[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient3d'
+FAILED kornia/geometry/test_subpix.py::test_ConvQuadInterp3d[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_ConvQuadInterp3d.call().
+=============================================================================== 2 failed, 13 passed in 312.76s (0:05:12) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -535,20 +329,14 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/geometry/test_homography.py FFFFFFFF                                                                                                                                                      [100%]
+kornia/geometry/test_homography.py FF......                                                                                                                                                      [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_homography.py::test_find_homography_dlt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_homography.py::test_find_homography_dlt_iterated[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_homography.py::test_find_homography_lines_dlt_iterated[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_homography.py::test_line_segment_transfer_error_one_way[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_homography.py::test_oneway_transfer_error[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_homography.py::test_sample_is_valid_for_homography[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_homography.py::test_symmetric_transfer_error[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 8 failed in 5.11s ===========================================================================================
+FAILED kornia/geometry/test_homography.py::test_find_homography_dlt[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/geometry/test_homography.py::test_find_homography_dlt_iterated[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: {{function_node __wrapped__Lu_devi...
+=============================================================================== 2 failed, 6 passed in 170.94s (0:02:50) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -556,20 +344,13 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/geometry/test_bbox.py FFFFFFFF                                                                                                                                                            [100%]
+kornia/geometry/test_bbox.py ..F.....                                                                                                                                                            [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_bbox.py::test_bbox_generator[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_bbox.py::test_bbox_generator3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_bbox.py::test_bbox_to_mask[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_bbox.py::test_bbox_to_mask3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_bbox.py::test_infer_bbox_shape[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_bbox.py::test_infer_bbox_shape3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_bbox.py::test_nms[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_bbox.py::test_transform_bbox[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 8 failed in 4.65s ===========================================================================================
+FAILED kornia/geometry/test_bbox.py::test_bbox_to_mask[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+=============================================================================== 1 failed, 7 passed in 144.25s (0:02:24) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -577,56 +358,20 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 44 items
 
-kornia/test_filters.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                                              [100%]
+kornia/test_filters.py .......F.FF.........F........F..F....F....F.                                                                                                                              [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_filters.py::test_bilateral_blur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_blur_pool2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_box_blur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_gaussian_blur2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_guided_blur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_joint_bilateral_blur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_max_blur_pool2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_median_blur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_motion_blur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_unsharp_mask[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_canny[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_laplacian[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_sobel[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_spatial_gradient[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_spatial_gradient3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_filter2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_filter2d_separable[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_filter3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_gaussian_kernel1d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_gaussian_erf_kernel1d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_gaussian_discrete_kernel1d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_gaussian_kernel2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_hanning_kernel1d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_hanning_kernel2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_laplacian_kernel1d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_laplacian_kernel2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_get_motion_kernel2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_Laplacian[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_Sobel[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_Canny[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_SpatialGradient[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_SpatialGradient3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_DexiNed[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_BilateralBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_BlurPool2D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_BoxBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_MaxBlurPool2D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_MedianBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_GaussianBlur2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_GuidedBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_JointBilateralBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_MotionBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_UnsharpMask[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_filters.py::test_InRange[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 44 failed in 4.74s ==========================================================================================
+FAILED kornia/test_filters.py::test_median_blur[tensorflow-s2s-False] - TypeError: tensorflow_squeeze_frnt_() got an unexpected keyword argument 'axis'
+FAILED kornia/test_filters.py::test_unsharp_mask[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'gaussian_blur2d'
+FAILED kornia/test_filters.py::test_canny[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'gaussian_blur2d'
+FAILED kornia/test_filters.py::test_get_gaussian_discrete_kernel1d[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
+FAILED kornia/test_filters.py::test_Canny[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_Canny.call().
+FAILED kornia/test_filters.py::test_DexiNed[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_DexiNed.call().
+FAILED kornia/test_filters.py::test_MedianBlur[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_MedianBlur.call().
+FAILED kornia/test_filters.py::test_UnsharpMask[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_UnsharpMask.call().
+=============================================================================== 8 failed, 36 passed in 740.55s (0:12:20) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -634,13 +379,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 1 item
 
-kornia/geometry/test_ransac.py F                                                                                                                                                                 [100%]
+kornia/geometry/test_ransac.py .                                                                                                                                                                 [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_ransac.py::test_RANSAC[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 1 failed in 4.69s ===========================================================================================
+==================================================================================== 1 passed in 207.78s (0:03:27) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -648,27 +391,18 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 15 items
 
-kornia/test_contrib.py FFFFFFFFFFFFFFF                                                                                                                                                           [100%]
+kornia/test_contrib.py F...FFF.F...F..                                                                                                                                                           [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_contrib.py::test_compute_padding[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_extract_tensor_patches[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_combine_tensor_patches[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_distance_transform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_diamond_square[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_EdgeDetector[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_FaceDetector[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_VisionTransformer[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_KMeans[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_ExtractTensorPatches[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_CombineTensorPatches[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_ClassificationHead[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
+FAILED kornia/test_contrib.py::test_compute_padding[tensorflow-s2s-False] - NameError: name 'FullPadType' is not defined
+FAILED kornia/test_contrib.py::test_diamond_square[tensorflow-s2s-False] - AttributeError: 'torch.dtype' object has no attribute 'is_integer'
+FAILED kornia/test_contrib.py::test_EdgeDetector[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_contrib.py::test_FaceDetector[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_contrib.py::test_KMeans[tensorflow-s2s-False] - TypeError: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment
 FAILED kornia/test_contrib.py::test_ImageStitcher[tensorflow-s2s-False] - AttributeError: module 'kornia.contrib' has no attribute 'LoFTR'
-FAILED kornia/test_contrib.py::test_Lambda[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_contrib.py::test_DistanceTransform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 15 failed in 4.77s ==========================================================================================
+=============================================================================== 6 failed, 9 passed in 574.97s (0:09:34) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -676,19 +410,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 7 items
 
-kornia/test_morphology.py FFFFFFF                                                                                                                                                                [100%]
+kornia/test_morphology.py .......                                                                                                                                                                [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_morphology.py::test_dilation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_morphology.py::test_erosion[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_morphology.py::test_opening[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_morphology.py::test_closing[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_morphology.py::test_gradient[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_morphology.py::test_top_hat[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_morphology.py::test_bottom_hat[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 7 failed in 4.72s ===========================================================================================
+==================================================================================== 7 passed in 114.99s (0:01:54) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -696,14 +422,13 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 2 items
 
-kornia/geometry/test_line.py FF                                                                                                                                                                  [100%]
+kornia/geometry/test_line.py F.                                                                                                                                                                  [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_line.py::test_fit_line[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_line.py::test_ParametrizedLine[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 2 failed in 4.69s ===========================================================================================
+FAILED kornia/geometry/test_line.py::test_fit_line[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+================================================================================ 1 failed, 1 passed in 87.54s (0:01:27) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -711,81 +436,24 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 69 items
 
-kornia/test_color.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                       [100%]
+kornia/test_color.py ...........F...........F.....FFF.F..........F...........F.....FFF...F                                                                                                       [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_color.py::test_rgb_to_grayscale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_bgr_to_grayscale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_grayscale_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_bgr[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_bgr_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_linear_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_linear_rgb_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_bgr_to_rgba[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_rgba[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgba_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgba_to_bgr[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_hls[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_hls_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_hsv[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_hsv_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_luv[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_luv_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_lab[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_lab_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_ycbcr[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_ycbcr_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_yuv[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_yuv_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_yuv420[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_yuv420_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_yuv422[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_yuv422_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_xyz[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_xyz_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_rgb_to_raw[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_raw_to_rgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_raw_to_rgb_2x2_downscaled[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_sepia[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_GrayscaleToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToGrayscale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_BgrToGrayscale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToBgr[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_BgrToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_LinearRgbToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToLinearRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToRgba[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_BgrToRgba[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbaToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbaToBgr[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToHls[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_HlsToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToHsv[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_HsvToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToLuv[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_LuvToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToLab[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_LabToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_YcbcrToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToYcbcr[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToYuv[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_YuvToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToYuv420[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_Yuv420ToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToYuv422[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_Yuv422ToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToXyz[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_XyzToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RawToRgb[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RgbToRaw[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_RawToRgb2x2Downscaled[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_Sepia[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_CFA[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_ColorMap[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_color.py::test_apply_colormap[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 69 failed in 5.34s ==========================================================================================
+FAILED kornia/test_color.py::test_rgb_to_hls[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute Mul as input #1(zero-based) was expected to be a fl...
+FAILED kornia/test_color.py::test_rgb_to_yuv420[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_color.py::test_rgb_to_raw[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_color.py::test_raw_to_rgb[tensorflow-s2s-False] - ValueError: Unsupported CFA Got tensorflow_CFA.RG.
+FAILED kornia/test_color.py::test_raw_to_rgb_2x2_downscaled[tensorflow-s2s-False] - ValueError: Unsupported CFA Got tensorflow_CFA.RG.
+FAILED kornia/test_color.py::test_GrayscaleToRgb[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
+FAILED kornia/test_color.py::test_RgbToHls[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_RgbToHls.call().
+FAILED kornia/test_color.py::test_RgbToYuv420[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_color.py::test_RawToRgb[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_RawToRgb.call().
+FAILED kornia/test_color.py::test_RgbToRaw[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_color.py::test_RawToRgb2x2Downscaled[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_RawToRgb2x2Downscaled.call().
+FAILED kornia/test_color.py::test_apply_colormap[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+============================================================================== 12 failed, 57 passed in 782.04s (0:13:02) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -798,11 +466,11 @@ kornia/geometry/test_liegroup.py FFFF                                           
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_liegroup.py::test_So3[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_liegroup.py::test_Se3[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_liegroup.py::test_So2[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_liegroup.py::test_Se2[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 4 failed in 4.72s ===========================================================================================
+FAILED kornia/geometry/test_liegroup.py::test_So3[tensorflow-s2s-False] - TypeError: Invalid type: <class 'Translated_Outputs.tensorflow_outputs.kornia.geometry.quaternion.tensorflow_Quaternion'>.
+FAILED kornia/geometry/test_liegroup.py::test_Se3[tensorflow-s2s-False] - TypeError: rotation type is <class 'Translated_Outputs.tensorflow_outputs.kornia.geometry.quaternion.tensorflow_Quaternion'>
+FAILED kornia/geometry/test_liegroup.py::test_So2[tensorflow-s2s-False] - TypeError: object of type 'ResourceVariable' has no len()
+FAILED kornia/geometry/test_liegroup.py::test_Se2[tensorflow-s2s-False] - TypeError: Invalid type: <class 'Translated_Outputs.tensorflow_outputs.kornia.geometry.liegroup.so2.tensorflow_So2'>.
+==================================================================================== 4 failed in 241.37s (0:04:01) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -810,80 +478,46 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 68 items
 
-kornia/augmentation/test_augmentation.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                    [100%]
+kornia/augmentation/test_augmentation.py ...F...F...F.....FF.FF.....F.F.FFFFFFFF....FFF..FFFFFFFF..F..FF..FFF                                                                                    [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/augmentation/test_augmentation.py::test_ColorJiggle[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_ColorJitter[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomAutoContrast[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomBoxBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomBrightness[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomChannelDropout[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomChannelShuffle[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomClahe[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomContrast[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomEqualize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomGamma[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomGaussianBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomGaussianIllumination[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomGaussianNoise[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomGrayscale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomHue[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomInvert[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomJPEG[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomLinearCornerIllumination[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomLinearIllumination[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomMedianBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomMotionBlur[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomPlanckianJitter[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomPlasmaBrightness[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomPlasmaContrast[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomPlasmaShadow[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomPosterize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomRain[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomRGBShift[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomSaltAndPepperNoise[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomSaturation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomSharpness[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomSnow[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomSolarize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_CenterCrop[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_PadTo[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomAffine[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomCrop[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomElasticTransform[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomErasing[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomFisheye[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomHorizontalFlip[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomPerspective[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomResizedCrop[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomRotation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomShear[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomThinPlateSpline[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomVerticalFlip[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomCutMixV2[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomJigsaw[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomMixUpV2[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomMosaic[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomTransplantation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_CenterCrop3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomAffine3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomCrop3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomDepthicalFlip3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomHorizontalFlip3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomRotation3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomVerticalFlip3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomEqualize3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomMotionBlur3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_RandomTransplantation3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_Denormalize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_Normalize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_LongestMaxSize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_Resize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/augmentation/test_augmentation.py::test_SmallestMaxSize[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 68 failed in 5.44s ==========================================================================================
+FAILED kornia/augmentation/test_augmentation.py::test_RandomBoxBlur[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorfl...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomClahe[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomClahe.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomGaussianBlur[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling ten...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomJPEG[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomLinearCornerIllumination[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_LinearCornerIlluminationGe...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMedianBlur[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_RandomMedianBlur.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMotionBlur[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_RandomMotionBlur.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomRain[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSaltAndPepperNoise[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_RandomSaltAndPepperNoise.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSharpness[tensorflow-s2s-False] - NameError: Exception encountered when calling tensorflow_RandomSharpness.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSnow[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomSolarize[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorf...
+FAILED kornia/augmentation/test_augmentation.py::test_CenterCrop[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_CenterCrop.call().
+FAILED kornia/augmentation/test_augmentation.py::test_PadTo[tensorflow-s2s-False] - AssertionError: numpy array shapes are not all close
+FAILED kornia/augmentation/test_augmentation.py::test_RandomAffine[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomAffine.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomCrop[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomCrop.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomElasticTransform[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomResizedCrop[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tens...
+FAILED kornia/augmentation/test_augmentation.py::test_RandomRotation[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_RandomRotation.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomShear[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomShear.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomCutMixV2[tensorflow-s2s-False] - OSError: source code not available
+FAILED kornia/augmentation/test_augmentation.py::test_RandomJigsaw[tensorflow-s2s-False] - TypeError: got an unexpected keyword argument 'input'
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMixUpV2[tensorflow-s2s-False] - TypeError: got an unexpected keyword argument 'input'
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMosaic[tensorflow-s2s-False] - TypeError: got an unexpected keyword argument 'input'
+FAILED kornia/augmentation/test_augmentation.py::test_RandomTransplantation[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_RandomTransplantation.call().
+FAILED kornia/augmentation/test_augmentation.py::test_CenterCrop3D[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_CenterCrop3D.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomAffine3D[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomAffine3D.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomCrop3D[tensorflow-s2s-False] - IndexError: Exception encountered when calling tensorflow_RandomCrop3D.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomRotation3D[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_RandomRotation3D.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomMotionBlur3D[tensorflow-s2s-False] - Exception: Exception encountered when calling tensorflow_RandomMotionBlur3D.call().
+FAILED kornia/augmentation/test_augmentation.py::test_RandomTransplantation3D[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_RandomTransplantation3D.call().
+FAILED kornia/augmentation/test_augmentation.py::test_LongestMaxSize[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_LongestMaxSize.call().
+FAILED kornia/augmentation/test_augmentation.py::test_Resize[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_Resize.call().
+FAILED kornia/augmentation/test_augmentation.py::test_SmallestMaxSize[tensorflow-s2s-False] - ValueError: Exception encountered when calling tensorflow_SmallestMaxSize.call().
+============================================================================== 34 failed, 34 passed in 1696.67s (0:28:16) ==============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -891,20 +525,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 8 items
 
-kornia/geometry/test_linalg.py FFFFFFFF                                                                                                                                                          [100%]
+kornia/geometry/test_linalg.py ........                                                                                                                                                          [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_linalg.py::test_relative_transformation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_linalg.py::test_compose_transformations[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_linalg.py::test_inverse_transformation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_linalg.py::test_transform_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_linalg.py::test_point_line_distance[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_linalg.py::test_squared_norm[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_linalg.py::test_batched_dot_product[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_linalg.py::test_euclidean_distance[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 8 failed in 4.58s ===========================================================================================
+==================================================================================== 8 passed in 119.76s (0:01:59) =====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -912,47 +537,16 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 35 items
 
-kornia/test_losses.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                                                                                                                        [100%]
+kornia/test_losses.py .................FF..FF............                                                                                                                                        [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_losses.py::test_ssim_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_ssim3d_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_psnr_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_total_variation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_inverse_depth_smoothness_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_charbonnier_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_welsch_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_cauchy_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_geman_mcclure_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_binary_focal_loss_with_logits[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_focal_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_dice_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_tversky_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_lovasz_hinge_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_lovasz_softmax_loss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_js_div_loss_2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_kl_div_loss_2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_HausdorffERLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_HausdorffERLoss3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_SSIMLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_SSIM3DLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_MS_SSIMLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_TotalVariation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_PSNRLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_InverseDepthSmoothnessLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_CharbonnierLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_WelschLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_CauchyLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_GemanMcclureLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_BinaryFocalLossWithLogits[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_DiceLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_TverskyLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_FocalLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_LovaszHingeLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_losses.py::test_LovaszSoftmaxLoss[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 35 failed in 4.76s ==========================================================================================
+FAILED kornia/test_losses.py::test_HausdorffERLoss[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_HausdorffERLoss.call().
+FAILED kornia/test_losses.py::test_HausdorffERLoss3D[tensorflow-s2s-False] - TypeError: Exception encountered when calling tensorflow_HausdorffERLoss3D.call().
+FAILED kornia/test_losses.py::test_MS_SSIMLoss[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_MS_SSIMLoss.call().
+FAILED kornia/test_losses.py::test_TotalVariation[tensorflow-s2s-False] - RecursionError: maximum recursion depth exceeded in comparison
+=============================================================================== 4 failed, 31 passed in 529.62s (0:08:49) ===============================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -960,31 +554,11 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 19 items
 
-kornia/geometry/test_camera.py FFFFFFFFFFFFFFFFFFF                                                                                                                                               [100%]
+kornia/geometry/test_camera.py ...................                                                                                                                                               [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
-======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_camera.py::test_project_points_z1[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_unproject_points_z1[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_dx_project_points_z1[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_project_points_orthographic[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_unproject_points_orthographic[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_dx_project_points_orthographic[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_distort_points_affine[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_undistort_points_affine[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_dx_distort_points_affine[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_distort_points_kannala_brandt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_undistort_points_kannala_brandt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_dx_distort_points_kannala_brandt[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_cam2pixel[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_pixel2cam[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_project_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_unproject_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_reproject_disparity_to_3D[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_PinholeCamera[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_camera.py::test_StereoCamera[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 19 failed in 4.67s ==========================================================================================
+==================================================================================== 19 passed in 183.20s (0:03:03) ====================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -992,18 +566,14 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 6 items
 
-kornia/geometry/test_depth.py FFFFFF                                                                                                                                                             [100%]
+kornia/geometry/test_depth.py ...FF.                                                                                                                                                             [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/geometry/test_depth.py::test_depth_from_disparity[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_depth.py::test_depth_to_3d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_depth.py::test_depth_to_3d_v2[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_depth.py::test_unproject_meshgrid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_depth.py::test_depth_to_normals[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/geometry/test_depth.py::test_warp_frame_depth[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-========================================================================================== 6 failed in 4.60s ===========================================================================================
+FAILED kornia/geometry/test_depth.py::test_unproject_meshgrid[tensorflow-s2s-False] - TypeError: Cannot convert the argument `type_value`: torch.float32 to a TensorFlow DType.
+FAILED kornia/geometry/test_depth.py::test_depth_to_normals[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'spatial_gradient'
+=============================================================================== 2 failed, 4 passed in 157.01s (0:02:37) ================================================================================
 
 ========================================================================================= test session starts ==========================================================================================
 platform linux -- Python 3.10.0, pytest-8.3.2, pluggy-1.5.0
@@ -1011,84 +581,41 @@ rootdir: /ivy/ivy-integration-tests
 plugins: anyio-4.4.0, hypothesis-6.98.10, metadata-3.1.1, json-report-1.5.0
 collected 75 items
 
-kornia/test_feature.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF.FFFFFFFFFFFFFFFFFFFFF                                                                                               [100%]
+kornia/test_feature.py .....F......F.............F...FFF.FF.F......FFFFFFFFF.FFFFF..FFFF.FFFF.....                                                                                               [100%]
 
 --------------------------------------------------------------------------------------------- JSON report ----------------------------------------------------------------------------------------------
 report saved to: test_report.json
 ======================================================================================= short test summary info ========================================================================================
-FAILED kornia/test_feature.py::test_gftt_response[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_harris_response[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_hessian_response[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_dog_response[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_dog_response_single[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_match_nn[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_match_mnn[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_match_snn[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_match_smnn[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_match_fginn[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_match_adalam[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_extract_patches_from_pyramid[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_extract_patches_simple[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_normalize_laf[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_denormalize_laf[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_laf_to_boundary_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_ellipse_to_laf[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_make_upright[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_scale_laf[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_get_laf_scale[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_get_laf_center[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_rotate_laf[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_get_laf_orientation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_set_laf_orientation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_laf_from_center_scale_ori[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_laf_is_inside_image[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_laf_to_three_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_laf_from_three_points[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_perspective_transform_lafs[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_DenseSIFTDescriptor[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_SIFTDescriptor[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_MKDDescriptor[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_HardNet[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_HardNet8[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_HyNet[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_TFeat[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_SOSNet[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_BlobHessian[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_CornerGFTT[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_CornerHarris[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_BlobDoG[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_BlobDoGSingle[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_KeyNet[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_MultiResolutionDetector[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_ScaleSpaceDetector[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_KeyNetDetector[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LAFDescriptor[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_SOLD2[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LocalFeature[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_SOLD2_detector[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_DeDoDe[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_DISK[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_SIFTFeature[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_SIFTFeatureScaleSpace[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_GFTTAffNetHardNet[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_KeyNetAffNetHardNet[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_KeyNetHardNet[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_DescriptorMatcher[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_GeometryAwareDescriptorMatcher[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LocalFeatureMatcher[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LightGlueMatcher[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LightGlue[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LoFTR[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_PassLAF[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_PatchAffineShapeEstimator[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LAFAffineShapeEstimator[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LAFOrienter[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_PatchDominantGradientOrientation[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_OriNet[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_LAFAffNetShapeEstimator[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_FilterResponseNorm2d[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_TLU[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-FAILED kornia/test_feature.py::test_DeFMO[tensorflow-s2s-False] - ModuleNotFoundError: No module named 'ivy.compiler.utils.VCD'
-===================================================================================== 74 failed, 1 passed in 6.93s =====================================================================================
+FAILED kornia/test_feature.py::test_get_laf_descriptors[tensorflow-s2s-False] - TypeError: tensor([[[[0.4740, 0.1777],
+FAILED kornia/test_feature.py::test_extract_patches_from_pyramid[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_feature.py::test_laf_is_inside_image[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Value for attr 'T' of bool is not in the list of allowe...
+FAILED kornia/test_feature.py::test_DenseSIFTDescriptor[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_DenseSIFTDescriptor.call().
+FAILED kornia/test_feature.py::test_SIFTDescriptor[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_SIFTDescriptor.call().
+FAILED kornia/test_feature.py::test_MKDDescriptor[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_VonMisesKernel.call().
+FAILED kornia/test_feature.py::test_HardNet8[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: {{function_node __wrapped__Reshape_device_/job:localhost/replica:0...
+FAILED kornia/test_feature.py::test_HyNet[tensorflow-s2s-False] - AssertionError: multiple targets found for assignment inspect.unwrap(tensorflow_local_response_norm).partial_mixed_handler = local_...
+FAILED kornia/test_feature.py::test_SOSNet[tensorflow-s2s-False] - AssertionError: multiple targets found for assignment inspect.unwrap(tensorflow_local_response_norm).partial_mixed_handler = local...
+FAILED kornia/test_feature.py::test_MultiResolutionDetector[tensorflow-s2s-False] - AssertionError: numpy array values are not all close
+FAILED kornia/test_feature.py::test_ScaleSpaceDetector[tensorflow-s2s-False] - AttributeError: Exception encountered when calling tensorflow_ScaleSpaceDetector.call().
+FAILED kornia/test_feature.py::test_KeyNetDetector[tensorflow-s2s-False] - ValueError: operands could not be broadcast together with shapes (1,0,2,3) (1,3,2,3)
+FAILED kornia/test_feature.py::test_LAFDescriptor[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_feature.py::test_SOLD2[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_Bottleneck2D.call().
+FAILED kornia/test_feature.py::test_LocalFeature[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_feature.py::test_SOLD2_detector[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_Bottleneck2D.c...
+FAILED kornia/test_feature.py::test_DeDoDe[tensorflow-s2s-False] - KeyError: 'num_features'
+FAILED kornia/test_feature.py::test_DISK[tensorflow-s2s-False] - tensorflow.python.framework.errors_impl.InvalidArgumentError: Exception encountered when calling tensorflow_PReLU.call().
+FAILED kornia/test_feature.py::test_SIFTFeature[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
+FAILED kornia/test_feature.py::test_SIFTFeatureScaleSpace[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
+FAILED kornia/test_feature.py::test_GFTTAffNetHardNet[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
+FAILED kornia/test_feature.py::test_KeyNetAffNetHardNet[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_feature.py::test_KeyNetHardNet[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_feature.py::test_LocalFeatureMatcher[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
+FAILED kornia/test_feature.py::test_LightGlueMatcher[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_feature.py::test_LightGlue[tensorflow-s2s-False] - NameError: name 'torch' is not defined
+FAILED kornia/test_feature.py::test_LoFTR[tensorflow-s2s-False] - SyntaxError: Syntax Error: expected an indented block after 'try' statement on line 76 (<string>, line 77)
+FAILED kornia/test_feature.py::test_PatchAffineShapeEstimator[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'SpatialGradient'
+FAILED kornia/test_feature.py::test_LAFAffineShapeEstimator[tensorflow-s2s-False] - AttributeError: 'function' object has no attribute 'SpatialGradient'
+FAILED kornia/test_feature.py::test_LAFOrienter[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
+FAILED kornia/test_feature.py::test_PatchDominantGradientOrientation[tensorflow-s2s-False] - NameError: name 'Translated__modified_bessel_0' is not defined
+============================================================================== 31 failed, 44 passed in 3258.32s (0:54:18) ==============================================================================
 
