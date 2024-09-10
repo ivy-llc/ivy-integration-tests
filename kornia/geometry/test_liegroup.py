@@ -18,8 +18,8 @@ def test_So3(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    TranspiledQuaternion = ivy.transpile(kornia.geometry.quaternion.Quaternion, source="torch", target=target_framework)
     TranspiledSo3 = ivy.transpile(kornia.geometry.liegroup.So3, source="torch", target=target_framework)
+    TranspiledQuaternion = ivy.transpile(kornia.geometry.quaternion.Quaternion, source="torch", target=target_framework)
 
     # Initialize a Quaternion and create an So3 object
     quaternion_data = torch.tensor([1., 0., 0., 0.])
@@ -91,8 +91,8 @@ def test_Se3(target_framework, mode, backend_compile):
     torch_quaternion = kornia.geometry.quaternion.Quaternion(quaternion_data)
     torch_se3 = kornia.geometry.liegroup.Se3(torch_quaternion, translation_data)
 
-    TranspiledQuaternion = ivy.transpile(kornia.geometry.quaternion.Quaternion, source="torch", target=target_framework)
     TranspiledSe3 = ivy.transpile(kornia.geometry.liegroup.Se3, source="torch", target=target_framework)
+    TranspiledQuaternion = ivy.transpile(kornia.geometry.quaternion.Quaternion, source="torch", target=target_framework)
 
     transpiled_translation = _nest_torch_tensor_to_new_framework(translation_data, target_framework)
     transpiled_quaternion = TranspiledQuaternion(_nest_torch_tensor_to_new_framework(quaternion_data, target_framework))
@@ -246,8 +246,8 @@ def test_Se2(target_framework, mode, backend_compile):
     translation_vector = torch.ones((1, 2), requires_grad=True)
     torch_se2 = kornia.geometry.liegroup.Se2(so2_rotation, translation_vector)
 
-    TranspiledSo2 = ivy.transpile(kornia.geometry.liegroup.So2, source="torch", target=target_framework)
     TranspiledSe2 = ivy.transpile(kornia.geometry.liegroup.Se2, source="torch", target=target_framework)
+    TranspiledSo2 = ivy.transpile(kornia.geometry.liegroup.So2, source="torch", target=target_framework)
 
     transpiled_so2_rotation = TranspiledSo2.identity(1)
     transpiled_translation_vector = _nest_torch_tensor_to_new_framework(translation_vector, target_framework)
