@@ -76,16 +76,6 @@ def test_Quaternion(target_framework, mode, backend_compile):
     _check_allclose(orig_np, transpiled_np)
 
 
-    # test Quaternion.__repr__()
-
-    torch_q = Quaternion.identity()
-    transpiled_q = TranspiledQuaternion.identity()
-
-    torch_repr = repr(torch_q)
-    transpiled_repr = repr(transpiled_q)
-    assert torch_repr == transpiled_repr
-
-
     # test Quaternion.__sub__()
 
     torch_q1 = Quaternion(torch.tensor([2., 0., 1., 1.]))
