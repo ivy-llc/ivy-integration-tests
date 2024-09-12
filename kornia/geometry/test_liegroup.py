@@ -310,7 +310,7 @@ def test_Se2(target_framework, mode, backend_compile):
     torch_identity = kornia.geometry.liegroup.Se2.identity(1)
     transpiled_identity = TranspiledSe2.identity(1)
     _to_numpy_and_allclose(torch_identity.rotation.z, transpiled_identity.rotation.z)
-    _to_numpy_and_allclose(torch_identity.translation, transpiled_identity.translation)
+    _to_numpy_and_allclose(torch_identity.translation.data, transpiled_identity.translation.data)
 
     # Test .hat() and .vee()
     hat_v = torch.ones((1, 3))
