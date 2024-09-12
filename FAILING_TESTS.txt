@@ -4,6 +4,7 @@ Obj: kornia.augmentation.LongestMaxSize | Target: tensorflow | Native Compiled: 
 Obj: kornia.augmentation.PadTo | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomAffine | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomAffine3D | Target: tensorflow | Native Compiled: False
+Obj: kornia.augmentation.RandomBoxBlur | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomClahe | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomCrop | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomCrop3D | Target: tensorflow | Native Compiled: False
@@ -16,6 +17,7 @@ Obj: kornia.augmentation.RandomMixUpV2 | Target: tensorflow | Native Compiled: F
 Obj: kornia.augmentation.RandomMosaic | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomMotionBlur | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomMotionBlur3D | Target: tensorflow | Native Compiled: False
+Obj: kornia.augmentation.RandomPerspective | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomRain | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomResizedCrop | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomRotation | Target: tensorflow | Native Compiled: False
@@ -95,12 +97,14 @@ Obj: kornia.geometry.boxes.Boxes3D | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.depth.depth_to_normals | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.depth.unproject_meshgrid | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.find_essential | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.epipolar.fundamental.find_fundamental | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.fundamental.fundamental_from_projections | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.projection.projections_from_fundamental | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.projection.random_intrinsics | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.triangulation.triangulate_points | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.homography.find_homography_lines_dlt_iterated | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.symmetric_transfer_error | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.Se2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: tensorflow | Native Compiled: False
@@ -113,8 +117,6 @@ Obj: kornia.geometry.transform.Rescale | Target: tensorflow | Native Compiled: F
 Obj: kornia.geometry.transform.Shear | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.transform.Similarity | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.transform.pyramid.upscale_double | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.vector.Vector2 | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.vector.Vector3 | Target: tensorflow | Native Compiled: False
 Obj: kornia.image.Image | Target: tensorflow | Native Compiled: False
 Obj: kornia.image.Image.from_dlpack | Target: tensorflow | Native Compiled: False
 Obj: kornia.image.Image.from_numpy | Target: tensorflow | Native Compiled: False
@@ -130,8 +132,6 @@ Obj: kornia.nerf.samplers.RandomRaySampler | Target: tensorflow | Native Compile
 Obj: kornia.nerf.samplers.RaySampler | Target: tensorflow | Native Compiled: False
 Obj: kornia.nerf.volume_renderer.IrregularRenderer | Target: tensorflow | Native Compiled: False
 Obj: kornia.nerf.volume_renderer.RegularRenderer | Target: tensorflow | Native Compiled: False
-Obj: kornia.sensors.camera.distortion_model.AffineTransform | Target: tensorflow | Native Compiled: False
-Obj: kornia.sensors.camera.projection_model.Z1Projection | Target: tensorflow | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: tensorflow | Native Compiled: False
 Obj: kornia.utils.draw.draw_rectangle | Target: tensorflow | Native Compiled: False
 Obj: kornia.utils.get_cuda_device_if_available | Target: tensorflow | Native Compiled: False
