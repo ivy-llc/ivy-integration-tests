@@ -307,7 +307,7 @@ def test_ImageStitcher(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    TranspiledLoFTR = ivy.transpile(kornia.contrib.LoFTR, source="torch", target=target_framework)
+    TranspiledLoFTR = ivy.transpile(kornia.feature.LoFTR, source="torch", target=target_framework)
     TranspiledImageStitcher = ivy.transpile(kornia.contrib.ImageStitcher, source="torch", target=target_framework)
 
     torch_matcher = kornia.feature.LoFTR(pretrained='outdoor')

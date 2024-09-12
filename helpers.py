@@ -266,10 +266,10 @@ def _test_source_to_source_function(
     graph_kwargs = _nest_torch_tensor_to_new_framework(test_kwargs, target)
     graph_out = translated_fn(*graph_args, **graph_kwargs)
 
-    orig_np = _nest_array_to_numpy(orig_out)
-    graph_np = _nest_array_to_numpy(graph_out)
-
-    _check_allclose(orig_np, graph_np, tolerance=tolerance)
+    if deterministic:
+        _to_numpy_and_allclose(orig_out, graph_out, tolerance=tolerance)
+    else:
+        _to_numpy_and_shape_allclose(orig_out, graph_out, tolerance=tolerance)
 
 
 def _test_function(

@@ -27,6 +27,8 @@ def test_find_essential(target_framework, mode, backend_compile):
         backend_compile,
         tolerance=1e-3,
         mode=mode,
+        # NOTE: numerical instability in svd()/lu() leads to logits not being allclose
+        deterministic=False,
     )
 
 
@@ -103,6 +105,8 @@ def test_decompose_essential_matrix(target_framework, mode, backend_compile):
         backend_compile,
         tolerance=1e-3,
         mode=mode,
+        # NOTE: numerical instability in svd()/lu() leads to logits not being allclose
+        deterministic=False,
     )
 
 
@@ -523,6 +527,8 @@ def test_projections_from_fundamental(target_framework, mode, backend_compile):
         backend_compile,
         tolerance=1e-3,
         mode=mode,
+        # NOTE: numerical instability in svd()/lu() leads to logits not being allclose
+        deterministic=False,
     )
 
 
@@ -624,4 +630,6 @@ def test_triangulate_points(target_framework, mode, backend_compile):
         backend_compile,
         tolerance=1e-3,
         mode=mode,
+        # NOTE: numerical instability in svd()/lu() leads to logits not being allclose
+        deterministic=False,
     )
