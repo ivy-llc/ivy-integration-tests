@@ -3,6 +3,7 @@ from helpers import (
     _nest_array_to_numpy,
     _nest_torch_tensor_to_new_framework,
     _to_numpy_and_allclose,
+    _to_numpy_and_shape_allclose,
 )
 
 import ivy
