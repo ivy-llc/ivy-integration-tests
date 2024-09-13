@@ -97,8 +97,9 @@ Obj: kornia.geometry.depth.depth_to_normals | Target: tensorflow | Native Compil
 Obj: kornia.geometry.depth.unproject_meshgrid | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.homography.symmetric_transfer_error | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.line.fit_line | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.subpix.ConvQuadInterp3d | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.subpix.spatial_soft_argmax.conv_quad_interp3d | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.transform.Homography | Target: tensorflow | Native Compiled: False
