@@ -1,6 +1,11 @@
 name: update-s2s
 on:
   workflow_dispatch:
+    inputs:
+      ivy-branch:
+        description: 'Branch of Ivy to use'
+        default: 'main'
+        required: true
 #   schedule:
 #     - cron: "0 1 * * *"
 permissions:
@@ -33,6 +38,7 @@ jobs:
           token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
           path: ivy
           persist-credentials: true
+          ref: ${{ inputs.ivy-branch }}
 
       - name: Get Job URL
         uses: Tiryoh/gha-jobid-action@v0
