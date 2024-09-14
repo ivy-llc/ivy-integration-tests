@@ -42,6 +42,7 @@ Obj: kornia.contrib.extract_patches.compute_padding | Target: tensorflow | Nativ
 Obj: kornia.enhance.equalization.equalize_clahe | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.DISK | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.DeDoDe | Target: tensorflow | Native Compiled: False
+Obj: kornia.feature.DeFMO | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.DenseSIFTDescriptor | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.GFTTAffNetHardNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.HardNet8 | Target: tensorflow | Native Compiled: False
@@ -49,6 +50,7 @@ Obj: kornia.feature.HyNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.KeyNetAffNetHardNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.KeyNetDetector | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.KeyNetHardNet | Target: tensorflow | Native Compiled: False
+Obj: kornia.feature.LAFAffNetShapeEstimator | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LAFAffineShapeEstimator | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LAFDescriptor | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LAFOrienter | Target: tensorflow | Native Compiled: False
@@ -59,8 +61,8 @@ Obj: kornia.feature.LocalFeature | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LocalFeatureMatcher | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.MKDDescriptor | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.MultiResolutionDetector | Target: tensorflow | Native Compiled: False
+Obj: kornia.feature.OriNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.PatchAffineShapeEstimator | Target: tensorflow | Native Compiled: False
-Obj: kornia.feature.PatchDominantGradientOrientation | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.SIFTDescriptor | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.SIFTFeature | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.SIFTFeatureScaleSpace | Target: tensorflow | Native Compiled: False
@@ -84,6 +86,7 @@ Obj: kornia.geometry.depth.depth_to_normals | Target: tensorflow | Native Compil
 Obj: kornia.geometry.depth.unproject_meshgrid | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.essential.motion_from_essential_choose_solution | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.symmetric_transfer_error | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.subpix.ConvQuadInterp3d | Target: tensorflow | Native Compiled: False
