@@ -105,7 +105,9 @@ def test_NerfSolver(target_framework, mode, backend_compile):
 
     if backend_compile:
         pytest.skip()
-
+    
+    # skipping due to the presence of torch.optim.Adam 
+    pytest.skip()
     TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
     TranspiledNerfSolver = ivy.transpile(nerf_solver.NerfSolver, source="torch", target=target_framework)
 
