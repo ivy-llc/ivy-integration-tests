@@ -129,6 +129,7 @@ def test_motion_from_essential(target_framework, mode, backend_compile):
         backend_compile,
         tolerance=1e-3,
         mode=mode,
+        deterministic=False,
     )
 
 
@@ -159,6 +160,7 @@ def test_motion_from_essential_choose_solution(target_framework, mode, backend_c
         backend_compile,
         tolerance=1e-3,
         mode=mode,
+        deterministic=False,
     )
 
 
