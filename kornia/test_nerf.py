@@ -100,37 +100,36 @@ def test_MLP(target_framework, mode, backend_compile):
     _check_shape_allclose(orig_np, transpiled_np)
 
 
-def test_NerfSolver(target_framework, mode, backend_compile):
-    print("kornia.nerf.nerf_solver.NerfSolver")
+# skipping due to the presence of torch.optim.Adam 
+# def test_NerfSolver(target_framework, mode, backend_compile):
+#     print("kornia.nerf.nerf_solver.NerfSolver")
 
-    if backend_compile:
-        pytest.skip()
+#     if backend_compile:
+#         pytest.skip()
     
-    # skipping due to the presence of torch.optim.Adam 
-    pytest.skip()
-    TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
-    TranspiledNerfSolver = ivy.transpile(nerf_solver.NerfSolver, source="torch", target=target_framework)
+#     TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
+#     TranspiledNerfSolver = ivy.transpile(nerf_solver.NerfSolver, source="torch", target=target_framework)
 
-    torch_camera_args = (
-        torch.rand(1, 4, 4),
-        torch.rand(1, 4, 4),
-        torch.tensor([256]),
-        torch.tensor([256]),
-    )
-    transpiled_camera_args = _nest_torch_tensor_to_new_framework(torch_camera_args)
-    torch_camera = kornia.geometry.camera.pinhole.PinholeCamera(*torch_camera_args)
-    transpiled_camera = TranspiledPinholeCamera(*transpiled_camera_args)
+#     torch_camera_args = (
+#         torch.rand(1, 4, 4),
+#         torch.rand(1, 4, 4),
+#         torch.tensor([256]),
+#         torch.tensor([256]),
+#     )
+#     transpiled_camera_args = _nest_torch_tensor_to_new_framework(torch_camera_args)
+#     torch_camera = kornia.geometry.camera.pinhole.PinholeCamera(*torch_camera_args)
+#     transpiled_camera = TranspiledPinholeCamera(*transpiled_camera_args)
 
-    imgs = [torch.rand(3, 256, 256) for _ in range(1)]
+#     imgs = [torch.rand(3, 256, 256) for _ in range(1)]
 
-    torch_solver = nerf_solver.NerfSolver(device="cpu", dtype=torch.float32)
-    torch_solver.setup_solver(torch_camera, 0.1, 10.0, True, imgs, 100, 16, 32)
+#     torch_solver = nerf_solver.NerfSolver(device="cpu", dtype=torch.float32)
+#     torch_solver.setup_solver(torch_camera, 0.1, 10.0, True, imgs, 100, 16, 32)
 
-    transpiled_solver = TranspiledNerfSolver(device="cpu", dtype=torch.float32)
-    transpiled_solver.setup_solver(transpiled_camera, 0.1, 10.0, True, imgs, 100, 16, 32)
+#     transpiled_solver = TranspiledNerfSolver(device="cpu", dtype=torch.float32)
+#     transpiled_solver.setup_solver(transpiled_camera, 0.1, 10.0, True, imgs, 100, 16, 32)
 
-    torch_solver.run(1)
-    transpiled_solver.run(1)
+#     torch_solver.run(1)
+#     transpiled_solver.run(1)
 
 
 def test_IrregularRenderer(target_framework, mode, backend_compile):

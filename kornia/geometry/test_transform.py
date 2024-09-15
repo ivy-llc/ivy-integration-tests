@@ -1356,27 +1356,26 @@ def test_Homography(target_framework, mode, backend_compile):
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
 
-def test_ImageRegistrator(target_framework, mode, backend_compile):
-    print("kornia.geometry.transform.ImageRegistrator")
+# skipping due to the presence of torch.optim.Adam 
+# def test_ImageRegistrator(target_framework, mode, backend_compile):
+#     print("kornia.geometry.transform.ImageRegistrator")
 
-    if backend_compile:
-        pytest.skip()
+#     if backend_compile:
+#         pytest.skip()
 
-    # skipping due to the presence of torch.optim.Adam 
-    pytest.skip()
-    TranspiledImageRegistrator = ivy.transpile(
-        kornia.geometry.transform.ImageRegistrator, source="torch", target=target_framework
-    )
+#     TranspiledImageRegistrator = ivy.transpile(
+#         kornia.geometry.transform.ImageRegistrator, source="torch", target=target_framework
+#     )
 
-    img_src = torch.rand(1, 1, 32, 32)
-    img_dst = torch.rand(1, 1, 32, 32)
-    torch_out = kornia.geometry.transform.ImageRegistrator('homography').register(img_src, img_dst)
+#     img_src = torch.rand(1, 1, 32, 32)
+#     img_dst = torch.rand(1, 1, 32, 32)
+#     torch_out = kornia.geometry.transform.ImageRegistrator('homography').register(img_src, img_dst)
 
-    transpiled_img_src = _nest_torch_tensor_to_new_framework(img_src, target_framework)
-    transpiled_img_dst = _nest_torch_tensor_to_new_framework(img_dst, target_framework)
-    transpiled_out = TranspiledImageRegistrator('homography').register(transpiled_img_src, transpiled_img_dst)
+#     transpiled_img_src = _nest_torch_tensor_to_new_framework(img_src, target_framework)
+#     transpiled_img_dst = _nest_torch_tensor_to_new_framework(img_dst, target_framework)
+#     transpiled_out = TranspiledImageRegistrator('homography').register(transpiled_img_src, transpiled_img_dst)
 
-    _to_numpy_and_allclose(torch_out, transpiled_out)
+#     _to_numpy_and_allclose(torch_out, transpiled_out)
 
 
 def test_Similarity(target_framework, mode, backend_compile):
