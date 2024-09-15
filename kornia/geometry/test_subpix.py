@@ -93,14 +93,14 @@ def test_conv_soft_argmax3d(target_framework, mode, backend_compile):
 
 def test_conv_quad_interp3d(target_framework, mode, backend_compile):
     trace_args = (
-        torch.rand(20, 16, 3, 50, 32),
+        torch.rand(2, 2, 2, 5, 5),
     )
     trace_kwargs = {
         'strict_maxima_bonus': 10.0,
         'eps': 1e-7,
     }
     test_args = (
-        torch.rand(10, 16, 5, 50, 32),
+        torch.rand(1, 2, 2, 5, 5),
     )
     test_kwargs = {
         'strict_maxima_bonus': 5.0,
