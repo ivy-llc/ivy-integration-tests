@@ -20,13 +20,7 @@ def test_LAFOrienter(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    import os
-    flag = os.environ.get("APPLY_TRANSPOSE_OPTIMIZATION")
-    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = "false"
-
     TranspiledLAFOrienter = ivy.transpile(kornia.feature.LAFOrienter, source="torch", target=target_framework)
-
-    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = flag
 
     laf = torch.rand(1, 2, 2, 3)
     img = torch.rand(1, 1, 32, 32)
@@ -45,13 +39,7 @@ def test_PatchDominantGradientOrientation(target_framework, mode, backend_compil
     if backend_compile:
         pytest.skip()
 
-    import os
-    flag = os.environ.get("APPLY_TRANSPOSE_OPTIMIZATION")
-    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = "false"
-
     TranspiledPatchDominantGradientOrientation = ivy.transpile(kornia.feature.PatchDominantGradientOrientation, source="torch", target=target_framework)
-
-    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = flag
 
     patch = torch.rand(10, 1, 32, 32)
     torch_out = kornia.feature.PatchDominantGradientOrientation()(patch)
@@ -85,13 +73,7 @@ def test_LAFAffNetShapeEstimator(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    import os
-    flag = os.environ.get("APPLY_TRANSPOSE_OPTIMIZATION")
-    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = "false"
-
     TranspiledLAFAffNetShapeEstimator = ivy.transpile(kornia.feature.LAFAffNetShapeEstimator, source="torch", target=target_framework)
-
-    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = flag
 
     laf = torch.rand(10, 2, 2, 3)
     img = torch.rand(10, 1, 32, 32)

@@ -20,13 +20,7 @@ def test_SIFTFeature(target_framework, mode, backend_compile):
     if backend_compile:
         pytest.skip()
 
-    import os
-    flag = os.environ.get("APPLY_TRANSPOSE_OPTIMIZATION")
-    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = "false"
-
     TranspiledSIFTFeature = ivy.transpile(kornia.feature.SIFTFeature, source="torch", target=target_framework)
-
-    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = flag
 
     x = torch.rand(1, 1, 256, 256)
     torch_out = kornia.feature.SIFTFeature(num_features=5000)(x)
