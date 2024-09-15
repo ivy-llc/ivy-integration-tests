@@ -123,6 +123,14 @@ def _array_to_new_backend(
         elif target == "tensorflow":
             y = tf.convert_to_tensor(y)
         return y
+    elif isinstance(x, torch.dtype):
+        if target == "numpy":
+            return np.dtype(str(x).split(".")[-1])
+        elif target == "jax":
+            return jnp.dtype(np.dtype(str(x).split(".")[-1]))
+        elif target == "tensorflow":
+            return tf.dtypes.as_dtype(np.dtype(str(x).split(".")[-1]))
+        return x
     else:
         return x
 
