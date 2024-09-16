@@ -271,49 +271,53 @@ def test_save_pointcloud_ply(target_framework, mode, backend_compile):
         _to_numpy_and_allclose(pointcloud, loaded_pointcloud)
 
 
-def test_get_cuda_device_if_available(target_framework, mode, backend_compile):
-    print("kornia.utils.get_cuda_device_if_available")
+# Note: Commenting the following tests out because these contain torch util code
+# like retreiving torch.cuda related attributes or torch.backends.mps device related
+# stuff which we choose to not transpile unless there's a strong case made
+# against it in which case we can come back and uncomment these out
+# def test_get_cuda_device_if_available(target_framework, mode, backend_compile):
+#     print("kornia.utils.get_cuda_device_if_available")
 
-    if backend_compile:
-        pytest.skip()
+#     if backend_compile:
+#         pytest.skip()
 
-    transpiled_get_cuda_device_if_available = ivy.transpile(kornia.utils.get_cuda_device_if_available, source="torch", target=target_framework)
+#     transpiled_get_cuda_device_if_available = ivy.transpile(kornia.utils.get_cuda_device_if_available, source="torch", target=target_framework)
 
-    torch_device = kornia.utils.get_cuda_device_if_available()
-    transpiled_device = transpiled_get_cuda_device_if_available()
+#     torch_device = kornia.utils.get_cuda_device_if_available()
+#     transpiled_device = transpiled_get_cuda_device_if_available()
 
-    assert torch_device
-    assert transpiled_device
-
-
-def test_get_mps_device_if_available(target_framework, mode, backend_compile):
-    print("kornia.utils.get_mps_device_if_available")
-
-    if backend_compile:
-        pytest.skip()
-
-    transpiled_get_mps_device_if_available = ivy.transpile(kornia.utils.get_mps_device_if_available, source="torch", target=target_framework)
-
-    torch_device = kornia.utils.get_mps_device_if_available()
-    transpiled_device = transpiled_get_mps_device_if_available()
-
-    assert torch_device
-    assert transpiled_device
+#     assert torch_device
+#     assert transpiled_device
 
 
-def test_get_cuda_or_mps_device_if_available(target_framework, mode, backend_compile):
-    print("kornia.utils.get_cuda_or_mps_device_if_available")
+# def test_get_mps_device_if_available(target_framework, mode, backend_compile):
+#     print("kornia.utils.get_mps_device_if_available")
 
-    if backend_compile:
-        pytest.skip()
+#     if backend_compile:
+#         pytest.skip()
 
-    transpiled_get_cuda_or_mps_device_if_available = ivy.transpile(kornia.utils.get_cuda_or_mps_device_if_available, source="torch", target=target_framework)
+#     transpiled_get_mps_device_if_available = ivy.transpile(kornia.utils.get_mps_device_if_available, source="torch", target=target_framework)
 
-    torch_device = kornia.utils.get_cuda_or_mps_device_if_available()
-    transpiled_device = transpiled_get_cuda_or_mps_device_if_available()
+#     torch_device = kornia.utils.get_mps_device_if_available()
+#     transpiled_device = transpiled_get_mps_device_if_available()
 
-    assert torch_device
-    assert transpiled_device
+#     assert torch_device
+#     assert transpiled_device
+
+
+# def test_get_cuda_or_mps_device_if_available(target_framework, mode, backend_compile):
+#     print("kornia.utils.get_cuda_or_mps_device_if_available")
+
+#     if backend_compile:
+#         pytest.skip()
+
+#     transpiled_get_cuda_or_mps_device_if_available = ivy.transpile(kornia.utils.get_cuda_or_mps_device_if_available, source="torch", target=target_framework)
+
+#     torch_device = kornia.utils.get_cuda_or_mps_device_if_available()
+#     transpiled_device = transpiled_get_cuda_or_mps_device_if_available()
+
+#     assert torch_device
+#     assert transpiled_device
 
 
 def test_map_location_to_cpu(target_framework, mode, backend_compile):
