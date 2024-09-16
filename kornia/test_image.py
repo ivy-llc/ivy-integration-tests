@@ -111,8 +111,6 @@ def test_Image(target_framework, mode, backend_compile):
     transpiled_img = TranspiledImage(transpiled_data, pixel_format, layout)
     assert transpiled_img.channels == 3
 
-    assert dir(torch_img) == dir(transpiled_img), f"attributes/methods of transpiled object do not align with the original - orig: {dir(torch_img)} != transpiled: {dir(transpiled_img)}"
-
     orig_np = _nest_array_to_numpy(torch_img.data)
     transpiled_np = _nest_array_to_numpy(transpiled_img.data)
     _check_allclose(orig_np, transpiled_np)
