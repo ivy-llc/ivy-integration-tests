@@ -184,36 +184,39 @@ def test_RegularRenderer(target_framework, mode, backend_compile):
     _check_shape_allclose(orig_np, transpiled_np)
 
 
-# TODO: error in standard kornia call?
-def test_RaySampler(target_framework, mode, backend_compile):
-    print("kornia.nerf.samplers.RaySampler")
+# NOTE: we cannot test this class seperately. It requires you to first
+# invoke `_calc_ray_params` to create the parameters. Child classes such 
+# as `RandomRaySampler` and `UniformRaySampler` already do this. And so
+# we don't need to test this class seperately.
+# def test_RaySampler(target_framework, mode, backend_compile):
+#     print("kornia.nerf.samplers.RaySampler")
 
-    if backend_compile:
-        pytest.skip()
+#     if backend_compile:
+#         pytest.skip()
 
-    TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
-    TranspiledRaySampler = ivy.transpile(samplers.RaySampler, source="torch", target=target_framework)
+#     TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
+#     TranspiledRaySampler = ivy.transpile(samplers.RaySampler, source="torch", target=target_framework)
 
-    torch_camera_args = (
-        torch.rand(1, 4, 4),
-        torch.rand(1, 4, 4),
-        torch.tensor([256]),
-        torch.tensor([256]),
-    )
-    transpiled_camera_args = _nest_torch_tensor_to_new_framework(torch_camera_args, target_framework)
+#     torch_camera_args = (
+#         torch.rand(1, 4, 4),
+#         torch.rand(1, 4, 4),
+#         torch.tensor([256]),
+#         torch.tensor([256]),
+#     )
+#     transpiled_camera_args = _nest_torch_tensor_to_new_framework(torch_camera_args, target_framework)
 
-    torch_camera = kornia.geometry.camera.pinhole.PinholeCamera(*torch_camera_args)
-    transpiled_camera = TranspiledPinholeCamera(*transpiled_camera_args)
+#     torch_camera = kornia.geometry.camera.pinhole.PinholeCamera(*torch_camera_args)
+#     transpiled_camera = TranspiledPinholeCamera(*transpiled_camera_args)
 
-    torch_sampler = samplers.RaySampler(min_depth=0.1, max_depth=10.0, ndc=True, device="cpu", dtype=torch.float32)
-    transpiled_sampler = TranspiledRaySampler(min_depth=0.1, max_depth=10.0, ndc=True, device="cpu", dtype=torch.float32)
+#     torch_sampler = samplers.RaySampler(min_depth=0.1, max_depth=10.0, ndc=True, device="cpu", dtype=torch.float32)
+#     transpiled_sampler = TranspiledRaySampler(min_depth=0.1, max_depth=10.0, ndc=True, device="cpu", dtype=torch.float32)
 
-    torch_out = torch_sampler.transform_ray_params_world_to_ndc(torch_camera)
-    transpiled_out = transpiled_sampler.transform_ray_params_world_to_ndc(transpiled_camera)
+#     torch_out = torch_sampler.transform_ray_params_world_to_ndc(torch_camera)
+#     transpiled_out = transpiled_sampler.transform_ray_params_world_to_ndc(transpiled_camera)
 
-    orig_np = _nest_array_to_numpy(torch_out)
-    transpiled_np = _nest_array_to_numpy(transpiled_out)
-    _check_shape_allclose(orig_np, transpiled_np)
+#     orig_np = _nest_array_to_numpy(torch_out)
+#     transpiled_np = _nest_array_to_numpy(transpiled_out)
+#     _check_shape_allclose(orig_np, transpiled_np)
 
 
 def test_RandomRaySampler(target_framework, mode, backend_compile):
