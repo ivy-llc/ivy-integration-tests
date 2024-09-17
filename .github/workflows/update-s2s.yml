@@ -93,6 +93,7 @@ jobs:
           token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
           path: ivy
           persist-credentials: true
+          ref: ${{ inputs.ivy-branch }}
 
       - name: Get Job URL
         uses: Tiryoh/gha-jobid-action@v0
