@@ -2,7 +2,7 @@ import ivy
 import pytest
 
 TARGET_FRAMEWORKS = ["numpy", "jax", "tensorflow", "torch"]
-S2S_TARGET_FRAMEWORKS = ["tensorflow"]
+S2S_TARGET_FRAMEWORKS = ["tensorflow", "jax"]
 BACKEND_COMPILE = False
 TARGET = "all"
 S2S = False
