@@ -118,7 +118,8 @@ if __name__ == "__main__":
     readme_content += f"- Percent Tests Passing: {percent_passing}%\n"
     readme_content += f"- Successfully Transpiling to all targets: {percent_fns_passing_all_targets}%\n"
     readme_content += f"- Successfully Transpiling to TensorFlow: {percent_fns_passing_tensorflow}%\n"
-
+    readme_content += f"- Successfully Transpiling to JAX: {percent_fns_passing_jax}%\n"
+    
     for integration, submodule_functions in sorted_test_results.items():
         readme_content += f"<div style='margin-top: 35px; margin-bottom: 20px; margin-left: 25px;'>\n"
         readme_content += f"<details>\n<summary style='margin-right: 10px;'><span style='font-size: 1.5em; font-weight: bold'>{integration}</span></summary>\n\n"
