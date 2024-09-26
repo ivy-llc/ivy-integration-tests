@@ -3,6 +3,7 @@ import ivy
 import jax
 import jax.numpy as jnp
 import flax.nnx as nnx
+import kornia
 import numpy as np
 import pytest
 import tensorflow as tf
@@ -248,7 +249,8 @@ def _test_source_to_source_function(
     if backend_compile and target == "numpy":
         pytest.skip()
 
-    translated_fn = ivy.source_to_source(fn, source="torch", target=target)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target)
+    translated_fn = eval("transpiled_" + f"{fn.__module__}.{fn.__name__}")
 
     if backend_compile:
         try:
