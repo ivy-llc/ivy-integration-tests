@@ -2,6 +2,7 @@ import copy
 import ivy
 import jax
 import jax.numpy as jnp
+import flax.nnx as nnx
 import numpy as np
 import pytest
 import tensorflow as tf
@@ -80,6 +81,8 @@ def _native_array_to_numpy(x):
         return x.numpy()
     if isinstance(x, jnp.ndarray):
         return np.asarray(x)
+    if isinstance(x, nnx.Variable):
+        return np.asarray(x.value)
     return x
 
 
@@ -163,6 +166,8 @@ def _target_to_simplified(target: str):
         return "np"
     if target == "tensorflow":
         return "tf"
+    if target == "jax":
+        return "jax"
     if target == "torch":
         return "pt"
     return target
