@@ -81,6 +81,7 @@ jobs:
       matrix:
         file : [ test_vision ]
         compile : [ T, F ]
+        target  : ["tensorflow", "jax" ]
     steps:
       - name: Checkout ivy-integration-tests
         uses: actions/checkout@v4
