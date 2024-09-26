@@ -1,5 +1,7 @@
 import ivy
 import pytest
+import shutil
+import os
 
 TARGET_FRAMEWORKS = ["numpy", "jax", "tensorflow", "torch"]
 S2S_TARGET_FRAMEWORKS = ["tensorflow"]
@@ -11,6 +13,12 @@ S2S = False
 @pytest.fixture(autouse=True)
 def run_around_tests():
     ivy.unset_backend()
+
+    directory = "Translated_Outputs/"
+
+    # check if the directory exists and remove it
+    if os.path.exists(directory):
+        shutil.rmtree(directory)
 
 
 def pytest_addoption(parser):
