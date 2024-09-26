@@ -25,6 +25,7 @@ jobs:
                  geometry/test_solvers, geometry/test_subpix, geometry/test_transform, geometry/test_vector,
                  augmentation/test_augmentation, augmentation/test_auto, augmentation/test_container ]
         compile : [ F ]
+        target  : ["tensorflow", "jax" ]
     steps:
       - name: Checkout ivy-integration-tests
         uses: actions/checkout@v4
@@ -52,9 +53,9 @@ jobs:
         id: tests
         run: |
           if [ "${{ steps.jobs.outputs.html_url }}" = "null" ]; then
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} linux-nightly ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ matrix.target }}  https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
           else
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ matrix.target }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
 
       - name: Prepare Artifact Name

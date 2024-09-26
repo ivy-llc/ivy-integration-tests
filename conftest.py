@@ -2,7 +2,7 @@ import ivy
 import pytest
 
 TARGET_FRAMEWORKS = ["numpy", "jax", "tensorflow", "torch"]
-S2S_TARGET_FRAMEWORKS = ["tensorflow", "jax"]
+S2S_TARGET_FRAMEWORKS = ["tensorflow"]
 BACKEND_COMPILE = False
 TARGET = "all"
 S2S = False
@@ -48,8 +48,11 @@ def pytest_configure(config):
 def pytest_generate_tests(metafunc):
     configs = list()
     if S2S:
-        for target in S2S_TARGET_FRAMEWORKS:
-            configs.append((target, "s2s", BACKEND_COMPILE))
+        if TARGET != "all":
+            configs.append((TARGET, "s2s", BACKEND_COMPILE))
+        else:
+            for target in S2S_TARGET_FRAMEWORKS:
+                configs.append((target, "s2s", BACKEND_COMPILE))
     elif TARGET not in ["jax", "numpy", "tensorflow", "torch"]:
         for target in TARGET_FRAMEWORKS:
             configs.append((target, "transpile", BACKEND_COMPILE))

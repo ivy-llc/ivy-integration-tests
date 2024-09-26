@@ -4,8 +4,9 @@ integration=$1
 file=$2
 binaries=$3
 backend_compile=$4
-workflow_link=$5
-api_key=$6
+target=$5 
+workflow_link=$6
+api_key=$7
 
 export VERSION=$binaries  # set the branch to pull the binaries from
 
@@ -30,10 +31,10 @@ EOF
 set +e
 if [ "$backend_compile" = "T" ]; then
     touch test_logs.txt
-    COLUMNS=200 pytest $integration/$file.py --backend-compile --source-to-source -p no:warnings --tb=long --json-report --json-report-file=test_report.json
+    COLUMNS=200 pytest $integration/$file.py --backend-compile --source-to-source --target=$target -p no:warnings --tb=long --json-report --json-report-file=test_report.json
     pytest_exit_code=$?
 else
-    COLUMNS=200 pytest $integration/$file.py -p no:warnings --source-to-source --tb=long --json-report --json-report-file=test_report.json > test_logs.txt
+    COLUMNS=200 pytest $integration/$file.py -p no:warnings --source-to-source --target=$target --tb=long --json-report --json-report-file=test_report.json > test_logs.txt
     pytest_exit_code=$?
 fi
 set -e
