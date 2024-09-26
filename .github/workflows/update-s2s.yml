@@ -69,7 +69,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
+          name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}-${{ matrix.target }}
           path: |
             ivy-integration-tests/test_results.txt
             ivy-integration-tests/test_logs.txt
@@ -125,7 +125,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-            name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
+            name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}-${{ matrix.target }}
             path: |
                 ivy-integration-tests/test_results.txt
                 ivy-integration-tests/test_logs.txt
