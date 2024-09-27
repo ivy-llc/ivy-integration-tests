@@ -64,7 +64,11 @@ Obj: kornia.color.hls.RgbToHls | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.hls.rgb_to_hls | Target: jax | Native Compiled: False
 Obj: kornia.color.hls.rgb_to_hls | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.raw_to_rgb | Target: tensorflow | Native Compiled: False
+<<<<<<< HEAD
 Obj: kornia.color.yuv.RgbToYuv420 | Target: jax | Native Compiled: False
+=======
+Obj: kornia.color.sepia.Sepia | Target: tensorflow | Native Compiled: False
+>>>>>>> Auto-update failing tests
 Obj: kornia.color.yuv.RgbToYuv420 | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.yuv.rgb_to_yuv420 | Target: jax | Native Compiled: False
 Obj: kornia.color.yuv.rgb_to_yuv420 | Target: tensorflow | Native Compiled: False
@@ -77,7 +81,10 @@ Obj: kornia.contrib.ImageStitcher | Target: tensorflow | Native Compiled: False
 Obj: kornia.contrib.KMeans | Target: tensorflow | Native Compiled: False
 Obj: kornia.contrib.diamond_square.diamond_square | Target: jax | Native Compiled: False
 Obj: kornia.contrib.diamond_square.diamond_square | Target: tensorflow | Native Compiled: False
+<<<<<<< HEAD
 Obj: kornia.contrib.extract_patches.compute_padding | Target: jax | Native Compiled: False
+=======
+>>>>>>> Auto-update failing tests
 Obj: kornia.contrib.extract_patches.compute_padding | Target: tensorflow | Native Compiled: False
 Obj: kornia.enhance.ZCAWhitening | Target: jax | Native Compiled: False
 Obj: kornia.enhance.adjust.equalize | Target: jax | Native Compiled: False
@@ -85,7 +92,10 @@ Obj: kornia.enhance.adjust.equalize3d | Target: jax | Native Compiled: False
 Obj: kornia.enhance.adjust.posterize | Target: jax | Native Compiled: False
 Obj: kornia.enhance.equalization.equalize_clahe | Target: jax | Native Compiled: False
 Obj: kornia.enhance.equalization.equalize_clahe | Target: tensorflow | Native Compiled: False
+<<<<<<< HEAD
 Obj: kornia.feature.DISK | Target: jax | Native Compiled: False
+=======
+>>>>>>> Auto-update failing tests
 Obj: kornia.feature.DISK | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.DeDoDe | Target: jax | Native Compiled: False
 Obj: kornia.feature.DeDoDe | Target: tensorflow | Native Compiled: False
@@ -138,9 +148,12 @@ Obj: kornia.feature.integrated.get_laf_descriptors | Target: tensorflow | Native
 Obj: kornia.feature.laf.extract_patches_from_pyramid | Target: jax | Native Compiled: False
 Obj: kornia.feature.laf.extract_patches_from_pyramid | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.laf.laf_is_inside_image | Target: tensorflow | Native Compiled: False
+<<<<<<< HEAD
 Obj: kornia.filters.DexiNed | Target: jax | Native Compiled: False
 Obj: kornia.filters.DexiNed | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask | Target: jax | Native Compiled: False
+=======
+>>>>>>> Auto-update failing tests
 Obj: kornia.geometry.bbox.bbox_to_mask | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask3d | Target: jax | Native Compiled: False
 Obj: kornia.geometry.boxes.Boxes | Target: jax | Native Compiled: False
@@ -151,9 +164,12 @@ Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: jax | Native Compil
 Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
+<<<<<<< HEAD
 Obj: kornia.geometry.epipolar.essential.motion_from_essential_choose_solution | Target: jax | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: jax | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: jax | Native Compiled: False
+=======
+>>>>>>> Auto-update failing tests
 Obj: kornia.geometry.liegroup.So2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.subpix.ConvQuadInterp3d | Target: jax | Native Compiled: False
 Obj: kornia.geometry.subpix.ConvQuadInterp3d | Target: tensorflow | Native Compiled: False
@@ -164,20 +180,31 @@ Obj: kornia.geometry.transform.Rescale | Target: tensorflow | Native Compiled: F
 Obj: kornia.geometry.transform.Shear | Target: jax | Native Compiled: False
 Obj: kornia.geometry.transform.Shear | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.transform.Similarity | Target: tensorflow | Native Compiled: False
+<<<<<<< HEAD
 Obj: kornia.geometry.transform.pyramid.upscale_double | Target: jax | Native Compiled: False
 Obj: kornia.geometry.transform.pyramid.upscale_double | Target: tensorflow | Native Compiled: False
 Obj: kornia.losses.HausdorffERLoss | Target: jax | Native Compiled: False
+=======
+Obj: kornia.geometry.transform.pyramid.upscale_double | Target: tensorflow | Native Compiled: False
+>>>>>>> Auto-update failing tests
 Obj: kornia.losses.HausdorffERLoss | Target: tensorflow | Native Compiled: False
 Obj: kornia.losses.HausdorffERLoss3D | Target: jax | Native Compiled: False
 Obj: kornia.losses.HausdorffERLoss3D | Target: tensorflow | Native Compiled: False
 Obj: kornia.losses.MS_SSIMLoss | Target: jax | Native Compiled: False
 Obj: kornia.losses.MS_SSIMLoss | Target: tensorflow | Native Compiled: False
+<<<<<<< HEAD
 Obj: kornia.losses.TotalVariation | Target: jax | Native Compiled: False
 Obj: kornia.nerf.nerf_model.NerfModelRenderer | Target: jax | Native Compiled: False
+=======
+Obj: kornia.nerf.nerf_model.MLP | Target: tensorflow | Native Compiled: False
+>>>>>>> Auto-update failing tests
 Obj: kornia.nerf.nerf_model.NerfModelRenderer | Target: tensorflow | Native Compiled: False
 Obj: kornia.nerf.samplers.RandomRaySampler | Target: jax | Native Compiled: False
 Obj: kornia.nerf.samplers.RandomRaySampler | Target: tensorflow | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: jax | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: tensorflow | Native Compiled: False
+<<<<<<< HEAD
 Obj: transformers.vision.Swin2SRModel | Target: jax | Native Compiled: True
+=======
+>>>>>>> Auto-update failing tests
 Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: True
