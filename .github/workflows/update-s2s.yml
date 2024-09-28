@@ -23,7 +23,8 @@ jobs:
                  geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar, geometry/test_homography,
                  geometry/test_liegroup, geometry/test_linalg, geometry/test_line, geometry/test_quaternion, geometry/test_ransac,
                  geometry/test_solvers, geometry/test_subpix, geometry/test_transform, geometry/test_vector,
-                 augmentation/test_augmentation, augmentation/test_auto, augmentation/test_container ]
+                 augmentation/test_augmentation1, augmentation/test_augmentation2, augmentation/test_augmentation3,
+                 augmentation/test_augmentation4, augmentation/test_auto, augmentation/test_container ]
         compile : [ F ]
         target  : ["tensorflow", "jax" ]
     steps:
