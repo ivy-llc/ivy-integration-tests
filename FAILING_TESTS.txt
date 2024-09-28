@@ -148,13 +148,10 @@ Obj: kornia.geometry.boxes.Boxes3D | Target: jax | Native Compiled: False
 Obj: kornia.geometry.boxes.Boxes3D | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: jax | Native Compiled: False
 Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: jax | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: jax | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
-Obj: kornia.geometry.epipolar.fundamental.find_fundamental | Target: jax | Native Compiled: False
+Obj: kornia.geometry.epipolar.essential.motion_from_essential_choose_solution | Target: jax | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: jax | Native Compiled: False
-Obj: kornia.geometry.homography.symmetric_transfer_error | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: jax | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.subpix.ConvQuadInterp3d | Target: jax | Native Compiled: False
@@ -181,7 +178,5 @@ Obj: kornia.nerf.samplers.RandomRaySampler | Target: jax | Native Compiled: Fals
 Obj: kornia.nerf.samplers.RandomRaySampler | Target: tensorflow | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: jax | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: tensorflow | Native Compiled: False
-Obj: transformers.vision.Swin2SRModel | Target: jax | Native Compiled: False
 Obj: transformers.vision.Swin2SRModel | Target: jax | Native Compiled: True
-Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: False
 Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: True
