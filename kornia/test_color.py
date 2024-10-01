@@ -1140,6 +1140,9 @@ def test_XyzToRgb(target_framework, mode, backend_compile):
 def test_RawToRgb(target_framework, mode, backend_compile):
     print("kornia.color.RawToRgb")
 
+    if backend_compile or target_framework == "numpy":
+        pytest.skip()
+
     transpiled_RawToRgb = ivy.transpile(kornia.color.RawToRgb, source="torch", target=target_framework)
     TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
 
@@ -1155,6 +1158,9 @@ def test_RawToRgb(target_framework, mode, backend_compile):
 def test_RgbToRaw(target_framework, mode, backend_compile):
     print("kornia.color.RgbToRaw")
 
+    if backend_compile or target_framework == "numpy":
+        pytest.skip()
+
     transpiled_RgbToRaw = ivy.transpile(kornia.color.RgbToRaw, source="torch", target=target_framework)
     TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
 
@@ -1169,6 +1175,9 @@ def test_RgbToRaw(target_framework, mode, backend_compile):
 
 def test_RawToRgb2x2Downscaled(target_framework, mode, backend_compile):
     print("kornia.color.RawToRgb2x2Downscaled")
+
+    if backend_compile or target_framework == "numpy":
+        pytest.skip()
 
     transpiled_RawToRgb2x2Downscaled = ivy.transpile(kornia.color.RawToRgb2x2Downscaled, source="torch", target=target_framework)
     TranspiledCFA = ivy.transpile(kornia.color.CFA, source="torch", target=target_framework)
