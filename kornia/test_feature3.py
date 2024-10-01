@@ -228,11 +228,8 @@ def test_LAFDescriptor(target_framework, mode, backend_compile):
 # def test_SOLD2(target_framework, mode, backend_compile):
 #     print("kornia.feature.SOLD2")
 
-#     if backend_compile:
-#         pytest.skip()
-
-    if backend_compile or target_framework == "numpy":
-        pytest.skip()
+    # if backend_compile or target_framework == "numpy":
+    #     pytest.skip()
 
 #     x = torch.rand(1, 1, 512, 512)
 #     torch_out = kornia.feature.SOLD2(pretrained=False)(x)
@@ -276,8 +273,8 @@ def test_LocalFeature(target_framework, mode, backend_compile):
 # def test_SOLD2_detector(target_framework, mode, backend_compile):
 #     print("kornia.feature.SOLD2_detector")
 
-    if backend_compile or target_framework == "numpy":
-        pytest.skip()
+    # if backend_compile or target_framework == "numpy":
+    #     pytest.skip()
 
 #     TranspiledSOLD2Detector = ivy.transpile(kornia.feature.SOLD2_detector, source="torch", target=target_framework)
 
