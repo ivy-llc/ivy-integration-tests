@@ -1,11 +1,10 @@
+Obj: kornia.augmentation.LongestMaxSize | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.LongestMaxSize | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomAffine | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomAffine | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomClahe | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: tensorflow | Native Compiled: False
-Obj: kornia.augmentation.RandomEqualize | Target: jax | Native Compiled: False
-Obj: kornia.augmentation.RandomEqualize3D | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomJigsaw | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomJigsaw | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomMixUpV2 | Target: jax | Native Compiled: False
@@ -28,7 +27,9 @@ Obj: kornia.augmentation.RandomTransplantation | Target: jax | Native Compiled: 
 Obj: kornia.augmentation.RandomTransplantation | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomTransplantation3D | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomTransplantation3D | Target: tensorflow | Native Compiled: False
+Obj: kornia.augmentation.Resize | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.Resize | Target: tensorflow | Native Compiled: False
+Obj: kornia.augmentation.SmallestMaxSize | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.SmallestMaxSize | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.auto.AutoAugment | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.auto.AutoAugment | Target: tensorflow | Native Compiled: False
@@ -75,8 +76,6 @@ Obj: kornia.contrib.diamond_square.diamond_square | Target: tensorflow | Native 
 Obj: kornia.contrib.extract_patches.compute_padding | Target: jax | Native Compiled: False
 Obj: kornia.contrib.extract_patches.compute_padding | Target: tensorflow | Native Compiled: False
 Obj: kornia.enhance.ZCAWhitening | Target: jax | Native Compiled: False
-Obj: kornia.enhance.adjust.equalize | Target: jax | Native Compiled: False
-Obj: kornia.enhance.adjust.equalize3d | Target: jax | Native Compiled: False
 Obj: kornia.enhance.adjust.posterize | Target: jax | Native Compiled: False
 Obj: kornia.enhance.equalization.equalize_clahe | Target: jax | Native Compiled: False
 Obj: kornia.enhance.equalization.equalize_clahe | Target: tensorflow | Native Compiled: False
@@ -135,14 +134,6 @@ Obj: kornia.feature.integrated.get_laf_descriptors | Target: tensorflow | Native
 Obj: kornia.feature.laf.extract_patches_from_pyramid | Target: jax | Native Compiled: False
 Obj: kornia.feature.laf.extract_patches_from_pyramid | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.laf.laf_is_inside_image | Target: tensorflow | Native Compiled: False
-Obj: kornia.filters.BilateralBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.BoxBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.DexiNed | Target: jax | Native Compiled: False
-Obj: kornia.filters.GaussianBlur2d | Target: jax | Native Compiled: False
-Obj: kornia.filters.GuidedBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.JointBilateralBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.MotionBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.UnsharpMask | Target: jax | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask | Target: jax | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask3d | Target: jax | Native Compiled: False
@@ -154,6 +145,7 @@ Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: jax | Native Compil
 Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.epipolar.essential.motion_from_essential_choose_solution | Target: jax | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: jax | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: jax | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: tensorflow | Native Compiled: False
