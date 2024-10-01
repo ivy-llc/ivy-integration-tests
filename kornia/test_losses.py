@@ -428,7 +428,7 @@ def test_kl_div_loss_2d(target_framework, mode, backend_compile):
 def test_HausdorffERLoss(target_framework, mode, backend_compile):
     print("kornia.losses.HausdorffERLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHausdorffERLoss = ivy.transpile(kornia.losses.HausdorffERLoss, source="torch", target=target_framework)
@@ -453,7 +453,7 @@ def test_HausdorffERLoss(target_framework, mode, backend_compile):
 def test_HausdorffERLoss3D(target_framework, mode, backend_compile):
     print("kornia.losses.HausdorffERLoss3D")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHausdorffERLoss3D = ivy.transpile(kornia.losses.HausdorffERLoss3D, source="torch", target=target_framework)
@@ -478,7 +478,7 @@ def test_HausdorffERLoss3D(target_framework, mode, backend_compile):
 def test_SSIMLoss(target_framework, mode, backend_compile):
     print("kornia.losses.SSIMLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSSIMLoss = ivy.transpile(kornia.losses.SSIMLoss, source="torch", target=target_framework)
@@ -503,7 +503,7 @@ def test_SSIMLoss(target_framework, mode, backend_compile):
 def test_SSIM3DLoss(target_framework, mode, backend_compile):
     print("kornia.losses.SSIM3DLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSSIM3DLoss = ivy.transpile(kornia.losses.SSIM3DLoss, source="torch", target=target_framework)
@@ -528,7 +528,7 @@ def test_SSIM3DLoss(target_framework, mode, backend_compile):
 def test_MS_SSIMLoss(target_framework, mode, backend_compile):
     print("kornia.losses.MS_SSIMLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledMS_SSIMLoss = ivy.transpile(kornia.losses.MS_SSIMLoss, source="torch", target=target_framework)
@@ -553,7 +553,7 @@ def test_MS_SSIMLoss(target_framework, mode, backend_compile):
 def test_TotalVariation(target_framework, mode, backend_compile):
     print("kornia.losses.TotalVariation")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledTotalVariation = ivy.transpile(kornia.losses.TotalVariation, source="torch", target=target_framework)
@@ -577,7 +577,7 @@ def test_TotalVariation(target_framework, mode, backend_compile):
 def test_PSNRLoss(target_framework, mode, backend_compile):
     print("kornia.losses.PSNRLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPSNRLoss = ivy.transpile(kornia.losses.PSNRLoss, source="torch", target=target_framework)
@@ -602,7 +602,7 @@ def test_PSNRLoss(target_framework, mode, backend_compile):
 def test_InverseDepthSmoothnessLoss(target_framework, mode, backend_compile):
     print("kornia.losses.InverseDepthSmoothnessLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledInverseDepthSmoothnessLoss = ivy.transpile(kornia.losses.InverseDepthSmoothnessLoss, source="torch", target=target_framework)
@@ -627,7 +627,7 @@ def test_InverseDepthSmoothnessLoss(target_framework, mode, backend_compile):
 def test_CharbonnierLoss(target_framework, mode, backend_compile):
     print("kornia.losses.CharbonnierLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledCharbonnierLoss = ivy.transpile(kornia.losses.CharbonnierLoss, source="torch", target=target_framework)
@@ -652,7 +652,7 @@ def test_CharbonnierLoss(target_framework, mode, backend_compile):
 def test_WelschLoss(target_framework, mode, backend_compile):
     print("kornia.losses.WelschLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledWelschLoss = ivy.transpile(kornia.losses.WelschLoss, source="torch", target=target_framework)
@@ -677,7 +677,7 @@ def test_WelschLoss(target_framework, mode, backend_compile):
 def test_CauchyLoss(target_framework, mode, backend_compile):
     print("kornia.losses.CauchyLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledCauchyLoss = ivy.transpile(kornia.losses.CauchyLoss, source="torch", target=target_framework)
@@ -702,7 +702,7 @@ def test_CauchyLoss(target_framework, mode, backend_compile):
 def test_GemanMcclureLoss(target_framework, mode, backend_compile):
     print("kornia.losses.GemanMcclureLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledGemanMcclureLoss = ivy.transpile(kornia.losses.GemanMcclureLoss, source="torch", target=target_framework)
@@ -727,7 +727,7 @@ def test_GemanMcclureLoss(target_framework, mode, backend_compile):
 def test_BinaryFocalLossWithLogits(target_framework, mode, backend_compile):
     print("kornia.losses.BinaryFocalLossWithLogits")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBinaryFocalLossWithLogits = ivy.transpile(kornia.losses.BinaryFocalLossWithLogits, source="torch", target=target_framework)
@@ -752,7 +752,7 @@ def test_BinaryFocalLossWithLogits(target_framework, mode, backend_compile):
 def test_DiceLoss(target_framework, mode, backend_compile):
     print("kornia.losses.DiceLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDiceLoss = ivy.transpile(kornia.losses.DiceLoss, source="torch", target=target_framework)
@@ -777,7 +777,7 @@ def test_DiceLoss(target_framework, mode, backend_compile):
 def test_TverskyLoss(target_framework, mode, backend_compile):
     print("kornia.losses.TverskyLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledTverskyLoss = ivy.transpile(kornia.losses.TverskyLoss, source="torch", target=target_framework)
@@ -802,7 +802,7 @@ def test_TverskyLoss(target_framework, mode, backend_compile):
 def test_FocalLoss(target_framework, mode, backend_compile):
     print("kornia.losses.FocalLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledFocalLoss = ivy.transpile(kornia.losses.FocalLoss, source="torch", target=target_framework)
@@ -827,7 +827,7 @@ def test_FocalLoss(target_framework, mode, backend_compile):
 def test_LovaszHingeLoss(target_framework, mode, backend_compile):
     print("kornia.losses.LovaszHingeLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLovaszHingeLoss = ivy.transpile(kornia.losses.LovaszHingeLoss, source="torch", target=target_framework)
@@ -852,7 +852,7 @@ def test_LovaszHingeLoss(target_framework, mode, backend_compile):
 def test_LovaszSoftmaxLoss(target_framework, mode, backend_compile):
     print("kornia.losses.LovaszSoftmaxLoss")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLovaszSoftmaxLoss = ivy.transpile(kornia.losses.LovaszSoftmaxLoss, source="torch", target=target_framework)

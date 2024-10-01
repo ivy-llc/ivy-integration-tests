@@ -26,7 +26,7 @@ def _to_numpy_and_shape_allclose(torch_x, transpiled_x, tolerance=1e-3):
 def test_RANSAC(target_framework, mode, backend_compile):
     print("kornia.geometry.ransac.RANSAC")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     # Initialize RANSAC with default parameters

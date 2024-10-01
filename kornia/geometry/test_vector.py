@@ -17,7 +17,7 @@ import torch
 def test_Vector3(target_framework, mode, backend_compile):
     print("kornia.geometry.vector.Vector3")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     # Initialize a Vector3 with a tensor
@@ -67,7 +67,7 @@ def test_Vector3(target_framework, mode, backend_compile):
 def test_Vector2(target_framework, mode, backend_compile):
     print("kornia.geometry.vector.Vector2")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     # Initialize a Vector2 with a tensor

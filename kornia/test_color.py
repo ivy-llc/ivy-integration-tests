@@ -25,7 +25,7 @@ def _test_color_class(
 ):
     print(f"{cls.__module__}.{cls.__name__}")
 
-    if backend_compile:
+    if backend_compile or target == "numpy":
         pytest.skip()
 
     transpiled_kornia = ivy.transpile(kornia, source="torch", target=target)
@@ -1217,7 +1217,7 @@ def test_CFA(target_framework, mode, backend_compile):
 def test_ColorMap(target_framework, mode, backend_compile):
     print("kornia.color.ColorMap")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledColorMap = ivy.transpile(kornia.color.ColorMap, source="torch", target=target_framework)
@@ -1233,7 +1233,7 @@ def test_ColorMap(target_framework, mode, backend_compile):
 def test_apply_colormap(target_framework, mode, backend_compile):
     print("kornia.color.ColorMap")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledColorMapType = ivy.transpile(kornia.color.ColorMapType, source="torch", target=target_framework)

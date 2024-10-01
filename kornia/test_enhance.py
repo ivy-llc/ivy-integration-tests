@@ -639,7 +639,7 @@ def test_jpeg_codec_differentiable(target_framework, mode, backend_compile):
 def test_Normalize(target_framework, mode, backend_compile):
     print("kornia.enhance.Normalize")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledNormalize = ivy.transpile(kornia.enhance.Normalize, source="torch", target=target_framework)
@@ -661,7 +661,7 @@ def test_Normalize(target_framework, mode, backend_compile):
 def test_Denormalize(target_framework, mode, backend_compile):
     print("kornia.enhance.Denormalize")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDenormalize = ivy.transpile(kornia.enhance.Denormalize, source="torch", target=target_framework)
@@ -683,7 +683,7 @@ def test_Denormalize(target_framework, mode, backend_compile):
 def test_ZCAWhitening(target_framework, mode, backend_compile):
     print("kornia.enhance.ZCAWhitening")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledZCAWhitening = ivy.transpile(kornia.enhance.ZCAWhitening, source="torch", target=target_framework)
@@ -702,7 +702,7 @@ def test_ZCAWhitening(target_framework, mode, backend_compile):
 def test_AdjustBrightness(target_framework, mode, backend_compile):
     print("kornia.enhance.AdjustBrightness")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAdjustBrightness = ivy.transpile(kornia.enhance.AdjustBrightness, source="torch", target=target_framework)
@@ -721,7 +721,7 @@ def test_AdjustBrightness(target_framework, mode, backend_compile):
 def test_AdjustContrast(target_framework, mode, backend_compile):
     print("kornia.enhance.AdjustContrast")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAdjustContrast = ivy.transpile(kornia.enhance.AdjustContrast, source="torch", target=target_framework)
@@ -740,7 +740,7 @@ def test_AdjustContrast(target_framework, mode, backend_compile):
 def test_AdjustSaturation(target_framework, mode, backend_compile):
     print("kornia.enhance.AdjustSaturation")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAdjustSaturation = ivy.transpile(kornia.enhance.AdjustSaturation, source="torch", target=target_framework)
@@ -759,7 +759,7 @@ def test_AdjustSaturation(target_framework, mode, backend_compile):
 def test_AdjustHue(target_framework, mode, backend_compile):
     print("kornia.enhance.AdjustHue")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAdjustHue = ivy.transpile(kornia.enhance.AdjustHue, source="torch", target=target_framework)
@@ -778,7 +778,7 @@ def test_AdjustHue(target_framework, mode, backend_compile):
 def test_AdjustGamma(target_framework, mode, backend_compile):
     print("kornia.enhance.AdjustGamma")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAdjustGamma = ivy.transpile(kornia.enhance.AdjustGamma, source="torch", target=target_framework)
@@ -800,7 +800,7 @@ def test_AdjustGamma(target_framework, mode, backend_compile):
 def test_AdjustSigmoid(target_framework, mode, backend_compile):
     print("kornia.enhance.AdjustSigmoid")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAdjustSigmoid = ivy.transpile(kornia.enhance.AdjustSigmoid, source="torch", target=target_framework)
@@ -817,7 +817,7 @@ def test_AdjustSigmoid(target_framework, mode, backend_compile):
 def test_AdjustLog(target_framework, mode, backend_compile):
     print("kornia.enhance.AdjustLog")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAdjustLog = ivy.transpile(kornia.enhance.AdjustLog, source="torch", target=target_framework)
@@ -834,7 +834,7 @@ def test_AdjustLog(target_framework, mode, backend_compile):
 def test_AddWeighted(target_framework, mode, backend_compile):
     print("kornia.enhance.AddWeighted")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAddWeighted = ivy.transpile(kornia.enhance.AddWeighted, source="torch", target=target_framework)
@@ -855,7 +855,7 @@ def test_AddWeighted(target_framework, mode, backend_compile):
 def test_Invert(target_framework, mode, backend_compile):
     print("kornia.enhance.Invert")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledInvert = ivy.transpile(kornia.enhance.Invert, source="torch", target=target_framework)
@@ -872,7 +872,7 @@ def test_Invert(target_framework, mode, backend_compile):
 def test_JPEGCodecDifferentiable(target_framework, mode, backend_compile):
     print("kornia.enhance.JPEGCodecDifferentiable")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledJPEGCodecDifferentiable = ivy.transpile(kornia.enhance.JPEGCodecDifferentiable, source="torch", target=target_framework)

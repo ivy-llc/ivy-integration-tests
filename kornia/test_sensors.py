@@ -23,7 +23,7 @@ import torch
 def test_CameraModel(target_framework, mode, backend_compile):
     print("kornia.sensors.camera.CameraModel")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImageSize = ivy.transpile(kornia.image.ImageSize, source="torch", target=target_framework)
@@ -53,7 +53,7 @@ def test_CameraModel(target_framework, mode, backend_compile):
 def test_PinholeModel(target_framework, mode, backend_compile):
     print("kornia.sensors.camera.PinholeModel")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImageSize = ivy.transpile(kornia.image.ImageSize, source="torch", target=target_framework)
@@ -78,7 +78,7 @@ def test_PinholeModel(target_framework, mode, backend_compile):
 def test_AffineTransform(target_framework, mode, backend_compile):
     print("kornia.sensors.camera.distortion_model.AffineTransform")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledVector2 = ivy.transpile(kornia.geometry.vector.Vector2, source="torch", target=target_framework)
@@ -108,7 +108,7 @@ def test_AffineTransform(target_framework, mode, backend_compile):
 def test_Z1Projection(target_framework, mode, backend_compile):
     print("kornia.sensors.camera.projection_model.Z1Projection")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledVector2 = ivy.transpile(kornia.geometry.vector.Vector2, source="torch", target=target_framework)

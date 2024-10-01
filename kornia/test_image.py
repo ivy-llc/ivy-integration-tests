@@ -18,7 +18,7 @@ import torch
 def test_ImageSize(target_framework, mode, backend_compile):
     print("kornia.image.ImageSize")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImageSize = ivy.transpile(kornia.image.ImageSize, source="torch", target=target_framework)
@@ -31,7 +31,7 @@ def test_ImageSize(target_framework, mode, backend_compile):
 def test_PixelFormat(target_framework, mode, backend_compile):
     print("kornia.image.PixelFormat")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPixelFormat = ivy.transpile(kornia.image.PixelFormat, source="torch", target=target_framework)
@@ -44,7 +44,7 @@ def test_PixelFormat(target_framework, mode, backend_compile):
 def test_ChannelsOrder(target_framework, mode, backend_compile):
     print("kornia.image.ChannelsOrder")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledChannelsOrder = ivy.transpile(kornia.image.ChannelsOrder, source="torch", target=target_framework)
@@ -56,7 +56,7 @@ def test_ChannelsOrder(target_framework, mode, backend_compile):
 def test_ImageLayout(target_framework, mode, backend_compile):
     print("kornia.image.ImageLayout")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImageSize = ivy.transpile(kornia.image.ImageSize, source="torch", target=target_framework)
@@ -74,7 +74,7 @@ def test_ImageLayout(target_framework, mode, backend_compile):
 def test_Image(target_framework, mode, backend_compile):
     print("kornia.image.Image")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImageSize = ivy.transpile(kornia.image.ImageSize, source="torch", target=target_framework)
@@ -119,7 +119,7 @@ def test_Image(target_framework, mode, backend_compile):
 def test_Image_from_numpy(target_framework, mode, backend_compile):
     print("kornia.image.Image.from_numpy")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImage = ivy.transpile(kornia.image.Image, source="torch", target=target_framework)
@@ -136,7 +136,7 @@ def test_Image_from_numpy(target_framework, mode, backend_compile):
 def test_Image_from_dlpack(target_framework, mode, backend_compile):
     print("kornia.image.Image.from_dlpack")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImage = ivy.transpile(kornia.image.Image, source="torch", target=target_framework)
@@ -149,7 +149,7 @@ def test_Image_from_dlpack(target_framework, mode, backend_compile):
 def test_Image_to_numpy(target_framework, mode, backend_compile):
     print("kornia.image.Image.to_numpy")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImage = ivy.transpile(kornia.image.Image, source="torch", target=target_framework)

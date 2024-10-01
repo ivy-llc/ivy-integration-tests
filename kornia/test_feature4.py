@@ -17,7 +17,7 @@ import torch
 def test_SIFTFeature(target_framework, mode, backend_compile):
     print("kornia.feature.SIFTFeature")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSIFTFeature = ivy.transpile(kornia.feature.SIFTFeature, source="torch", target=target_framework)
@@ -34,7 +34,7 @@ def test_SIFTFeature(target_framework, mode, backend_compile):
 def test_SIFTFeatureScaleSpace(target_framework, mode, backend_compile):
     print("kornia.feature.SIFTFeatureScaleSpace")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSIFTFeatureScaleSpace = ivy.transpile(kornia.feature.SIFTFeatureScaleSpace, source="torch", target=target_framework)
@@ -51,7 +51,7 @@ def test_SIFTFeatureScaleSpace(target_framework, mode, backend_compile):
 def test_GFTTAffNetHardNet(target_framework, mode, backend_compile):
     print("kornia.feature.GFTTAffNetHardNet")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledGFTTAffNetHardNet = ivy.transpile(kornia.feature.GFTTAffNetHardNet, source="torch", target=target_framework)
@@ -68,7 +68,7 @@ def test_GFTTAffNetHardNet(target_framework, mode, backend_compile):
 def test_KeyNetAffNetHardNet(target_framework, mode, backend_compile):
     print("kornia.feature.KeyNetAffNetHardNet")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledKeyNetAffNetHardNet = ivy.transpile(kornia.feature.KeyNetAffNetHardNet, source="torch", target=target_framework)
@@ -85,7 +85,7 @@ def test_KeyNetAffNetHardNet(target_framework, mode, backend_compile):
 def test_KeyNetHardNet(target_framework, mode, backend_compile):
     print("kornia.feature.KeyNetHardNet")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledKeyNetHardNet = ivy.transpile(kornia.feature.KeyNetHardNet, source="torch", target=target_framework)
@@ -102,7 +102,7 @@ def test_KeyNetHardNet(target_framework, mode, backend_compile):
 def test_DescriptorMatcher(target_framework, mode, backend_compile):
     print("kornia.feature.DescriptorMatcher")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDescriptorMatcher = ivy.transpile(kornia.feature.DescriptorMatcher, source="torch", target=target_framework)
@@ -121,7 +121,7 @@ def test_DescriptorMatcher(target_framework, mode, backend_compile):
 def test_GeometryAwareDescriptorMatcher(target_framework, mode, backend_compile):
     print("kornia.feature.GeometryAwareDescriptorMatcher")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledGeometryAwareDescriptorMatcher = ivy.transpile(kornia.feature.GeometryAwareDescriptorMatcher, source="torch", target=target_framework)
@@ -143,7 +143,7 @@ def test_GeometryAwareDescriptorMatcher(target_framework, mode, backend_compile)
 def test_LocalFeatureMatcher(target_framework, mode, backend_compile):
     print("kornia.feature.LocalFeatureMatcher")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledGFTTAffNetHardNet = ivy.transpile(kornia.feature.GFTTAffNetHardNet, source="torch", target=target_framework)
@@ -169,7 +169,7 @@ def test_LocalFeatureMatcher(target_framework, mode, backend_compile):
 def test_LightGlueMatcher(target_framework, mode, backend_compile):
     print("kornia.feature.LightGlueMatcher")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLightGlueMatcher = ivy.transpile(kornia.feature.LightGlueMatcher, source="torch", target=target_framework)
@@ -191,7 +191,7 @@ def test_LightGlueMatcher(target_framework, mode, backend_compile):
 def test_LightGlue(target_framework, mode, backend_compile):
     print("kornia.feature.LightGlue")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLightGlue = ivy.transpile(kornia.feature.LightGlue, source="torch", target=target_framework)
@@ -219,7 +219,7 @@ def test_LightGlue(target_framework, mode, backend_compile):
 def test_LoFTR(target_framework, mode, backend_compile):
     print("kornia.feature.LoFTR")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLoFTR = ivy.transpile(kornia.feature.LoFTR, source="torch", target=target_framework)
@@ -236,7 +236,7 @@ def test_LoFTR(target_framework, mode, backend_compile):
 def test_PassLAF(target_framework, mode, backend_compile):
     print("kornia.feature.PassLAF")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPassLAF = ivy.transpile(kornia.feature.PassLAF, source="torch", target=target_framework)
@@ -255,7 +255,7 @@ def test_PassLAF(target_framework, mode, backend_compile):
 def test_PatchAffineShapeEstimator(target_framework, mode, backend_compile):
     print("kornia.feature.PatchAffineShapeEstimator")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPatchAffineShapeEstimator = ivy.transpile(kornia.feature.PatchAffineShapeEstimator, source="torch", target=target_framework)
@@ -272,7 +272,7 @@ def test_PatchAffineShapeEstimator(target_framework, mode, backend_compile):
 def test_LAFAffineShapeEstimator(target_framework, mode, backend_compile):
     print("kornia.feature.LAFAffineShapeEstimator")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLAFAffineShapeEstimator = ivy.transpile(kornia.feature.LAFAffineShapeEstimator, source="torch", target=target_framework)

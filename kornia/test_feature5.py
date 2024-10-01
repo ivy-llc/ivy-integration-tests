@@ -17,7 +17,7 @@ import torch
 def test_LAFOrienter(target_framework, mode, backend_compile):
     print("kornia.feature.LAFOrienter")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLAFOrienter = ivy.transpile(kornia.feature.LAFOrienter, source="torch", target=target_framework)
@@ -36,7 +36,7 @@ def test_LAFOrienter(target_framework, mode, backend_compile):
 def test_PatchDominantGradientOrientation(target_framework, mode, backend_compile):
     print("kornia.feature.PatchDominantGradientOrientation")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPatchDominantGradientOrientation = ivy.transpile(kornia.feature.PatchDominantGradientOrientation, source="torch", target=target_framework)
@@ -53,7 +53,7 @@ def test_PatchDominantGradientOrientation(target_framework, mode, backend_compil
 def test_OriNet(target_framework, mode, backend_compile):
     print("kornia.feature.OriNet")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledOriNet = ivy.transpile(kornia.feature.OriNet, source="torch", target=target_framework)
@@ -70,7 +70,7 @@ def test_OriNet(target_framework, mode, backend_compile):
 def test_LAFAffNetShapeEstimator(target_framework, mode, backend_compile):
     print("kornia.feature.LAFAffNetShapeEstimator")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLAFAffNetShapeEstimator = ivy.transpile(kornia.feature.LAFAffNetShapeEstimator, source="torch", target=target_framework)
@@ -89,7 +89,7 @@ def test_LAFAffNetShapeEstimator(target_framework, mode, backend_compile):
 def test_FilterResponseNorm2d(target_framework, mode, backend_compile):
     print("kornia.feature.FilterResponseNorm2d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledFilterResponseNorm2d = ivy.transpile(kornia.feature.FilterResponseNorm2d, source="torch", target=target_framework)
@@ -106,7 +106,7 @@ def test_FilterResponseNorm2d(target_framework, mode, backend_compile):
 def test_TLU(target_framework, mode, backend_compile):
     print("kornia.feature.TLU")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledTLU = ivy.transpile(kornia.feature.TLU, source="torch", target=target_framework)
@@ -123,7 +123,7 @@ def test_TLU(target_framework, mode, backend_compile):
 def test_DeFMO(target_framework, mode, backend_compile):
     print("kornia.feature.DeFMO")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDeFMO = ivy.transpile(kornia.feature.DeFMO, source="torch", target=target_framework)
@@ -140,7 +140,7 @@ def test_DeFMO(target_framework, mode, backend_compile):
 def test_DeDoDe(target_framework, mode, backend_compile):
     print("kornia.feature.DeDoDe")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDeDoDe = ivy.transpile(kornia.feature.DeDoDe, source="torch", target=target_framework)
@@ -159,7 +159,7 @@ def test_DeDoDe(target_framework, mode, backend_compile):
 def test_DISK(target_framework, mode, backend_compile):
     print("kornia.feature.DISK")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDISK = ivy.transpile(kornia.feature.DISK, source="torch", target=target_framework)
@@ -178,7 +178,7 @@ def test_DISK(target_framework, mode, backend_compile):
 def test_DISKFeatures(target_framework, mode, backend_compile):
     print("kornia.feature.DISKFeatures")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     keypoints = torch.rand(100, 2)

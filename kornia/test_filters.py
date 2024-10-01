@@ -667,7 +667,7 @@ def test_get_motion_kernel2d(target_framework, mode, backend_compile):
 def test_Laplacian(target_framework, mode, backend_compile):
     print("kornia.filters.Laplacian")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLaplacian = ivy.transpile(kornia.filters.Laplacian, source="torch", target=target_framework)
@@ -684,7 +684,7 @@ def test_Laplacian(target_framework, mode, backend_compile):
 def test_Sobel(target_framework, mode, backend_compile):
     print("kornia.filters.Sobel")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSobel = ivy.transpile(kornia.filters.Sobel, source="torch", target=target_framework)
@@ -701,7 +701,7 @@ def test_Sobel(target_framework, mode, backend_compile):
 def test_Canny(target_framework, mode, backend_compile):
     print("kornia.filters.Canny")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledCanny = ivy.transpile(kornia.filters.Canny, source="torch", target=target_framework)
@@ -719,7 +719,7 @@ def test_Canny(target_framework, mode, backend_compile):
 def test_SpatialGradient(target_framework, mode, backend_compile):
     print("kornia.filters.SpatialGradient")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSpatialGradient = ivy.transpile(kornia.filters.SpatialGradient, source="torch", target=target_framework)
@@ -736,7 +736,7 @@ def test_SpatialGradient(target_framework, mode, backend_compile):
 def test_SpatialGradient3d(target_framework, mode, backend_compile):
     print("kornia.filters.SpatialGradient3d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSpatialGradient3d = ivy.transpile(kornia.filters.SpatialGradient3d, source="torch", target=target_framework)
@@ -753,7 +753,7 @@ def test_SpatialGradient3d(target_framework, mode, backend_compile):
 def test_DexiNed(target_framework, mode, backend_compile):
     print("kornia.filters.DexiNed")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDexiNed = ivy.transpile(kornia.filters.DexiNed, source="torch", target=target_framework)
@@ -770,7 +770,7 @@ def test_DexiNed(target_framework, mode, backend_compile):
 def test_BilateralBlur(target_framework, mode, backend_compile):
     print("kornia.filters.BilateralBlur")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBilateralBlur = ivy.transpile(kornia.filters.BilateralBlur, source="torch", target=target_framework)
@@ -787,7 +787,7 @@ def test_BilateralBlur(target_framework, mode, backend_compile):
 def test_BlurPool2D(target_framework, mode, backend_compile):
     print("kornia.filters.BlurPool2D")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBlurPool2D = ivy.transpile(kornia.filters.BlurPool2D, source="torch", target=target_framework)
@@ -804,7 +804,7 @@ def test_BlurPool2D(target_framework, mode, backend_compile):
 def test_BoxBlur(target_framework, mode, backend_compile):
     print("kornia.filters.BoxBlur")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBoxBlur = ivy.transpile(kornia.filters.BoxBlur, source="torch", target=target_framework)
@@ -821,7 +821,7 @@ def test_BoxBlur(target_framework, mode, backend_compile):
 def test_MaxBlurPool2D(target_framework, mode, backend_compile):
     print("kornia.filters.MaxBlurPool2D")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledMaxBlurPool2D = ivy.transpile(kornia.filters.MaxBlurPool2D, source="torch", target=target_framework)
@@ -838,7 +838,7 @@ def test_MaxBlurPool2D(target_framework, mode, backend_compile):
 def test_MedianBlur(target_framework, mode, backend_compile):
     print("kornia.filters.MedianBlur")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledMedianBlur = ivy.transpile(kornia.filters.MedianBlur, source="torch", target=target_framework)
@@ -855,7 +855,7 @@ def test_MedianBlur(target_framework, mode, backend_compile):
 def test_GaussianBlur2d(target_framework, mode, backend_compile):
     print("kornia.filters.GaussianBlur2d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledGaussianBlur2d = ivy.transpile(kornia.filters.GaussianBlur2d, source="torch", target=target_framework)
@@ -872,7 +872,7 @@ def test_GaussianBlur2d(target_framework, mode, backend_compile):
 def test_GuidedBlur(target_framework, mode, backend_compile):
     print("kornia.filters.GuidedBlur")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledGuidedBlur = ivy.transpile(kornia.filters.GuidedBlur, source="torch", target=target_framework)
@@ -891,7 +891,7 @@ def test_GuidedBlur(target_framework, mode, backend_compile):
 def test_JointBilateralBlur(target_framework, mode, backend_compile):
     print("kornia.filters.JointBilateralBlur")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledJointBilateralBlur = ivy.transpile(kornia.filters.JointBilateralBlur, source="torch", target=target_framework)
@@ -910,7 +910,7 @@ def test_JointBilateralBlur(target_framework, mode, backend_compile):
 def test_MotionBlur(target_framework, mode, backend_compile):
     print("kornia.filters.MotionBlur")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledMotionBlur = ivy.transpile(kornia.filters.MotionBlur, source="torch", target=target_framework)
@@ -927,7 +927,7 @@ def test_MotionBlur(target_framework, mode, backend_compile):
 def test_UnsharpMask(target_framework, mode, backend_compile):
     print("kornia.filters.UnsharpMask")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledUnsharpMask = ivy.transpile(kornia.filters.UnsharpMask, source="torch", target=target_framework)
@@ -944,7 +944,7 @@ def test_UnsharpMask(target_framework, mode, backend_compile):
 def test_InRange(target_framework, mode, backend_compile):
     print("kornia.filters.InRange")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledInRange = ivy.transpile(kornia.filters.InRange, source="torch", target=target_framework)

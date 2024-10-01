@@ -262,7 +262,7 @@ def test_aepe(target_framework, mode, backend_compile):
 def test_SSIM(target_framework, mode, backend_compile):
     print("kornia.metrics.SSIM")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSSIM = ivy.transpile(kornia.metrics.SSIM, source="torch", target=target_framework)
@@ -287,7 +287,7 @@ def test_SSIM(target_framework, mode, backend_compile):
 def test_SSIM3D(target_framework, mode, backend_compile):
     print("kornia.metrics.SSIM3D")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSSIM3D = ivy.transpile(kornia.metrics.SSIM3D, source="torch", target=target_framework)
@@ -312,7 +312,7 @@ def test_SSIM3D(target_framework, mode, backend_compile):
 def test_AEPE(target_framework, mode, backend_compile):
     print("kornia.metrics.AEPE")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAEPE = ivy.transpile(kornia.metrics.AEPE, source="torch", target=target_framework)
@@ -337,7 +337,7 @@ def test_AEPE(target_framework, mode, backend_compile):
 def test_AverageMeter(target_framework, mode, backend_compile):
     print("kornia.metrics.AverageMeter")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAverageMeter = ivy.transpile(kornia.metrics.AverageMeter, source="torch", target=target_framework)

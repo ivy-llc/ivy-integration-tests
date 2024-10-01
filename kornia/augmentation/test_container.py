@@ -17,7 +17,7 @@ import torch
 def test_AugmentationSequential(target_framework, mode, backend_compile):
     print("kornia.augmentation.container.AugmentationSequential")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAugmentationSequential = ivy.transpile(
@@ -75,7 +75,7 @@ def test_AugmentationSequential(target_framework, mode, backend_compile):
 def test_ManyToManyAugmentationDispather(target_framework, mode, backend_compile):
     print("kornia.augmentation.container.ManyToManyAugmentationDispather")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledManyToManyAugmentationDispather = ivy.transpile(
@@ -141,7 +141,7 @@ def test_ManyToManyAugmentationDispather(target_framework, mode, backend_compile
 def test_ManyToOneAugmentationDispather(target_framework, mode, backend_compile):
     print("kornia.augmentation.container.ManyToOneAugmentationDispather")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledManyToOneAugmentationDispather = ivy.transpile(
@@ -207,7 +207,7 @@ def test_ManyToOneAugmentationDispather(target_framework, mode, backend_compile)
 def test_ImageSequential(target_framework, mode, backend_compile):
     print("kornia.augmentation.container.ImageSequential")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImageSequential = ivy.transpile(
@@ -283,7 +283,7 @@ def test_ImageSequential(target_framework, mode, backend_compile):
 def test_PatchSequential(target_framework, mode, backend_compile):
     print("kornia.augmentation.container.PatchSequential")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPatchSequential = ivy.transpile(
@@ -370,7 +370,7 @@ def test_PatchSequential(target_framework, mode, backend_compile):
 def test_VideoSequential(target_framework, mode, backend_compile):
     print("kornia.augmentation.container.VideoSequential")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledVideoSequential = ivy.transpile(

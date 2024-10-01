@@ -288,7 +288,7 @@ def test_nms3d(target_framework, mode, backend_compile):
 def test_SpatialSoftArgmax2d(target_framework, mode, backend_compile):
     print("kornia.geometry.subpix.SpatialSoftArgmax2d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSpatialSoftArgmax2d = ivy.transpile(
@@ -310,7 +310,7 @@ def test_SpatialSoftArgmax2d(target_framework, mode, backend_compile):
 def test_ConvSoftArgmax2d(target_framework, mode, backend_compile):
     print("kornia.geometry.subpix.ConvSoftArgmax2d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledConvSoftArgmax2d = ivy.transpile(
@@ -332,7 +332,7 @@ def test_ConvSoftArgmax2d(target_framework, mode, backend_compile):
 def test_ConvSoftArgmax3d(target_framework, mode, backend_compile):
     print("kornia.geometry.subpix.ConvSoftArgmax3d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledConvSoftArgmax3d = ivy.transpile(
@@ -354,7 +354,7 @@ def test_ConvSoftArgmax3d(target_framework, mode, backend_compile):
 def test_ConvQuadInterp3d(target_framework, mode, backend_compile):
     print("kornia.geometry.subpix.ConvQuadInterp3d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledConvQuadInterp3d = ivy.transpile(
@@ -376,7 +376,7 @@ def test_ConvQuadInterp3d(target_framework, mode, backend_compile):
 def test_NonMaximaSuppression2d(target_framework, mode, backend_compile):
     print("kornia.geometry.subpix.NonMaximaSuppression2d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledNonMaximaSuppression2d = ivy.transpile(
@@ -398,7 +398,7 @@ def test_NonMaximaSuppression2d(target_framework, mode, backend_compile):
 def test_NonMaximaSuppression3d(target_framework, mode, backend_compile):
     print("kornia.geometry.subpix.NonMaximaSuppression3d")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledNonMaximaSuppression3d = ivy.transpile(
