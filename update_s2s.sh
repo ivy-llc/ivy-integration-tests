@@ -9,6 +9,7 @@ workflow_link=$6
 api_key=$7
 
 export VERSION=$binaries  # set the branch to pull the binaries from
+export IVY_KEY=$api_key
 
 pip3 install -e ivy/
 cd ivy-integration-tests

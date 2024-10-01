@@ -17,7 +17,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        file : [ test_contrib ]
+        file : [ test_color, test_contrib, test_enhance, test_feature1, test_feature2, test_feature3, test_feature4, test_feature5,
+                 test_filters, test_image, test_io, test_losses, test_metrics, test_morphology, test_nerf, test_sensors,
+                 test_tracking, test_utils, test_x, geometry/test_bbox, geometry/test_boxes, geometry/test_calibration,
+                 geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar, geometry/test_homography,
+                 geometry/test_liegroup, geometry/test_linalg, geometry/test_line, geometry/test_quaternion, geometry/test_ransac,
+                 geometry/test_solvers, geometry/test_subpix, geometry/test_transform, geometry/test_vector,
+                 augmentation/test_augmentation1, augmentation/test_augmentation2, augmentation/test_augmentation3,
+                 augmentation/test_augmentation4, augmentation/test_auto, augmentation/test_container ]
         compile : [ F ]
         target  : ["tensorflow", "jax" ]
     steps:
@@ -63,7 +70,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
+          name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}-${{ matrix.target }}
           path: |
             ivy-integration-tests/test_results.txt
             ivy-integration-tests/test_logs.txt
@@ -75,6 +82,7 @@ jobs:
       matrix:
         file : [ test_vision ]
         compile : [ T, F ]
+        target  : ["tensorflow", "jax" ]
     steps:
       - name: Checkout ivy-integration-tests
         uses: actions/checkout@v4
@@ -102,9 +110,9 @@ jobs:
         id: tests
         run: |
           if [ "${{ steps.jobs.outputs.html_url }}" = "null" ]; then
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} linux-nightly ${{ matrix.compile }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ matrix.target }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
           else
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
+            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ matrix.target }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
 
       - name: Prepare Artifact Name
@@ -118,7 +126,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-            name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}
+            name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}-${{ matrix.target }}
             path: |
                 ivy-integration-tests/test_results.txt
                 ivy-integration-tests/test_logs.txt

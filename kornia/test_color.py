@@ -28,10 +28,10 @@ def _test_color_class(
     if backend_compile:
         pytest.skip()
 
-    transpiled_cls = ivy.transpile(cls, source="torch", target=target)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target)
 
     torch_obj = cls(*init_args)
-    transpiled_obj = transpiled_cls(*init_args)
+    transpiled_obj = eval("transpiled_" + f"{cls.__module__}.{cls.__name__}")(*init_args)
 
     torch_out = torch_obj(*args)
     transpile_args = _nest_torch_tensor_to_new_framework(args, target)

@@ -1,7 +1,11 @@
 import copy
+import inspect
+import gast
 import ivy
 import jax
 import jax.numpy as jnp
+import flax.nnx as nnx
+import kornia
 import numpy as np
 import pytest
 import tensorflow as tf
@@ -80,6 +84,8 @@ def _native_array_to_numpy(x):
         return x.numpy()
     if isinstance(x, jnp.ndarray):
         return np.asarray(x)
+    if isinstance(x, nnx.Variable):
+        return np.asarray(x.value)
     return x
 
 
@@ -163,10 +169,29 @@ def _target_to_simplified(target: str):
         return "np"
     if target == "tensorflow":
         return "tf"
+    if target == "jax":
+        return "jax"
     if target == "torch":
         return "pt"
     return target
 
+def _get_fn_name_from_stack():
+    # Get the previous calling stack frame
+    stack = inspect.stack()
+    caller_frame = stack[2]  # The function two levels above (eg: _test_function -> test_rgb_to_grayscale)
+    
+    source_code = inspect.getsource(caller_frame.frame)
+    parsed_ast = gast.parse(source_code)
+    
+    # Traverse the AST to find the call to _test_function and extract the first argument
+    for node in gast.walk(parsed_ast):
+        if isinstance(node, gast.Call) and hasattr(node.func, 'id') and node.func.id == '_test_function':
+            # Found the call to _test_function, extract the first argument (the fn)
+            first_arg = node.args[0]  # This is the first argument passed to _test_function
+            if isinstance(first_arg, gast.Attribute):
+                # Get the full name of the function (e.g., "kornia.color.rgb_to_grayscale")
+                return gast.unparse(first_arg).strip()
+    return None
 
 def _test_trace_function(
     fn,
@@ -231,6 +256,7 @@ def _test_transpile_function(
 
 def _test_source_to_source_function(
     fn,
+    fn_name,
     trace_args,
     trace_kwargs,
     test_args,
@@ -243,7 +269,11 @@ def _test_source_to_source_function(
     if backend_compile and target == "numpy":
         pytest.skip()
 
-    translated_fn = ivy.source_to_source(fn, source="torch", target=target)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target)
+    if fn_name:
+        translated_fn = eval("transpiled_" + f"{fn_name}")
+    else:
+        translated_fn = eval("transpiled_" + f"{fn.__module__}.{fn.__name__}")
 
     if backend_compile:
         try:
@@ -295,7 +325,7 @@ def _test_function(
 ):
     # print out the full function module/name, so it will appear in the test_report.json
     print(f"{fn.__module__}.{fn.__name__}")
-
+    fn_name = _get_fn_name_from_stack()
     if skip and mode != "s2s":
         # any skipped due to DCF issues should still work with ivy.source_to_source
         pytest.skip()
@@ -303,6 +333,7 @@ def _test_function(
     if mode == "s2s":
         _test_source_to_source_function(
             fn,
+            fn_name,
             trace_args,
             trace_kwargs,
             test_args,
