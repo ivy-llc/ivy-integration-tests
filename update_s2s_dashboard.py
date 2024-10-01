@@ -119,12 +119,12 @@ if __name__ == "__main__":
 
     readme_content = "# Ivy Integration Tests Dashboard\n\n"
     readme_content += f"### Last updated: {current_date}\n\n"
+    readme_content += f"- Successfully Transpiling to TensorFlow: {percent_fns_passing_tensorflow}%\n"
+    readme_content += f"- Successfully Transpiling to JAX: {percent_fns_passing_jax}%\n"
+    readme_content += f"- Successfully Transpiling to Numpy (Kornia functions only): {percent_fns_passing_numpy}%\n\n"
     readme_content += f"- Total Tests Passing: {passed}\n"
     readme_content += f"- Total Tests Failing: {failed}\n"
     readme_content += f"- Percent Tests Passing: {percent_passing}%\n"
-    readme_content += f"- Successfully Transpiling to TensorFlow: {percent_fns_passing_tensorflow}%\n"
-    readme_content += f"- Successfully Transpiling to JAX: {percent_fns_passing_jax}%\n"
-    readme_content += f"- Successfully Transpiling to Numpy (Kornia functions only): {percent_fns_passing_numpy}%\n"
     
     for integration, submodule_functions in sorted_test_results.items():
         readme_content += f"<div style='margin-top: 35px; margin-bottom: 20px; margin-left: 25px;'>\n"
