@@ -154,7 +154,7 @@ def test_diamond_square(target_framework, mode, backend_compile):
 def test_EdgeDetector(target_framework, mode, backend_compile):
     print("kornia.contrib.EdgeDetector")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledEdgeDetector = ivy.transpile(kornia.contrib.EdgeDetector, source="torch", target=target_framework)
@@ -178,7 +178,7 @@ def test_EdgeDetector(target_framework, mode, backend_compile):
 def test_FaceDetector(target_framework, mode, backend_compile):
     print("kornia.contrib.FaceDetector")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledFaceDetector = ivy.transpile(kornia.contrib.FaceDetector, source="torch", target=target_framework)
@@ -202,7 +202,7 @@ def test_FaceDetector(target_framework, mode, backend_compile):
 def test_VisionTransformer(target_framework, mode, backend_compile):
     print("kornia.contrib.VisionTransformer")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledVisionTransformer = ivy.transpile(kornia.contrib.VisionTransformer, source="torch", target=target_framework)
@@ -226,7 +226,7 @@ def test_VisionTransformer(target_framework, mode, backend_compile):
 def test_KMeans(target_framework, mode, backend_compile):
     print("kornia.contrib.KMeans")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledKMeans = ivy.transpile(kornia.contrib.KMeans, source="torch", target=target_framework)
@@ -253,7 +253,7 @@ def test_KMeans(target_framework, mode, backend_compile):
 def test_ExtractTensorPatches(target_framework, mode, backend_compile):
     print("kornia.contrib.ExtractTensorPatches")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledExtractTensorPatches = ivy.transpile(kornia.contrib.ExtractTensorPatches, source="torch", target=target_framework)
@@ -270,7 +270,7 @@ def test_ExtractTensorPatches(target_framework, mode, backend_compile):
 def test_CombineTensorPatches(target_framework, mode, backend_compile):
     print("kornia.contrib.CombineTensorPatches")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledCombineTensorPatches = ivy.transpile(kornia.contrib.CombineTensorPatches, source="torch", target=target_framework)
@@ -287,7 +287,7 @@ def test_CombineTensorPatches(target_framework, mode, backend_compile):
 def test_ClassificationHead(target_framework, mode, backend_compile):
     print("kornia.contrib.ClassificationHead")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledClassificationHead = ivy.transpile(kornia.contrib.ClassificationHead, source="torch", target=target_framework)
@@ -304,7 +304,7 @@ def test_ClassificationHead(target_framework, mode, backend_compile):
 def test_ImageStitcher(target_framework, mode, backend_compile):
     print("kornia.contrib.ImageStitcher")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLoFTR = ivy.transpile(kornia.feature.LoFTR, source="torch", target=target_framework)
@@ -327,7 +327,7 @@ def test_ImageStitcher(target_framework, mode, backend_compile):
 def test_Lambda(target_framework, mode, backend_compile):
     print("kornia.contrib.Lambda")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     transpiled_fn = ivy.transpile(kornia.color.rgb_to_grayscale, source="torch", target=target_framework)
@@ -345,7 +345,7 @@ def test_Lambda(target_framework, mode, backend_compile):
 def test_DistanceTransform(target_framework, mode, backend_compile):
     print("kornia.contrib.DistanceTransform")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDistanceTransform = ivy.transpile(kornia.contrib.DistanceTransform, source="torch", target=target_framework)

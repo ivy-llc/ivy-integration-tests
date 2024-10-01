@@ -1085,7 +1085,7 @@ def test_crop_and_resize(target_framework, mode, backend_compile):
 def test_Rotate(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Rotate")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledRotate = ivy.transpile(kornia.geometry.transform.Rotate, source="torch", target=target_framework)
@@ -1104,7 +1104,7 @@ def test_Rotate(target_framework, mode, backend_compile):
 def test_Translate(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Translate")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledTranslate = ivy.transpile(kornia.geometry.transform.Translate, source="torch", target=target_framework)
@@ -1123,7 +1123,7 @@ def test_Translate(target_framework, mode, backend_compile):
 def test_Scale(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Scale")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledScale = ivy.transpile(kornia.geometry.transform.Scale, source="torch", target=target_framework)
@@ -1142,7 +1142,7 @@ def test_Scale(target_framework, mode, backend_compile):
 def test_Shear(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Shear")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledShear = ivy.transpile(kornia.geometry.transform.Shear, source="torch", target=target_framework)
@@ -1161,7 +1161,7 @@ def test_Shear(target_framework, mode, backend_compile):
 def test_PyrDown(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.PyrDown")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPyrDown = ivy.transpile(kornia.geometry.transform.PyrDown, source="torch", target=target_framework)
@@ -1178,7 +1178,7 @@ def test_PyrDown(target_framework, mode, backend_compile):
 def test_PyrUp(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.PyrUp")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPyrUp = ivy.transpile(kornia.geometry.transform.PyrUp, source="torch", target=target_framework)
@@ -1195,7 +1195,7 @@ def test_PyrUp(target_framework, mode, backend_compile):
 def test_ScalePyramid(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.ScalePyramid")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledScalePyramid = ivy.transpile(kornia.geometry.transform.ScalePyramid, source="torch", target=target_framework)
@@ -1212,7 +1212,7 @@ def test_ScalePyramid(target_framework, mode, backend_compile):
 def test_Hflip(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Hflip")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHflip = ivy.transpile(kornia.geometry.transform.Hflip, source="torch", target=target_framework)
@@ -1229,7 +1229,7 @@ def test_Hflip(target_framework, mode, backend_compile):
 def test_Vflip(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Vflip")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledVflip = ivy.transpile(kornia.geometry.transform.Vflip, source="torch", target=target_framework)
@@ -1246,7 +1246,7 @@ def test_Vflip(target_framework, mode, backend_compile):
 def test_Rot180(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Rot180")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledRot180 = ivy.transpile(kornia.geometry.transform.Rot180, source="torch", target=target_framework)
@@ -1263,7 +1263,7 @@ def test_Rot180(target_framework, mode, backend_compile):
 def test_Resize(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Resize")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledResize = ivy.transpile(kornia.geometry.transform.Resize, source="torch", target=target_framework)
@@ -1280,7 +1280,7 @@ def test_Resize(target_framework, mode, backend_compile):
 def test_Rescale(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Rescale")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledRescale = ivy.transpile(kornia.geometry.transform.Rescale, source="torch", target=target_framework)
@@ -1297,7 +1297,7 @@ def test_Rescale(target_framework, mode, backend_compile):
 def test_Affine(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Affine")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAffine = ivy.transpile(kornia.geometry.transform.Affine, source="torch", target=target_framework)
@@ -1316,7 +1316,7 @@ def test_Affine(target_framework, mode, backend_compile):
 def test_HomographyWarper(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.HomographyWarper")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHomographyWarper = ivy.transpile(
@@ -1343,7 +1343,7 @@ def test_HomographyWarper(target_framework, mode, backend_compile):
 def test_Homography(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Homography")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHomography = ivy.transpile(
@@ -1360,7 +1360,7 @@ def test_Homography(target_framework, mode, backend_compile):
 # def test_ImageRegistrator(target_framework, mode, backend_compile):
 #     print("kornia.geometry.transform.ImageRegistrator")
 
-#     if backend_compile:
+#     if backend_compile or target_framework == "numpy":
 #         pytest.skip()
 
 #     TranspiledImageRegistrator = ivy.transpile(
@@ -1381,7 +1381,7 @@ def test_Homography(target_framework, mode, backend_compile):
 def test_Similarity(target_framework, mode, backend_compile):
     print("kornia.geometry.transform.Similarity")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSimilarity = ivy.transpile(

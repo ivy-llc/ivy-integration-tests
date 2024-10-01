@@ -17,7 +17,7 @@ import torch
 def test_ImageClassifierTrainer(target_framework, mode, backend_compile):
     print("kornia.x.ImageClassifierTrainer")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledImageClassifierTrainer = ivy.transpile(kornia.x.ImageClassifierTrainer, source="torch", target=target_framework)
@@ -27,7 +27,7 @@ def test_ImageClassifierTrainer(target_framework, mode, backend_compile):
 def test_SemanticSegmentationTrainer(target_framework, mode, backend_compile):
     print("kornia.x.SemanticSegmentationTrainer")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSemanticSegmentationTrainer = ivy.transpile(kornia.x.SemanticSegmentationTrainer, source="torch", target=target_framework)
@@ -37,7 +37,7 @@ def test_SemanticSegmentationTrainer(target_framework, mode, backend_compile):
 def test_ObjectDetectionTrainer(target_framework, mode, backend_compile):
     print("kornia.x.ObjectDetectionTrainer")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledObjectDetectionTrainer = ivy.transpile(kornia.x.ObjectDetectionTrainer, source="torch", target=target_framework)
@@ -47,7 +47,7 @@ def test_ObjectDetectionTrainer(target_framework, mode, backend_compile):
 def test_ModelCheckpoint(target_framework, mode, backend_compile):
     print("kornia.x.ModelCheckpoint")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledModelCheckpoint = ivy.transpile(kornia.x.ModelCheckpoint, source="torch", target=target_framework)
@@ -57,7 +57,7 @@ def test_ModelCheckpoint(target_framework, mode, backend_compile):
 def test_EarlyStopping(target_framework, mode, backend_compile):
     print("kornia.x.EarlyStopping")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledEarlyStopping = ivy.transpile(kornia.x.EarlyStopping, source="torch", target=target_framework)

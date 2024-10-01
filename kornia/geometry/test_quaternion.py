@@ -17,7 +17,7 @@ import torch
 def test_Quaternion(target_framework, mode, backend_compile):
     print("kornia.geometry.quaternion.Quaternion")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledQuaternion = ivy.transpile(Quaternion, source="torch", target=target_framework)

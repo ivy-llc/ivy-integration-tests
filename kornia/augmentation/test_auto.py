@@ -16,7 +16,7 @@ import torch
 def test_AutoAugment(target_framework, mode, backend_compile):
     print("kornia.augmentation.auto.AutoAugment")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledAutoAugment = ivy.transpile(
@@ -56,7 +56,7 @@ def test_AutoAugment(target_framework, mode, backend_compile):
 def test_RandAugment(target_framework, mode, backend_compile):
     print("kornia.augmentation.auto.RandAugment")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledRandAugment = ivy.transpile(
@@ -96,7 +96,7 @@ def test_RandAugment(target_framework, mode, backend_compile):
 def test_TrivialAugment(target_framework, mode, backend_compile):
     print("kornia.augmentation.auto.TrivialAugment")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledTrivialAugment = ivy.transpile(

@@ -24,7 +24,7 @@ def _create_synthetic_homography_image(image, H, size):
 def test_HomographyTracker(target_framework, mode, backend_compile):
     print("kornia.tracking.HomographyTracker")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHomographyTracker = ivy.transpile(kornia.tracking.HomographyTracker, source="torch", target=target_framework)

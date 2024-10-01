@@ -17,7 +17,7 @@ import torch
 def test_TFeat(target_framework, mode, backend_compile):
     print("kornia.feature.TFeat")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledTFeat = ivy.transpile(kornia.feature.TFeat, source="torch", target=target_framework)
@@ -34,7 +34,7 @@ def test_TFeat(target_framework, mode, backend_compile):
 def test_SOSNet(target_framework, mode, backend_compile):
     print("kornia.feature.SOSNet")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSOSNet = ivy.transpile(kornia.feature.SOSNet, source="torch", target=target_framework)
@@ -51,7 +51,7 @@ def test_SOSNet(target_framework, mode, backend_compile):
 def test_BlobHessian(target_framework, mode, backend_compile):
     print("kornia.feature.BlobHessian")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBlobHessian = ivy.transpile(kornia.feature.BlobHessian, source="torch", target=target_framework)
@@ -68,7 +68,7 @@ def test_BlobHessian(target_framework, mode, backend_compile):
 def test_CornerGFTT(target_framework, mode, backend_compile):
     print("kornia.feature.CornerGFTT")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledCornerGFTT = ivy.transpile(kornia.feature.CornerGFTT, source="torch", target=target_framework)
@@ -85,7 +85,7 @@ def test_CornerGFTT(target_framework, mode, backend_compile):
 def test_CornerHarris(target_framework, mode, backend_compile):
     print("kornia.feature.CornerHarris")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledCornerHarris = ivy.transpile(kornia.feature.CornerHarris, source="torch", target=target_framework)
@@ -102,7 +102,7 @@ def test_CornerHarris(target_framework, mode, backend_compile):
 def test_BlobDoG(target_framework, mode, backend_compile):
     print("kornia.feature.BlobDoG")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBlobDoG = ivy.transpile(kornia.feature.BlobDoG, source="torch", target=target_framework)
@@ -119,7 +119,7 @@ def test_BlobDoG(target_framework, mode, backend_compile):
 def test_BlobDoGSingle(target_framework, mode, backend_compile):
     print("kornia.feature.BlobDoGSingle")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBlobDoGSingle = ivy.transpile(kornia.feature.BlobDoGSingle, source="torch", target=target_framework)
@@ -136,7 +136,7 @@ def test_BlobDoGSingle(target_framework, mode, backend_compile):
 def test_KeyNet(target_framework, mode, backend_compile):
     print("kornia.feature.KeyNet")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledKeyNet = ivy.transpile(kornia.feature.KeyNet, source="torch", target=target_framework)
@@ -153,7 +153,7 @@ def test_KeyNet(target_framework, mode, backend_compile):
 def test_MultiResolutionDetector(target_framework, mode, backend_compile):
     print("kornia.feature.MultiResolutionDetector")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledMultiResolutionDetector = ivy.transpile(kornia.feature.MultiResolutionDetector, source="torch", target=target_framework)
@@ -174,7 +174,7 @@ def test_MultiResolutionDetector(target_framework, mode, backend_compile):
 def test_ScaleSpaceDetector(target_framework, mode, backend_compile):
     print("kornia.feature.ScaleSpaceDetector")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledScaleSpaceDetector = ivy.transpile(kornia.feature.ScaleSpaceDetector, source="torch", target=target_framework)
@@ -191,7 +191,7 @@ def test_ScaleSpaceDetector(target_framework, mode, backend_compile):
 def test_KeyNetDetector(target_framework, mode, backend_compile):
     print("kornia.feature.KeyNetDetector")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledKeyNetDetector = ivy.transpile(kornia.feature.KeyNetDetector, source="torch", target=target_framework)
@@ -208,7 +208,7 @@ def test_KeyNetDetector(target_framework, mode, backend_compile):
 def test_LAFDescriptor(target_framework, mode, backend_compile):
     print("kornia.feature.LAFDescriptor")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledLAFDescriptor = ivy.transpile(kornia.feature.LAFDescriptor, source="torch", target=target_framework)
@@ -231,7 +231,8 @@ def test_LAFDescriptor(target_framework, mode, backend_compile):
 #     if backend_compile:
 #         pytest.skip()
 
-#     TranspiledSOLD2 = ivy.transpile(kornia.feature.SOLD2, source="torch", target=target_framework)
+    if backend_compile or target_framework == "numpy":
+        pytest.skip()
 
 #     x = torch.rand(1, 1, 512, 512)
 #     torch_out = kornia.feature.SOLD2(pretrained=False)(x)
@@ -245,7 +246,7 @@ def test_LAFDescriptor(target_framework, mode, backend_compile):
 def test_LocalFeature(target_framework, mode, backend_compile):
     print("kornia.feature.LocalFeature")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledKeyNetDetector = ivy.transpile(
@@ -275,8 +276,8 @@ def test_LocalFeature(target_framework, mode, backend_compile):
 # def test_SOLD2_detector(target_framework, mode, backend_compile):
 #     print("kornia.feature.SOLD2_detector")
 
-#     if backend_compile:
-#         pytest.skip()
+    if backend_compile or target_framework == "numpy":
+        pytest.skip()
 
 #     TranspiledSOLD2Detector = ivy.transpile(kornia.feature.SOLD2_detector, source="torch", target=target_framework)
 

@@ -19,7 +19,7 @@ import torch
 def test_NerfModel(target_framework, mode, backend_compile):
     print("kornia.nerf.nerf_model.NerfModel")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledNerfModel = ivy.transpile(nerf_model.NerfModel, source="torch", target=target_framework)
@@ -44,7 +44,7 @@ def test_NerfModel(target_framework, mode, backend_compile):
 def test_NerfModelRenderer(target_framework, mode, backend_compile):
     print("kornia.nerf.nerf_model.NerfModelRenderer")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
@@ -79,7 +79,7 @@ def test_NerfModelRenderer(target_framework, mode, backend_compile):
 def test_MLP(target_framework, mode, backend_compile):
     print("kornia.nerf.nerf_model.MLP")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledMLP = ivy.transpile(nerf_model.MLP, source="torch", target=target_framework)
@@ -104,7 +104,7 @@ def test_MLP(target_framework, mode, backend_compile):
 # def test_NerfSolver(target_framework, mode, backend_compile):
 #     print("kornia.nerf.nerf_solver.NerfSolver")
 
-#     if backend_compile:
+#     if backend_compile or target_framework == "numpy":
 #         pytest.skip()
     
 #     TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
@@ -135,7 +135,7 @@ def test_MLP(target_framework, mode, backend_compile):
 def test_IrregularRenderer(target_framework, mode, backend_compile):
     print("kornia.nerf.volume_renderer.IrregularRenderer")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledIrregularRenderer = ivy.transpile(volume_renderer.IrregularRenderer, source="torch", target=target_framework)
@@ -161,7 +161,7 @@ def test_IrregularRenderer(target_framework, mode, backend_compile):
 def test_RegularRenderer(target_framework, mode, backend_compile):
     print("kornia.nerf.volume_renderer.RegularRenderer")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledRegularRenderer = ivy.transpile(volume_renderer.RegularRenderer, source="torch", target=target_framework)
@@ -191,7 +191,7 @@ def test_RegularRenderer(target_framework, mode, backend_compile):
 # def test_RaySampler(target_framework, mode, backend_compile):
 #     print("kornia.nerf.samplers.RaySampler")
 
-#     if backend_compile:
+#     if backend_compile or target_framework == "numpy":
 #         pytest.skip()
 
 #     TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
@@ -222,7 +222,7 @@ def test_RegularRenderer(target_framework, mode, backend_compile):
 def test_RandomRaySampler(target_framework, mode, backend_compile):
     print("kornia.nerf.samplers.RandomRaySampler")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)

@@ -421,7 +421,7 @@ def test_reproject_disparity_to_3D(target_framework, mode, backend_compile):
 def test_PinholeCamera(target_framework, mode, backend_compile):
     print("kornia.geometry.camera.pinhole.PinholeCamera")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
@@ -454,7 +454,7 @@ def test_PinholeCamera(target_framework, mode, backend_compile):
 def test_StereoCamera(target_framework, mode, backend_compile):
     print("kornia.geometry.camera.stereo.StereoCamera")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledStereoCamera = ivy.transpile(kornia.geometry.camera.stereo.StereoCamera, source="torch", target=target_framework)

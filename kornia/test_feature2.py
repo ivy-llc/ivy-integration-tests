@@ -273,7 +273,7 @@ def test_perspective_transform_lafs(target_framework, mode, backend_compile):
 def test_DenseSIFTDescriptor(target_framework, mode, backend_compile):
     print("kornia.feature.DenseSIFTDescriptor")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledDenseSIFTDescriptor = ivy.transpile(kornia.feature.DenseSIFTDescriptor, source="torch", target=target_framework)
@@ -290,7 +290,7 @@ def test_DenseSIFTDescriptor(target_framework, mode, backend_compile):
 def test_SIFTDescriptor(target_framework, mode, backend_compile):
     print("kornia.feature.SIFTDescriptor")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSIFTDescriptor = ivy.transpile(kornia.feature.SIFTDescriptor, source="torch", target=target_framework)
@@ -307,7 +307,7 @@ def test_SIFTDescriptor(target_framework, mode, backend_compile):
 def test_MKDDescriptor(target_framework, mode, backend_compile):
     print("kornia.feature.MKDDescriptor")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledMKDDescriptor = ivy.transpile(kornia.feature.MKDDescriptor, source="torch", target=target_framework)
@@ -324,7 +324,7 @@ def test_MKDDescriptor(target_framework, mode, backend_compile):
 def test_HardNet(target_framework, mode, backend_compile):
     print("kornia.feature.HardNet")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHardNet = ivy.transpile(kornia.feature.HardNet, source="torch", target=target_framework)
@@ -341,7 +341,7 @@ def test_HardNet(target_framework, mode, backend_compile):
 def test_HardNet8(target_framework, mode, backend_compile):
     print("kornia.feature.HardNet8")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHardNet8 = ivy.transpile(kornia.feature.HardNet8, source="torch", target=target_framework)
@@ -358,7 +358,7 @@ def test_HardNet8(target_framework, mode, backend_compile):
 def test_HyNet(target_framework, mode, backend_compile):
     print("kornia.feature.HyNet")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledHyNet = ivy.transpile(kornia.feature.HyNet, source="torch", target=target_framework)

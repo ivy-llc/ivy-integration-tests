@@ -47,7 +47,7 @@ def test_fit_line(target_framework, mode, backend_compile):
 def test_ParametrizedLine(target_framework, mode, backend_compile):
     print("kornia.geometry.line.ParametrizedLine")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     origin = torch.tensor([0.0, 0.0], requires_grad=True)

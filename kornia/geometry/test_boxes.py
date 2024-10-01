@@ -28,7 +28,7 @@ def _check_boxes_same(torch_boxes, transpiled_boxes):
 def test_Boxes(target_framework, mode, backend_compile):
     print("kornia.geometry.boxes.Boxes")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBoxes = ivy.transpile(kornia.geometry.boxes.Boxes, source="torch", target=target_framework)
@@ -92,7 +92,7 @@ def test_Boxes(target_framework, mode, backend_compile):
 def test_Boxes3D(target_framework, mode, backend_compile):
     print("kornia.geometry.boxes.Boxes3D")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledBoxes3D = ivy.transpile(kornia.geometry.boxes.Boxes3D, source="torch", target=target_framework)

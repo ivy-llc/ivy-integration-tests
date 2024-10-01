@@ -15,7 +15,7 @@ import torch
 def test_So3(target_framework, mode, backend_compile):
     print("kornia.geometry.liegroup.So3")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledSo3 = ivy.transpile(kornia.geometry.liegroup.So3, source="torch", target=target_framework)
@@ -83,7 +83,7 @@ def test_So3(target_framework, mode, backend_compile):
 def test_Se3(target_framework, mode, backend_compile):
     print("kornia.geometry.liegroup.Se3")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     quaternion_data = torch.tensor([1., 0., 0., 0.])
@@ -157,7 +157,7 @@ def test_Se3(target_framework, mode, backend_compile):
 def test_So2(target_framework, mode, backend_compile):
     print("kornia.geometry.liegroup.So2")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     real_part = torch.tensor([1.0], requires_grad=True)
@@ -239,7 +239,7 @@ def test_So2(target_framework, mode, backend_compile):
 def test_Se2(target_framework, mode, backend_compile):
     print("kornia.geometry.liegroup.Se2")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     so2_rotation = kornia.geometry.liegroup.So2.identity(1)

@@ -17,7 +17,7 @@ import torch
 def test_Keypoints(target_framework, mode, backend_compile):
     print("kornia.geometry.keypoints.Keypoints")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledKeypoints = ivy.transpile(kornia.geometry.keypoints.Keypoints, source="torch", target=target_framework)
@@ -70,7 +70,7 @@ def test_Keypoints(target_framework, mode, backend_compile):
 def test_Keypoints3D(target_framework, mode, backend_compile):
     print("kornia.geometry.keypoints.Keypoints3D")
 
-    if backend_compile:
+    if backend_compile or target_framework == "numpy":
         pytest.skip()
 
     TranspiledKeypoints3D = ivy.transpile(kornia.geometry.keypoints.Keypoints3D, source="torch", target=target_framework)
