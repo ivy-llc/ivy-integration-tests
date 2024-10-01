@@ -23,6 +23,11 @@ if __name__ == "__main__":
     passed = 0
     failed = 0
     test_outcomes = {}
+    total_tests = {
+        "jax": 0,
+        "numpy": 0,
+        "tensorflow": 0,
+    }
 
     for subdir, _, files in os.walk("artifacts"):
         for file_name in files:
@@ -57,8 +62,10 @@ if __name__ == "__main__":
 
                         if outcome == "passed":
                             passed += 1
-                        else:
+                            total_tests[target] += 1
+                        elif outcome == "failed":
                             failed += 1
+                            total_tests[target] += 1
 
                         if function not in test_outcomes:
                             test_outcomes[function] = {
@@ -88,16 +95,15 @@ if __name__ == "__main__":
     fns_passing_jax = 0
     fns_passing_numpy = 0
     fns_passing_tensorflow = 0
-    total_fns = len(test_outcomes)
     for fn, outcomes in test_outcomes.items():
         if all(outcomes.values()): fns_passing_all_targets += 1
         if outcomes["jax"]: fns_passing_jax += 1
         if outcomes["numpy"]: fns_passing_numpy += 1
         if outcomes["tensorflow"]: fns_passing_tensorflow += 1
-    percent_fns_passing_all_targets = round(100 * fns_passing_all_targets / total_fns, 2)
-    percent_fns_passing_jax = round(100 * fns_passing_jax / total_fns, 2)
-    percent_fns_passing_numpy = round(100 * fns_passing_numpy / total_fns, 2)
-    percent_fns_passing_tensorflow = round(100 * fns_passing_tensorflow / total_fns, 2)
+    percent_fns_passing_all_targets = round(100 * fns_passing_all_targets / sum(total_tests.values()), 2)
+    percent_fns_passing_jax = round(100 * fns_passing_jax / (total_tests["jax"] or 1), 2)
+    percent_fns_passing_numpy = round(100 * fns_passing_numpy / (total_tests["numpy"] or 1), 2)
+    percent_fns_passing_tensorflow = round(100 * fns_passing_tensorflow / (total_tests["tensorflow"] or 1), 2)
 
     if passed + failed > 0:
         percent_passing = round(100 * passed / (passed + failed), 1)
