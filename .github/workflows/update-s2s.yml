@@ -26,7 +26,7 @@ jobs:
                  augmentation/test_augmentation1, augmentation/test_augmentation2, augmentation/test_augmentation3,
                  augmentation/test_augmentation4, augmentation/test_auto, augmentation/test_container ]
         compile : [ F ]
-        target  : ["tensorflow", "jax" ]
+        target  : ["tensorflow", "jax" "numpy" ]
     steps:
       - name: Checkout ivy-integration-tests
         uses: actions/checkout@v4
