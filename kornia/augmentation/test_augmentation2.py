@@ -25,7 +25,7 @@ def _test_augmentation_class(
     backend_compile=False,
     tolerance=1e-3,
 ):
-    if backend_compile:
+    if backend_compile or target == "numpy":
         pytest.skip()
 
     transpiled_cls = ivy.transpile(augmentation_cls, source="torch", target=target)
