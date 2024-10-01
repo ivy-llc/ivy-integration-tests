@@ -1,6 +1,5 @@
 Obj: kornia.augmentation.LongestMaxSize | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomClahe | Target: jax | Native Compiled: False
-Obj: kornia.augmentation.RandomClahe | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomJigsaw | Target: jax | Native Compiled: False
@@ -21,7 +20,6 @@ Obj: kornia.augmentation.RandomSaltAndPepperNoise | Target: tensorflow | Native 
 Obj: kornia.augmentation.RandomSharpness | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomSharpness | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomSolarize | Target: tensorflow | Native Compiled: False
-Obj: kornia.augmentation.RandomTransplantation | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomTransplantation | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomTransplantation3D | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomTransplantation3D | Target: tensorflow | Native Compiled: False
@@ -47,10 +45,7 @@ Obj: kornia.augmentation.container.VideoSequential | Target: jax | Native Compil
 Obj: kornia.augmentation.container.VideoSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.ColorMap | Target: jax | Native Compiled: False
 Obj: kornia.color.ColorMap | Target: tensorflow | Native Compiled: False
-Obj: kornia.color.RawToRgb | Target: numpy | Native Compiled: False
 Obj: kornia.color.RawToRgb | Target: tensorflow | Native Compiled: False
-Obj: kornia.color.RawToRgb2x2Downscaled | Target: numpy | Native Compiled: False
-Obj: kornia.color.RgbToRaw | Target: numpy | Native Compiled: False
 Obj: kornia.color.gray.RgbToGrayscale | Target: jax | Native Compiled: False
 Obj: kornia.color.hls.RgbToHls | Target: jax | Native Compiled: False
 Obj: kornia.color.hls.RgbToHls | Target: tensorflow | Native Compiled: False
@@ -104,6 +99,7 @@ Obj: kornia.feature.KeyNetDetector | Target: jax | Native Compiled: False
 Obj: kornia.feature.KeyNetDetector | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.KeyNetHardNet | Target: jax | Native Compiled: False
 Obj: kornia.feature.KeyNetHardNet | Target: tensorflow | Native Compiled: False
+Obj: kornia.feature.LAFAffineShapeEstimator | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LAFDescriptor | Target: jax | Native Compiled: False
 Obj: kornia.feature.LAFDescriptor | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LAFOrienter | Target: jax | Native Compiled: False
@@ -153,8 +149,6 @@ Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: numpy | Native Comp
 Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar._metrics.sampson_epipolar_distance | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.epipolar._metrics.symmetrical_epipolar_distance | Target: numpy | Native Compiled: False
-Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: jax | Native Compiled: False
-Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.decompose_essential_matrix | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.find_essential | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.motion_from_essential_choose_solution | Target: jax | Native Compiled: False
@@ -162,6 +156,7 @@ Obj: kornia.geometry.epipolar.fundamental.find_fundamental | Target: numpy | Nat
 Obj: kornia.geometry.homography.find_homography_dlt | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: jax | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: numpy | Native Compiled: False
+Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_lines_dlt | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_lines_dlt_iterated | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.oneway_transfer_error | Target: numpy | Native Compiled: False
