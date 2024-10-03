@@ -7,11 +7,13 @@ on:
         description: 'Branch to use for binaries'
         required: true
         default: 'linux-nightly'
+        type: string
   workflow_call:
     inputs:
       binaries-branch:
         description: 'Branch to use for binaries'
         default: 'main'
+        type: string
 
 permissions:
   actions: read
