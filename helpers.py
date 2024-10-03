@@ -58,14 +58,14 @@ def _check_shape_allclose(x, y, tolerance=1e-3):
 
     if isinstance(x, (list, set, tuple)):
         all([
-            _check_allclose(element_x, element_y, tolerance=tolerance) for element_x, element_y in zip(x, y)
+            _check_shape_allclose(element_x, element_y, tolerance=tolerance) for element_x, element_y in zip(x, y)
         ])
         return
 
     if isinstance(x, dict):
         all([key_x == key_y for key_x, key_y in zip(x.keys(), y.keys())])
         all([
-            _check_allclose(element_x, element_y, tolerance=tolerance)
+            _check_shape_allclose(element_x, element_y, tolerance=tolerance)
             for element_x, element_y in zip(x.values(), y.values())
         ])
         return
