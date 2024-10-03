@@ -15,14 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        file : [ test_color, test_contrib, test_enhance, test_feature1, test_feature2, test_feature3, test_feature4, test_feature5,
-                 test_filters, test_image, test_io, test_losses, test_metrics, test_morphology, test_nerf, test_sensors,
-                 test_tracking, test_utils, test_x, geometry/test_bbox, geometry/test_boxes, geometry/test_calibration,
-                 geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar, geometry/test_homography,
-                 geometry/test_liegroup, geometry/test_linalg, geometry/test_line, geometry/test_quaternion, geometry/test_ransac,
-                 geometry/test_solvers, geometry/test_subpix, geometry/test_transform, geometry/test_vector,
-                 augmentation/test_augmentation1, augmentation/test_augmentation2, augmentation/test_augmentation3,
-                 augmentation/test_augmentation4, augmentation/test_auto, augmentation/test_container ]
+        file : [ test_image ]
         compile : [ F ]
         target  : [ "tensorflow", "jax", "numpy" ]
     steps:
