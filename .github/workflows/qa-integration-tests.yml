@@ -1,0 +1,81 @@
+name: QA Integration Tests
+
+on:
+  push:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  test-kornia:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        file : [ test_color, test_contrib, test_enhance, test_feature1, test_feature2, test_feature3, test_feature4, test_feature5,
+                 test_filters, test_image, test_io, test_losses, test_metrics, test_morphology, test_nerf, test_sensors,
+                 test_tracking, test_utils, test_x, geometry/test_bbox, geometry/test_boxes, geometry/test_calibration,
+                 geometry/test_camera, geometry/test_conversions, geometry/test_depth, geometry/test_epipolar, geometry/test_homography,
+                 geometry/test_liegroup, geometry/test_linalg, geometry/test_line, geometry/test_quaternion, geometry/test_ransac,
+                 geometry/test_solvers, geometry/test_subpix, geometry/test_transform, geometry/test_vector,
+                 augmentation/test_augmentation1, augmentation/test_augmentation2, augmentation/test_augmentation3,
+                 augmentation/test_augmentation4, augmentation/test_auto, augmentation/test_container ]
+        compile : [ F ]
+        target  : [ "tensorflow", "jax", "numpy" ]
+    steps:
+      - name: Checkout ivy-integration-tests
+        uses: actions/checkout@v4
+        with:
+          path: ivy-integration-tests
+
+      - name: Checkout Ivy
+        uses: actions/checkout@v4
+        with:
+          repository: ivy-llc/ivy
+          token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+          path: ivy
+          persist-credentials: true
+
+      - name: Run Tests
+        id: tests
+        run: |
+          docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest \
+          ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} linux-nightly ${{ matrix.compile }} ${{ matrix.target }} \
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
+
+      - name: Prepare Artifact Name
+        id: prepare
+        shell: bash
+        run: |
+          safe_file_name=$(echo "${{ matrix.file }}" | sed 's/\//-/g')
+          echo "safe_file_name=${safe_file_name}" >> $GITHUB_OUTPUT
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}-${{ matrix.target }}
+          path: |
+            ivy-integration-tests/test_results.txt
+            ivy-integration-tests/test_logs.txt
+
+  analyze-results:
+    runs-on: ubuntu-latest
+    needs: test-kornia
+    steps:
+      - name: Download Test Results
+        uses: actions/download-artifact@v3
+        with:
+          path: ./artifacts
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+
+      - name: Calculate Passing Percentage
+        run: |
+          python calculate_passing_percentage.py
