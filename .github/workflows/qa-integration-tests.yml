@@ -57,12 +57,6 @@ jobs:
           path: ivy
           persist-credentials: true
 
-      - name: List files in current directory (for debugging)
-        run: ls -la
-
-      - name: List files in ivy-integration-tests directory (for debugging)
-        run: ls -la ivy-integration-tests
-
       - name: Run Tests
         id: tests
         run: |
