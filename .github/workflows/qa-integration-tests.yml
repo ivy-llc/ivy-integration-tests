@@ -71,7 +71,7 @@ jobs:
             -v "$(pwd)":/ivy \
             -v "$(pwd)"/.hypothesis:/.hypothesis \
             ivyllc/ivy:latest \
-            ivy/ivy-integration-tests/update_s2s.sh kornia \
+            ivy-integration-tests/update_s2s.sh kornia \
             ${{ matrix.file }} ${{ inputs.binaries-branch }} \
             ${{ matrix.compile }} ${{ matrix.target }} \
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} \
