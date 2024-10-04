@@ -38,7 +38,6 @@ jobs:
                  geometry/test_solvers, geometry/test_subpix, geometry/test_transform, geometry/test_vector,
                  augmentation/test_augmentation1, augmentation/test_augmentation2, augmentation/test_augmentation3,
                  augmentation/test_augmentation4, augmentation/test_auto, augmentation/test_container ]
-        compile : [ F ]
         target  : [ "tensorflow", "jax", "numpy" ]
     steps:
       - name: Checkout ivy-integration-tests
@@ -73,7 +72,7 @@ jobs:
             ivyllc/ivy:latest \
             ivy-integration-tests/update_s2s.sh kornia \
             ${{ matrix.file }} ${{ inputs.binaries-branch }} \
-            ${{ matrix.compile }} ${{ matrix.target }} \
+            F ${{ matrix.target }} \
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} \
             ${{ secrets.IVY_API_KEY }}
 
@@ -88,7 +87,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}-${{ matrix.target }}
+          name: test-results-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.target }}
           path: |
             ivy-integration-tests/test_results.txt
             ivy-integration-tests/test_logs.txt
