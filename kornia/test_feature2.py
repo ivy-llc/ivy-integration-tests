@@ -279,6 +279,7 @@ def test_DenseSIFTDescriptor(target_framework, mode, backend_compile):
     TranspiledDenseSIFTDescriptor = ivy.transpile(kornia.feature.DenseSIFTDescriptor, source="torch", target=target_framework)
 
     x = torch.rand(2, 1, 200, 300)
+    
     torch_out = kornia.feature.DenseSIFTDescriptor()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
