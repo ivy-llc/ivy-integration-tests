@@ -6,7 +6,7 @@ on:
       binaries-branch:
         description: 'Branch to use for binaries'
         required: true
-        default: 'linux-nightly'
+        default: 'testing-nightly'
         type: string
   workflow_call:
     inputs:
