@@ -23,10 +23,19 @@ def test_SIFTFeature(target_framework, mode, backend_compile):
     TranspiledSIFTFeature = ivy.transpile(kornia.feature.SIFTFeature, source="torch", target=target_framework)
 
     x = torch.rand(1, 1, 256, 256)
-    torch_out = kornia.feature.SIFTFeature(num_features=5000)(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledSIFTFeature(num_features=5000)(transpiled_x)
+
+    model = kornia.feature.SIFTFeature(num_features=10)
+    torch_out = model(x)
+
+    transpiled_model = TranspiledSIFTFeature(num_features=10)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -40,10 +49,19 @@ def test_SIFTFeatureScaleSpace(target_framework, mode, backend_compile):
     TranspiledSIFTFeatureScaleSpace = ivy.transpile(kornia.feature.SIFTFeatureScaleSpace, source="torch", target=target_framework)
 
     x = torch.rand(1, 1, 256, 256)
-    torch_out = kornia.feature.SIFTFeatureScaleSpace(num_features=5000)(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledSIFTFeatureScaleSpace(num_features=5000)(transpiled_x)
+
+    model = kornia.feature.SIFTFeatureScaleSpace(num_features=10)
+    torch_out = model(x)
+
+    transpiled_model = TranspiledSIFTFeatureScaleSpace(num_features=10)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -57,10 +75,19 @@ def test_GFTTAffNetHardNet(target_framework, mode, backend_compile):
     TranspiledGFTTAffNetHardNet = ivy.transpile(kornia.feature.GFTTAffNetHardNet, source="torch", target=target_framework)
 
     x = torch.rand(1, 1, 256, 256)
-    torch_out = kornia.feature.GFTTAffNetHardNet(num_features=5000)(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledGFTTAffNetHardNet(num_features=5000)(transpiled_x)
+
+    model = kornia.feature.GFTTAffNetHardNet(num_features=10)
+    torch_out = model(x)
+
+    transpiled_model = TranspiledGFTTAffNetHardNet(num_features=10)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -74,10 +101,19 @@ def test_KeyNetAffNetHardNet(target_framework, mode, backend_compile):
     TranspiledKeyNetAffNetHardNet = ivy.transpile(kornia.feature.KeyNetAffNetHardNet, source="torch", target=target_framework)
 
     x = torch.rand(1, 1, 256, 256)
-    torch_out = kornia.feature.KeyNetAffNetHardNet(num_features=5000)(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledKeyNetAffNetHardNet(num_features=5000)(transpiled_x)
+    
+    model = kornia.feature.KeyNetAffNetHardNet(num_features=10)
+    torch_out = model(x)
+
+    transpiled_model = TranspiledKeyNetAffNetHardNet(num_features=10)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -91,10 +127,19 @@ def test_KeyNetHardNet(target_framework, mode, backend_compile):
     TranspiledKeyNetHardNet = ivy.transpile(kornia.feature.KeyNetHardNet, source="torch", target=target_framework)
 
     x = torch.rand(1, 1, 256, 256)
-    torch_out = kornia.feature.KeyNetHardNet(num_features=5000)(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledKeyNetHardNet(num_features=5000)(transpiled_x)
+    
+    model = kornia.feature.KeyNetHardNet(num_features=10)
+    torch_out = model(x)
+
+    transpiled_model = TranspiledKeyNetHardNet(num_features=10)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -180,10 +225,19 @@ def test_LightGlueMatcher(target_framework, mode, backend_compile):
         torch.rand(1, 2, 2, 3),
         torch.rand(1, 5, 2, 3),
     )
-    torch_out = kornia.feature.LightGlueMatcher('disk')(*torch_args)
-
     transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
-    transpiled_out = TranspiledLightGlueMatcher('disk')(*transpiled_args)
+    
+    model = kornia.feature.LightGlueMatcher('disk')
+    torch_out = model(*torch_args)
+
+    transpiled_model = TranspiledLightGlueMatcher('disk')
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(*transpiled_args)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(*transpiled_args)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -208,12 +262,22 @@ def test_LightGlue(target_framework, mode, backend_compile):
             "image_size": torch.tensor([[640, 480]]),
         }
     }
-    torch_out = kornia.feature.LightGlue(features='superpoint')(data)
-
     transpiled_data = _nest_torch_tensor_to_new_framework(data, target_framework)
-    transpiled_out = TranspiledLightGlue(features='superpoint')(transpiled_data)
+    
+    model = kornia.feature.LightGlue(features='superpoint')
+    torch_out = model(data)
 
-    _to_numpy_and_shape_allclose(torch_out, transpiled_out)
+    transpiled_model = TranspiledLightGlue(features='superpoint')
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_data)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(transpiled_data)
+
+    _to_numpy_and_allclose(torch_out, transpiled_out)
+
 
 
 def test_LoFTR(target_framework, mode, backend_compile):
@@ -225,10 +289,19 @@ def test_LoFTR(target_framework, mode, backend_compile):
     TranspiledLoFTR = ivy.transpile(kornia.feature.LoFTR, source="torch", target=target_framework)
 
     data = {"image0": torch.rand(1, 1, 320, 200), "image1": torch.rand(1, 1, 128, 128)}
-    torch_out = kornia.feature.LoFTR(None)(data)
-
     transpiled_data = _nest_torch_tensor_to_new_framework(data, target_framework)
-    transpiled_out = TranspiledLoFTR(None)(transpiled_data)
+    
+    model = kornia.feature.LoFTR(None)
+    torch_out = model(data)
+
+    transpiled_model = TranspiledLoFTR(None)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_data)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(transpiled_data)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -279,10 +352,19 @@ def test_LAFAffineShapeEstimator(target_framework, mode, backend_compile):
 
     laf = torch.rand(1, 2, 2, 3)
     img = torch.rand(1, 1, 32, 32)
-    torch_out = kornia.feature.LAFAffineShapeEstimator()(laf, img)
-
     transpiled_laf = _nest_torch_tensor_to_new_framework(laf, target_framework)
     transpiled_img = _nest_torch_tensor_to_new_framework(img, target_framework)
-    transpiled_out = TranspiledLAFAffineShapeEstimator()(transpiled_laf, transpiled_img)
+    
+    model = kornia.feature.LAFAffineShapeEstimator()
+    torch_out = model(laf, img)
+
+    transpiled_model = TranspiledLAFAffineShapeEstimator()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_laf, transpiled_img)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(transpiled_laf, transpiled_img)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)

@@ -59,10 +59,19 @@ def test_OriNet(target_framework, mode, backend_compile):
     TranspiledOriNet = ivy.transpile(kornia.feature.OriNet, source="torch", target=target_framework)
 
     patch = torch.rand(16, 1, 32, 32)
-    torch_out = kornia.feature.OriNet()(patch)
-
     transpiled_patch = _nest_torch_tensor_to_new_framework(patch, target_framework)
-    transpiled_out = TranspiledOriNet()(transpiled_patch)
+
+    model = kornia.feature.OriNet()
+    torch_out = model(patch)
+
+    transpiled_model = TranspiledOriNet()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_patch)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_patch)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
@@ -146,13 +155,21 @@ def test_DeDoDe(target_framework, mode, backend_compile):
     TranspiledDeDoDe = ivy.transpile(kornia.feature.DeDoDe, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 256, 256)
-    torch_out = kornia.feature.DeDoDe(amp_dtype=torch.float32)(x)
+    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+
+    model = kornia.feature.DeDoDe(amp_dtype=torch.float32)
+    torch_out = model(x)
 
     ivy.set_backend(target_framework)
+    transpiled_model = TranspiledDeDoDe(amp_dtype=ivy.as_native_dtype("float32"))
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
 
-    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledDeDoDe(amp_dtype=ivy.as_native_dtype("float32"))(transpiled_x)
-
+    transpiled_out = transpiled_model(transpiled_x)
+    
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
 
@@ -165,10 +182,19 @@ def test_DISK(target_framework, mode, backend_compile):
     TranspiledDISK = ivy.transpile(kornia.feature.DISK, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 256, 256)
-    torch_out = kornia.feature.DISK()(x)[0]
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledDISK()(transpiled_x)
+
+    model = kornia.feature.DISK()
+    torch_out = model(x)
+    
+    transpiled_model = TranspiledDISK()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out.keypoints, transpiled_out.keypoints)
     _to_numpy_and_shape_allclose(torch_out.descriptors, transpiled_out.descriptors)
