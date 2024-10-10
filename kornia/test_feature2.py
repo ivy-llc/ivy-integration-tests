@@ -279,11 +279,19 @@ def test_DenseSIFTDescriptor(target_framework, mode, backend_compile):
     TranspiledDenseSIFTDescriptor = ivy.transpile(kornia.feature.DenseSIFTDescriptor, source="torch", target=target_framework)
 
     x = torch.rand(2, 1, 200, 300)
-    
-    torch_out = kornia.feature.DenseSIFTDescriptor()(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledDenseSIFTDescriptor()(transpiled_x)
+
+    model = kornia.feature.DenseSIFTDescriptor()
+    torch_out = model(x)
+
+    transpiled_model = TranspiledDenseSIFTDescriptor()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -297,10 +305,19 @@ def test_SIFTDescriptor(target_framework, mode, backend_compile):
     TranspiledSIFTDescriptor = ivy.transpile(kornia.feature.SIFTDescriptor, source="torch", target=target_framework)
 
     x = torch.rand(23, 1, 41, 41)
-    torch_out = kornia.feature.SIFTDescriptor()(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledSIFTDescriptor()(transpiled_x)
+
+    model = kornia.feature.SIFTDescriptor()
+    torch_out = model(x)
+
+    transpiled_model = TranspiledSIFTDescriptor()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -314,10 +331,19 @@ def test_MKDDescriptor(target_framework, mode, backend_compile):
     TranspiledMKDDescriptor = ivy.transpile(kornia.feature.MKDDescriptor, source="torch", target=target_framework)
 
     x = torch.rand(23, 1, 32, 32)
-    torch_out = kornia.feature.MKDDescriptor()(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledMKDDescriptor()(transpiled_x)
+
+    model = kornia.feature.MKDDescriptor()
+    torch_out = model(x)
+
+    transpiled_model = TranspiledMKDDescriptor()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
