@@ -154,11 +154,20 @@ def test_DescriptorMatcher(target_framework, mode, backend_compile):
 
     x1 = torch.rand(2, 256)
     x2 = torch.rand(2, 256)
-    torch_out = kornia.feature.DescriptorMatcher('snn', 0.8)(x1, x2)
-
     transpiled_x1 = _nest_torch_tensor_to_new_framework(x1, target_framework)
     transpiled_x2 = _nest_torch_tensor_to_new_framework(x2, target_framework)
-    transpiled_out = TranspiledDescriptorMatcher('snn', 0.8)(transpiled_x1, transpiled_x2)
+
+    model = kornia.feature.DescriptorMatcher('snn', 0.8)
+    torch_out = model(x1, x2)
+
+    transpiled_model = TranspiledDescriptorMatcher('snn', 0.8)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x1, transpiled_x2)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x1, transpiled_x2)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -177,10 +186,19 @@ def test_GeometryAwareDescriptorMatcher(target_framework, mode, backend_compile)
         torch.rand(2, 2, 2, 3),
         torch.rand(2, 2, 2, 3),
     )
-    torch_out = kornia.feature.GeometryAwareDescriptorMatcher('fginn')(*torch_args)
-
     transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
-    transpiled_out = TranspiledGeometryAwareDescriptorMatcher('fginn')(*transpiled_args)
+
+    model = kornia.feature.GeometryAwareDescriptorMatcher('fginn')
+    torch_out = model(*torch_args)
+
+    transpiled_model = TranspiledGeometryAwareDescriptorMatcher('fginn')
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(*transpiled_args)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(*transpiled_args)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -199,14 +217,23 @@ def test_LocalFeatureMatcher(target_framework, mode, backend_compile):
         "image0": torch.rand(1, 1, 320, 200),
         "image1": torch.rand(1, 1, 128, 128),
     }
+    transpiled_data = _nest_torch_tensor_to_new_framework(data, target_framework)
+
     torch_local_feature = kornia.feature.GFTTAffNetHardNet(10)
     torch_matcher = kornia.feature.DescriptorMatcher('snn', 0.8)
-    torch_out = kornia.feature.LocalFeatureMatcher(torch_local_feature, torch_matcher)(data)
+    model = kornia.feature.LocalFeatureMatcher(torch_local_feature, torch_matcher)
+    torch_out = model(data)
 
     transpiled_local_feature = TranspiledGFTTAffNetHardNet(10)
     transpiled_matcher = TranspiledDescriptorMatcher('snn', 0.8)
-    transpiled_data = _nest_torch_tensor_to_new_framework(data, target_framework)
-    transpiled_out = TranspiledLocalFeatureMatcher(transpiled_local_feature, transpiled_matcher)(transpiled_data)
+    transpiled_model = TranspiledLocalFeatureMatcher(transpiled_local_feature, transpiled_matcher)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_data)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_data)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
@@ -334,10 +361,19 @@ def test_PatchAffineShapeEstimator(target_framework, mode, backend_compile):
     TranspiledPatchAffineShapeEstimator = ivy.transpile(kornia.feature.PatchAffineShapeEstimator, source="torch", target=target_framework)
 
     patch = torch.rand(1, 1, 19, 19)
-    torch_out = kornia.feature.PatchAffineShapeEstimator()(patch)
-
     transpiled_patch = _nest_torch_tensor_to_new_framework(patch, target_framework)
-    transpiled_out = TranspiledPatchAffineShapeEstimator()(transpiled_patch)
+    
+    model = kornia.feature.PatchAffineShapeEstimator()
+    torch_out = model(patch)
+
+    transpiled_model = TranspiledPatchAffineShapeEstimator()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_patch)
+    
+    ivy.sync_models(model, transpiled_model)
+    
+    transpiled_out = transpiled_model(transpiled_patch)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
