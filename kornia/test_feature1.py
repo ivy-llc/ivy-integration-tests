@@ -127,16 +127,24 @@ def test_dog_response_single(target_framework, mode, backend_compile):
 def test_get_laf_descriptors(target_framework, mode, backend_compile):
     trace_args = (
         torch.rand(1, 1, 32, 32),
-        torch.rand(1, 3, 2, 2),
-        kornia.feature.HardNet8(pretrained=False),
+        torch.rand(1, 3, 2, 3),
+        kornia.feature.OriNet(pretrained=False),
     )
     trace_kwargs = {'patch_size': 32, 'grayscale_descriptor': True}
     test_args = (
         torch.rand(5, 1, 32, 32),
-        torch.rand(5, 3, 2, 2),
-        kornia.feature.HardNet8(pretrained=False),
+        torch.rand(5, 3, 2, 3),
+        kornia.feature.OriNet(pretrained=False),
     )
     test_kwargs = {'patch_size': 32, 'grayscale_descriptor': True}
+    class_info = {
+        'trace_args': {
+            2: {'object': kornia.feature.OriNet, 'kwargs': {'pretrained': False}}
+        },
+        'test_args': {
+            2: {'object': kornia.feature.OriNet, 'kwargs': {'pretrained': False}}
+        }
+    }
     _test_function(
         kornia.feature.get_laf_descriptors,
         trace_args,
@@ -147,6 +155,7 @@ def test_get_laf_descriptors(target_framework, mode, backend_compile):
         backend_compile,
         tolerance=1e-3,
         mode=mode,
+        class_info=class_info,
     )
 
 # DCF: our torch.cdist implementation uses a for-loop. https://github.com/ivy-llc/ivy/blob/65548817e99a396461c1eec5cf4eb9453c125cde/ivy/functional/frontends/torch/miscellaneous_ops.py#L100
