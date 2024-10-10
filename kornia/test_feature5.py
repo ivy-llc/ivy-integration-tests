@@ -24,11 +24,20 @@ def test_LAFOrienter(target_framework, mode, backend_compile):
 
     laf = torch.rand(1, 2, 2, 3)
     img = torch.rand(1, 1, 32, 32)
-    torch_out = kornia.feature.LAFOrienter()(laf, img)
-
     transpiled_laf = _nest_torch_tensor_to_new_framework(laf, target_framework)
     transpiled_img = _nest_torch_tensor_to_new_framework(img, target_framework)
-    transpiled_out = TranspiledLAFOrienter()(transpiled_laf, transpiled_img)
+
+    model = kornia.feature.LAFOrienter()
+    torch_out = model(laf, img)
+
+    transpiled_model = TranspiledLAFOrienter()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_laf, transpiled_img)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_laf, transpiled_img)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -42,10 +51,19 @@ def test_PatchDominantGradientOrientation(target_framework, mode, backend_compil
     TranspiledPatchDominantGradientOrientation = ivy.transpile(kornia.feature.PatchDominantGradientOrientation, source="torch", target=target_framework)
 
     patch = torch.rand(10, 1, 32, 32)
-    torch_out = kornia.feature.PatchDominantGradientOrientation()(patch)
-
     transpiled_patch = _nest_torch_tensor_to_new_framework(patch, target_framework)
-    transpiled_out = TranspiledPatchDominantGradientOrientation()(transpiled_patch)
+
+    model = kornia.feature.PatchDominantGradientOrientation()
+    torch_out = model(patch)
+
+    transpiled_model = TranspiledPatchDominantGradientOrientation()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_patch)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_patch)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
