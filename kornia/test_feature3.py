@@ -159,14 +159,23 @@ def test_MultiResolutionDetector(target_framework, mode, backend_compile):
     TranspiledMultiResolutionDetector = ivy.transpile(kornia.feature.MultiResolutionDetector, source="torch", target=target_framework)
     TranspiledKeyNet = ivy.transpile(kornia.feature.KeyNet, source="torch", target=target_framework)
 
-    model = kornia.feature.KeyNet()
-    transpiled_model = TranspiledKeyNet()
+    keynet_model = kornia.feature.KeyNet()
+    transpiled_keynet_model = TranspiledKeyNet()
 
     x = torch.rand(1, 1, 32, 32) * 10.
-    torch_out = kornia.feature.MultiResolutionDetector(model)(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledMultiResolutionDetector(transpiled_model)(transpiled_x)
+
+    model = kornia.feature.MultiResolutionDetector(keynet_model)
+    torch_out = model(x)
+
+    transpiled_model = TranspiledMultiResolutionDetector(transpiled_keynet_model)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
@@ -180,10 +189,19 @@ def test_ScaleSpaceDetector(target_framework, mode, backend_compile):
     TranspiledScaleSpaceDetector = ivy.transpile(kornia.feature.ScaleSpaceDetector, source="torch", target=target_framework)
 
     x = torch.rand(1, 1, 32, 32) * 10.
-    torch_out = kornia.feature.ScaleSpaceDetector()(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledScaleSpaceDetector()(transpiled_x)
+
+    model = kornia.feature.ScaleSpaceDetector()
+    torch_out = model(x)
+
+    transpiled_model = TranspiledScaleSpaceDetector()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -197,10 +215,19 @@ def test_KeyNetDetector(target_framework, mode, backend_compile):
     TranspiledKeyNetDetector = ivy.transpile(kornia.feature.KeyNetDetector, source="torch", target=target_framework)
 
     x = torch.rand(1, 1, 32, 32)
-    torch_out = kornia.feature.KeyNetDetector()(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledKeyNetDetector()(transpiled_x)
+
+    model = kornia.feature.KeyNetDetector()
+    torch_out = model(x)
+
+    transpiled_model = TranspiledKeyNetDetector()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
@@ -215,11 +242,20 @@ def test_LAFDescriptor(target_framework, mode, backend_compile):
 
     x = torch.rand(1, 1, 64, 64)
     lafs = torch.rand(1, 2, 2, 3)
-    torch_out = kornia.feature.LAFDescriptor()(x, lafs)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_lafs = _nest_torch_tensor_to_new_framework(lafs, target_framework)
-    transpiled_out = TranspiledLAFDescriptor()(transpiled_x, transpiled_lafs)
+
+    model = kornia.feature.LAFDescriptor()
+    torch_out = model(x, lafs)
+
+    transpiled_model = TranspiledLAFDescriptor()
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x, transpiled_lafs)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x, transpiled_lafs)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -262,10 +298,19 @@ def test_LocalFeature(target_framework, mode, backend_compile):
     transpiled_descriptor = TranspiledLAFDescriptor()
 
     x = torch.rand(1, 1, 128, 128)
-    torch_out = kornia.feature.LocalFeature(torch_detector, torch_descriptor)(x)
-
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledLocalFeature(transpiled_detector, transpiled_descriptor)(transpiled_x)
+
+    model = kornia.feature.LocalFeature(torch_detector, torch_descriptor)
+    torch_out = model(x)
+
+    transpiled_model = TranspiledLocalFeature(transpiled_detector, transpiled_descriptor)
+    if target_framework == "tensorflow":
+        # build the layers 
+        transpiled_model(transpiled_x)
+    
+    ivy.sync_models(model, transpiled_model)
+
+    transpiled_out = transpiled_model(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
