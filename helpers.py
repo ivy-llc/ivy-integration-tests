@@ -265,11 +265,25 @@ def _test_source_to_source_function(
     backend_compile,
     tolerance=1e-3,
     deterministic=True,
+    class_info=None,
 ):
     if backend_compile and target == "numpy":
         pytest.skip()
 
     transpiled_kornia = ivy.transpile(kornia, source="torch", target=target)
+    def transpile_and_instantiate(arg, arg_class_info=None):
+        if arg_class_info:
+            # If we have class info, transpile the class and instantiate it
+            transpiled_class = ivy.transpile(arg_class_info['object'], source="torch", target=target)
+            args = arg_class_info.get('args', ())
+            kwargs = arg_class_info.get('kwargs', {})
+            transpiled_args = _nest_torch_tensor_to_new_framework(args, target)
+            transpiled_kwargs = _nest_torch_tensor_to_new_framework(kwargs, target)
+            return transpiled_class(*transpiled_args, **transpiled_kwargs)
+        else:
+            # For other arguments, convert to the target framework
+            return _nest_torch_tensor_to_new_framework(arg, target)
+
     if fn_name:
         translated_fn = eval("transpiled_" + f"{fn_name}")
     else:
@@ -287,12 +301,41 @@ def _test_source_to_source_function(
         if orig_compilable:
             translated_fn = _backend_compile(translated_fn, target)
 
-    # test it works with the trace_args as input
-    orig_out = fn(*trace_args, **trace_kwargs)
-    graph_args = _nest_torch_tensor_to_new_framework(trace_args, target)
-    graph_kwargs = _nest_torch_tensor_to_new_framework(trace_kwargs, target)
-    graph_out = translated_fn(*graph_args, **graph_kwargs)
+    # Transpile and prepare trace arguments
+    transpiled_trace_args = [
+        transpile_and_instantiate(arg, class_info.get('trace_args', {}).get(i) if class_info else None)
+        for i, arg in enumerate(trace_args)
+    ]
+    transpiled_trace_kwargs = {
+        k: transpile_and_instantiate(v, class_info.get('trace_kwargs', {}).get(k) if class_info else None)
+        for k, v in trace_kwargs.items()
+    }
 
+    # Transpile and prepare test arguments
+    transpiled_test_args = [
+        transpile_and_instantiate(arg, class_info.get('test_args', {}).get(i) if class_info else None)
+        for i, arg in enumerate(test_args)
+    ]
+    transpiled_test_kwargs = {
+        k: transpile_and_instantiate(v, class_info.get('test_kwargs', {}).get(k) if class_info else None)
+        for k, v in test_kwargs.items()
+    }
+
+    if target == 'tensorflow':
+        # build the model
+        graph_out = translated_fn(*transpiled_trace_args, **transpiled_trace_kwargs)
+    
+    # sync models if needed
+    [ivy.sync_models(m1, m2) for m1, m2 in zip(trace_args, transpiled_trace_args) if isinstance(m1, torch.nn.Module)]
+    [ivy.sync_models(m1, m2) for m1, m2 in zip(trace_kwargs.values(), transpiled_trace_kwargs.values()) if isinstance(m1, torch.nn.Module)]
+    [ivy.sync_models(m1, m2) for m1, m2 in zip(test_args, transpiled_test_args) if isinstance(m1, torch.nn.Module)]
+    [ivy.sync_models(m1, m2) for m1, m2 in zip(test_kwargs.values(), transpiled_test_kwargs.values()) if isinstance(m1, torch.nn.Module)]
+
+    # Test with trace_args
+    orig_out = fn(*trace_args, **trace_kwargs)
+    graph_out = translated_fn(*transpiled_trace_args, **transpiled_trace_kwargs)
+
+     
     if deterministic:
         _to_numpy_and_allclose(orig_out, graph_out, tolerance=tolerance)
     else:
@@ -300,9 +343,7 @@ def _test_source_to_source_function(
 
     # test it works with the test_args as input
     orig_out = fn(*test_args, **test_kwargs)
-    graph_args = _nest_torch_tensor_to_new_framework(test_args, target)
-    graph_kwargs = _nest_torch_tensor_to_new_framework(test_kwargs, target)
-    graph_out = translated_fn(*graph_args, **graph_kwargs)
+    graph_out = translated_fn(*transpiled_test_args, **transpiled_test_kwargs)
 
     if deterministic:
         _to_numpy_and_allclose(orig_out, graph_out, tolerance=tolerance)
@@ -322,6 +363,7 @@ def _test_function(
     mode="transpile",
     skip=False,
     deterministic=True,
+    class_info=None,
 ):
     # print out the full function module/name, so it will appear in the test_report.json
     print(f"{fn.__module__}.{fn.__name__}")
@@ -342,6 +384,8 @@ def _test_function(
             backend_compile,
             tolerance=tolerance,
             deterministic=deterministic,
+            class_info=class_info,
+
         )
     elif mode == "trace":
         if target != "torch":
