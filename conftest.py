@@ -14,7 +14,7 @@ S2S = False
 def run_around_tests():
     ivy.unset_backend()
 
-    directory = "Translated_Outputs/"
+    directory = "ivy_transpiled_outputs/"
 
     # check if the directory exists and remove it
     if os.path.exists(directory):
