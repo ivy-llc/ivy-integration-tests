@@ -32,10 +32,10 @@ EOF
 set +e
 if [ "$backend_compile" = "T" ]; then
     touch test_logs.txt
-    COLUMNS=200 pytest $integration/$file.py --backend-compile --source-to-source --target=$target -p no:warnings --tb=short --json-report --json-report-file=test_report.json
+    DEBUG=0 COLUMNS=200 pytest $integration/$file.py --backend-compile --source-to-source --target=$target -p no:warnings --tb=short --json-report --json-report-file=test_report.json
     pytest_exit_code=$?
 else
-    COLUMNS=200 pytest $integration/$file.py -p no:warnings --source-to-source --target=$target --tb=short --json-report --json-report-file=test_report.json
+    DEBUG=0 COLUMNS=200 pytest $integration/$file.py -p no:warnings --source-to-source --target=$target --tb=short --json-report --json-report-file=test_report.json
     pytest_exit_code=$?
 fi
 set -e
