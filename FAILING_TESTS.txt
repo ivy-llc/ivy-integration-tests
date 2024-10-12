@@ -1,6 +1,5 @@
 Obj: kornia.augmentation.LongestMaxSize | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomClahe | Target: jax | Native Compiled: False
-Obj: kornia.augmentation.RandomClahe | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomJigsaw | Target: jax | Native Compiled: False
@@ -36,6 +35,7 @@ Obj: kornia.augmentation.container.ImageSequential | Target: jax | Native Compil
 Obj: kornia.augmentation.container.ImageSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.container.ManyToManyAugmentationDispather | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.container.ManyToOneAugmentationDispather | Target: tensorflow | Native Compiled: False
+Obj: kornia.augmentation.container.PatchSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.container.VideoSequential | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.container.VideoSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.ColorMap | Target: jax | Native Compiled: False
@@ -156,7 +156,5 @@ Obj: kornia.nerf.samplers.RandomRaySampler | Target: jax | Native Compiled: Fals
 Obj: kornia.nerf.samplers.RandomRaySampler | Target: tensorflow | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: jax | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: tensorflow | Native Compiled: False
-Obj: transformers.vision.Swin2SRModel | Target: jax | Native Compiled: False
 Obj: transformers.vision.Swin2SRModel | Target: jax | Native Compiled: True
-Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: False
 Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: True
