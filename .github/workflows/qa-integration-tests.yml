@@ -6,13 +6,13 @@ on:
       binaries-branch:
         description: 'Branch to use for binaries'
         required: true
-        default: 'linux-nightly'
+        default: 'testing-nightly'
         type: string
   workflow_call:
     inputs:
       binaries-branch:
         description: 'Branch to use for binaries'
-        default: 'main'
+        default: 'testing-nightly'
         type: string
     secrets:
       DEV_BOT_GENERAL_PAT:
