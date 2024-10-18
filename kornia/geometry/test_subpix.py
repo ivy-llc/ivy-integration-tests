@@ -291,12 +291,10 @@ def test_SpatialSoftArgmax2d(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledSpatialSoftArgmax2d = ivy.transpile(
-        kornia.geometry.subpix.SpatialSoftArgmax2d, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     spatial_soft_argmax2d = kornia.geometry.subpix.SpatialSoftArgmax2d()
-    transpiled_spatial_soft_argmax2d = TranspiledSpatialSoftArgmax2d()    
+    transpiled_spatial_soft_argmax2d = transpiled_kornia.geometry.subpix.SpatialSoftArgmax2d()    
 
     heatmap = torch.randn(10, 3, 5, 5, requires_grad=True)
     transpiled_heatmap = _nest_torch_tensor_to_new_framework(heatmap, target_framework)
@@ -313,12 +311,10 @@ def test_ConvSoftArgmax2d(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledConvSoftArgmax2d = ivy.transpile(
-        kornia.geometry.subpix.ConvSoftArgmax2d, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     conv_soft_argmax2d = kornia.geometry.subpix.ConvSoftArgmax2d()
-    transpiled_conv_soft_argmax2d = TranspiledConvSoftArgmax2d()
+    transpiled_conv_soft_argmax2d = transpiled_kornia.geometry.subpix.ConvSoftArgmax2d()
 
     heatmap = torch.randn(1, 1, 5, 5, requires_grad=True)
     transpiled_heatmap = _nest_torch_tensor_to_new_framework(heatmap, target_framework)
@@ -335,12 +331,10 @@ def test_ConvSoftArgmax3d(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledConvSoftArgmax3d = ivy.transpile(
-        kornia.geometry.subpix.ConvSoftArgmax3d, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     conv_soft_argmax3d = kornia.geometry.subpix.ConvSoftArgmax3d()
-    transpiled_conv_soft_argmax3d = TranspiledConvSoftArgmax3d()
+    transpiled_conv_soft_argmax3d = transpiled_kornia.geometry.subpix.ConvSoftArgmax3d()
 
     heatmap = torch.randn(1, 1, 3, 5, 5, requires_grad=True)
     transpiled_heatmap = _nest_torch_tensor_to_new_framework(heatmap, target_framework)
@@ -357,12 +351,10 @@ def test_ConvQuadInterp3d(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledConvQuadInterp3d = ivy.transpile(
-        kornia.geometry.subpix.ConvQuadInterp3d, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     conv_quad_interp3d = kornia.geometry.subpix.ConvQuadInterp3d()
-    transpiled_conv_quad_interp3d = TranspiledConvQuadInterp3d()
+    transpiled_conv_quad_interp3d = transpiled_kornia.geometry.subpix.ConvQuadInterp3d()
 
     heatmap = torch.randn(1, 1, 3, 5, 5, requires_grad=True)
     transpiled_heatmap = _nest_torch_tensor_to_new_framework(heatmap, target_framework)
@@ -379,12 +371,10 @@ def test_NonMaximaSuppression2d(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledNonMaximaSuppression2d = ivy.transpile(
-        kornia.geometry.subpix.NonMaximaSuppression2d, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     non_maxima_suppression2d = kornia.geometry.subpix.NonMaximaSuppression2d(kernel_size=(3, 3))
-    transpiled_non_maxima_suppression2d = TranspiledNonMaximaSuppression2d(kernel_size=(3, 3))    
+    transpiled_non_maxima_suppression2d = transpiled_kornia.geometry.subpix.NonMaximaSuppression2d(kernel_size=(3, 3))    
 
     heatmap = torch.randn(1, 1, 5, 5, requires_grad=True)
     transpiled_heatmap = _nest_torch_tensor_to_new_framework(heatmap, target_framework)
@@ -401,12 +391,10 @@ def test_NonMaximaSuppression3d(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledNonMaximaSuppression3d = ivy.transpile(
-        kornia.geometry.subpix.NonMaximaSuppression3d, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     non_maxima_suppression3d = kornia.geometry.subpix.NonMaximaSuppression3d(kernel_size=(3, 3, 3))
-    transpiled_non_maxima_suppression3d = TranspiledNonMaximaSuppression3d(kernel_size=(3, 3, 3))
+    transpiled_non_maxima_suppression3d = transpiled_kornia.geometry.subpix.NonMaximaSuppression3d(kernel_size=(3, 3, 3))
 
     heatmap = torch.randn(1, 1, 3, 5, 5, requires_grad=True)
     transpiled_heatmap = _nest_torch_tensor_to_new_framework(heatmap, target_framework)
