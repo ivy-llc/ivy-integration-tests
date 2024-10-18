@@ -276,7 +276,7 @@ def test_DenseSIFTDescriptor(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledDenseSIFTDescriptor = ivy.transpile(kornia.feature.DenseSIFTDescriptor, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(2, 1, 200, 300)
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
@@ -284,7 +284,7 @@ def test_DenseSIFTDescriptor(target_framework, mode, backend_compile):
     model = kornia.feature.DenseSIFTDescriptor()
     torch_out = model(x)
 
-    transpiled_model = TranspiledDenseSIFTDescriptor()
+    transpiled_model = transpiled_kornia.feature.DenseSIFTDescriptor()
     if target_framework == "tensorflow":
         # build the layers 
         transpiled_model(transpiled_x)
@@ -302,7 +302,7 @@ def test_SIFTDescriptor(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledSIFTDescriptor = ivy.transpile(kornia.feature.SIFTDescriptor, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(23, 1, 41, 41)
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
@@ -310,7 +310,7 @@ def test_SIFTDescriptor(target_framework, mode, backend_compile):
     model = kornia.feature.SIFTDescriptor()
     torch_out = model(x)
 
-    transpiled_model = TranspiledSIFTDescriptor()
+    transpiled_model = transpiled_kornia.feature.SIFTDescriptor()
     if target_framework == "tensorflow":
         # build the layers 
         transpiled_model(transpiled_x)
@@ -328,7 +328,7 @@ def test_MKDDescriptor(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledMKDDescriptor = ivy.transpile(kornia.feature.MKDDescriptor, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(23, 1, 32, 32)
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
@@ -336,7 +336,7 @@ def test_MKDDescriptor(target_framework, mode, backend_compile):
     model = kornia.feature.MKDDescriptor()
     torch_out = model(x)
 
-    transpiled_model = TranspiledMKDDescriptor()
+    transpiled_model = transpiled_kornia.feature.MKDDescriptor()
     if target_framework == "tensorflow":
         # build the layers 
         transpiled_model(transpiled_x)
@@ -354,13 +354,13 @@ def test_HardNet(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledHardNet = ivy.transpile(kornia.feature.HardNet, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(16, 1, 32, 32)
     torch_out = kornia.feature.HardNet()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledHardNet()(transpiled_x)
+    transpiled_out = transpiled_kornia.feature.HardNet()(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
@@ -371,13 +371,13 @@ def test_HardNet8(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledHardNet8 = ivy.transpile(kornia.feature.HardNet8, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(16, 1, 32, 32)
     torch_out = kornia.feature.HardNet8()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledHardNet8()(transpiled_x)
+    transpiled_out = transpiled_kornia.feature.HardNet8()(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
@@ -388,12 +388,12 @@ def test_HyNet(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledHyNet = ivy.transpile(kornia.feature.HyNet, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(16, 1, 32, 32)
     torch_out = kornia.feature.HyNet()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledHyNet()(transpiled_x)
+    transpiled_out = transpiled_kornia.feature.HyNet()(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
