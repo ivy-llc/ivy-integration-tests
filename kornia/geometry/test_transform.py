@@ -1088,7 +1088,7 @@ def test_Rotate(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledRotate = ivy.transpile(kornia.geometry.transform.Rotate, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(2, 3, 4, 4)
     angle = torch.tensor([45.0, 90.0])
@@ -1096,7 +1096,7 @@ def test_Rotate(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_angle = _nest_torch_tensor_to_new_framework(angle, target_framework)
-    transpiled_out = TranspiledRotate(transpiled_angle)(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Rotate(transpiled_angle)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1107,7 +1107,7 @@ def test_Translate(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledTranslate = ivy.transpile(kornia.geometry.transform.Translate, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(2, 3, 4, 4)
     translation = torch.tensor([[1.0, 0.0], [0.0, 1.0]])
@@ -1115,7 +1115,7 @@ def test_Translate(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_translation = _nest_torch_tensor_to_new_framework(translation, target_framework)
-    transpiled_out = TranspiledTranslate(transpiled_translation)(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Translate(transpiled_translation)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1126,7 +1126,7 @@ def test_Scale(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledScale = ivy.transpile(kornia.geometry.transform.Scale, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 4, 4)
     scale_factor = torch.tensor([[2., 2.]])
@@ -1134,7 +1134,7 @@ def test_Scale(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_scale_factor = _nest_torch_tensor_to_new_framework(scale_factor, target_framework)
-    transpiled_out = TranspiledScale(transpiled_scale_factor)(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Scale(transpiled_scale_factor)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1145,7 +1145,7 @@ def test_Shear(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledShear = ivy.transpile(kornia.geometry.transform.Shear, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(2, 3, 4, 4)
     shear = torch.tensor([[0.5, 0.0], [0.0, 0.5]])
@@ -1153,7 +1153,7 @@ def test_Shear(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_shear = _nest_torch_tensor_to_new_framework(shear, target_framework)
-    transpiled_out = TranspiledShear(transpiled_shear)(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Shear(transpiled_shear)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1164,13 +1164,13 @@ def test_PyrDown(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledPyrDown = ivy.transpile(kornia.geometry.transform.PyrDown, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 4, 4)
     torch_out = kornia.geometry.transform.PyrDown()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledPyrDown()(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.PyrDown()(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1181,13 +1181,13 @@ def test_PyrUp(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledPyrUp = ivy.transpile(kornia.geometry.transform.PyrUp, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 4, 4)
     torch_out = kornia.geometry.transform.PyrUp()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledPyrUp()(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.PyrUp()(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1198,13 +1198,13 @@ def test_ScalePyramid(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledScalePyramid = ivy.transpile(kornia.geometry.transform.ScalePyramid, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(2, 4, 100, 100)
     torch_out, _, _ = kornia.geometry.transform.ScalePyramid(n_levels=3, min_size=15)(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out, _, _ = TranspiledScalePyramid(n_levels=3, min_size=15)(transpiled_x)
+    transpiled_out, _, _ = transpiled_kornia.geometry.transform.ScalePyramid(n_levels=3, min_size=15)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1215,13 +1215,13 @@ def test_Hflip(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledHflip = ivy.transpile(kornia.geometry.transform.Hflip, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 4, 4)
     torch_out = kornia.geometry.transform.Hflip()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledHflip()(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Hflip()(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1232,13 +1232,13 @@ def test_Vflip(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledVflip = ivy.transpile(kornia.geometry.transform.Vflip, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 4, 4)
     torch_out = kornia.geometry.transform.Vflip()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledVflip()(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Vflip()(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1249,13 +1249,13 @@ def test_Rot180(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledRot180 = ivy.transpile(kornia.geometry.transform.Rot180, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 4, 4)
     torch_out = kornia.geometry.transform.Rot180()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledRot180()(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Rot180()(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1266,13 +1266,13 @@ def test_Resize(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledResize = ivy.transpile(kornia.geometry.transform.Resize, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 4, 4)
     torch_out = kornia.geometry.transform.Resize((6, 8))(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledResize((6, 8))(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Resize((6, 8))(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1283,13 +1283,13 @@ def test_Rescale(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledRescale = ivy.transpile(kornia.geometry.transform.Rescale, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 3, 4, 4)
     torch_out = kornia.geometry.transform.Rescale((2.0, 3.0))(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledRescale((2.0, 3.0))(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Rescale((2.0, 3.0))(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1300,7 +1300,7 @@ def test_Affine(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAffine = ivy.transpile(kornia.geometry.transform.Affine, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     x = torch.rand(1, 2, 3, 5)
     angle = torch.tensor([45.0])
@@ -1308,7 +1308,7 @@ def test_Affine(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_angle = _nest_torch_tensor_to_new_framework(angle, target_framework)
-    transpiled_out = TranspiledAffine(transpiled_angle)(transpiled_x)
+    transpiled_out = transpiled_kornia.geometry.transform.Affine(transpiled_angle)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1319,9 +1319,7 @@ def test_HomographyWarper(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledHomographyWarper = ivy.transpile(
-        kornia.geometry.transform.HomographyWarper, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     height, width = 32, 32
     homography = torch.eye(3).unsqueeze(0)  # Identity homography
@@ -1333,7 +1331,7 @@ def test_HomographyWarper(target_framework, mode, backend_compile):
     warper.precompute_warp_grid(homography)
     torch_out = warper(x)
 
-    transpiled_warper = TranspiledHomographyWarper(height, width)
+    transpiled_warper = transpiled_kornia.geometry.transform.HomographyWarper(height, width)
     transpiled_warper.precompute_warp_grid(transpiled_homography)
     transpiled_out = transpiled_warper(transpiled_x)
 
@@ -1346,12 +1344,10 @@ def test_Homography(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledHomography = ivy.transpile(
-        kornia.geometry.transform.image_registrator.Homography, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     torch_out = kornia.geometry.transform.image_registrator.Homography()()
-    transpiled_out = TranspiledHomography()()
+    transpiled_out = transpiled_kornia.geometry.transform.image_registrator.Homography()()
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -1384,11 +1380,9 @@ def test_Similarity(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledSimilarity = ivy.transpile(
-        kornia.geometry.transform.image_registrator.Similarity, source="torch", target=target_framework
-    )
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     torch_out = kornia.geometry.transform.image_registrator.Similarity()()
-    transpiled_out = TranspiledSimilarity()()
+    transpiled_out = transpiled_kornia.geometry.transform.image_registrator.Similarity()()
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
