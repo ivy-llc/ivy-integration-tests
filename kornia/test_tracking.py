@@ -27,10 +27,10 @@ def test_HomographyTracker(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledHomographyTracker = ivy.transpile(kornia.tracking.HomographyTracker, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     tracker = kornia.tracking.HomographyTracker()
-    transpiled_tracker = TranspiledHomographyTracker()
+    transpiled_tracker = transpiled_kornia.tracking.HomographyTracker()
 
     target_image = torch.rand(1, 1, 240, 320, requires_grad=True)
 
