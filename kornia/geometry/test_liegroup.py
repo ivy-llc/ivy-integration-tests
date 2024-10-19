@@ -247,7 +247,7 @@ def test_Se2(target_framework, mode, backend_compile):
     translation_vector = torch.ones((1, 2), requires_grad=True)
     torch_se2 = kornia.geometry.liegroup.Se2(so2_rotation, translation_vector)
 
-    transpiled_so2_rotation = transpiled_kornia.geometry.liegroup.Se2.identity(1)
+    transpiled_so2_rotation = transpiled_kornia.geometry.liegroup.So2.identity(1)
     transpiled_translation_vector = _nest_torch_tensor_to_new_framework(translation_vector, target_framework)
     transpiled_se2 = transpiled_kornia.geometry.liegroup.Se2(transpiled_so2_rotation, transpiled_translation_vector)
 

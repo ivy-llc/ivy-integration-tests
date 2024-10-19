@@ -31,7 +31,7 @@ def test_CameraModel(target_framework, mode, backend_compile):
     )
     transpiled_cam = transpiled_kornia.sensors.camera.CameraModel(
         transpiled_kornia.image.ImageSize(480, 640),
-        transpiled_kornia.sensors.camera.CameraModelTyp.ORTHOGRAPHIC,
+        transpiled_kornia.sensors.camera.CameraModelType.ORTHOGRAPHIC,
         _array_to_new_backend(torch.Tensor([328., 328., 320., 240.]), target_framework),
     )
 
