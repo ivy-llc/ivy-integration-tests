@@ -20,21 +20,7 @@ def test_AugmentationSequential(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAugmentationSequential = ivy.transpile(
-        kornia.augmentation.container.AugmentationSequential,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledColorJiggle = ivy.transpile(
-        kornia.augmentation.ColorJiggle,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomAffine = ivy.transpile(
-        kornia.augmentation.RandomAffine,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug_list = kornia.augmentation.container.AugmentationSequential(
         kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
@@ -43,9 +29,9 @@ def test_AugmentationSequential(target_framework, mode, backend_compile):
         same_on_batch=False,
         random_apply=10,
     )
-    transpiled_aug_list = TranspiledAugmentationSequential(
-        TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
-        TranspiledRandomAffine(360, p=1.0),
+    transpiled_aug_list = transpiled_kornia.augmentation.container.AugmentationSequential(
+        transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
+        transpiled_kornia.augmentation.RandomAffine(360, p=1.0),
         data_keys=["input", "mask", "bbox", "keypoints"],
         same_on_batch=False,
         random_apply=10,
@@ -78,26 +64,7 @@ def test_ManyToManyAugmentationDispather(target_framework, mode, backend_compile
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledManyToManyAugmentationDispather = ivy.transpile(
-        kornia.augmentation.container.ManyToManyAugmentationDispather,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledAugmentationSequential = ivy.transpile(
-        kornia.augmentation.container.AugmentationSequential,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledColorJiggle = ivy.transpile(
-        kornia.augmentation.ColorJiggle,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomAffine = ivy.transpile(
-        kornia.augmentation.RandomAffine,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug_list = kornia.augmentation.container.ManyToManyAugmentationDispather(
         kornia.augmentation.container.AugmentationSequential(
@@ -111,15 +78,15 @@ def test_ManyToManyAugmentationDispather(target_framework, mode, backend_compile
             data_keys=["input", "mask",],
         )
     )
-    transpiled_aug_list = TranspiledManyToManyAugmentationDispather(
-        TranspiledAugmentationSequential(
-            TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
-            TranspiledRandomAffine(360, p=1.0),
+    transpiled_aug_list = transpiled_kornia.augmentation.container.ManyToManyAugmentationDispather(
+        transpiled_kornia.augmentation.container.AugmentationSequential(
+            transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
+            transpiled_kornia.augmentation.RandomAffine(360, p=1.0),
             data_keys=["input", "mask",],
         ),
-        TranspiledAugmentationSequential(
-            TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
-            TranspiledRandomAffine(360, p=1.0),
+        transpiled_kornia.augmentation.container.AugmentationSequential(
+            transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
+            transpiled_kornia.augmentation.RandomAffine(360, p=1.0),
             data_keys=["input", "mask",],
         )
     )
@@ -144,26 +111,7 @@ def test_ManyToOneAugmentationDispather(target_framework, mode, backend_compile)
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledManyToOneAugmentationDispather = ivy.transpile(
-        kornia.augmentation.container.ManyToOneAugmentationDispather,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledAugmentationSequential = ivy.transpile(
-        kornia.augmentation.container.AugmentationSequential,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledColorJiggle = ivy.transpile(
-        kornia.augmentation.ColorJiggle,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomAffine = ivy.transpile(
-        kornia.augmentation.RandomAffine,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug_list = kornia.augmentation.container.ManyToOneAugmentationDispather(
         kornia.augmentation.container.AugmentationSequential(
@@ -177,15 +125,15 @@ def test_ManyToOneAugmentationDispather(target_framework, mode, backend_compile)
             data_keys=["input", "mask",],
         )
     )
-    transpiled_aug_list = TranspiledManyToOneAugmentationDispather(
-        TranspiledAugmentationSequential(
-            TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
-            TranspiledRandomAffine(360, p=1.0),
+    transpiled_aug_list = transpiled_kornia.augmentation.container.ManyToOneAugmentationDispather(
+        transpiled_kornia.augmentation.container.AugmentationSequential(
+            transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
+            transpiled_kornia.augmentation.RandomAffine(360, p=1.0),
             data_keys=["input", "mask",],
         ),
-        TranspiledAugmentationSequential(
-            TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
-            TranspiledRandomAffine(360, p=1.0),
+        transpiled_kornia.augmentation.container.AugmentationSequential(
+            transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
+            transpiled_kornia.augmentation.RandomAffine(360, p=1.0),
             data_keys=["input", "mask",],
         )
     )
@@ -210,41 +158,7 @@ def test_ImageSequential(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledImageSequential = ivy.transpile(
-        kornia.augmentation.container.ImageSequential,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledColorJiggle = ivy.transpile(
-        kornia.augmentation.ColorJiggle,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomAffine = ivy.transpile(
-        kornia.augmentation.RandomAffine,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledBgrToRgb = ivy.transpile(
-        kornia.color.BgrToRgb,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledMedianBlur = ivy.transpile(
-        kornia.filters.MedianBlur,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledInvert = ivy.transpile(
-        kornia.enhance.Invert,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomMixUpV2 = ivy.transpile(
-        kornia.augmentation.RandomMixUpV2,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug_list = kornia.augmentation.container.ImageSequential(
         kornia.color.BgrToRgb(),
@@ -256,13 +170,13 @@ def test_ImageSequential(target_framework, mode, backend_compile):
         same_on_batch=True,
         random_apply=10,
     )
-    transpiled_aug_list = TranspiledImageSequential(
-        TranspiledBgrToRgb(),
-        TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
-        TranspiledMedianBlur((3, 3)),
-        TranspiledRandomAffine(360, p=1.0),
-        TranspiledInvert(),
-        TranspiledRandomMixUpV2(p=1.0),
+    transpiled_aug_list = transpiled_kornia.augmentation.container.ImageSequential(
+        transpiled_kornia.color.BgrToRgb(),
+        transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
+        transpiled_kornia.filters.MedianBlur((3, 3)),
+        transpiled_kornia.augmentation.RandomAffine(360, p=1.0),
+        transpiled_kornia.enhance.Invert(),
+        transpiled_kornia.augmentation.RandomMixUpV2(p=1.0),
         same_on_batch=True,
         random_apply=10,
     )
@@ -286,36 +200,7 @@ def test_PatchSequential(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledPatchSequential = ivy.transpile(
-        kornia.augmentation.container.PatchSequential,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledImageSequential = ivy.transpile(
-        kornia.augmentation.container.ImageSequential,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledColorJiggle = ivy.transpile(
-        kornia.augmentation.ColorJiggle,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomAffine = ivy.transpile(
-        kornia.augmentation.RandomAffine,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomPerspective = ivy.transpile(
-        kornia.augmentation.RandomPerspective,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomSolarize = ivy.transpile(
-        kornia.augmentation.RandomSolarize,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug_list = kornia.augmentation.container.PatchSequential(
         kornia.augmentation.container.ImageSequential(
@@ -335,19 +220,19 @@ def test_PatchSequential(target_framework, mode, backend_compile):
         same_on_batch=True,
         random_apply=False,
     )
-    transpiled_aug_list = TranspiledPatchSequential(
-        TranspiledImageSequential(
-            TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=0.5),
-            TranspiledRandomPerspective(0.2, p=0.5),
-            TranspiledRandomSolarize(0.1, 0.1, p=0.5),
+    transpiled_aug_list = transpiled_kornia.augmentation.container.PatchSequential(
+        transpiled_kornia.augmentation.container.ImageSequential(
+            transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=0.5),
+            transpiled_kornia.augmentation.RandomPerspective(0.2, p=0.5),
+            transpiled_kornia.augmentation.RandomSolarize(0.1, 0.1, p=0.5),
         ),
-        TranspiledRandomAffine(360, p=1.0),
-        TranspiledImageSequential(
-            TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=0.5),
-            TranspiledRandomPerspective(0.2, p=0.5),
-            TranspiledRandomSolarize(0.1, 0.1, p=0.5),
+        transpiled_kornia.augmentation.RandomAffine(360, p=1.0),
+        transpiled_kornia.augmentation.container.ImageSequential(
+            transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=0.5),
+            transpiled_kornia.augmentation.RandomPerspective(0.2, p=0.5),
+            transpiled_kornia.augmentation.RandomSolarize(0.1, 0.1, p=0.5),
         ),
-        TranspiledRandomSolarize(0.1, 0.1, p=0.1),
+        transpiled_kornia.augmentation.RandomSolarize(0.1, 0.1, p=0.1),
         grid_size=(2,2),
         patchwise_apply=True,
         same_on_batch=True,
@@ -373,26 +258,7 @@ def test_VideoSequential(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledVideoSequential = ivy.transpile(
-        kornia.augmentation.container.VideoSequential,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledColorJiggle = ivy.transpile(
-        kornia.augmentation.ColorJiggle,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledRandomAffine = ivy.transpile(
-        kornia.augmentation.RandomAffine,
-        source="torch",
-        target=target_framework,
-    )
-    TranspiledBgrToRgb = ivy.transpile(
-        kornia.color.BgrToRgb,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug_list = kornia.augmentation.container.VideoSequential(
         kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
@@ -402,10 +268,10 @@ def test_VideoSequential(target_framework, mode, backend_compile):
         data_format="BCTHW",
         same_on_frame=True
     )
-    transpiled_aug_list =  TranspiledVideoSequential(
-        TranspiledColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
-        TranspiledBgrToRgb(),
-        TranspiledRandomAffine(360, p=1.0),
+    transpiled_aug_list =  transpiled_kornia.augmentation.container.VideoSequential(
+        transpiled_kornia.augmentation.ColorJiggle(0.1, 0.1, 0.1, 0.1, p=1.0),
+        transpiled_kornia.color.BgrToRgb(),
+        transpiled_kornia.augmentation.RandomAffine(360, p=1.0),
         random_apply=10,
         data_format="BCTHW",
         same_on_frame=True
