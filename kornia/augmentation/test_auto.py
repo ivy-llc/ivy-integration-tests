@@ -19,15 +19,11 @@ def test_AutoAugment(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAutoAugment = ivy.transpile(
-        kornia.augmentation.auto.AutoAugment,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug = kornia.augmentation.auto.AutoAugment()
-    transpiled_aug = TranspiledAutoAugment()
-    
+    transpiled_aug = transpiled_kornia.augmentation.auto.AutoAugment()
+
     torch_args = (
         torch.rand(5, 3, 30, 30),
     )
@@ -59,15 +55,11 @@ def test_RandAugment(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledRandAugment = ivy.transpile(
-        kornia.augmentation.auto.RandAugment,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug = kornia.augmentation.auto.RandAugment(n=2, m=10)
-    transpiled_aug = TranspiledRandAugment(n=2, m=10)
-    
+    transpiled_aug = transpiled_kornia.augmentation.auto.RandAugment(n=2, m=10)
+
     torch_args = (
         torch.rand(5, 3, 30, 30),
     )
@@ -99,15 +91,11 @@ def test_TrivialAugment(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledTrivialAugment = ivy.transpile(
-        kornia.augmentation.auto.TrivialAugment,
-        source="torch",
-        target=target_framework,
-    )
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_aug = kornia.augmentation.auto.TrivialAugment()
-    transpiled_aug = TranspiledTrivialAugment()
-    
+    transpiled_aug = transpiled_kornia.augmentation.auto.TrivialAugment()
+
     torch_args = (
         torch.rand(5, 3, 30, 30),
     )
