@@ -31,7 +31,7 @@ def test_Boxes(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledBoxes = ivy.transpile(kornia.geometry.boxes.Boxes, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     torch_args = (
         torch.as_tensor([[0, 3, 1, 4], [5, 1, 8, 4]]),
@@ -40,7 +40,7 @@ def test_Boxes(target_framework, mode, backend_compile):
 
     # test .from_tensor
     torch_boxes = kornia.geometry.boxes.Boxes.from_tensor(*torch_args, mode="xyxy")
-    transpiled_boxes = TranspiledBoxes.from_tensor(*transpiled_args, mode="xyxy")
+    transpiled_boxes = transpiled_kornia.geometry.boxes.Boxes.from_tensor(*transpiled_args, mode="xyxy")
     _check_boxes_same(torch_boxes, transpiled_boxes)
 
     # test .compute_area
@@ -58,7 +58,7 @@ def test_Boxes(target_framework, mode, backend_compile):
     torch_x = torch.as_tensor([[6, 6, 10, 10], [6, 6, 10, 10]])
     transpiled_x = _nest_torch_tensor_to_new_framework(torch_x, target_framework)
     merge_boxes = kornia.geometry.boxes.Boxes.from_tensor(torch_x, mode="xyxy")
-    transpiled_merge_boxes = TranspiledBoxes.from_tensor(transpiled_x, mode="xyxy")
+    transpiled_merge_boxes = transpiled_kornia.geometry.boxes.Boxes.from_tensor(transpiled_x, mode="xyxy")
     torch_merged_boxes = torch_boxes.merge(merge_boxes)
     transpiled_merged_boxes = transpiled_boxes.merge(transpiled_merge_boxes)
     _check_boxes_same(torch_merged_boxes, transpiled_merged_boxes)
@@ -95,8 +95,8 @@ def test_Boxes3D(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledBoxes3D = ivy.transpile(kornia.geometry.boxes.Boxes3D, source="torch", target=target_framework)
-
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
+    
     torch_args = (
         torch.as_tensor([[0, 3, 6, 1, 4, 8], [5, 1, 3, 8, 4, 9]]),
     )
@@ -104,7 +104,7 @@ def test_Boxes3D(target_framework, mode, backend_compile):
 
     # test .from_tensor
     torch_boxes3d = kornia.geometry.boxes.Boxes3D.from_tensor(*torch_args, mode="xyzxyz")
-    transpiled_boxes3d = TranspiledBoxes3D.from_tensor(*transpiled_args, mode="xyzxyz")
+    transpiled_boxes3d = transpiled_kornia.geometry.boxes.Boxes3D.from_tensor(*transpiled_args, mode="xyzxyz")
     _check_boxes_same(torch_boxes3d, transpiled_boxes3d)
 
     # test .get_boxes_shape

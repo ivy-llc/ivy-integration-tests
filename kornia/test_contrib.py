@@ -157,10 +157,10 @@ def test_EdgeDetector(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledEdgeDetector = ivy.transpile(kornia.contrib.EdgeDetector, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_detector = kornia.contrib.EdgeDetector()
-    transpiled_detector = TranspiledEdgeDetector()
+    transpiled_detector = transpiled_kornia.contrib.EdgeDetector()
 
     torch_args = (
         torch.rand(1, 3, 320, 320),
@@ -181,10 +181,10 @@ def test_FaceDetector(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledFaceDetector = ivy.transpile(kornia.contrib.FaceDetector, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_detector = kornia.contrib.FaceDetector()
-    transpiled_detector = TranspiledFaceDetector()
+    transpiled_detector = transpiled_kornia.contrib.FaceDetector()
 
     torch_args = (
         torch.rand(1, 3, 320, 320),
@@ -205,10 +205,10 @@ def test_VisionTransformer(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledVisionTransformer = ivy.transpile(kornia.contrib.VisionTransformer, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_vit = kornia.contrib.VisionTransformer()
-    transpiled_vit = TranspiledVisionTransformer()
+    transpiled_vit = transpiled_kornia.contrib.VisionTransformer()
 
     torch_args = (
         torch.rand(1, 3, 224, 224),
@@ -229,11 +229,11 @@ def test_KMeans(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledKMeans = ivy.transpile(kornia.contrib.KMeans, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_kmeans = kornia.contrib.KMeans(3, None, 10e-4, 100, 0)
-    transpiled_kmeans = TranspiledKMeans(3, None, 10e-4, 100, 0)
-    
+    transpiled_kmeans = transpiled_kornia.contrib.KMeans(3, None, 10e-4, 100, 0)
+
     torch_x1 = torch.rand((1000, 5))
     torch_x2 = torch.rand((10, 5))
     transpiled_x1 = _array_to_new_backend(torch_x1, target_framework)
@@ -256,13 +256,13 @@ def test_ExtractTensorPatches(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledExtractTensorPatches = ivy.transpile(kornia.contrib.ExtractTensorPatches, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.arange(9.).view(1, 1, 3, 3)
     torch_out = kornia.contrib.ExtractTensorPatches(window_size=(2, 3))(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledExtractTensorPatches(window_size=(2, 3))(transpiled_x)
+    transpiled_out = transpiled_kornia.contrib.ExtractTensorPatches(window_size=(2, 3))(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -273,13 +273,13 @@ def test_CombineTensorPatches(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledCombineTensorPatches = ivy.transpile(kornia.contrib.CombineTensorPatches, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     patches = kornia.contrib.ExtractTensorPatches(window_size=(2, 2), stride=(2, 2))(torch.arange(16).view(1, 1, 4, 4))
     torch_out = kornia.contrib.CombineTensorPatches(original_size=(4, 4), window_size=(2, 2), stride=(2, 2))(patches)
 
     transpiled_patches = _nest_torch_tensor_to_new_framework(patches, target_framework)
-    transpiled_out = TranspiledCombineTensorPatches(original_size=(4, 4), window_size=(2, 2), stride=(2, 2))(transpiled_patches)
+    transpiled_out = transpiled_kornia.contrib.CombineTensorPatches(original_size=(4, 4), window_size=(2, 2), stride=(2, 2))(transpiled_patches)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -290,13 +290,13 @@ def test_ClassificationHead(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledClassificationHead = ivy.transpile(kornia.contrib.ClassificationHead, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(1, 256, 256)
     torch_out = kornia.contrib.ClassificationHead(256, 10)(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledClassificationHead(256, 10)(transpiled_x)
+    transpiled_out = transpiled_kornia.contrib.ClassificationHead(256, 10)(transpiled_x)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
@@ -307,11 +307,10 @@ def test_ImageStitcher(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledLoFTR = ivy.transpile(kornia.feature.LoFTR, source="torch", target=target_framework)
-    TranspiledImageStitcher = ivy.transpile(kornia.contrib.ImageStitcher, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_matcher = kornia.feature.LoFTR(pretrained='outdoor')
-    transpiled_matcher = TranspiledLoFTR(pretrained='outdoor')
+    transpiled_matcher = transpiled_kornia.feature.LoFTR(pretrained='outdoor')
 
     img_left = torch.rand(1, 3, 256, 256)
     img_right = torch.rand(1, 3, 256, 256)
@@ -319,7 +318,7 @@ def test_ImageStitcher(target_framework, mode, backend_compile):
 
     transpiled_img_left = _nest_torch_tensor_to_new_framework(img_left, target_framework)
     transpiled_img_right = _nest_torch_tensor_to_new_framework(img_right, target_framework)
-    transpiled_out = TranspiledImageStitcher(transpiled_matcher)(transpiled_img_left, transpiled_img_right)
+    transpiled_out = transpiled_kornia.contrib.ImageStitcher(transpiled_matcher)(transpiled_img_left, transpiled_img_right)
 
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
@@ -330,14 +329,13 @@ def test_Lambda(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    transpiled_fn = ivy.transpile(kornia.color.rgb_to_grayscale, source="torch", target=target_framework)
-    TranspiledLambda = ivy.transpile(kornia.contrib.Lambda, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(1, 3, 5, 5)
     torch_out = kornia.contrib.Lambda(lambda x: kornia.color.rgb_to_grayscale(x))(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledLambda(lambda x: transpiled_fn(x))(transpiled_x)
+    transpiled_out = transpiled_kornia.contrib.Lambda(lambda x: transpiled_kornia.color.rgb_to_grayscale(x))(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -348,13 +346,13 @@ def test_DistanceTransform(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledDistanceTransform = ivy.transpile(kornia.contrib.DistanceTransform, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.zeros(1, 1, 5, 5)
     x[:,:, 1, 2] = 1
     torch_out = kornia.contrib.DistanceTransform()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledDistanceTransform()(transpiled_x)
+    transpiled_out = transpiled_kornia.contrib.DistanceTransform()(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)

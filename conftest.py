@@ -2,12 +2,21 @@ import ivy
 import pytest
 import shutil
 import os
+import sys 
 
 TARGET_FRAMEWORKS = ["numpy", "jax", "tensorflow", "torch"]
 S2S_TARGET_FRAMEWORKS = ["tensorflow"]
 BACKEND_COMPILE = False
 TARGET = "all"
 S2S = False
+
+def _clear_translated_directory(directory: str):
+    to_delete = []
+    for key in sys.modules.keys():
+        if directory in key:
+            to_delete.append(key)
+    for key in to_delete:
+        del sys.modules[key]
 
 
 @pytest.fixture(autouse=True)
@@ -19,6 +28,7 @@ def run_around_tests():
     # check if the directory exists and remove it
     if os.path.exists(directory):
         shutil.rmtree(directory)
+        _clear_translated_directory(directory.replace("/",""))
 
 
 def pytest_addoption(parser):

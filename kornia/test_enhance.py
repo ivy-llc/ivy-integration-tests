@@ -642,7 +642,7 @@ def test_Normalize(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledNormalize = ivy.transpile(kornia.enhance.Normalize, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_init_args = (
         torch.zeros(4),
@@ -653,7 +653,7 @@ def test_Normalize(target_framework, mode, backend_compile):
 
     transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledNormalize(*transpiled_init_args)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.Normalize(*transpiled_init_args)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -664,7 +664,7 @@ def test_Denormalize(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledDenormalize = ivy.transpile(kornia.enhance.Denormalize, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_init_args = (
         torch.zeros(1, 4),
@@ -675,7 +675,7 @@ def test_Denormalize(target_framework, mode, backend_compile):
 
     transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledDenormalize(*transpiled_init_args)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.Denormalize(*transpiled_init_args)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -686,14 +686,14 @@ def test_ZCAWhitening(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledZCAWhitening = ivy.transpile(kornia.enhance.ZCAWhitening, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.tensor([[0,1],[1,0],[-1,0],[0,-1]], dtype = torch.float32)
     zca = kornia.enhance.ZCAWhitening().fit(x)
     torch_out = zca(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_zca = TranspiledZCAWhitening().fit(transpiled_x)
+    transpiled_zca = transpiled_kornia.enhance.ZCAWhitening().fit(transpiled_x)
     transpiled_out = transpiled_zca(x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
@@ -705,7 +705,7 @@ def test_AdjustBrightness(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAdjustBrightness = ivy.transpile(kornia.enhance.AdjustBrightness, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(2, 5, 3, 3)
     y = torch.rand(2)
@@ -713,7 +713,7 @@ def test_AdjustBrightness(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_y = _nest_torch_tensor_to_new_framework(y, target_framework)
-    transpiled_out = TranspiledAdjustBrightness(transpiled_y)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.AdjustBrightness(transpiled_y)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -724,7 +724,7 @@ def test_AdjustContrast(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAdjustContrast = ivy.transpile(kornia.enhance.AdjustContrast, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(2, 5, 3, 3)
     y = torch.rand(2)
@@ -732,7 +732,7 @@ def test_AdjustContrast(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_y = _nest_torch_tensor_to_new_framework(y, target_framework)
-    transpiled_out = TranspiledAdjustContrast(transpiled_y)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.AdjustContrast(transpiled_y)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -743,7 +743,7 @@ def test_AdjustSaturation(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAdjustSaturation = ivy.transpile(kornia.enhance.AdjustSaturation, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(2, 3, 3, 3)
     y = torch.rand(2)
@@ -751,7 +751,7 @@ def test_AdjustSaturation(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_y = _nest_torch_tensor_to_new_framework(y, target_framework)
-    transpiled_out = TranspiledAdjustSaturation(transpiled_y)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.AdjustSaturation(transpiled_y)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -762,7 +762,7 @@ def test_AdjustHue(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAdjustHue = ivy.transpile(kornia.enhance.AdjustHue, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(2, 3, 3, 3)
     y = torch.ones(2) * 3.141516
@@ -770,7 +770,7 @@ def test_AdjustHue(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_y = _nest_torch_tensor_to_new_framework(y, target_framework)
-    transpiled_out = TranspiledAdjustHue(transpiled_y)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.AdjustHue(transpiled_y)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -781,7 +781,7 @@ def test_AdjustGamma(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAdjustGamma = ivy.transpile(kornia.enhance.AdjustGamma, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(2, 5, 3, 3)
     torch_init_args = (
@@ -792,7 +792,7 @@ def test_AdjustGamma(target_framework, mode, backend_compile):
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
     transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
-    transpiled_out = TranspiledAdjustGamma(*transpiled_init_args)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.AdjustGamma(*transpiled_init_args)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -803,13 +803,13 @@ def test_AdjustSigmoid(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAdjustSigmoid = ivy.transpile(kornia.enhance.AdjustSigmoid, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(1, 1, 2, 2)
     torch_out = kornia.enhance.AdjustSigmoid(gain=0)(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledAdjustSigmoid(gain=0)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.AdjustSigmoid(gain=0)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -820,13 +820,13 @@ def test_AdjustLog(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAdjustLog = ivy.transpile(kornia.enhance.AdjustLog, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(1, 1, 2, 2)
     torch_out = kornia.enhance.AdjustLog(inv=True)(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledAdjustLog(inv=True)(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.AdjustLog(inv=True)(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -837,7 +837,7 @@ def test_AddWeighted(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledAddWeighted = ivy.transpile(kornia.enhance.AddWeighted, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     init_args = (0.5, 0.5, 1.0)
     torch_call_args = (
@@ -847,7 +847,7 @@ def test_AddWeighted(target_framework, mode, backend_compile):
     torch_out = kornia.enhance.AddWeighted(*init_args)(*torch_call_args)
 
     transpiled_call_args = _nest_torch_tensor_to_new_framework(torch_call_args, target_framework)
-    transpiled_out = TranspiledAddWeighted(*init_args)(*transpiled_call_args)
+    transpiled_out = transpiled_kornia.enhance.AddWeighted(*init_args)(*transpiled_call_args)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -858,13 +858,13 @@ def test_Invert(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledInvert = ivy.transpile(kornia.enhance.Invert, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     x = torch.rand(1, 2, 4, 4)
     torch_out = kornia.enhance.Invert()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
-    transpiled_out = TranspiledInvert()(transpiled_x)
+    transpiled_out = transpiled_kornia.enhance.Invert()(transpiled_x)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)
 
@@ -875,7 +875,7 @@ def test_JPEGCodecDifferentiable(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledJPEGCodecDifferentiable = ivy.transpile(kornia.enhance.JPEGCodecDifferentiable, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, target=target_framework)
 
     torch_args = (
         torch.rand(2, 3, 32, 32, dtype=torch.float),
@@ -884,6 +884,6 @@ def test_JPEGCodecDifferentiable(target_framework, mode, backend_compile):
     torch_out = kornia.enhance.JPEGCodecDifferentiable()(*torch_args)
 
     transpiled_args = _nest_torch_tensor_to_new_framework(torch_args, target_framework)
-    transpiled_out = TranspiledJPEGCodecDifferentiable()(*transpiled_args)
+    transpiled_out = transpiled_kornia.enhance.JPEGCodecDifferentiable()(*transpiled_args)
 
     _to_numpy_and_allclose(torch_out, transpiled_out)

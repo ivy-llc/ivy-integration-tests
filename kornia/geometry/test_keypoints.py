@@ -20,7 +20,7 @@ def test_Keypoints(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledKeypoints = ivy.transpile(kornia.geometry.keypoints.Keypoints, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     torch_init_args = (
         torch.rand((10, 3, 2)),
@@ -28,7 +28,7 @@ def test_Keypoints(target_framework, mode, backend_compile):
     transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
 
     torch_keypoints = kornia.geometry.keypoints.Keypoints(*torch_init_args)
-    transpiled_keypoints = TranspiledKeypoints(*transpiled_init_args)
+    transpiled_keypoints =  transpiled_kornia.geometry.keypoints.Keypoints(*transpiled_init_args)
 
     # test .data
     orig_np = _nest_array_to_numpy(torch_keypoints.data)
@@ -73,7 +73,7 @@ def test_Keypoints3D(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledKeypoints3D = ivy.transpile(kornia.geometry.keypoints.Keypoints3D, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     torch_init_args = (
         torch.rand((10, 5, 3)),
@@ -81,7 +81,7 @@ def test_Keypoints3D(target_framework, mode, backend_compile):
     transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
 
     torch_keypoints = kornia.geometry.keypoints.Keypoints3D(*torch_init_args)
-    transpiled_keypoints = TranspiledKeypoints3D(*transpiled_init_args)
+    transpiled_keypoints = transpiled_kornia.geometry.keypoints.Keypoints3D(*transpiled_init_args)
 
     # test .data
     orig_np = _nest_array_to_numpy(torch_keypoints.data)

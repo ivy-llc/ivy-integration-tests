@@ -50,14 +50,15 @@ def test_ParametrizedLine(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
+
     origin = torch.tensor([0.0, 0.0], requires_grad=True)
     direction = torch.tensor([1.0, 1.0], requires_grad=True)
     torch_line = kornia.geometry.line.ParametrizedLine(origin, direction)
 
-    TranspiledParametrizedLine = ivy.transpile(kornia.geometry.line.ParametrizedLine, source="torch", target=target_framework)
     transpiled_origin = _nest_torch_tensor_to_new_framework(origin, target_framework)
     transpiled_direction = _nest_torch_tensor_to_new_framework(direction, target_framework)
-    transpiled_line = TranspiledParametrizedLine(transpiled_origin, transpiled_direction)
+    transpiled_line = transpiled_kornia.geometry.line.ParametrizedLine(transpiled_origin, transpiled_direction)
 
     # Test .dim()
     torch_dim = torch_line.dim()
@@ -103,6 +104,6 @@ def test_ParametrizedLine(target_framework, mode, backend_compile):
     transpiled_p1 = _nest_torch_tensor_to_new_framework(p1, target_framework)
 
     torch_line_through = kornia.geometry.line.ParametrizedLine.through(p0, p1)
-    transpiled_line_through = TranspiledParametrizedLine.through(transpiled_p0, transpiled_p1)
+    transpiled_line_through = transpiled_kornia.geometry.line.ParametrizedLine.through(transpiled_p0, transpiled_p1)
     _to_numpy_and_allclose(torch_line_through.origin, transpiled_line_through.origin)
     _to_numpy_and_allclose(torch_line_through.direction, transpiled_line_through.direction)

@@ -28,7 +28,8 @@ def _test_augmentation_class(
     if backend_compile or target == "numpy":
         pytest.skip()
 
-    transpiled_cls = ivy.transpile(augmentation_cls, source="torch", target=target)
+    transpiled_kornia = ivy.transpile(kornia, target=target)
+    transpiled_cls = eval("transpiled_" + f"{augmentation_cls.__module__}.{augmentation_cls.__name__}")
 
     torch_aug = augmentation_cls(*init_args, **init_kwargs)
     transpiled_init_args = _nest_torch_tensor_to_new_framework(init_args, target)

@@ -424,7 +424,7 @@ def test_PinholeCamera(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledPinholeCamera = ivy.transpile(kornia.geometry.camera.pinhole.PinholeCamera, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     torch_init_args = (
         torch.eye(4)[None],
@@ -441,7 +441,7 @@ def test_PinholeCamera(target_framework, mode, backend_compile):
     torch_pinhole = kornia.geometry.camera.PinholeCamera(*torch_init_args)
     torch_out = torch_pinhole.project(*torch_call_args)
 
-    transpiled_pinhole = TranspiledPinholeCamera(*transpiled_init_args)
+    transpiled_pinhole = transpiled_kornia.geometry.camera.pinhole.PinholeCamera(*transpiled_init_args)
     transpiled_out = transpiled_pinhole.project(*transpiled_call_args)
 
     orig_np = _nest_array_to_numpy(torch_out)
@@ -457,7 +457,7 @@ def test_StereoCamera(target_framework, mode, backend_compile):
     if backend_compile or target_framework == "numpy":
         pytest.skip()
 
-    TranspiledStereoCamera = ivy.transpile(kornia.geometry.camera.stereo.StereoCamera, source="torch", target=target_framework)
+    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
     torch_init_args = (
         -torch.ones(2, 3, 4),
@@ -466,6 +466,6 @@ def test_StereoCamera(target_framework, mode, backend_compile):
     transpiled_init_args = _nest_torch_tensor_to_new_framework(torch_init_args, target_framework)
 
     torch_camera = kornia.geometry.camera.stereo.StereoCamera(*torch_init_args)
-    transpiled_camera = TranspiledStereoCamera(*transpiled_init_args)
+    transpiled_camera = transpiled_kornia.geometry.camera.stereo.StereoCamera(*transpiled_init_args)
 
     assert transpiled_camera.batch_size == torch_camera.batch_size
