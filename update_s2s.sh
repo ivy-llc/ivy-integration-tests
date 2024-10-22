@@ -11,18 +11,19 @@ api_key=$7
 export VERSION=$binaries  # set the branch to pull the binaries from
 export IVY_KEY=$api_key
 
-pip3 install -e kornia/
 pip3 install -e ivy/
-
-cd ivy-integration-tests
-pip3 install -r requirements.txt
-pip3 install color-operations
 
 if [ "$integration" = "transformers" ]; then
     pip3 install tf_keras
     pip3 install datasets
     pip3 install transformers
+else
+    pip3 install -e kornia/
 fi
+
+cd ivy-integration-tests
+pip3 install -r requirements.txt
+pip3 install color-operations
 
 # get the nightly binaries
 python << 'EOF'
