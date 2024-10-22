@@ -11,14 +11,13 @@ api_key=$7
 export VERSION=$binaries  # set the branch to pull the binaries from
 export IVY_KEY=$api_key
 
+pip3 install -e kornia/
 pip3 install -e ivy/
 
 if [ "$integration" = "transformers" ]; then
     pip3 install tf_keras
     pip3 install datasets
     pip3 install transformers
-else
-    pip3 install -e kornia/
 fi
 
 cd ivy-integration-tests

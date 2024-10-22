@@ -98,7 +98,15 @@ jobs:
         with:
           path: ivy-integration-tests
 
-      - name: Checkout 🛎️Ivy
+      - name: Checkout Kornia
+        uses: actions/checkout@v4
+        with:
+          repository: kornia/kornia
+          token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
+          path: kornia
+          persist-credentials: true
+
+      - name: Checkout Ivy
         uses: actions/checkout@v4
         with:
           repository: ivy-llc/ivy
