@@ -1,5 +1,6 @@
 name: update-s2s
 on:
+  push:
   workflow_dispatch:
     inputs:
       ivy-branch:

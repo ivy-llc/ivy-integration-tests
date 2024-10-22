@@ -11,6 +11,9 @@ api_key=$7
 export VERSION=$binaries  # set the branch to pull the binaries from
 export IVY_KEY=$api_key
 
+git clone git@github.com:kornia/kornia.git
+pip3 install -e kornia/
+
 pip3 install -e ivy/
 cd ivy-integration-tests
 pip3 install -r requirements.txt
