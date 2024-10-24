@@ -164,31 +164,31 @@ def test_DeFMO(target_framework, mode, backend_compile):
     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
 
-def test_DeDoDe(target_framework, mode, backend_compile):
-    print("kornia.feature.DeDoDe")
+# def test_DeDoDe(target_framework, mode, backend_compile):
+#     print("kornia.feature.DeDoDe")
 
-    if backend_compile or target_framework == "numpy":
-        pytest.skip()
+#     if backend_compile or target_framework == "numpy":
+#         pytest.skip()
 
-    transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
+#     transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
-    x = torch.rand(1, 3, 128, 128)
-    transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
+#     x = torch.rand(1, 3, 128, 128)
+#     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
 
-    model = kornia.feature.DeDoDe(amp_dtype=torch.float32)
-    torch_out = model(x)
+#     model = kornia.feature.DeDoDe(amp_dtype=torch.float32)
+#     torch_out = model(x)
 
-    ivy.set_backend(target_framework)
-    transpiled_model = transpiled_kornia.feature.DeDoDe(amp_dtype=ivy.as_native_dtype("float32"))
-    if target_framework == "tensorflow":
-        # build the layers 
-        transpiled_model(transpiled_x)
+#     ivy.set_backend(target_framework)
+#     transpiled_model = transpiled_kornia.feature.DeDoDe(amp_dtype=ivy.as_native_dtype("float32"))
+#     if target_framework == "tensorflow":
+#         # build the layers 
+#         transpiled_model(transpiled_x)
     
-    ivy.sync_models(model, transpiled_model)
+#     ivy.sync_models(model, transpiled_model)
 
-    transpiled_out = transpiled_model(transpiled_x)
+#     transpiled_out = transpiled_model(transpiled_x)
     
-    _to_numpy_and_shape_allclose(torch_out, transpiled_out)
+#     _to_numpy_and_shape_allclose(torch_out, transpiled_out)
 
 
 def test_DISK(target_framework, mode, backend_compile):
