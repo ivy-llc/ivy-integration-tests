@@ -1,6 +1,5 @@
 Obj: kornia.augmentation.LongestMaxSize | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomClahe | Target: jax | Native Compiled: False
-Obj: kornia.augmentation.RandomClahe | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomJigsaw | Target: jax | Native Compiled: False
@@ -73,7 +72,7 @@ Obj: kornia.feature.DeDoDe | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.GFTTAffNetHardNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.HardNet8 | Target: jax | Native Compiled: False
 Obj: kornia.feature.HyNet | Target: tensorflow | Native Compiled: False
-Obj: kornia.feature.KeyNetAffNetHardNet | Target: jax | Native Compiled: False
+Obj: kornia.feature.KeyNetAffNetHardNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LAFOrienter | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.LightGlue | Target: jax | Native Compiled: False
 Obj: kornia.feature.LightGlue | Target: tensorflow | Native Compiled: False
@@ -94,17 +93,7 @@ Obj: kornia.feature.TLU | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.integrated.get_laf_descriptors | Target: numpy | Native Compiled: False
 Obj: kornia.feature.integrated.get_laf_descriptors | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.laf.laf_is_inside_image | Target: tensorflow | Native Compiled: False
-Obj: kornia.filters.BilateralBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.BlurPool2D | Target: jax | Native Compiled: False
-Obj: kornia.filters.BoxBlur | Target: jax | Native Compiled: False
 Obj: kornia.filters.DexiNed | Target: jax | Native Compiled: False
-Obj: kornia.filters.GaussianBlur2d | Target: jax | Native Compiled: False
-Obj: kornia.filters.GuidedBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.JointBilateralBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.MaxBlurPool2D | Target: jax | Native Compiled: False
-Obj: kornia.filters.MedianBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.MotionBlur | Target: jax | Native Compiled: False
-Obj: kornia.filters.UnsharpMask | Target: jax | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask | Target: jax | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.boxes.Boxes | Target: jax | Native Compiled: False
@@ -126,7 +115,6 @@ Obj: kornia.geometry.homography.find_homography_lines_dlt | Target: numpy | Nati
 Obj: kornia.geometry.homography.find_homography_lines_dlt_iterated | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.oneway_transfer_error | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.symmetric_transfer_error | Target: numpy | Native Compiled: False
-Obj: kornia.geometry.homography.symmetric_transfer_error | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.Se2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.linalg.euclidean_distance | Target: numpy | Native Compiled: False
@@ -180,7 +168,6 @@ Obj: kornia.nerf.samplers.RandomRaySampler | Target: tensorflow | Native Compile
 Obj: kornia.tracking.HomographyTracker | Target: jax | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: tensorflow | Native Compiled: False
 Obj: kornia.utils.draw.draw_convex_polygon | Target: numpy | Native Compiled: False
-Obj: kornia.utils.image_list_to_tensor | Target: jax | Native Compiled: False
-Obj: kornia.utils.is_autocast_enabled | Target: tensorflow | Native Compiled: False
+Obj: kornia.utils.map_location_to_cpu | Target: numpy | Native Compiled: False
 Obj: transformers.vision.Swin2SRModel | Target: jax | Native Compiled: True
 Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: True
