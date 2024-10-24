@@ -155,7 +155,7 @@ def test_DeFMO(target_framework, mode, backend_compile):
 
     transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
-    x = torch.rand(2, 6, 240, 320)
+    x = torch.rand(2, 6, 40, 20)
     torch_out = kornia.feature.DeFMO()(x)
 
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
@@ -172,7 +172,7 @@ def test_DeDoDe(target_framework, mode, backend_compile):
 
     transpiled_kornia = ivy.transpile(kornia, source="torch", target=target_framework)
 
-    x = torch.rand(1, 3, 256, 256)
+    x = torch.rand(1, 3, 128, 128)
     transpiled_x = _nest_torch_tensor_to_new_framework(x, target_framework)
 
     model = kornia.feature.DeDoDe(amp_dtype=torch.float32)
