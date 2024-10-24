@@ -22,7 +22,7 @@ def _clear_translated_directory(directory: str):
 @pytest.fixture(autouse=True)
 def run_around_tests():
     ivy.unset_backend()
-
+    os.environ['DATA_FORMAT'] = 'channels_first' # resetting transpose optim env var
     directory = "ivy_transpiled_outputs/"
 
     # check if the directory exists and remove it
