@@ -1,6 +1,5 @@
 Obj: kornia.augmentation.LongestMaxSize | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomClahe | Target: jax | Native Compiled: False
-Obj: kornia.augmentation.RandomClahe | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: jax | Native Compiled: False
 Obj: kornia.augmentation.RandomCutMixV2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.RandomJigsaw | Target: jax | Native Compiled: False
@@ -31,6 +30,7 @@ Obj: kornia.augmentation.container.AugmentationSequential | Target: tensorflow |
 Obj: kornia.augmentation.container.ImageSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.container.ManyToManyAugmentationDispather | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.container.ManyToOneAugmentationDispather | Target: tensorflow | Native Compiled: False
+Obj: kornia.augmentation.container.PatchSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.augmentation.container.VideoSequential | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.RawToRgb | Target: tensorflow | Native Compiled: False
 Obj: kornia.color.hls.RgbToHls | Target: jax | Native Compiled: False
@@ -65,9 +65,8 @@ Obj: kornia.enhance.equalization.equalize_clahe | Target: numpy | Native Compile
 Obj: kornia.enhance.equalization.equalize_clahe | Target: tensorflow | Native Compiled: False
 Obj: kornia.enhance.histogram.histogram | Target: numpy | Native Compiled: False
 Obj: kornia.enhance.histogram.histogram2d | Target: numpy | Native Compiled: False
+Obj: kornia.feature.DISK | Target: jax | Native Compiled: False
 Obj: kornia.feature.DISK | Target: tensorflow | Native Compiled: False
-Obj: kornia.feature.DeDoDe | Target: jax | Native Compiled: False
-Obj: kornia.feature.DeDoDe | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.GFTTAffNetHardNet | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.HardNet8 | Target: jax | Native Compiled: False
 Obj: kornia.feature.HyNet | Target: tensorflow | Native Compiled: False
@@ -92,6 +91,17 @@ Obj: kornia.feature.TLU | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.integrated.get_laf_descriptors | Target: numpy | Native Compiled: False
 Obj: kornia.feature.integrated.get_laf_descriptors | Target: tensorflow | Native Compiled: False
 Obj: kornia.feature.laf.laf_is_inside_image | Target: tensorflow | Native Compiled: False
+Obj: kornia.filters.BilateralBlur | Target: jax | Native Compiled: False
+Obj: kornia.filters.BlurPool2D | Target: jax | Native Compiled: False
+Obj: kornia.filters.BoxBlur | Target: jax | Native Compiled: False
+Obj: kornia.filters.DexiNed | Target: jax | Native Compiled: False
+Obj: kornia.filters.GaussianBlur2d | Target: jax | Native Compiled: False
+Obj: kornia.filters.GuidedBlur | Target: jax | Native Compiled: False
+Obj: kornia.filters.JointBilateralBlur | Target: jax | Native Compiled: False
+Obj: kornia.filters.MaxBlurPool2D | Target: jax | Native Compiled: False
+Obj: kornia.filters.MedianBlur | Target: jax | Native Compiled: False
+Obj: kornia.filters.MotionBlur | Target: jax | Native Compiled: False
+Obj: kornia.filters.UnsharpMask | Target: jax | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask | Target: jax | Native Compiled: False
 Obj: kornia.geometry.bbox.bbox_to_mask | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.boxes.Boxes | Target: jax | Native Compiled: False
@@ -104,6 +114,7 @@ Obj: kornia.geometry.calibration.pnp.solve_pnp_dlt | Target: tensorflow | Native
 Obj: kornia.geometry.epipolar._metrics.sampson_epipolar_distance | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.epipolar._metrics.symmetrical_epipolar_distance | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.epipolar.essential.find_essential | Target: numpy | Native Compiled: False
+Obj: kornia.geometry.epipolar.fundamental.find_fundamental | Target: jax | Native Compiled: False
 Obj: kornia.geometry.epipolar.fundamental.find_fundamental | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: jax | Native Compiled: False
@@ -111,7 +122,6 @@ Obj: kornia.geometry.homography.find_homography_dlt_iterated | Target: numpy | N
 Obj: kornia.geometry.homography.find_homography_lines_dlt | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.find_homography_lines_dlt_iterated | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.homography.oneway_transfer_error | Target: numpy | Native Compiled: False
-Obj: kornia.geometry.homography.symmetric_transfer_error | Target: jax | Native Compiled: False
 Obj: kornia.geometry.homography.symmetric_transfer_error | Target: numpy | Native Compiled: False
 Obj: kornia.geometry.liegroup.Se2 | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.liegroup.So2 | Target: tensorflow | Native Compiled: False
@@ -132,9 +142,9 @@ Obj: kornia.geometry.transform.Rescale | Target: tensorflow | Native Compiled: F
 Obj: kornia.geometry.transform.Shear | Target: jax | Native Compiled: False
 Obj: kornia.geometry.transform.Shear | Target: tensorflow | Native Compiled: False
 Obj: kornia.geometry.transform.Similarity | Target: tensorflow | Native Compiled: False
+Obj: kornia.geometry.transform.imgwarp.invert_affine_transform | Target: jax | Native Compiled: False
 Obj: kornia.geometry.transform.pyramid.upscale_double | Target: jax | Native Compiled: False
 Obj: kornia.geometry.transform.pyramid.upscale_double | Target: tensorflow | Native Compiled: False
-Obj: kornia.io.write_image | Target: numpy | Native Compiled: False
 Obj: kornia.losses.HausdorffERLoss | Target: jax | Native Compiled: False
 Obj: kornia.losses.HausdorffERLoss | Target: tensorflow | Native Compiled: False
 Obj: kornia.losses.HausdorffERLoss3D | Target: jax | Native Compiled: False
@@ -150,8 +160,11 @@ Obj: kornia.nerf.samplers.RandomRaySampler | Target: jax | Native Compiled: Fals
 Obj: kornia.nerf.samplers.RandomRaySampler | Target: tensorflow | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: jax | Native Compiled: False
 Obj: kornia.tracking.HomographyTracker | Target: tensorflow | Native Compiled: False
+Obj: kornia.utils.image_list_to_tensor | Target: numpy | Native Compiled: False
+Obj: kornia.utils.image_list_to_tensor | Target: tensorflow | Native Compiled: False
+Obj: kornia.utils.is_autocast_enabled | Target: numpy | Native Compiled: False
 Obj: kornia.utils.is_autocast_enabled | Target: tensorflow | Native Compiled: False
-Obj: kornia.utils.map_location_to_cpu | Target: tensorflow | Native Compiled: False
+Obj: transformers.vision.Swin2SRModel | Target: jax | Native Compiled: False
 Obj: transformers.vision.Swin2SRModel | Target: jax | Native Compiled: True
 Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: False
 Obj: transformers.vision.Swin2SRModel | Target: tensorflow | Native Compiled: True
