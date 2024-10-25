@@ -11,7 +11,7 @@ api_key=$7
 export VERSION=$binaries  # set the branch to pull the binaries from
 export IVY_KEY=$api_key
 
-pip3 install -e ivy/
+pip3 install --upgrade ivy
 cd ivy-integration-tests
 pip3 install -r requirements.txt
 pip3 install color-operations
@@ -21,12 +21,6 @@ if [ "$integration" = "transformers" ]; then
     pip3 install datasets
     pip3 install transformers
 fi
-
-# get the nightly binaries
-python << 'EOF'
-import ivy
-ivy.utils.cleanup_and_fetch_binaries()
-EOF
 
 # runs the tests on the latest ivy commit, and the linux binaries that are built nightly
 set +e
