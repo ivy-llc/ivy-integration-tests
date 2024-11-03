@@ -15,6 +15,7 @@ pip3 install -e ivy/
 cd ivy-integration-tests
 pip3 install -r requirements.txt
 pip3 install color-operations
+pip3 install onnx
 
 if [ "$integration" = "transformers" ]; then
     pip3 install tf_keras
