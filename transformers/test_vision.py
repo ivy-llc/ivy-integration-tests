@@ -284,6 +284,9 @@ def test_AlbertModel(target_framework, mode, backend_compile):
     os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = "true"
     ivy.sync_models(torch_model, transpiled_model)
 
+    if backend_compile:
+        transpiled_model = _backend_compile(transpiled_model, target_framework)
+
     torch_inputs = tokenizer("Hello, my dog is cute", return_tensors="pt")
     torch_outputs = torch_model(**torch_inputs)
 
