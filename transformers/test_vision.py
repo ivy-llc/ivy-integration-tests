@@ -4,7 +4,10 @@ import os
 import numpy as np
 import torch
 from transformers import (
+    AlbertConfig,
+    AlbertModel,
     AutoImageProcessor,
+    AutoTokenizer,
     Swin2SRConfig,
     Swin2SRModel,
 )
@@ -247,6 +250,52 @@ def _sync_models_HF_torch_to_tf(model_pt, model_tf):
 
 # Tests #
 # ----- #
+
+def test_AlbertModel(target_framework, mode, backend_compile):
+    print("transformers.nlp.AlbertModel")
+
+    TranspiledAlbertModel = ivy.transpile(
+        AlbertModel, source="torch", target=target_framework
+    )
+    albert_config = AlbertConfig(
+        embedding_size=4,
+        hidden_size=8,
+        num_attention_heads=2,
+        intermediate_size=8,
+        vocab_size=1000,
+        num_hidden_layers=2,
+    )
+
+    tokenizer = AutoTokenizer.from_pretrained("albert/albert-base-v2")
+    torch_model = AlbertModel.from_pretrained("albert/albert-base-v2")
+    if target_framework == "tensorflow":
+        # TODO: fix the issue with from_pretrained not working due to name-mismatch b/w PT model and translated TF model
+        transpiled_model = TranspiledAlbertModel.from_pretrained(
+            "albert/albert-base-v2",
+            from_pt=True,
+            config=albert_config,
+            ignore_mismatched_sizes=True,
+        )
+    else:
+        # TODO: fix the from_pretrained issue with FlaxPretrainedModel class.
+        transpiled_model = TranspiledAlbertModel(albert_config)
+
+    os.environ["USE_NATIVE_FW_LAYERS"] = "true"
+    os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = "true"
+    ivy.sync_models(torch_model, transpiled_model)
+
+    torch_inputs = tokenizer("Hello, my dog is cute", return_tensors="pt")
+    torch_outputs = torch_model(**torch_inputs)
+
+    transpiled_inputs = tokenizer("Hello, my dog is cute", return_tensors=_target_to_simplified(target_framework))
+    transpiled_outputs = transpiled_model(**transpiled_inputs)
+
+    assert np.allclose(
+        torch_outputs.last_hidden_state.numpy(),
+        ivy.to_numpy(transpiled_outputs.last_hidden_state),
+        atol=1e-3,
+    )
+
 
 # TODO: ensure this works for other tensorflow versions, such as 2.15.1
 def test_Swin2SR(target_framework, mode, backend_compile):
