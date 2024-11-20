@@ -269,7 +269,7 @@ def test_AlbertModel(target_framework, mode, backend_compile):
     tokenizer = AutoTokenizer.from_pretrained("albert/albert-base-v2")
     torch_model = AlbertModel.from_pretrained("albert/albert-base-v2")
     if target_framework == "tensorflow":
-        # TODO: fix the issue with from_pretrained not working due to name-mismatch b/w PT model and translated TF model
+        # TODO: fix the issue with from_pretrained not working due to name-mismatch b/w PT model and transpiled TF model
         transpiled_model = TranspiledAlbertModel.from_pretrained(
             "albert/albert-base-v2",
             from_pt=True,
@@ -325,12 +325,12 @@ def test_Swin2SR(target_framework, mode, backend_compile):
         torch_outputs = torch_model(**torch_inputs)
     torch_last_hidden_states = torch_outputs.last_hidden_state
 
-    TranslatedSwin2SRModel = ivy.transpile(
+    TranspiledSwin2SRModel = ivy.transpile(
         Swin2SRModel, source="torch", target=target_framework
     )
     if target_framework == "tensorflow":
-        # TODO: fix the issue with from_pretrained not working due to name-mismatch b/w PT model and translated TF model
-        translated_model = TranslatedSwin2SRModel.from_pretrained(
+        # TODO: fix the issue with from_pretrained not working due to name-mismatch b/w PT model and transpiled TF model
+        transpiled_model = TranspiledSwin2SRModel.from_pretrained(
             "caidas/swin2SR-classical-sr-x2-64",
             from_pt=True,
             config=swin2sr_config,
@@ -338,19 +338,19 @@ def test_Swin2SR(target_framework, mode, backend_compile):
         )
     else:
         # TODO: fix the from_pretrained issue with FlaxPretrainedModel class.
-        translated_model = TranslatedSwin2SRModel(swin2sr_config)
+        transpiled_model = TranspiledSwin2SRModel(swin2sr_config)
 
     os.environ["USE_NATIVE_FW_LAYERS"] = "true"
     os.environ["APPLY_TRANSPOSE_OPTIMIZATION"] = "true"
-    ivy.sync_models(torch_model, translated_model)
+    ivy.sync_models(torch_model, transpiled_model)
 
     if backend_compile:
-        translated_model = _backend_compile(translated_model, target_framework)
+        transpiled_model = _backend_compile(transpiled_model, target_framework)
 
     transpiled_inputs = image_processor(
         image, return_tensors=_target_to_simplified(target_framework)
     )
-    transpiled_outputs = translated_model(**transpiled_inputs)
+    transpiled_outputs = transpiled_model(**transpiled_inputs)
     transpiled_last_hidden_states = transpiled_outputs.last_hidden_state
 
     assert np.allclose(
