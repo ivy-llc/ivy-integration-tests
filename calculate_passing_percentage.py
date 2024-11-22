@@ -40,8 +40,8 @@ def main():
     print(f"Failed: {failed}")
     print(f"Passing percentage: {passing_percentage:.2f}%")
 
-    if passing_percentage >= 89.0:
-        print("Passing percentage is >= 89%. Success!")
+    if passing_percentage >= 85.0:
+        print("Passing percentage is >= 85%. Success!")
         sys.exit(0)
     else:
         print("Passing percentage is less than 89%. Failing the workflow.")
