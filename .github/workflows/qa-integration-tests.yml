@@ -2,18 +2,7 @@ name: QA Integration Tests
 
 on:
   workflow_dispatch:
-    inputs:
-      binaries-branch:
-        description: 'Branch to use for binaries'
-        required: true
-        default: 'testing-nightly'
-        type: string
   workflow_call:
-    inputs:
-      binaries-branch:
-        description: 'Branch to use for binaries'
-        default: 'testing-nightly'
-        type: string
     secrets:
       DEV_BOT_GENERAL_PAT:
         required: true
@@ -65,7 +54,7 @@ jobs:
             -v "$(pwd)"/.hypothesis:/.hypothesis \
             ivyllc/ivy:latest \
             ivy-integration-tests/run_all_tests.sh kornia \
-            ${{ matrix.file }} ${{ inputs.binaries-branch }} \
+            ${{ matrix.file }} \
             F ${{ matrix.target }} \
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} \
             ${{ secrets.IVY_API_KEY }}

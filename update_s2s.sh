@@ -2,13 +2,11 @@
 
 integration=$1
 file=$2
-binaries=$3
-backend_compile=$4
-target=$5 
-workflow_link=$6
-api_key=$7
+backend_compile=$3
+target=$4
+workflow_link=$5
+api_key=$6
 
-export VERSION=$binaries  # set the branch to pull the binaries from
 export IVY_KEY=$api_key
 
 pip3 install -e ivy/
@@ -23,13 +21,7 @@ if [ "$integration" = "transformers" ]; then
     pip3 install transformers
 fi
 
-# get the nightly binaries
-python << 'EOF'
-import ivy
-ivy.utils.cleanup_and_fetch_binaries()
-EOF
-
-# runs the tests on the latest ivy commit, and the linux binaries that are built nightly
+# runs the tests on the latest ivy commit
 set +e
 if [ "$backend_compile" = "T" ]; then
     touch test_logs.txt
