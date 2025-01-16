@@ -68,7 +68,7 @@ jobs:
 
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.target }}
           path: |
@@ -87,7 +87,7 @@ jobs:
           token: ${{ secrets.DEV_BOT_GENERAL_PAT }}
 
       - name: Download Test Results
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: ./artifacts
 

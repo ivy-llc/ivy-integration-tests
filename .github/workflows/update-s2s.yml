@@ -68,7 +68,7 @@ jobs:
 
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}-${{ matrix.target }}
           path: |
@@ -124,7 +124,7 @@ jobs:
 
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
             name: test-results-transformers-${{ steps.prepare.outputs.safe_file_name }}-${{ matrix.compile }}-${{ matrix.target }}
             path: |
@@ -141,7 +141,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download Test Results
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: ./artifacts
 
