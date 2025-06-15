@@ -46,14 +46,16 @@ jobs:
           path: ivy
           persist-credentials: true
 
+      - name: Install Dependencies
+        run: |
+          cd ivy
+          python3 -m pip install -r requirements/requirements.txt
+          python3 -m pip install -r requirements/optional.txt
+
       - name: Run Tests
         id: tests
         run: |
-          docker run --rm \
-            -v "$(pwd)":/ivy \
-            -v "$(pwd)"/.hypothesis:/.hypothesis \
-            ivyllc/ivy:latest \
-            ivy-integration-tests/run_all_tests.sh kornia \
+          ivy-integration-tests/run_all_tests.sh kornia \
             ${{ matrix.file }} \
             F ${{ matrix.target }} \
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} \
