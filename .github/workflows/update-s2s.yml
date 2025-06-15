@@ -50,13 +50,19 @@ jobs:
           job_name: ${{ github.job }} (${{ matrix.file }}, ${{ matrix.compile }})
           per_page: 64
 
+      - name: Install Dependencies
+        run: |
+          cd ivy
+          python3 -m pip install -r requirements/requirements.txt
+          python3 -m pip install -r requirements/optional.txt
+
       - name: Run Tests
         id: tests
         run: |
           if [ "${{ steps.jobs.outputs.html_url }}" = "null" ]; then
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ matrix.target }}  https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
+            ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ matrix.target }}  https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
           else
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ matrix.target }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
+            ivy-integration-tests/update_s2s.sh kornia ${{ matrix.file }} ${{ matrix.compile }} ${{ matrix.target }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
 
       - name: Prepare Artifact Name
@@ -106,13 +112,19 @@ jobs:
           job_name: ${{ github.job }} (${{ matrix.file }}, ${{ matrix.compile }})
           per_page: 64
 
+      - name: Install Dependencies
+        run: |
+          cd ivy
+          python3 -m pip install -r requirements/requirements.txt
+          python3 -m pip install -r requirements/optional.txt
+
       - name: Run Tests
         id: tests
         run: |
           if [ "${{ steps.jobs.outputs.html_url }}" = "null" ]; then
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} ${{ matrix.compile }} ${{ matrix.target }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
+            ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} ${{ matrix.compile }} ${{ matrix.target }} https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} ${{ secrets.IVY_API_KEY }}
           else
-            docker run --rm -v "$(pwd)":/ivy -v "$(pwd)"/.hypothesis:/.hypothesis ivyllc/ivy:latest ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} ${{ matrix.compile }} ${{ matrix.target }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
+            ivy-integration-tests/update_s2s.sh transformers ${{ matrix.file }} ${{ matrix.compile }} ${{ matrix.target }} ${{ steps.jobs.outputs.html_url }} ${{ secrets.IVY_API_KEY }}
           fi
 
       - name: Prepare Artifact Name
